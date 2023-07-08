@@ -355,7 +355,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;yzklov&quot; //github用户名</span><br><span class="line">git config --global user.email &quot;1610114502@qq.com&quot; //创建github的邮箱</span><br><span class="line">npm install hexo-deployer-git --save //安装插件</span><br></pre></td></tr></table></figure>
 <p>创建ssh密钥<br><code>ssh-keygen -t rsa </code>   &#x2F;&#x2F;完成以后按直接三下回车跳过<br>将.ssh文件里的id_rsa.pub文件里的全部内容复制下来，在github-&gt;setting里创建密钥，名字是填github用户名，然后把内容复制进去<br>修改_config.yml文件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/one-command-deployment</span><br><span class="line">deploy:</span><br><span class="line">  type: &#x27;git&#x27;</span><br><span class="line">  repo: &#x27;git@github.com:yzklov/yzklov.github.io.git&#x27;</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
-<p>可以上传到github了</p>
+<p>可以上传到github了<br><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code></p>
 
           
         
