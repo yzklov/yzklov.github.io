@@ -1413,6 +1413,15 @@
 <p><strong>法三</strong><br>payload:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27;; handler `1919810931114514` open as `a`; handler `a` read next;#</span><br></pre></td></tr></table></figure>
 <p>使用一个句柄（handler）来操作数据库。句柄 1919810931114514 被打开并用作句柄 a。然后，a 执行 read next 命令，用于从数据库中读取下一条记录</p>
+<h2 id="SUCTF-2019-EasySQL-1"><a href="#SUCTF-2019-EasySQL-1" class="headerlink" title="[SUCTF 2019]EasySQL 1"></a>[SUCTF 2019]EasySQL 1</h2><p>考点：堆叠注入，MySQL和mssql中||运算符的区别，运算符的意义转换<br><strong>法一</strong><br>输入0没有回显，输入非零数字就有回显，猜测后端语句中有||（在MySQL中，操作符||表示“或”逻辑，其中一侧为1则取1，否则取0），只有我们输入非零数字才会满足||的逻辑为True从而进行回显的条件。也就是满足:select 输入的内容 ||  一个列名 from 表名，大胆猜测语句为：<code>select 输入的内容 ||  flag from Flag</code><br>payload:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1;set sql_mode=PIPES_AS_CONCAT;select 1</span><br></pre></td></tr></table></figure>
+<p>设置 sql_mode&#x3D;PIPES_AS_CONCAT来将||转换为连接操作符<br>select 1在作为子查询中的判断子查询结果。select 1 from 中的1是一常量，查到的所有行的值都是它本身，所以前面的||为OR意思的时候回显是1，理论上可以是别的数字。前面的select被；隔断，所以后面需要补一个select</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 1 || flag from Flag</span><br></pre></td></tr></table></figure>
+<p>这个语句可以看作是将1和flag的查询结果拼接起来<br><strong>法二</strong><br>payload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*,1</span><br></pre></td></tr></table></figure>
+<p>套到语句中就是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select *,1|| flag from Flag</span><br></pre></td></tr></table></figure>
+<p>1|| flag &#x3D; 1,相当于查询flag字段和1<br>select 1 from ：建立一个临时列，这个列的所有初始值都被设为1<br><img src="/img/197.png"></p>
 
           
         
