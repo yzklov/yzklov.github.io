@@ -1,37 +1,1242 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  
 
 
-{% block content %}
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="forensics," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言故事背景是一个叫Rick瑞克的喜欢玩老式游戏的人，而且这人吧还总喜欢用比特彗星下载盗版电影种子，游戏种子，有一天他边玩游戏边下东西，突然电脑中了勒索病毒，文件被锁了，所有后缀变成了.locked，然后取证分析人员拷贝了内存镜像文件，来看看你能从被锁的文件中获取什么信息？ 1 - What the password?题目：你得到了瑞克电脑内存的样本，你能得到他的用户密码吗？ 1vol.py -f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OtterCTF内存取证wp">
+<meta property="og:url" content="http://example.com/OtterCTF%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81wp.html">
+<meta property="og:site_name" content="yzklov">
+<meta property="og:description" content="前言故事背景是一个叫Rick瑞克的喜欢玩老式游戏的人，而且这人吧还总喜欢用比特彗星下载盗版电影种子，游戏种子，有一天他边玩游戏边下东西，突然电脑中了勒索病毒，文件被锁了，所有后缀变成了.locked，然后取证分析人员拷贝了内存镜像文件，来看看你能从被锁的文件中获取什么信息？ 1 - What the password?题目：你得到了瑞克电脑内存的样本，你能得到他的用户密码吗？ 1vol.py -f">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/image-20231004110808864.png">
+<meta property="og:image" content="http://example.com/img/image-20231003165745271.png">
+<meta property="og:image" content="http://example.com/img/image-20231003171518518.png">
+<meta property="og:image" content="http://example.com/img/image-20231003171816388.png">
+<meta property="og:image" content="http://example.com/img/image-20231003185737061.png">
+<meta property="og:image" content="http://example.com/img/image-20231003185936033.png">
+<meta property="og:image" content="http://example.com/img/image-20231003184645319.png">
+<meta property="og:image" content="http://example.com/img/image-20231003195325365.png">
+<meta property="og:image" content="http://example.com/img/image-20231003194853154.png">
+<meta property="og:image" content="http://example.com/img/image-20231003200813332.png">
+<meta property="og:image" content="http://example.com/img/image-20231003202031453.png">
+<meta property="og:image" content="http://example.com/img/image-20231003202519961.png">
+<meta property="og:image" content="http://example.com/img/image-20231003203114342.png">
+<meta property="og:image" content="http://example.com/img/image-20231003203802650.png">
+<meta property="og:image" content="http://example.com/img/image-20231003204410287.png">
+<meta property="og:image" content="http://example.com/img/image-20231003205825806.png">
+<meta property="og:image" content="http://example.com/img/image-20231003210149931.png">
+<meta property="og:image" content="http://example.com/img/image-20231003210501369.png">
+<meta property="og:image" content="http://example.com/img/image-20231003205251617.png">
+<meta property="og:image" content="http://example.com/img/image-20231003212236116.png">
+<meta property="og:image" content="http://example.com/img/image-20231003213854852.png">
+<meta property="og:image" content="http://example.com/img/image-20231003214135080.png">
+<meta property="og:image" content="http://example.com/img/image-20231003214517900.png">
+<meta property="article:published_time" content="2023-10-03T03:51:21.000Z">
+<meta property="article:modified_time" content="2023-10-04T07:05:45.310Z">
+<meta property="article:author" content="yzklov">
+<meta property="article:tag" content="forensics">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/image-20231004110808864.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/OtterCTF内存取证wp.html"/>
+
+
+
+
+
+  <title>OtterCTF内存取证wp | yzklov</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yzklov</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">nanashi</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/OtterCTF%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81wp.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">OtterCTF内存取证wp</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-03T11:51:21+08:00">
+                2023-10-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>故事背景是一个叫Rick瑞克的喜欢玩老式游戏的人，而且这人吧还总喜欢用比特彗星下载盗版电影种子，游戏种子，有一天他边玩游戏边下东西，突然电脑中了勒索病毒，文件被锁了，所有后缀变成了.locked，然后取证分析人员拷贝了内存镜像文件，来看看你能从被锁的文件中获取什么信息？</p>
+<h2 id="1-What-the-password"><a href="#1-What-the-password" class="headerlink" title="1 - What the password?"></a>1 - What the password?</h2><p>题目：你得到了瑞克电脑内存的样本，你能得到他的用户密码吗？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem imageinfo</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231004110808864.png"></p>
+<p>镜像版本为Win7SP1x64</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=&quot;Win7SP1x64&quot; lsadump</span><br></pre></td></tr></table></figure>
+
+<p>这里发现我的kali在root模式运行这条指令会报错，用户模式就可以</p>
+<p>lsadump可以强制显示密码</p>
+<p><img src="/./../img/image-20231003165745271.png" alt="image-20231003165745271"></p>
+<p>flag{MortyIsReallyAnOtter}</p>
+<h2 id="2-General-Info"><a href="#2-General-Info" class="headerlink" title="2-General Info"></a>2-General Info</h2><p>题目：电脑主机全称和IP地址是什么？</p>
+<p>通过网络连接查看ip地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=&quot;Win7SP1x64&quot; netscan</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003171518518.png" alt="image-20231003171518518"></p>
+<p>IP地址：192.168.202.131</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=&quot;Win7SP1x64&quot; printkey -K &quot;ControlSet001\Control\ComputerName\ComputerName&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003171816388.png" alt="image-20231003171816388"></p>
+<p>主机名：WIN-LO6FAF3DTFE，这是最直接的方法，还有一种就是，首先我们知道所有用户信息都会存储到注册表上，所以我们去查看注册表，找到注册表下的SYSTEM系统信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f  OtterCTF.vmem --profile=Win7SP1x64 hivelist</span><br></pre></td></tr></table></figure>
+
+<p>hivelist: 列出所有的注册表项及其虚拟地址和物理地址(第一级)</p>
+<p><img src="/./../img/image-20231003185737061.png" alt="image-20231003185737061"></p>
+<p>第一级发现只是目录,而文件的位置使用偏移量来表示，0x开头，使用参数-o，printkey打印出来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f  OtterCTF.vmem --profile=Win7SP1x64 -o 0xfffff8a000024010 printkey</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003185936033.png" alt="image-20231003185936033"></p>
+<p>继续深入下一层路径，\REGISTRY\MACHINE\SYSTEM\ControlSet001，-K是大K代表指定路径的参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 -o 0xfffff8a000024010 printkey -K &quot;ControlSet001&quot;</span><br></pre></td></tr></table></figure>
+
+<p>最后到”ControlSet001\Control\ComputerName\ComputerName”路径找到主机名</p>
+<h2 id="3-Play-Time"><a href="#3-Play-Time" class="headerlink" title="3-Play Time"></a>3-Play Time</h2><p>题目：瑞克只喜欢玩一些老式的电子游戏。你能看出他在玩什么游戏吗？服务器的ip地址是什么？</p>
+<p>查看进程，寻找那个游戏的身影</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 pslist</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003184645319.png" alt="image-20231003184645319"></p>
+<p>发现进程LunarMS.exe，pid&#x3D;708</p>
+<p><img src="/./../img/image-20231003195325365.png" alt="image-20231003195325365"></p>
+<p><img src="/./../img/image-20231003194853154.png" alt="image-20231003194853154"></p>
+<p>flag{LunarMS-77.102.199.102}</p>
+<h2 id="4-Name-Game1"><a href="#4-Name-Game1" class="headerlink" title="4-Name Game1"></a>4-Name Game1</h2><p>题目：我们知道账号登录到一个频道叫Lunar-3，这个账号名是？</p>
+<p>分析：听名字就知道和刚才那个lunar游戏有关，所以我们先提取一下LunarMS.exe这个进程，然后配合strings命令查找关键词Lunar-3，并匹配上下10行，寻找疑似账号.</p>
+<p>将进程提取出来，可以创个文件夹保存</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 memdump -p 708 -D ./dump</span><br></pre></td></tr></table></figure>
+
+<p>memdump：提取进程，需要指定进程-p 和输出目录 -D</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings ./dump/708.dmp | grep -C 10 &quot;Lunar-3&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003200813332.png" alt="image-20231003200813332"></p>
+<p>linux<code> strings</code>命令：在对象文件或二进制文件中查找可打印的字符串</p>
+<p><code>grep</code>[选项] [模式] [文件名]</p>
+<p>这一个也可以<code>strings 708.dmp &gt; 708.dmp.strings</code>将708.dmp中的字符串输出到.strings文件中，然后<code>grep -C 10 “Lunar-3” ./dump708.dmp.strings</code>但是没有必要</p>
+<p>在线linux命令查询：<a target="_blank" rel="noopener" href="https://www.lzltool.com/LinuxCommand">https://www.lzltool.com/LinuxCommand</a></p>
+<p>flag{0tt3r8r33z3}</p>
+<h2 id="5-Name-Game2"><a href="#5-Name-Game2" class="headerlink" title="5-Name Game2"></a>5-Name Game2</h2><p>题目：通过一些研究，我们发现登录角色的用户名总是在这个签名之后：0x64 0x??{6-8} 0x40 0x06 0x??{18} 0x5a 0x0c 0x00{2}，Rick的角色名字是什么？</p>
+<p>分析：题目意思是16进制64后6-8位是16进制40 16进制06，再18位后是十六进制5a 十六进制0c 十六进制00。根据这个提示，我们可以将第四题dump下来的文件内容用grep进行筛选有十六进制5a 十六进制0c 十六进制00的片段，并往前进行确认，但这里需要用到kali自带的16进制查看器hexhump</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexdump -C ./dump/708.dmp | grep &quot;5a 0c 00&quot; -A 3 -B 3</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003202031453.png" alt="image-20231003202031453"></p>
+<p>flag{M0rtyL0L}</p>
+<h2 id="6-Silly-Rick"><a href="#6-Silly-Rick" class="headerlink" title="6-Silly Rick"></a>6-Silly Rick</h2><p>题目:傻瑞克总是忘记电子邮件的密码，所以他使用在线存储密码服务来存储他的密码。他总是复制和粘贴密码，这样他就不会出错。瑞克的邮箱密码是什么？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 clipboard</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003202519961.png" alt="image-20231003202519961"></p>
+<p>flag{M@il_Pr0vid0rs}</p>
+<h2 id="7-Hide-And-Seek"><a href="#7-Hide-And-Seek" class="headerlink" title="7-Hide And Seek"></a>7-Hide And Seek</h2><p>题目：我们提取了瑞克电脑内存镜像的原因是有一个恶意软件感染，请找到恶意软件的进程名称，包括恶意扩展名，为下一步分析加密密钥做准备。</p>
+<p>使用命令pstree查看进程树，最可疑的是PPID大于PID的进程。PID指进程号，操作系统里每打开一个程序都会创建一个进程ID，即PID。PID是各进程的代号，每个进程有唯一的PID编号，它是进程运行时系统分配的。PPID则代表当前进程的父进程ID。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 pstree</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003203114342.png" alt="image-20231003203114342"></p>
+<p>发现可疑进程vmware-tray.exe，而且发现Rick And Morty.exe就是它的父进程</p>
+<p>具体为什么他是恶意程序，我们进行深入挖掘一下,用dlllist命令打印每个进程加载的动态链接库列表，-p指向pid</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 dlllist -p 3720</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003203802650.png" alt="image-20231003203802650"></p>
+<p>发现了他在Temp目录下运行，要知道Temp是windows下的临时文件夹，一般程序不会放在此文件夹中，放在此文件夹中的程序一般为恶意程序。</p>
+<p>也可以查看进程调用的命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 cmdline -p 3820,3720</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003204410287.png" alt="image-20231003204410287"></p>
+<p>flag{vmware-tray.exe}</p>
+<h2 id="8-Path-To-Glory1"><a href="#8-Path-To-Glory1" class="headerlink" title="8-Path To Glory1"></a>8-Path To Glory1</h2><p>题目：恶意软件是怎么进入瑞克的电脑的？这一定是一种古老的违法习惯</p>
+<p>根据上面的命令调用，恶意软件是被下载下来的</p>
+<p>filescan：扫描所有文件列表,通过关键字Rick And Morty，查找可能与恶意软件进入电脑有关的文件，因为前言中说到rick用种子下载盗版电影、游戏。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 filescan | grep &#x27;Rick And Morty&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003205825806.png" alt="image-20231003205825806"></p>
+<p>有6个文件，3个种子文件和3个exe文件，先将种子文件分别dump下来，进行分析</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 dumpfiles -Q 0x000000007dae9350 -D ./dump</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003210149931.png" alt="image-20231003210149931"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings ./dump/file.None.0xfffffa801b42c9e0.dat </span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003210501369.png" alt="image-20231003210501369"></p>
+<p>查看第二个种子文件时，发现website，说明是通过网站下载的</p>
+<p><img src="/./../img/image-20231003205251617.png" alt="image-20231003205251617"></p>
+<p>种子文件就是记载下载文件的存放位置、大小、下载服务器的地址、发布者的地址等数据的一个索引文件</p>
+<p>flag{M3an_T0rren7_4_R!cke}</p>
+<h2 id="9-Path-To-Glory2"><a href="#9-Path-To-Glory2" class="headerlink" title="9-Path To Glory2"></a>9-Path To Glory2</h2><p>题目：在恶意软件进入后继续搜索</p>
+<p>其实单看题目根本不知道要干什么，其实这题就是承接上一题，发现是从网站上下载的，自然想到浏览器，所以我们转存所有chrome的进程，然后使用strings命令配合grep命令查找Rick And Morty下载的相关数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 memdump -n chrome -D ./dump </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings ./dump/* | grep &#x27;Rick And Morty season 1 download.exe&#x27; -C 10</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003212236116.png" alt="image-20231003212236116"></p>
+<p>感觉题目就是提示flag的位置，但是flag好像和具体题目没什么关系</p>
+<p>flag{Hum@n_I5_Th3_Weak3s7_Link_In_Th3_Ch@inYear}</p>
+<h2 id="10-Bit-4-Bit"><a href="#10-Bit-4-Bit" class="headerlink" title="10-Bit 4 Bit"></a>10-Bit 4 Bit</h2><p>题目：我们已经发现这个恶意软件是一个勒索软件。查找攻击者的比特币地址(其实就是说请逆向并分析)</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 procdump -p 3720 -D ./dump</span><br></pre></td></tr></table></figure>
+
+<p>procdump：进程转储成可执行文件</p>
+<p>直接搜索address，就可发现出flag</p>
+<p><img src="/./../img/image-20231003213854852.png" alt="image-20231003213854852"></p>
+<p>或者根据题目中的提示“ransomware”，就直接找出flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings -e l  OtterCTF.vmem | grep -i -A 5 &quot;ransomware&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003214135080.png" alt="image-20231003214135080"></p>
+<p>flag{1MmpEmebJkqXG8nQv4cjJSmxZQFVmFo63M}</p>
+<h2 id="11-Graphic’s-For-The-Weak"><a href="#11-Graphic’s-For-The-Weak" class="headerlink" title="11-Graphic’s For The Weak"></a>11-Graphic’s For The Weak</h2><p>题目：恶意软件的图形中有一些可疑之处</p>
+<p>foremost分离可执行文件，图片上就是flag</p>
+<p><img src="/./../img/image-20231003214517900.png" alt="image-20231003214517900"></p>
+<h2 id="12-Recovery"><a href="#12-Recovery" class="headerlink" title="12-Recovery"></a>12-Recovery</h2><p>题目：瑞克得把他的文件找回来！用来加密文件的随机密码是说明？</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/forensics/" rel="tag"># forensics</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/ssrf.html" rel="next" title="ssrf">
+                <i class="fa fa-chevron-left"></i> ssrf
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/SHCTF&0xgame.html" rel="prev" title="SHCTF&0xgame">
+                SHCTF&0xgame <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
 
     <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+      
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+          </div>
+          
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-What-the-password"><span class="nav-number">2.</span> <span class="nav-text">1 - What the password?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-General-Info"><span class="nav-number">3.</span> <span class="nav-text">2-General Info</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Play-Time"><span class="nav-number">4.</span> <span class="nav-text">3-Play Time</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Name-Game1"><span class="nav-number">5.</span> <span class="nav-text">4-Name Game1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Name-Game2"><span class="nav-number">6.</span> <span class="nav-text">5-Name Game2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Silly-Rick"><span class="nav-number">7.</span> <span class="nav-text">6-Silly Rick</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Hide-And-Seek"><span class="nav-number">8.</span> <span class="nav-text">7-Hide And Seek</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-Path-To-Glory1"><span class="nav-number">9.</span> <span class="nav-text">8-Path To Glory1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-Path-To-Glory2"><span class="nav-number">10.</span> <span class="nav-text">9-Path To Glory2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-Bit-4-Bit"><span class="nav-number">11.</span> <span class="nav-text">10-Bit 4 Bit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-Graphic%E2%80%99s-For-The-Weak"><span class="nav-number">12.</span> <span class="nav-text">11-Graphic’s For The Weak</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-Recovery"><span class="nav-number">13.</span> <span class="nav-text">12-Recovery</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yzklov</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #4D4D4C;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #F7F7F7;
+      background-image: linear-gradient(#F7F7F7, #F7F7F7);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+ 
+</body>
+</html>

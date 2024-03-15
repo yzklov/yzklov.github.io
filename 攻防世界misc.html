@@ -1,37 +1,1317 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  
 
 
-{% block content %}
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Banmabanma打开是张png图片，条形码，直接在线解码  stesolve打开  winhex打开，ctrl+r选择转换方式  发现.py,flag  保存为pyc后缀,在线网站反编译   心仪的公司1strings webshell.pcapng |grep &#123;   pure_color  2017_Dating_in_Singapore按中间的-分隔数字，刚好是12行，都是十进">
+<meta property="og:type" content="article">
+<meta property="og:title" content="攻防世界misc">
+<meta property="og:url" content="http://example.com/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc.html">
+<meta property="og:site_name" content="yzklov">
+<meta property="og:description" content="Banmabanma打开是张png图片，条形码，直接在线解码  stesolve打开  winhex打开，ctrl+r选择转换方式  发现.py,flag  保存为pyc后缀,在线网站反编译   心仪的公司1strings webshell.pcapng |grep &#123;   pure_color  2017_Dating_in_Singapore按中间的-分隔数字，刚好是12行，都是十进">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/image-20231012201650145.png">
+<meta property="og:image" content="http://example.com/img/image-20231012234119565-1697249980732-5.png">
+<meta property="og:image" content="http://example.com/img/image-20231012234237210-1697249987950-7.png">
+<meta property="og:image" content="http://example.com/img/image-20231012234321087.png">
+<meta property="og:image" content="http://example.com/img/image-20231012232615491.png">
+<meta property="og:image" content="http://example.com/img/image-20231012234501702.png">
+<meta property="og:image" content="http://example.com/img/image-20231012234519542.png">
+<meta property="og:image" content="http://example.com/img/image-20231012235913529.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102045432.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102055075.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102107390.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102116944.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102125672.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102132634.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102142609.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102150964.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102157969.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102206942.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102213269.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102223894.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102240809.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102249670.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102255899.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102303639.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102309670.png">
+<meta property="og:image" content="http://example.com/source/img/image-20231013190250746.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102314485.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102318984.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102323424.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102328059.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102332111.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102337066.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102341590.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102351099.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102354834.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102359985.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102404554.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102407779.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102411866.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102416825.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102423169.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102426754.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102430712.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102436557.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102444072.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102449510.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102452465.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102456694.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102502694.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102505203.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102510764.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102514979.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102517921.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102527984.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102531130.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102535844.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102540449.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102544352.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102547691.png">
+<meta property="og:image" content="http://example.com/source/img/image-20231014010200653.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102550848.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102554145.png">
+<meta property="og:image" content="http://example.com/img/image-20231014102557925.png">
+<meta property="og:image" content="http://example.com/img/image-20231014105840050.png">
+<meta property="og:image" content="http://example.com/img/image-20231014110211471.png">
+<meta property="og:image" content="http://example.com/img/image-20231014110545953.png">
+<meta property="og:image" content="http://example.com/img/image-20231014110517932.png">
+<meta property="og:image" content="http://example.com/img/image-20231014110703004.png">
+<meta property="og:image" content="http://example.com/img/image-20231014113752658.png">
+<meta property="og:image" content="http://example.com/img/image-20231015130428752.png">
+<meta property="og:image" content="http://example.com/img/image-20231015130456154.png">
+<meta property="og:image" content="http://example.com/img/image-20231015130558879.png">
+<meta property="og:image" content="http://example.com/img/image-20231015131638056.png">
+<meta property="article:published_time" content="2023-10-14T03:11:46.000Z">
+<meta property="article:modified_time" content="2023-10-15T05:19:36.825Z">
+<meta property="article:author" content="yzklov">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/image-20231012201650145.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/攻防世界misc.html"/>
+
+
+
+
+
+  <title>攻防世界misc | yzklov</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yzklov</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">nanashi</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">攻防世界misc</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-14T11:11:46+08:00">
+                2023-10-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Banmabanma"><a href="#Banmabanma" class="headerlink" title="Banmabanma"></a>Banmabanma</h2><p>打开是张png图片，条形码，直接在线解码</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/img/image-20231012201650145.png" alt="image-20231012201650145"></h2><p><img src="/img/image-20231012234119565-1697249980732-5.png" alt="image-20231012234119565"></p>
+<p>stesolve打开</p>
+<p><img src="/img/image-20231012234237210-1697249987950-7.png" alt="image-20231012234237210"></p>
+<p>winhex打开，ctrl+r选择转换方式</p>
+<p><img src="/img/image-20231012234321087.png" alt="image-20231012234321087"></p>
+<p>发现.py,flag</p>
+<p><img src="/img/image-20231012232615491.png" alt="image-20231012232615491"></p>
+<p>保存为pyc后缀,在线网站反编译</p>
+<p><img src="/img/image-20231012234501702.png" alt="image-20231012234501702"></p>
+<p><img src="/img/image-20231012234519542.png" alt="image-20231012234519542"></p>
+<h3 id="心仪的公司"><a href="#心仪的公司" class="headerlink" title="心仪的公司"></a>心仪的公司</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings webshell.pcapng |grep &#123;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231012235913529.png" alt="image-20231012235913529"></p>
+<h2 id="pure-color"><a href="#pure-color" class="headerlink" title="pure_color"></a>pure_color</h2><p><img src="/img/image-20231014102045432.png" alt="image-20231014102045432"></p>
+<p><img src="/img/image-20231014102055075.png" alt="image-20231014102055075"></p>
+<h2 id="2017-Dating-in-Singapore"><a href="#2017-Dating-in-Singapore" class="headerlink" title="2017_Dating_in_Singapore"></a>2017_Dating_in_Singapore</h2><p>按中间的-分隔数字，刚好是12行，都是十进制数，不足10的在前面补0，将数字按顺序在图中标出来，发现flag</p>
+<p><img src="/img/image-20231014102107390.png" alt="image-20231014102107390"></p>
+<p><img src="/img/image-20231014102116944.png" alt="image-20231014102116944"></p>
+<h2 id="simple-transfer"><a href="#simple-transfer" class="headerlink" title="simple_transfer"></a>simple_transfer</h2><p>下载是个.pcap文件</p>
+<p>分离发现pdf，建议使用foremost，因为用binwalk发现pdf损坏</p>
+<p><img src="/img/image-20231014102125672.png" alt="image-20231014102125672"></p>
+<p>直接打开pdf<br><img src="/img/image-20231014102132634.png" alt="image-20231014102132634"></p>
+<p>HITB{b3d0e380e9c39352c667307d010775ca}</p>
+<h2 id="Training-Stegano-1"><a href="#Training-Stegano-1" class="headerlink" title="Training-Stegano-1"></a>Training-Stegano-1</h2><p>下载是个bmp文件</p>
+<p>bmp：Windows操作系统中的标准图像文件格式<br>图片上就一个点，很抽象，结合题目描述：这是我能想到的最基础的图片隐写术</p>
+<p><img src="/img/image-20231014102142609.png" alt="image-20231014102142609"></p>
+<p>直接010打开或者notepad++都行</p>
+<p><img src="/img/image-20231014102150964.png" alt="image-20231014102150964"></p>
+<p>flag：steganoI</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><p>下载解压后是</p>
+<p><img src="/img/image-20231014102157969.png" alt="image-20231014102157969"></p>
+<p>直接记事本打开</p>
+<p><img src="/img/image-20231014102206942.png" alt="image-20231014102206942"></p>
+<p>brainfuck在线解释器：<a target="_blank" rel="noopener" href="http://esoteric.sange.fi/brainfuck/impl/interp/i.html">http://esoteric.sange.fi/brainfuck/impl/interp/i.html</a></p>
+<p><img src="/img/image-20231014102213269.png" alt="image-20231014102213269"></p>
+<h2 id="-2"><a href="#-2" class="headerlink" title=""></a></h2><p>010打开发现png头，就改后缀为png，放到stesolve里面也没什么发现，ok，不会了</p>
+<p>看了wp发现竟然这里有hint</p>
+<p><img src="/img/image-20231014102223894.png" alt="image-20231014102223894"></p>
+<p>中间居然有个二维码</p>
+<p><img src="/img/image-20231014102240809.png" alt="image-20231014102240809"></p>
+<p>直接扫不出来，wp说可以使用ps将两个比较清晰的二维码拼成一个完整的直接扫，但我没有ps。010打开，文件末尾有一个网站可以下载一个图片，然后使用python脚本</p>
+<p><img src="/img/image-20231014102249670.png" alt="image-20231014102249670"></p>
+<p>那个图片下不来，但是知道后面只要用python脚本跑一下</p>
+<p>其他解法：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_56161093/article/details/122471779">https://blog.csdn.net/m0_56161093/article/details/122471779</a></p>
+<h2 id="Janos-the-Ripper"><a href="#Janos-the-Ripper" class="headerlink" title="János-the-Ripper"></a>János-the-Ripper</h2><p>没什么好说的，直接改成.zip后缀，密码爆破即可。</p>
+<p>发现这里面的题目普遍不给文件后缀</p>
+<h2 id="Test-flag-please-ignore"><a href="#Test-flag-please-ignore" class="headerlink" title="Test-flag-please-ignore"></a>Test-flag-please-ignore</h2><p>打开</p>
+<p><img src="/img/image-20231014102255899.png" alt="image-20231014102255899"></p>
+<p>直接16进制转字符串</p>
+<h2 id="hong"><a href="#hong" class="headerlink" title="hong"></a>hong</h2><p>解压后是MP3格式，但是用音频软件打不开，那就分离试试<br><img src="/img/image-20231014102303639.png" alt="image-20231014102303639"></p>
+<p>第一张图片扫码后是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">03f30d0ad41db4576300000000000000000100000040000000730d0000006400008400005a00006401005328020000006300000000030000000700000043000000734b0000006401006402006403006404006405006406006407006707007d00006408007d0100781e007c0000445d16007d02007c01007400007c0200830100377d0100712800577c010047486400005328090000004e694d0000006972000000692e0000006948000000696f000000696e0000006967000000740000000028010000007403000000636872280300000074030000007374727404000000666c6167740100000069280000000028000000007304000000612e7079520300000001000000730a00000000011b0106010d0114024e280100000052030000002800000000280000000028000000007304000000612e707974080000003c6d6f64756c653e010000007300000000</span><br></pre></td></tr></table></figure>
+
+<p>是”适合作为桌面”那一题的解法，但是修改代码并运行发现不是flag</p>
+<p><img src="/img/image-20231014102309670.png" alt="image-20231014102309670"></p>
+<p><img src="/../../../../source/img/image-20231013190250746.png" alt="image-20231013190250746"></p>
+<p>另一张图片</p>
+<p><img src="/img/image-20231014102314485.png" alt="image-20231014102314485"></p>
+<h2 id="misc-pic-again"><a href="#misc-pic-again" class="headerlink" title="misc_pic_again"></a>misc_pic_again</h2><p>一张png图片</p>
+<p><img src="/img/image-20231014102318984.png" alt="image-20231014102318984"></p>
+<p>lsb隐写，藏了一个zip文件，保存出来，解压出来是一个1文件，然后嘞，010搜flag发现没有，其实搜索词应该是hctf，或者{</p>
+<p><img src="/img/image-20231014102323424.png" alt="image-20231014102323424"></p>
+<h3 id="reverseMe"><a href="#reverseMe" class="headerlink" title="reverseMe"></a>reverseMe</h3><p><img src="/img/image-20231014102328059.png" alt="image-20231014102328059"></p>
+<p><img src="/img/image-20231014102332111.png" alt="image-20231014102332111"></p>
+<h2 id="hit-the-core"><a href="#hit-the-core" class="headerlink" title="hit-the-core"></a>hit-the-core</h2><p>.core文件，直接strings查找字符，这里就考验细心了，XCTF每个相隔4个字符</p>
+<p><img src="/img/image-20231014102337066.png" alt="image-20231014102337066"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">num=&#x27;cvqAeqacLtqazEigwiXobxrCrtuiTzahfFreqc&#123;bnjrKwgk83kgd43j85ePgb_e_rwqr7fvbmHjklo3tews_hmkogooyf0vbnk0ii87Drfgh_n kiwutfb0ghk9ro987k5tfb_hjiouo087ptfcv&#125;&#x27;</span><br><span class="line">flag = &#x27;&#x27;</span><br><span class="line">for i in  range(3,len(num),5):</span><br><span class="line">   flag += num[i]</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+
+<h2 id="-3"><a href="#-3" class="headerlink" title=""></a></h2><p>打开是一个抽象的gif？？？</p>
+<p><img src="/img/image-20231014102341590.png" alt="image-20231014102341590"></p>
+<p>这题的意思就是把每一帧按从左往右拼接起来就是flag，wp有人是用kali的convert和montage，或者是python脚本，但是直接网站一键分解即可<br>gif动态图分解：<a target="_blank" rel="noopener" href="https://tu.sioe.cn/gj/fenjie/">https://tu.sioe.cn/gj/fenjie/</a><br><img src="/img/image-20231014102351099.png" alt="image-20231014102351099"></p>
+<p>只能说nb，TWCTF{Bliss by Charles O’Rear}</p>
+<h2 id="normal-png"><a href="#normal-png" class="headerlink" title="normal_png"></a>normal_png</h2><p>一张图片</p>
+<p><img src="/img/image-20231014102354834.png" alt="image-20231014102354834"></p>
+<p>发现crc不对，可能是图片高度有问题</p>
+<p><img src="/img/image-20231014102359985.png" alt="image-20231014102359985"></p>
+<p><img src="/img/image-20231014102404554.png" alt="image-20231014102404554"></p>
+<p><img src="/img/image-20231014102407779.png" alt="image-20231014102407779"></p>
+<h2 id="-4"><a href="#-4" class="headerlink" title=""></a></h2><p>题目是一个gif，010打开，发现末尾是类似base的字符，解码两次出flag</p>
+<p><img src="/img/image-20231014102411866.png" alt="image-20231014102411866"></p>
+<p>密钥是ISCC</p>
+<p><img src="/img/image-20231014102416825.png" alt="image-20231014102416825"></p>
+<h2 id="a-good-idea"><a href="#a-good-idea" class="headerlink" title="a_good_idea"></a>a_good_idea</h2><p>rar文件解压出</p>
+<p><img src="/img/image-20231014102423169.png" alt="image-20231014102423169"></p>
+<p>hint.txt: try to find the secret of pixels</p>
+<p>我们使用stegsolve联合两个图片</p>
+<p><img src="/img/image-20231014102426754.png" alt="image-20231014102426754"></p>
+<p>然后save保存，再用stegsolve打开，发现二维码</p>
+<p><img src="/img/image-20231014102430712.png" alt="image-20231014102430712"></p>
+<p><img src="/img/image-20231014102436557.png" alt="image-20231014102436557"></p>
+<p>NCTF{m1sc_1s_very_funny!!!}</p>
+<h2 id="Ditf"><a href="#Ditf" class="headerlink" title="Ditf"></a>Ditf</h2><p>打开是一张图片，010打开发现尾部不是png尾，说明里面有东西，foremost分解出来</p>
+<p><img src="/img/image-20231014102444072.png" alt="image-20231014102444072"></p>
+<p><img src="/img/image-20231014102449510.png" alt="image-20231014102449510"></p>
+<p>但其实一开始是有发现图片的高度不对，CRC爆破发现</p>
+<p><img src="/img/image-20231014102452465.png" alt="image-20231014102452465"></p>
+<p>是rar的密码，输入密码</p>
+<p><img src="/img/image-20231014102456694.png" alt="image-20231014102456694"></p>
+<p>记事本打开</p>
+<p><img src="/img/image-20231014102502694.png" alt="image-20231014102502694"></p>
+<p><img src="/img/image-20231014102505203.png" alt="image-20231014102505203"></p>
+<h2 id="miss-01"><a href="#miss-01" class="headerlink" title="miss_01"></a>miss_01</h2><p>解压，唉？</p>
+<p><img src="/img/image-20231014102510764.png" alt="image-20231014102510764"></p>
+<p><img src="/img/image-20231014102514979.png" alt="image-20231014102514979"></p>
+<p>docx是空的，我们再看看zip文件，是wav，但是要密码</p>
+<p><img src="/img/image-20231014102517921.png" alt="image-20231014102517921"></p>
+<p>问题就是zip文件损坏，扔到zip修复大师修复后打开，打开docx，题目名是miss，所以想到有没有隐藏字符<img src="/img/image-20231014102527984.png" alt="image-20231014102527984"></p>
+<p><img src="/img/image-20231014102531130.png" alt="image-20231014102531130"></p>
+<p>确实是有</p>
+<p><img src="/img/image-20231014102535844.png" alt="image-20231014102535844"></p>
+<p>搜一下这个线索waoootu.epj,<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=nv&spm=1001.2101.3001.7020">nv</a> o，得到线索是希尔加密，密钥就是<a target="_blank" rel="noopener" href="http://www.verymuch.net/">www.verymuch.net</a></p>
+<p><img src="/img/image-20231014102540449.png" alt="image-20231014102540449"></p>
+<p>加密出来的密码是rabbit的密码，进行解密</p>
+<p><img src="/img/image-20231014102544352.png" alt="image-20231014102544352"></p>
+<p>base32解码</p>
+<p><img src="/img/image-20231014102547691.png" alt="image-20231014102547691"></p>
+<p><img src="/../../../../source/img/image-20231014010200653.png" alt="image-20231014010200653"></p>
+<p>变成新佛曰编码</p>
+<p><img src="/img/image-20231014102550848.png" alt="image-20231014102550848"></p>
+<p>fun.zip解压密码：Live beautifully, dream passionately, love completely.</p>
+<p>打开音频文件，显示频谱图</p>
+<p><img src="/img/image-20231014102554145.png" alt="image-20231014102554145"></p>
+<p><img src="/img/image-20231014102557925.png" alt="image-20231014102557925"></p>
+<p>flag{m1sc_1s_funny2333}</p>
+<p>##m0_01</p>
+<p>解压是12.pcapng，试着foremost，不行，用wireshark打开</p>
+<p><img src="/img/image-20231014105840050.png" alt="image-20231014105840050"></p>
+<p>usb流量分析，第一次接触这种题，我们来了解一下一些基础知识</p>
+<p>USB协议数据在Leftover Capture Data域中，鼠标流量数据长度为四个字节，键盘流量数据长度为八个字节。</p>
+<p>鼠标流量：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第一个字节：代表按键（00时,代表没有按键；01时,代表按左键；02时,代表当前按键为右键）</span><br><span class="line">第二个字节：值为正时，代表鼠标右移像素位；</span><br><span class="line">值为负时，代表鼠标左移像素位</span><br><span class="line">第三个字节：代表垂直上下移动的偏移（当值为正时，代表鼠标上移像素位；值为负时，代表鼠标下移像素位）</span><br></pre></td></tr></table></figure>
+
+<p>随便打开一个数据包查看Leftover Capture Data域，图示是8字节，所以是键盘流量</p>
+<p><img src="/img/image-20231014110211471.png" alt="image-20231014110211471"></p>
+<p>使用kali，在wireshark的tshark工具下将数据提取为文本文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tshark -r 12.pcapng -T fields -e usb.capdata&gt;1.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231014110545953.png" alt="image-20231014110545953"></p>
+<p>使用键盘流量脚本破解</p>
+<p><img src="/img/image-20231014110517932.png" alt="image-20231014110517932"></p>
+<p>这段数字只有01248，是云影密码</p>
+<p><img src="/img/image-20231014110703004.png" alt="image-20231014110703004"></p>
+<p>flag{THISISFLAG}</p>
+<p>usb流量分析学习：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46150940/article/details/115431953">https://blog.csdn.net/qq_46150940/article/details/115431953</a></p>
+<h2 id="津门杯2021-m1"><a href="#津门杯2021-m1" class="headerlink" title="津门杯2021-m1"></a>津门杯2021-m1</h2><p>这题纯纯因为对密码编码不够熟悉，看到base都没有发现</p>
+<p><img src="/img/image-20231014113752658.png" alt="image-20231014113752658"></p>
+<h2 id="流量分析1"><a href="#流量分析1" class="headerlink" title="流量分析1"></a>流量分析1</h2><p>感觉需要计网的知识，不然有点懵</p>
+<h2 id="misc2-1"><a href="#misc2-1" class="headerlink" title="misc2-1"></a>misc2-1</h2><p>解压打开是一张图片，但是损坏，不能打开，我们使用010打开看看，这样是逆序的图片</p>
+<p><img src="/img/image-20231015130428752.png" alt="image-20231015130428752"></p>
+<p>正常应该是</p>
+<p><img src="/img/image-20231015130456154.png" alt="image-20231015130456154"></p>
+<p>使用脚本恢复</p>
+<p><img src="/img/image-20231015130558879.png" alt="image-20231015130558879"></p>
+<h2 id="Let-god-knows"><a href="#Let-god-knows" class="headerlink" title="Let_god_knows"></a>Let_god_knows</h2><p><img src="/img/image-20231015131638056.png" alt="image-20231015131638056"></p>
+<p>开头两个字节是BM，说明是bmp格式的图片</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/%E5%88%B7%E9%A2%98.html" rel="next" title="刷题">
+                <i class="fa fa-chevron-left"></i> 刷题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb.html" rel="prev" title="攻防世界web">
+                攻防世界web <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
 
     <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+      
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+          </div>
+          
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Banmabanma"><span class="nav-number">1.</span> <span class="nav-text">Banmabanma</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%83%E4%BB%AA%E7%9A%84%E5%85%AC%E5%8F%B8"><span class="nav-number">2.1.</span> <span class="nav-text">心仪的公司</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pure-color"><span class="nav-number">3.</span> <span class="nav-text">pure_color</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2017-Dating-in-Singapore"><span class="nav-number">4.</span> <span class="nav-text">2017_Dating_in_Singapore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#simple-transfer"><span class="nav-number">5.</span> <span class="nav-text">simple_transfer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Training-Stegano-1"><span class="nav-number">6.</span> <span class="nav-text">Training-Stegano-1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-1"><span class="nav-number">7.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-2"><span class="nav-number">8.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Janos-the-Ripper"><span class="nav-number">9.</span> <span class="nav-text">János-the-Ripper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test-flag-please-ignore"><span class="nav-number">10.</span> <span class="nav-text">Test-flag-please-ignore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hong"><span class="nav-number">11.</span> <span class="nav-text">hong</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#misc-pic-again"><span class="nav-number">12.</span> <span class="nav-text">misc_pic_again</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#reverseMe"><span class="nav-number">12.1.</span> <span class="nav-text">reverseMe</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hit-the-core"><span class="nav-number">13.</span> <span class="nav-text">hit-the-core</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-3"><span class="nav-number">14.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#normal-png"><span class="nav-number">15.</span> <span class="nav-text">normal_png</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-4"><span class="nav-number">16.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#a-good-idea"><span class="nav-number">17.</span> <span class="nav-text">a_good_idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ditf"><span class="nav-number">18.</span> <span class="nav-text">Ditf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#miss-01"><span class="nav-number">19.</span> <span class="nav-text">miss_01</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B4%A5%E9%97%A8%E6%9D%AF2021-m1"><span class="nav-number">20.</span> <span class="nav-text">津门杯2021-m1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901"><span class="nav-number">21.</span> <span class="nav-text">流量分析1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#misc2-1"><span class="nav-number">22.</span> <span class="nav-text">misc2-1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Let-god-knows"><span class="nav-number">23.</span> <span class="nav-text">Let_god_knows</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yzklov</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #4D4D4C;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #F7F7F7;
+      background-image: linear-gradient(#F7F7F7, #F7F7F7);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+ 
+</body>
+</html>

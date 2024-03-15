@@ -1,37 +1,1185 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  
 
 
-{% block content %}
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="&lt;!DOCTYPE&gt;：文档类型声明，作用是告诉浏览器使用哪种HTML版本来显示网页 1&lt;!DOCTYPE html&gt;    代码意思是当前页面采取的是HTML5版本来显示网页 lang：定义显示语言，这个属性主要对浏览器是否翻译网页有用，不影响非定义中的语言的显示   meta标签中的charset属性用来规定html文档应该使用哪种字符编码 html常用标签&lt;b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端基础学习">
+<meta property="og:url" content="http://example.com/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0.html">
+<meta property="og:site_name" content="yzklov">
+<meta property="og:description" content="&lt;!DOCTYPE&gt;：文档类型声明，作用是告诉浏览器使用哪种HTML版本来显示网页 1&lt;!DOCTYPE html&gt;    代码意思是当前页面采取的是HTML5版本来显示网页 lang：定义显示语言，这个属性主要对浏览器是否翻译网页有用，不影响非定义中的语言的显示   meta标签中的charset属性用来规定html文档应该使用哪种字符编码 html常用标签&lt;b">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/image-20231028104405040.png">
+<meta property="og:image" content="http://example.com/img/image-20231028114851140.png">
+<meta property="og:image" content="http://example.com/img/image-20231028201629013.png">
+<meta property="og:image" content="http://example.com/img/image-20231028202317577.png">
+<meta property="og:image" content="http://example.com/img/image-20231028203442210.png">
+<meta property="og:image" content="http://example.com/img/image-20231028205221478.png">
+<meta property="og:image" content="http://example.com/img/image-20231028205247822.png">
+<meta property="og:image" content="http://example.com/img/image-20231028205313188.png">
+<meta property="article:published_time" content="2023-10-28T02:21:20.000Z">
+<meta property="article:modified_time" content="2023-10-30T11:44:41.344Z">
+<meta property="article:author" content="yzklov">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/image-20231028104405040.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/前端基础学习.html"/>
+
+
+
+
+
+  <title>前端基础学习 | yzklov</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yzklov</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">nanashi</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端基础学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-28T10:21:20+08:00">
+                2023-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/img/image-20231028104405040.png" alt="image-20231028104405040"></p>
+<p> <code>&lt;!DOCTYPE&gt;</code>：文档类型声明，作用是告诉浏览器使用哪种HTML版本来显示网页</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;  </span><br></pre></td></tr></table></figure>
+
+<p>代码意思是当前页面采取的是HTML5版本来显示网页</p>
+<p><code>lang</code>：定义显示语言，这个属性主要对浏览器是否翻译网页有用，不影响非定义中的语言的显示  </p>
+<p><code>meta</code>标签中的<code>charset</code>属性用来规定html文档应该使用哪种字符编码</p>
+<h2 id="html常用标签"><a href="#html常用标签" class="headerlink" title="html常用标签"></a>html常用标签</h2><p><code>&lt;br /&gt;</code>：换行标签</p>
+<p><code>&lt;div&gt;、&lt;span&gt; </code>：盒子标签，用来装内容</p>
+<p><code>&lt;img src=&quot;图像URL&quot; /&gt;</code>:图像标签，相对路径是相对html文件，如果直接是图片名，说明在同一级。也可以使用绝对路径，网络上的或者本地从盘符开始</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alt：图片显示不出来代替的文字</span><br><span class="line">title：鼠标放在图片上提示的文字 </span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;a&gt;</code>:超链接标签</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;跳转目标&quot; target=&quot;目标窗口的弹出方式&quot;&gt;文本或图像&lt;/a&gt;</span><br><span class="line">target:_self(默认 替换当前页面)、_blank(新窗口打开)</span><br></pre></td></tr></table></figure>
+
+<p>链接分类：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">外部链接:例如&lt;a href= &quot;http://www.baidu.com&quot;&gt;百度&lt;/a&gt;</span><br><span class="line">内部链接:网站内部页面之间的相互链接,直接链接内部页面名称即可,例如&lt;a href=&quot;index.html&quot;&gt;首页&lt;/a&gt;</span><br><span class="line">空链接：&lt;a href=&quot;#&quot;&gt;地址&lt;/a&gt;，开发过程中</span><br><span class="line">下载链接:如果href里面地址是一个文件.exe或者压缩包.zip,会下载这个文件</span><br><span class="line"></span><br><span class="line">网页元素链接:在网页中的各种网页元素,如文本、图像、表格、音频、视频等都可以添加超链接</span><br><span class="line">&lt;a href=&quot;http://www.baidu.com&quot;&gt;&lt;img src=&quot;img.jpg&quot;/&gt;&lt;/a&gt; 点击图片即可跳转</span><br><span class="line">  </span><br><span class="line">锚点链接:点击链接，可以快速定位到页面中的某个位置</span><br><span class="line">在链接文本的href属性中,设置属性值为#名字的形式,如&lt;a href=&quot;#two&quot;&gt;第2集&lt;/a&gt;</span><br><span class="line">找到目标位置标签,里面添加一个id属性=刚才的名字, 如: &lt;h3 id=&quot;two&quot;&gt;第2集介绍&lt;/h3&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;!-- 注释语句 --&gt;</code>：注释标签，可在源代码中显示</p>
+<p>特殊字符：在HTML页面中,一些特殊的符号很难或者不方便直接使用 ,此时我们就可以使用下面的字符来替代</p>
+<p><img src="/img/image-20231028114851140.png" alt="image-20231028114851140"></p>
+<h3 id="表格标签-用来展示数据"><a href="#表格标签-用来展示数据" class="headerlink" title="表格标签:用来展示数据"></a>表格标签:用来展示数据</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;th&gt;姓名&lt;/th&gt;</span><br><span class="line">		&lt;td&gt;单元格内的文字&lt;/td&gt;</span><br><span class="line">		...</span><br><span class="line">	&lt;/tr&gt;</span><br><span class="line">	...</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;:定义表格，&lt;tr&gt;定义表格中的行，&lt;td&gt;：定义表格中的单元格。&lt;th&gt;表头标签。都是双标签</span><br><span class="line">&lt;thead&gt; &lt;/thead&gt; :用于定义表格的头部。&lt;thead&gt; 内部必须拥有&lt;tr&gt;标签。一般是位于第一行</span><br><span class="line">&lt;tbody&gt; &lt;/tbody&gt; :用于定义表格的主体,主要用于放数据本体</span><br></pre></td></tr></table></figure>
+
+<h3 id="列表标签：用来布局"><a href="#列表标签：用来布局" class="headerlink" title="列表标签：用来布局"></a>列表标签：用来布局</h3><p>1、无序列表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;u1&gt;</span><br><span class="line">&lt;li&gt;列表项1&lt;/li&gt;</span><br><span class="line">&lt;li&gt;列表项2&lt;/li&gt;</span><br><span class="line">&lt;li&gt;列表项3&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2、有序列表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol&gt;</span><br><span class="line">&lt;1i&gt;列表项1&lt;/li&gt;</span><br><span class="line">&lt;li&gt;列表项2&lt;/1i&gt;</span><br><span class="line">&lt;1i&gt;列表项3&lt;/li&gt;</span><br><span class="line">&lt;/o1&gt;</span><br></pre></td></tr></table></figure>
+
+<p>3、自定义列表（重点）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dl&gt;</span><br><span class="line">&lt;dt&gt;名词1&lt;/dt&gt;</span><br><span class="line">&lt;dd&gt;名词1解释1&lt;/dd&gt;</span><br><span class="line">&lt;dd&gt;名词1解释2&lt;/dd&gt;</span><br><span class="line">&lt;/d1&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签</h3><p>目的：收集用户信息</p>
+<p>组成：在HTML中,一个完整的表单通常由表单域、表单控件(也称为表单元素)和提示信息3个部分构成</p>
+<p>1、表单域</p>
+<p>表单域是一个包含表单元素的区域。在HTML标签中，<code>&lt;form&gt; </code>标签用于定义表单域,以实现用户信息的收集和传递。<code>&lt;form&gt;</code>会把它范围内的表单元素信息提交给服务器，那么如果点击提交按钮就会跳转到url地址，如果是get，就会是xxx.php?pwd&#x3D;x&amp;username&#x3D;X</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;url地址&quot; method=&quot;提交方式&quot; name=&quot;表单域名称&quot;&gt;</span><br><span class="line">各种表单元素控件</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231028201629013.png" alt="image-20231028201629013"></p>
+<p>2、表单控件</p>
+<p>在表单域中可以定义各种表单元素,这些表单元素就是允许用户在表单中输入或者选择的内容控件。</p>
+<p>(1) input输入表单元素 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;属性值&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231028202317577.png" alt="image-20231028202317577"></p>
+<p>提交表单元素，value规定按钮中的文字内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;submit&quot; value=&quot;免费注册&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>button</strong>用来和js搭配使用，启动js脚本的动作</p>
+<p><strong>file</strong>上传文件</p>
+<p>除了type属性外<code>&lt;input&gt;</code>标签的其他属性</p>
+<p><img src="/img/image-20231028203442210.png" alt="image-20231028203442210"></p>
+<p><strong>name</strong>属性区分表单元素，单选和多选的每个表单元素需要有相同的name属性</p>
+<p><strong>checked</strong>主要针对单选和复选框，页面打开的时候默认选中</p>
+<p><strong>value</strong>在非选择框中规定输入框中默认的文字，在选择框中代表选择之后送到后台的内容</p>
+<h4 id="一个关于表单的测试"><a href="#一个关于表单的测试" class="headerlink" title="一个关于表单的测试"></a>一个关于表单的测试</h4><p><img src="/img/image-20231028205221478.png" alt="image-20231028205221478"></p>
+<p><img src="/img/image-20231028205247822.png" alt="image-20231028205247822"></p>
+<p>观察到url地址的变化，转到action指定的处理脚本路径，后面是对应的get传参，参数名就是前面input标签中定义的name属性值。但是由于我没有提前在网站根目录中创建login.php文件，所以显示无法找到</p>
+<p><img src="/img/image-20231028205313188.png" alt="image-20231028205313188"></p>
+<p>补充：<code>&lt;label&gt;</code>标签用于绑定一个表单元素 当点击<code>&lt;label&gt;</code>内的文本时,浏览器就会自动将焦点(光标转到或者<br>选择对应的表单元素上用来增加用户体验</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">男&lt;input type=&quot;radio&quot; name=&quot;sex&quot;/&gt;</span><br><span class="line">-&gt;</span><br><span class="line">&lt;label for=&quot;sex&quot;&gt;男&lt;/label&gt;&lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;sex&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>id属性和label中的for属性需一致</p>
+<p>（2）select下拉表单元素</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;select&gt;</span><br><span class="line">&lt;option&gt;选项1&lt;/option&gt;</span><br><span class="line">&lt;option&gt;选项2&lt;/option&gt;</span><br><span class="line">&lt;option&gt;选项3&lt;/opt ion&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在<code>&lt;option&gt;</code>中定义selected &#x3D;”selected”时,当前项即为默认选中项</p>
+<p>（3）textarea 文本域元素</p>
+<p>使用场景:当用户输入内容较多的情况下,我们就不能使用文本框表单了,此时我们可以使用该标签。评论、反馈</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;textarea rows=&quot;3&quot; cols=&quot;20&quot;&gt;</span><br><span class="line">默认文本内容</span><br><span class="line">&lt;/textarea&gt;</span><br></pre></td></tr></table></figure>
+
+<p>cols每行字符数，rows显示的行数</p>
+<p><strong>关于html常用的vscode插件</strong><br>1、Auto Rename Tag:双击html的标签并修改会前后一起改变<br>2、One Dark Pro:一款颜色主题<br>3、系统自带格式化：设置-&gt;文本编辑器-&gt;格式化-&gt;勾上format on paste和format on save<br>4、open in browser ：可以在浏览器中显示页面<br>右键选择open in default browser在默认浏览器打开<br>5、Live Server(推荐) ： 实时预览，但首先需要打开一个文件夹<br>右键选择open in Live Server，也是在浏览器中打开但和上面不同的是内容会随代码的改变而实时变化<br>6、Easy LESS ： 我们写的less不能直接引入到html文件中，通过这个插件可以自动帮我们生成css文件<br>7、会了吧 ： 英文翻译，点击左侧的会<br>8、vscode-icons 图标修改</p>
+<p><strong>vscode常用快捷键</strong></p>
+<ul>
+<li>ctrl + -&#x2F;+ ：缩小放大代码</li>
+<li>shift + alt + 下键 ： 选中某行并复制到下一行</li>
+<li>ctrl + d ：先双击选定一个单词，然后按下ctrl+d可以往下依次选择相同的单词，这样同时修改相同的单词就非常方便</li>
+<li>ctrl + alt+  上或下：添加多个光标，可以同时添加内容</li>
+<li>ctrl + h：全局查找替换某个单词</li>
+<li>ctrl + g：跳转到某行</li>
+<li>shift + alt 然后拖动鼠标选中一个区块，可以一起删除</li>
+<li>ctrl + &#x2F; ：单行注释</li>
+<li>自定义快捷键：左下角管理-&gt;键盘快捷方式，查找shift + alt + a(原本的多行注释快捷键)，点击修改，直接按键修改，回车就修改成功，那么多行注释就变成ctrl + shift + &#x2F;</li>
+</ul>
+<h2 id="javascript"><a href="#javascript" class="headerlink" title="javascript"></a>javascript</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/ctfshow-web%E5%85%A5%E9%97%A8.html" rel="next" title="ctfshow-web入门">
+                <i class="fa fa-chevron-left"></i> ctfshow-web入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/php%E5%87%BD%E6%95%B0%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93.html" rel="prev" title="php函数绕过总结">
+                php函数绕过总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
 
     <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+      
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+          </div>
+          
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE"><span class="nav-number">1.</span> <span class="nav-text">html常用标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC%E6%A0%87%E7%AD%BE-%E7%94%A8%E6%9D%A5%E5%B1%95%E7%A4%BA%E6%95%B0%E6%8D%AE"><span class="nav-number">1.1.</span> <span class="nav-text">表格标签:用来展示数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E6%A0%87%E7%AD%BE%EF%BC%9A%E7%94%A8%E6%9D%A5%E5%B8%83%E5%B1%80"><span class="nav-number">1.2.</span> <span class="nav-text">列表标签：用来布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E5%8D%95%E6%A0%87%E7%AD%BE"><span class="nav-number">1.3.</span> <span class="nav-text">表单标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E8%A1%A8%E5%8D%95%E7%9A%84%E6%B5%8B%E8%AF%95"><span class="nav-number">1.3.1.</span> <span class="nav-text">一个关于表单的测试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#javascript"><span class="nav-number">2.</span> <span class="nav-text">javascript</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yzklov</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #4D4D4C;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #F7F7F7;
+      background-image: linear-gradient(#F7F7F7, #F7F7F7);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+ 
+</body>
+</html>

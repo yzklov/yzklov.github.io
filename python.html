@@ -1,37 +1,1174 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  
 
 
-{% block content %}
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="写在前面：python程序运行过程中要读取文件内容是读取所在工作目录文件夹下的文件，所以必须先打开该文件夹才能读取，否则会有类似这样的报错：FileNotFoundError: [Errno 2] No such file or directory: &#39;base64.txt&#39;在vscode上添加python运行环境理论上只要先下载某个版本的python再安装个python插件就行了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python">
+<meta property="og:url" content="http://example.com/python.html">
+<meta property="og:site_name" content="yzklov">
+<meta property="og:description" content="写在前面：python程序运行过程中要读取文件内容是读取所在工作目录文件夹下的文件，所以必须先打开该文件夹才能读取，否则会有类似这样的报错：FileNotFoundError: [Errno 2] No such file or directory: &#39;base64.txt&#39;在vscode上添加python运行环境理论上只要先下载某个版本的python再安装个python插件就行了">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/192.png">
+<meta property="og:image" content="http://example.com/img/193.png">
+<meta property="article:published_time" content="2023-04-25T15:47:38.000Z">
+<meta property="article:modified_time" content="2023-07-24T11:00:03.558Z">
+<meta property="article:author" content="yzklov">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/192.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/python.html"/>
+
+
+
+
+
+  <title>python | yzklov</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yzklov</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">nanashi</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/python.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-25T23:47:38+08:00">
+                2023-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>写在前面：python程序运行过程中要读取文件内容是读取所在工作目录文件夹下的文件，所以必须先打开该文件夹才能读取，否则会有类似这样的报错：<br><code>FileNotFoundError: [Errno 2] No such file or directory: &#39;base64.txt&#39;</code><br>在vscode上添加python运行环境理论上只要先下载某个版本的python再安装个python插件就行了</p>
+<ul>
+<li>pycharm运行python程序的时候是在相应的文件目录下运行的，而vscode是在相应的工程目录下运行的</li>
+<li>type() 显示类型信息</li>
+<li>python中变量没有类型，它储存的数据有类型</li>
+</ul>
+<h2 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int(x) 将x转换为一个整数 </span><br><span class="line">float() str()同理</span><br></pre></td></tr></table></figure>
+<p>ps：别的数据类型转字符串只要加上单引号或双引号，所以基本都能实现，但比如字符串转数字就要求字符串内容都是数字</p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
+<li>可以使用单、双、三引号</li>
+<li>引号的嵌套可以使用\转义，也可以在单引号内写双引号或在双引号内写单引号</li>
+</ul>
+<h3 id="拼接"><a href="#拼接" class="headerlink" title="拼接"></a>拼接</h3><p>1、字符串和字符串直接使用+<br>2、字符串和变量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">字符串格式化1</span><br><span class="line">语法：&#x27;%占位符&#x27;%变量</span><br><span class="line">字符串：%s 整数：%d 浮点数：%f</span><br><span class="line">字符串格式化2</span><br><span class="line">语法： f&quot;内容&#123;变量或表达式&#125;&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>数字精度控制<br>使用辅助符号”m.n”来控制数据的宽度和精度</li>
+<li>m：控制宽度，宽度小于数字本身不生效，小数点和小数部分也算入宽度计算</li>
+<li>n：控制小数点精度，会进行小数的四舍五入</li>
+</ul>
+<h2 id="input"><a href="#input" class="headerlink" title="input"></a>input</h2><p>input():获取键盘输入的数据<br>ps：获取的数据都是字符串类型</p>
+<h2 id="if"><a href="#if" class="headerlink" title="if"></a>if</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if 要判断的条件：</span><br><span class="line">	条件成立时，要做的事情</span><br><span class="line">elif 条件：</span><br><span class="line">	...</span><br><span class="line">elif 条件：</span><br><span class="line">	...</span><br><span class="line">else:</span><br><span class="line">	...</span><br></pre></td></tr></table></figure>
+<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for 临时变量 in 待处理数据集：</span><br><span class="line">	循环满足条件时执行的代码</span><br><span class="line">	for 临时变量 in 待处理数据集：</span><br><span class="line">		循环满足条件时执行的代码</span><br></pre></td></tr></table></figure>
+<ul>
+<li>循环内的语句需要有空格缩进</li>
+<li>严格来说，待处理数据集是序列类型</li>
+<li>序列类型：字符串、列表、元组<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># for循环输出九九乘法表</span><br><span class="line">for i in range(1, 10):</span><br><span class="line">    for j in range(1, i + 1):</span><br><span class="line">        print(f&quot;&#123;j&#125;*&#123;i&#125;=&#123;j*i&#125;\t&quot;, end=&#x27;&#x27;)</span><br><span class="line">    print()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="range语句"><a href="#range语句" class="headerlink" title="range语句"></a>range语句</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">语法一：range(num)</span><br><span class="line">获取一个从0开始，到num结束的数字序列(不含num本身)</span><br><span class="line">语法二：range(num1,num2)</span><br><span class="line">从num1到num2(不含num2本身)</span><br><span class="line">语法三：range(num1,num2,step)</span><br><span class="line">在语法二的基础上添加了数字之间的步长，以step为准，默认为1</span><br></pre></td></tr></table></figure>
+<h2 id="while"><a href="#while" class="headerlink" title="while"></a>while</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">while 条件：</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">	while 条件：</span><br><span class="line">		...</span><br></pre></td></tr></table></figure>
+<ul>
+<li>条件需提供布尔类型的结果，true继续，false停止</li>
+<li>while循环可以嵌套<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 输出九九乘法表</span><br><span class="line">i=1</span><br><span class="line">while i&lt;=9:</span><br><span class="line">	j=1</span><br><span class="line">	while j&lt;=i:</span><br><span class="line">		print(f&quot;&#123;j&#125;*&#123;i&#125;=&#123;j*i&#125;\t&quot;,end=&#x27;&#x27;)</span><br><span class="line">		j+=1</span><br><span class="line">	i+=1</span><br><span class="line">	print() # 换行</span><br></pre></td></tr></table></figure></li>
+<li>continue:中断本次循环，直接进入下一次循环</li>
+<li>break：直接结束循环<br>ps：内层循环的continue和break不影响外层</li>
+</ul>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a>函数的定义</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def 函数名(传入参数)：</span><br><span class="line">	函数体</span><br><span class="line">	return 返回值</span><br></pre></td></tr></table></figure>
+<ul>
+<li>特殊字面量：None<br>不使用return语句即返回None</li>
+<li>使用场景：函数返回值、if判断、变量定义(不想给他赋值)</li>
+</ul>
+<h3 id="给python改了个阿里源，pip下载的速度快多了"><a href="#给python改了个阿里源，pip下载的速度快多了" class="headerlink" title="给python改了个阿里源，pip下载的速度快多了"></a>给python改了个阿里源，pip下载的速度快多了</h3><h3 id="变量在函数中的作用域"><a href="#变量在函数中的作用域" class="headerlink" title="变量在函数中的作用域"></a>变量在函数中的作用域</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">num=100</span><br><span class="line">def testb()</span><br><span class="line">	num=500</span><br><span class="line">	print(num)</span><br><span class="line">testb()</span><br><span class="line">print(f&#x27;全局变量num=&#123;num&#125;&#x27;)</span><br><span class="line"># 500</span><br><span class="line">  全局变量num=100</span><br></pre></td></tr></table></figure>
+<p>testb中的num仍然是局部变量<br>加上global关键字</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">num=100</span><br><span class="line">def testb()</span><br><span class="line">	global num # 声明num是全局变量</span><br><span class="line">	num=500</span><br><span class="line">	print(num)</span><br><span class="line">testb()</span><br><span class="line">print(f&#x27;全局变量num=&#123;num&#125;&#x27;)</span><br><span class="line"># 500</span><br><span class="line">  全局变量num=500</span><br></pre></td></tr></table></figure>
+<h2 id="python数据容器"><a href="#python数据容器" class="headerlink" title="python数据容器"></a>python数据容器</h2><p>1、什么是数据容器<br>一种可以存储多个元素的python数据类型<br>2、python有那些哪些数据类型<br>list列表、tuple元组、str字符串、set集合、dict字典</p>
+<h2 id="list-列表"><a href="#list-列表" class="headerlink" title="list(列表)"></a>list(列表)</h2><h3 id="定义格式"><a href="#定义格式" class="headerlink" title="定义格式"></a>定义格式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 定义变量</span><br><span class="line">变量名称 = [元素1,...] # 逗号隔开</span><br><span class="line"># 定义空列表</span><br><span class="line">变量名称 = []</span><br><span class="line">变量名称 = list()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>元素可以是不同类型的数据，支持嵌套<br><img src="/./img/192.png"></li>
+</ul>
+<h2 id="Python-encode方法"><a href="#Python-encode方法" class="headerlink" title="Python encode方法"></a>Python encode方法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gm：str.encode([encoding=&#x27;utf-8&#x27;],[errors=&#x27;strict&#x27;])</span><br><span class="line">encoding – 可选参数，要使用的编码，默认编码为 ‘utf-8’</span><br><span class="line">errors – 可选参数，设置不同错误的处理方案。默认为 ‘strict’,意为编码错误引起一个UnicodeError。 其他可能得值有 ‘ignore’, ‘replace’, ‘xmlcharrefreplace’, ‘backslashreplace’ 以及通过 codecs.register_error() 注册的任何值</span><br><span class="line">在使用encode()方法时，报错原因一般都是errors参数问题，改为‘ignore’就好了</span><br></pre></td></tr></table></figure>
+<p>bytes通过decode（）转换为str（字符串）<br>str通过encode（）转换为bytes（二进制）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s=&#x27;菜鸟教程&#x27;</span><br><span class="line">s_utf8 = s.encode(&quot;UTF-8&quot;)</span><br><span class="line">s_gbk = s.encode(&quot;GBK&quot;)</span><br><span class="line">print(s)</span><br><span class="line">print(&quot;UTF-8编码：&quot;,s_utf-8)</span><br><span class="line">print(&quot;GBK编码：&quot;,s_gbk)</span><br><span class="line">print(&quot;UTF-8解码：&quot;,s_utf-8.decode(&quot;UTF-8&quot;,&quot;strict&quot;))</span><br><span class="line">print(&quot;GBK解码：&quot;,s_gbk.decode(&quot;GBK&quot;,&quot;strict&quot;))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">菜鸟教程</span><br><span class="line">UTF-8编码： b&#x27;\xe8\x8f\x9c\xe9\xb8\x9f\xe6\x95\x99\xe7\xa8\x8b&#x27;</span><br><span class="line">GBK编码： b&#x27;\xb2\xcb\xc4\xf1\xbd\xcc\xb3\xcc&#x27;</span><br><span class="line">UTF-8解码： 菜鸟教程</span><br><span class="line">GBK解码： 菜鸟教程</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><p>f&#x3D;open(“文件路径”,”r&#x2F;w&#x2F;a”,encoding&#x3D;”UTF-8”) &#x2F;&#x2F;f是文件对象名称<br>&#x2F;&#x2F;w模式，输入的内容会覆盖原来文件的内容，a是在文件后追加内容，如果文件不存在就会创建文件<br>f.read(num)：读取指定长度字节，不指定num就读取全部<br>f.readlines():读取文件的全部行，封装到列表中<br>f.readline():读取一行<br>for line in f: for循环文件行，一次循环得到一行数据，每一行返回成一个字符串，并且在末尾会有一个换行符<br>读取文件有个指针，所以如果前面读取到第一个数，下面的读取就会从第二个数开始读取<br>f.write(content):往文件中写入内容<br>f.close():文件关闭<br>with open(“文件路径”,”r&#x2F;w&#x2F;a”,encoding&#x3D;”UTF-8”) as f:通过with open语法打开文件，可以自动关闭文件  &#x2F;&#x2F;f是文件对象名称</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">f = open(&quot;E:/test.txt&quot;, &quot;r&quot;, encoding=&quot;UTF-8&quot;)</span><br><span class="line">count = 0</span><br><span class="line">for line in f:</span><br><span class="line">    line = line.strip()</span><br><span class="line">    words = line.split(&quot; &quot;)</span><br><span class="line">    for word in words:</span><br><span class="line">        if word == &quot;ttt&quot;:</span><br><span class="line">            count += 1</span><br><span class="line">print(count)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<p>先打开以只读的方式打开文件，计数器置零，用for循环，循环得到每一行的数据，用字符串的strip方法首尾去空，避免&#x2F;n对匹配字符串的影响，然后用split方法将字符串以空格为分界，变成列表的形式，再用一个for循环将列表内的每个元素和”ttt”比较，如果相同，则计数器加1</p>
+<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p>就是程序的bug，捕获异常是为了在程序出现异常之前做好准备，当出现异常的时候有处理的手段，这样就不会直接导致程序的崩溃<br>基本捕获语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">	可能发生错误的代码</span><br><span class="line">except:</span><br><span class="line">	如果出现异常执行的代码</span><br><span class="line">else： //可选</span><br><span class="line">	print(&quot;没有出现异常&quot;)</span><br><span class="line">finally: //可选</span><br><span class="line">  f.close()</span><br></pre></td></tr></table></figure>
+<p>如果try出现了异常就执行except的代码，也可以在没有出现异常的时候执行else代码,finally是最后必须要执行的代码，不管有没有异常。<br>捕获指定异常</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">	print(name)</span><br><span class="line">except NameError as e:</span><br><span class="line">	print(&quot;出现了变量未定义的异常&quot;)</span><br><span class="line">	print(e) //e是看作该变量未定义异常的别名，记录了异常的具体信息</span><br></pre></td></tr></table></figure>
+<p>如果要捕获多个异常就可以用元组将上面的NameError进行替换，如果捕获全部异常就写<code>except Exception as e:</code></p>
+<ul>
+<li>异常的传递。。。</li>
+</ul>
+<h2 id="python的模块"><a href="#python的模块" class="headerlink" title="python的模块"></a>python的模块</h2><p><strong>定义</strong><br>python模块是一个python文件，以.py结尾，模块能定义函数，类和变量，模块里也能包含可执行的代码</p>
+<p><strong>作用</strong><br>python中有很多各种不同的模块，每一个模块都可以帮助我们快速实现一些功能，比如实现时间相关的功能就可以使用time模块，模块可以被认为是一个工具包。<br><img src="/img/193.png"><br>eg:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import time [as tt]//模块名,可以改成别名tt，后面就写tt.sleep</span><br><span class="line">time.sleep(6) //模块名.功能名()</span><br><span class="line"></span><br><span class="line">from time import *</span><br><span class="line">sleep(6)</span><br><span class="line"></span><br><span class="line">from time import sleep [as sl]//导入time中的sleep功能,别名可代替sleep</span><br><span class="line">sleep(6)</span><br></pre></td></tr></table></figure>
+<p>按下ctrl然后鼠标左键点击模块名就可以查看.py文件的源代码</p>
+<p><strong>自定义python模块</strong><br>新建一个python文件，命名并定义函数，模块名称就是文件名字，其他文件直接调用就行了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def test(x, y):</span><br><span class="line">    return x+y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    test(1,2)</span><br></pre></td></tr></table></figure>
+<p>在if这个语句中的代码不会在导入模块的时候执行，所以既可以满足测试模块中函数的可行性又可以避免在导入模块的时候执行了代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">__all__ = [&#x27;test&#x27;] //列表</span><br><span class="line">def test(x, y):</span><br><span class="line">    return x+y</span><br><span class="line">def test1(x, y):</span><br><span class="line">    return x-y</span><br></pre></td></tr></table></figure>
+<p>如果在导入的时候如果是<code>from my_module import *</code>,则只能使用test</p>
+<p><strong>python包</strong></p>
+<p>python包是一个文件夹，可以存放很多模块，由各个模块和__init__.py组成，<code>__init__.py</code>用来标识这个文件夹是一个python包，导入包中的模块：import 包名.模块名，下面的使用就是包名.模块名.目标</p>
+<ul>
+<li>第三方包(非python官方)，安装后就可以使用，<code>pip install 包名</code>就可以安装了，默认安装是连接国外的网站的，可以通过<code>pip install -i 网址 包名</code> 指定网址安装</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/misc-%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99.html" rel="next" title="misc-图片隐写">
+                <i class="fa fa-chevron-left"></i> misc-图片隐写
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/%E9%B2%B2%E9%B9%8F%E6%9D%AF.html" rel="prev" title="鲲鹏杯">
+                鲲鹏杯 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
 
     <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+      
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+          </div>
+          
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">数据类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">2.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%BC%E6%8E%A5"><span class="nav-number">2.2.</span> <span class="nav-text">拼接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#input"><span class="nav-number">3.</span> <span class="nav-text">input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if"><span class="nav-number">4.</span> <span class="nav-text">if</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for%E5%BE%AA%E7%8E%AF"><span class="nav-number">5.</span> <span class="nav-text">for循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#range%E8%AF%AD%E5%8F%A5"><span class="nav-number">5.1.</span> <span class="nav-text">range语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#while"><span class="nav-number">6.</span> <span class="nav-text">while</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">7.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">7.1.</span> <span class="nav-text">函数的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%99python%E6%94%B9%E4%BA%86%E4%B8%AA%E9%98%BF%E9%87%8C%E6%BA%90%EF%BC%8Cpip%E4%B8%8B%E8%BD%BD%E7%9A%84%E9%80%9F%E5%BA%A6%E5%BF%AB%E5%A4%9A%E4%BA%86"><span class="nav-number">7.2.</span> <span class="nav-text">给python改了个阿里源，pip下载的速度快多了</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%9C%A8%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">7.3.</span> <span class="nav-text">变量在函数中的作用域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python%E6%95%B0%E6%8D%AE%E5%AE%B9%E5%99%A8"><span class="nav-number">8.</span> <span class="nav-text">python数据容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#list-%E5%88%97%E8%A1%A8"><span class="nav-number">9.</span> <span class="nav-text">list(列表)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F"><span class="nav-number">9.1.</span> <span class="nav-text">定义格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-encode%E6%96%B9%E6%B3%95"><span class="nav-number">10.</span> <span class="nav-text">Python encode方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">11.</span> <span class="nav-text">文件操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8"><span class="nav-number">12.</span> <span class="nav-text">异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python%E7%9A%84%E6%A8%A1%E5%9D%97"><span class="nav-number">13.</span> <span class="nav-text">python的模块</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yzklov</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #4D4D4C;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #F7F7F7;
+      background-image: linear-gradient(#F7F7F7, #F7F7F7);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+ 
+</body>
+</html>

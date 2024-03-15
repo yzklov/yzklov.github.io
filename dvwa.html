@@ -1,37 +1,1159 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  
 
 
-{% block content %}
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="暴力破解(Brute Force)暴力破解或称为穷举法，是一种针对于密码的破译方法，即将密码进行逐个推算直到找出真正的密码为止 Command Injectionlow123456789101112131415161718192021&lt;?phpif( isset( $_POST[ &#x27;Submit&#x27; ]  ) ) &#123;    &#x2F;&#x2F; Get input    $tar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dvwa">
+<meta property="og:url" content="http://example.com/dvwa.html">
+<meta property="og:site_name" content="yzklov">
+<meta property="og:description" content="暴力破解(Brute Force)暴力破解或称为穷举法，是一种针对于密码的破译方法，即将密码进行逐个推算直到找出真正的密码为止 Command Injectionlow123456789101112131415161718192021&lt;?phpif( isset( $_POST[ &#x27;Submit&#x27; ]  ) ) &#123;    &#x2F;&#x2F; Get input    $tar">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/163.png">
+<meta property="og:image" content="http://example.com/img/164.png">
+<meta property="og:image" content="http://example.com/img/165.png">
+<meta property="og:image" content="http://example.com/img/166.png">
+<meta property="og:image" content="http://example.com/img/167.png">
+<meta property="og:image" content="http://example.com/img/168.png">
+<meta property="og:image" content="http://example.com/img/170.png">
+<meta property="og:image" content="http://example.com/img/171.png">
+<meta property="og:image" content="http://example.com/img/172.png">
+<meta property="og:image" content="http://example.com/img/173.png">
+<meta property="og:image" content="http://example.com/img/174.png">
+<meta property="og:image" content="http://example.com/img/175.png">
+<meta property="og:image" content="http://example.com/img/176.png">
+<meta property="og:image" content="http://example.com/img/177.png">
+<meta property="og:image" content="http://example.com/img/176.png">
+<meta property="og:image" content="http://example.com/img/178.png">
+<meta property="og:image" content="http://example.com/img/180.png">
+<meta property="og:image" content="http://example.com/img/179.png">
+<meta property="og:image" content="http://example.com/img/181.png">
+<meta property="og:image" content="http://example.com/img/182.png">
+<meta property="og:image" content="http://example.com/img/183.png">
+<meta property="article:published_time" content="2023-05-31T15:05:45.000Z">
+<meta property="article:modified_time" content="2023-07-24T11:00:04.521Z">
+<meta property="article:author" content="yzklov">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/163.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/dvwa.html"/>
+
+
+
+
+
+  <title>dvwa | yzklov</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yzklov</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">nanashi</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/dvwa.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">dvwa</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-05-31T23:05:45+08:00">
+                2023-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="暴力破解-Brute-Force"><a href="#暴力破解-Brute-Force" class="headerlink" title="暴力破解(Brute Force)"></a>暴力破解(Brute Force)</h2><p>暴力破解或称为穷举法，是一种针对于密码的破译方法，即将密码进行逐个推算直到找出真正的密码为止<br><img src="/./img/163.png"></p>
+<h2 id="Command-Injection"><a href="#Command-Injection" class="headerlink" title="Command Injection"></a>Command Injection</h2><h3 id="low"><a href="#low" class="headerlink" title="low"></a>low</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">if( isset( $_POST[ &#x27;Submit&#x27; ]  ) ) &#123;</span><br><span class="line">    // Get input</span><br><span class="line">    $target = $_REQUEST[ &#x27;ip&#x27; ];</span><br><span class="line"></span><br><span class="line">    // 确定操作系统并执行ping命令</span><br><span class="line">    if( stristr( php_uname( &#x27;s&#x27; ), &#x27;Windows NT&#x27; ) ) &#123;</span><br><span class="line">        // 判断函数的返回值有没有Windows</span><br><span class="line">        $cmd = shell_exec( &#x27;ping  &#x27; . $target );</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        // *nix</span><br><span class="line">        $cmd = shell_exec( &#x27;ping  -c 4 &#x27; . $target );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Feedback for the end user</span><br><span class="line">    echo &quot;&lt;pre&gt;&#123;$cmd&#125;&lt;/pre&gt;&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt; </span><br></pre></td></tr></table></figure>
+<ul>
+<li>php_uname()会返回操作系统的一些相关信息，其中就包括操作系统的名称，之后带入到stristr()函数查找windows NT，如果有就会返回字符串的剩余部分（从匹配点）。如果未找到所搜索的字符串，则返回 FALSE</li>
+<li>shell_exec() — 通过 shell 环境执行命令，并且将完整的输出以字符串的方式返回<br>可以直接进行命令注入：<br><code>127.0.0.1&amp;ipconfig</code><br><code>127.0.0.1&amp;net user</code><br><code>127.0.0.1&amp;systeminfo</code><br><code>127.0.0.1&amp;dir</code><br>当然也可以使用管道符|,|的输出只有后面指令的，因为|的含义是将前面命令的标准输出作为后面命令的标准输入</li>
+</ul>
+<h3 id="medium"><a href="#medium" class="headerlink" title="medium"></a>medium</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">if( isset( $_POST[ &#x27;Submit&#x27; ]  ) ) &#123;</span><br><span class="line">    // Get input</span><br><span class="line">    $target = $_REQUEST[ &#x27;ip&#x27; ];</span><br><span class="line"></span><br><span class="line">    // Set blacklist</span><br><span class="line">    $substitutions = array(</span><br><span class="line">        &#x27;&amp;&amp;&#x27; =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;;&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    // Remove any of the charactars in the array (blacklist).</span><br><span class="line">    $target = str_replace( array_keys( $substitutions ), $substitutions, $target );</span><br><span class="line"></span><br><span class="line">    // Determine OS and execute the ping command.</span><br><span class="line">    if( stristr( php_uname( &#x27;s&#x27; ), &#x27;Windows NT&#x27; ) ) &#123;</span><br><span class="line">        // Windows</span><br><span class="line">        $cmd = shell_exec( &#x27;ping  &#x27; . $target );</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        // *nix</span><br><span class="line">        $cmd = shell_exec( &#x27;ping  -c 4 &#x27; . $target );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Feedback for the end user</span><br><span class="line">    echo &quot;&lt;pre&gt;&#123;$cmd&#125;&lt;/pre&gt;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>array_keys() 函数返回包含数组中所有键名的一个新数组<br>eg:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$substitutions = array(&#x27;&amp;&amp;&#x27; =&gt; &#x27;&#x27;,&#x27;;&#x27;  =&gt; &#x27;&#x27;,);</span><br><span class="line">print_r(array_keys( $substitutions ));</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+输出：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [0] =&gt; &amp;&amp;</span><br><span class="line">    [1] =&gt; ;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+<li>str_replace():array_keys( $substitutions )规定查找的字符；$substitutions是规定查找到后要替换成的值；$target是目标字符串<br>下面的代码后low一样，所以可以使用&amp;来拼接也可以这样绕过：<code>127.0.0.1 &amp;;&amp; ipconfig</code></li>
+</ul>
+<h3 id="high"><a href="#high" class="headerlink" title="high"></a>high</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$substitutions = array(</span><br><span class="line">        &#x27;&amp;&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;;&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;| &#x27; =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;-&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;$&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;(&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;)&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;`&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;||&#x27; =&gt; &#x27;&#x27;,</span><br><span class="line">    ); </span><br></pre></td></tr></table></figure>
+<p>和medium的差别就是黑名单过滤变多了，其中最后一个存在空格，所以可以使用<code>127.0.0.1|| net user</code></p>
+<h3 id="impossible"><a href="#impossible" class="headerlink" title="impossible"></a>impossible</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">if( isset( $_POST[ &#x27;Submit&#x27; ]  ) ) &#123;</span><br><span class="line">    // Check Anti-CSRF token</span><br><span class="line">    checkToken( $_REQUEST[ &#x27;user_token&#x27; ], $_SESSION[ &#x27;session_token&#x27; ], &#x27;index.php&#x27; );</span><br><span class="line"></span><br><span class="line">    // Get input</span><br><span class="line">    $target = $_REQUEST[ &#x27;ip&#x27; ];</span><br><span class="line">    $target = stripslashes( $target );</span><br><span class="line"></span><br><span class="line">    // 将ip分成4个八位字节</span><br><span class="line">    $octet = explode( &quot;.&quot;, $target );</span><br><span class="line"></span><br><span class="line">    // Check IF each octet is an integer</span><br><span class="line">    if( ( is_numeric( $octet[0] ) ) &amp;&amp; ( is_numeric( $octet[1] ) ) &amp;&amp; ( is_numeric( $octet[2] ) ) &amp;&amp; ( is_numeric( $octet[3] ) ) &amp;&amp; ( sizeof( $octet ) == 4 ) ) &#123;</span><br><span class="line">        // If all 4 octets are int&#x27;s put the IP back together.</span><br><span class="line">        $target = $octet[0] . &#x27;.&#x27; . $octet[1] . &#x27;.&#x27; . $octet[2] . &#x27;.&#x27; . $octet[3];</span><br><span class="line"></span><br><span class="line">        // Determine OS and execute the ping command.</span><br><span class="line">        if( stristr( php_uname( &#x27;s&#x27; ), &#x27;Windows NT&#x27; ) ) &#123;</span><br><span class="line">            // Windows</span><br><span class="line">            $cmd = shell_exec( &#x27;ping  &#x27; . $target );</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            // *nix</span><br><span class="line">            $cmd = shell_exec( &#x27;ping  -c 4 &#x27; . $target );</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // Feedback for the end user</span><br><span class="line">        echo &quot;&lt;pre&gt;&#123;$cmd&#125;&lt;/pre&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        // Ops. Let the user name theres a mistake</span><br><span class="line">        echo &#x27;&lt;pre&gt;ERROR: You have entered an invalid IP.&lt;/pre&gt;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Generate Anti-CSRF token</span><br><span class="line">generateSessionToken();</span><br><span class="line"></span><br><span class="line">?&gt; </span><br></pre></td></tr></table></figure>
+<p>查看代码，impossible级别的代码加入了Anti-CSRF:token，同时对参数ip进行了严格限制，只有像“数字.数字.数字.数字”的输入才会被接收执行，因此不存在命令注入漏洞。<br><strong>源码分析</strong><br>先checkToken，检查了token，然后把输入的ip&#x3D;()删除反斜杠，接着用explode()函数把传入的命令以.为分界分成4个部分，然后if语句中使用is_numeric()函数来验证每个部分是不是数字，sizeof()函数检查是不是四个部分，如果以上都满足就将四个部分拼接在一起进行命令执行，否则报错。最后生成生成反csrf令牌。</p>
+<h2 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h2><h3 id="low-1"><a href="#low-1" class="headerlink" title="low"></a>low</h3><p>这是一个修改密码的页面，修改试试，修改成功，并且是以get方式传输的<br><img src="/./img/164.png"><br>从有源码中，可以知道，服务器收到修改密码的请求后，会检查参数$pass_new与$pass_conf是否相同，如果相同就会修改密码，并且没有任何的防csrf机制<br>我们就直接在URL中修改内容:<br><code>http://www.dvwa.test/vulnerabilities/csrf/?password_new=abcd&amp;password_conf=abcd&amp;Change=Change#</code><br>(必须使用同一个浏览器，因为在访问页面时通常存在cookie认证，否则即使点击了恶意链接也没用)<br>密码有效<br><img src="/./img/165.png"><br>所以在这种情况下我们可以使用短链接包装一下上面的链接诱骗受害者点击，然后密码就会被自动修改</p>
+<h3 id="Medium"><a href="#Medium" class="headerlink" title="Medium"></a>Medium</h3><p>直接修改url，提示请求错误<br><img src="/./img/166.png"><br>尝试修改密码，抓包发现referer<br><img src="/./img/167.png"><br>查看源码，medium级别中通过Referer检查来源，要求Referer中的来源方和host一致才能通过，所以我们需要添加并修改Referer<br><img src="/./img/168.png"><br><img src="/./img/170.png"></p>
+<h3 id="High"><a href="#High" class="headerlink" title="High"></a>High</h3><p>加入了Anti-CSRF token来防范CSRF攻击，即随机生成了一个token，正确时才能通过。<br>如果要绕过这个机制，就要获取token，然后利用受害者的cookie去修改密码<br>这里需要XSS+CSRF来共同完成：<br>找到DVWA中的XSS(stored)模块，在Low中抓包投放js代码<br><code>&lt;iframe src=&quot;../csrf/&quot; onload=alert(frames[0].document.getElementsByName(&#39;user_token&#39;)[0].value)&gt;&lt;/iframe&gt;</code><br>然后就出现了这样一个数据信息<br><img src="/./img/171.png"><br>再点击DVWA Security后弹出token<br><img src="/./img/172.png"><br>构造语句后将这个token添加上，然后回车<br><img src="/./img/173.png"><br><img src="/./img/174.png"></p>
+<h3 id="Impossible"><a href="#Impossible" class="headerlink" title="Impossible"></a>Impossible</h3><p>可以看到，Impossible级别的代码利用PDO技术防御SQL注入，至于防护CSRF，则要求用户输入原始密码（简单粗暴），攻击者在不知道原始密码的情况下，无论如何都无法进行CSRF攻击。 </p>
+<h2 id="File-Inclusion"><a href="#File-Inclusion" class="headerlink" title="File Inclusion"></a>File Inclusion</h2><h3 id="low-2"><a href="#low-2" class="headerlink" title="low"></a>low</h3><p>没有任何保护措施，可以直接在地址栏中进行文件名传参<br><code>?page=D:/phpStudy/PHPTutorial/WWW/phpinfo.php</code><br><img src="/./img/175.png"></p>
+<h3 id="Medium-1"><a href="#Medium-1" class="headerlink" title="Medium"></a>Medium</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">// The page we wish to display</span><br><span class="line">$file = $_GET[ &#x27;page&#x27; ];</span><br><span class="line"></span><br><span class="line">// Input validation验证</span><br><span class="line">$file = str_replace( array( &quot;http://&quot;, &quot;https://&quot; ), &quot;&quot;, $file );</span><br><span class="line">$file = str_replace( array( &quot;../&quot;, &quot;..\\&quot; ), &quot;&quot;, $file );</span><br><span class="line"></span><br><span class="line">?&gt; </span><br></pre></td></tr></table></figure>
+<p>对于http的替换我们可以采用双写绕过，而下面的斜杠主要是针对相对路径文件存储路径，但如果我们采用绝对路径上述过滤也可以成功绕过</p>
+<h3 id="high-1"><a href="#high-1" class="headerlink" title="high"></a>high</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">// The page we wish to display</span><br><span class="line">$file = $_GET[ &#x27;page&#x27; ];</span><br><span class="line"></span><br><span class="line">// Input validation</span><br><span class="line">if( !fnmatch( &quot;file*&quot;, $file ) &amp;&amp; $file != &quot;include.php&quot; ) &#123;</span><br><span class="line">    // This isn&#x27;t the page we want!</span><br><span class="line">    echo &quot;ERROR: File not found!&quot;;</span><br><span class="line">    exit;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>fnmatch() 函数：根据指定的模式来匹配文件名或字符串<br>采用file类型地址，那么我们就把我们要输入的地址进行修改<br><code>?page=file:///D:/phpStudy/PHPTutorial/WWW/phpinfo.php</code></li>
+</ul>
+<h3 id="Impossible-1"><a href="#Impossible-1" class="headerlink" title="Impossible"></a>Impossible</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">// The page we wish to display</span><br><span class="line">$file = $_GET[ &#x27;page&#x27; ];</span><br><span class="line"></span><br><span class="line">// Only allow include.php or file&#123;1..3&#125;.php</span><br><span class="line">if( $file != &quot;include.php&quot; &amp;&amp; $file != &quot;file1.php&quot; &amp;&amp; $file != &quot;file2.php&quot; &amp;&amp; $file != &quot;file3.php&quot; ) &#123;</span><br><span class="line">    // This isn&#x27;t the page we want!</span><br><span class="line">    echo &quot;ERROR: File not found!&quot;;</span><br><span class="line">    exit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>查看源代码，发现采用了白名单过滤，规定了传入的文件只能是这几个，那么就杜绝了文件包含漏洞</p>
+<h2 id="交换机和路由器"><a href="#交换机和路由器" class="headerlink" title="交换机和路由器"></a>交换机和路由器</h2><p>1、交换机是用来组建局域网最重要的设备(一个圈打个叉)<br>2、路由器可以让这个局域网(内网)上网，实现连接内网和外网(长方形两条横线)<br>3、交换机、网线、电脑构成局域网<br><img src="/./img/176.png"><br>上面那个是交换机，下面是电脑的网卡插着网线连接着交换机<br>如果这个局域网需要可以上网就需要买路由器,路由器一端连交换机一端连运营商而这几台电脑之间需要能通信就需要有ip地址<br>这里是VMware提供的虚拟交换机<br><img src="/./img/177.png"><br>如果我勾选VMnet1相当于我的虚拟机的网卡连上了交换机，如果另一台虚拟机也连这个交换机就可以做局域网实验<br>IP可以手动配也可以自动，但是企业的ip一般是手动配的不会变</p>
+<h2 id="ip地址"><a href="#ip地址" class="headerlink" title="ip地址"></a>ip地址</h2><p>ip地址就是一个唯一标识，是一段网络编码(二进制)，由32位组成<br>11010010.01001001.10001100.00000110<br>210.73.140.6(便于记忆这样写)<br>常用ip地址都是由32位二进制组成的，最大的ip地址是255.255.255.255最小的ip地址是0.0.0.0</p>
+<h2 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h2><p>有ip的地方必须有子网掩码</p>
+<ul>
+<li>局域网通信规则：在同一个局域网中，所有的ip必须在同一个网段中才可以互相通信，所以在不同的网段需要路由器才能通信，单单有交换机不行</li>
+<li>ip地址的构成：网络位+主机位(网络位相同的ip地址为同一个网段)类比你来自哪里，你叫什么网络位可以是前一位两位三位，而子网掩码就是来确认网络位的，在子网掩码中与255对应的是网络位，与0对应的是主机位，比如255.0.0.0就是将第一个小数点前作为网络位，255和0都是连续的不会出现交替</li>
+<li>每个网段的总称是将ip的主机位置零，表示这个网段<br>eg：<br>ip：10.1.1.1<br>子网掩码：255.255.255.0<br>这个网段表示为10.1.1.0，该网段的广播地址是10.1.1.255，广播地址是指可以直接向这个网段的所有ip地址发送东西，可以视为组播地址的升级版，是该网段的<br>大喇叭，255.255.255.255是全局广播地址，可以向所有网段发送信息，但是现在一些地区已经做了隔断。所有可用地址有254个，除去<strong>主机位全为</strong>0或255的</li>
+</ul>
+<h2 id="IP地址分类-看第一部分区分"><a href="#IP地址分类-看第一部分区分" class="headerlink" title="IP地址分类(看第一部分区分)"></a>IP地址分类(看第一部分区分)</h2><p>国际标准组织ISO定义地址分类：五大类(是以ip地址的第一位区分)</p>
+<blockquote>
+<p>A类：1-126 默认子网掩码：255.0.0.0<br>B类：128-191 默认子网掩码：255.255.0.0<br>C类：192-223 默认子网掩码：255.255.255.0<br>D类：224-239 组播地址<br>E类：240-254 科研使用</p>
+</blockquote>
+<p>这样的定义年代久远了，已经不一定使用默认子网掩码，普通人只能使用前三类，子网掩码可以修改<br>127.0.0.1是回环地址，代表本主机自己，经常用来测试将自己的主机作为服务器是否故障，就ping 127.0.0.1看看是否可以访问</p>
+<p><strong>组播技术</strong><br>和组播地址相对应的是单播地址，就是一个人一个地址，但组播地址就可以给一组人使用，将一组ip地址视为是同一个组播地址，发东西只发给这个ip地址就相当于发给这一组ip地址，这样的组播技术可以节省服务器带宽</p>
+<h2 id="网关-GW"><a href="#网关-GW" class="headerlink" title="网关(GW)"></a>网关(GW)</h2><p>这个整体是内网<br><img src="/./img/176.png"></p>
+<p><img src="/./img/178.png"><br>电脑向别的ip地址发送信息时先会比较自己和对方是否在同一个网段，如果不在同一个网段就直接通过交换机发给对方；如果不在同一网段就得发给路由器，而一般每个网段的第一个或最后一个可用的ip地址作为网关，网关就是整个内网的出口，是通向外网的通道，所以只需要将信息发给网关，网关会去寻找要转发的对象(这里怎么转发就涉及到路由器原理了)。<br>这里的10.1.1.254就是网关,如果只需要在局域网中通信就只需要ip和子网掩码，如果要上网就必须配网关，如果不知道网关就无法和外界通信,一般网关在路由器上<br><img src="/./img/180.png"><br>这里就有配置默认网关<br><img src="/./img/179.png"><br>VM开头的是虚拟的，一般网卡的牌子是realtek和Intel，所以属于我物理机的是以太网</p>
+<h2 id="DNS-域名解析服务器"><a href="#DNS-域名解析服务器" class="headerlink" title="DNS(域名解析服务器)"></a>DNS(域名解析服务器)</h2><p>任何两个PC通信都需要知道对方的ip，当在浏览器上地址栏输入<code>www.jd.com</code>浏览器会先问问自己，即查看有没有匹配的DNS缓存，但如果从来没有访问过就先在本地域名解析文件(host文件)中寻找，如果还没有就求助DNS服务器，所以电脑需要知道DNS服务器的IP，DNS的服务器分布于全球各地，DNS的ip是在公网(互联网)上<br>这里是电脑里的相关配置，这个DNS服务器是北京联通的最通用的一台DNS<br><img src="/./img/181.png"><br>访问过程<br><img src="/./img/182.png"><br>如果所使用的DNS服务器被劫持，使我们输入的域名解析成恶意网站就很危险<br><strong>一些网络测试命令</strong></p>
+<ul>
+<li>ping 测试网络连通性，有去有回，相当于发过去几个探测包，对方有回包<br>这里的时间可以反映网速，如果对方打开防火墙的某些功能也会ping不通<br><img src="/./img/183.png"> </li>
+<li>nslookup 域名(比如<code>www.baidu.com</code>)，手工解析ip地址</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/sql%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93.html" rel="next" title="sql注入总结">
+                <i class="fa fa-chevron-left"></i> sql注入总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/CSRF.html" rel="prev" title="CSRF">
+                CSRF <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
 
     <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+      
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+          </div>
+          
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3-Brute-Force"><span class="nav-number">1.</span> <span class="nav-text">暴力破解(Brute Force)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Command-Injection"><span class="nav-number">2.</span> <span class="nav-text">Command Injection</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#low"><span class="nav-number">2.1.</span> <span class="nav-text">low</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#medium"><span class="nav-number">2.2.</span> <span class="nav-text">medium</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#high"><span class="nav-number">2.3.</span> <span class="nav-text">high</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#impossible"><span class="nav-number">2.4.</span> <span class="nav-text">impossible</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSRF"><span class="nav-number">3.</span> <span class="nav-text">CSRF</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#low-1"><span class="nav-number">3.1.</span> <span class="nav-text">low</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Medium"><span class="nav-number">3.2.</span> <span class="nav-text">Medium</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#High"><span class="nav-number">3.3.</span> <span class="nav-text">High</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Impossible"><span class="nav-number">3.4.</span> <span class="nav-text">Impossible</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#File-Inclusion"><span class="nav-number">4.</span> <span class="nav-text">File Inclusion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#low-2"><span class="nav-number">4.1.</span> <span class="nav-text">low</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Medium-1"><span class="nav-number">4.2.</span> <span class="nav-text">Medium</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#high-1"><span class="nav-number">4.3.</span> <span class="nav-text">high</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Impossible-1"><span class="nav-number">4.4.</span> <span class="nav-text">Impossible</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%92%8C%E8%B7%AF%E7%94%B1%E5%99%A8"><span class="nav-number">5.</span> <span class="nav-text">交换机和路由器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ip%E5%9C%B0%E5%9D%80"><span class="nav-number">6.</span> <span class="nav-text">ip地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81"><span class="nav-number">7.</span> <span class="nav-text">子网掩码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP%E5%9C%B0%E5%9D%80%E5%88%86%E7%B1%BB-%E7%9C%8B%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%E5%8C%BA%E5%88%86"><span class="nav-number">8.</span> <span class="nav-text">IP地址分类(看第一部分区分)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E5%85%B3-GW"><span class="nav-number">9.</span> <span class="nav-text">网关(GW)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS-%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">10.</span> <span class="nav-text">DNS(域名解析服务器)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yzklov</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #4D4D4C;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #F7F7F7;
+      background-image: linear-gradient(#F7F7F7, #F7F7F7);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+ 
+</body>
+</html>

