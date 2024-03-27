@@ -160,7 +160,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">nanashi</p>
+        <p class="site-subtitle">熟能生巧</p>
       
   </div>
 
@@ -262,6 +262,139 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/cookies%E3%80%81session%E3%80%81token.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/cookies%E3%80%81session%E3%80%81token.html" itemprop="url">cookies、session、token</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-05-27T22:34:26+08:00">
+                2023-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>无状态的HTTP协议</strong><br>很久很久之前， Web基本都是文档的浏览而已。既然是浏览， 作为服务器， 不需要记录在某一段时间里都浏览了什么文档， 每次请求都是一个新的HTTP协议，就是请求加响应。不用记录谁刚刚发了HTTP请求， 每次请求都是全新的。</p>
+<p><strong>如何管理会话</strong><br>随着交互式Web应用的兴起， 像在线购物网站，需要登录的网站等，马上面临一个问题，就是要管理回话，记住那些人登录过系统，哪些人往自己的购物车中放商品，也就是说我必须把每个人区分开。</p>
+<p><strong>cookie</strong><br>cookie 是一个非常具体的东西，指的就是浏览器里面能永久存储的一种数据。cookie由服务器生成，发送给浏览器，浏览器把cookie以KV形式存储到某个目录下的文本文件中，下一次请求同一网站时会把该cookie发送给服务器。由于cookie是存在客户端上的，所以浏览器加入了一些限制确保cookie不会被恶意使用</p>
+<p><strong>session</strong><br>服务器要知道当前请求发给自己的是谁。为了做这种区分，服务器就是要给每个客户端分配不同的”身份标识”，然后客户端每次向服务器发请求的时候，都带上这个”身份标识“，服务器就知道这个请求来自与谁了。</p>
+<p><strong>Token</strong></p>
+<blockquote>
+<p>1、用户通过用户名和密码发送请求<br>2、程序验证<br>3、程序返回一个签名的token给客户端<br>4、客户端储存token, 并且每次用每次发送请求<br>5、服务端验证Token并返回数据</p>
+</blockquote>
+<p><strong>Cookie和Session的区别</strong></p>
+<blockquote>
+<p>1、存储位置不同： ookie数据存放在客户的浏览器上，session数据放在服务器上<br>2、隐私策略不同：cookie不是很安全， 别人可以分析存放在本地的cookie并进行cookie欺骗，考虑到安全应当使用session<br>3、session会在一定时间内保存在服务器上。当访问增多，就会比较占用你服务器的性能，考虑到减轻服务器性能方面，应当使用cookie<br>4、存储大小不同： 单个cookie保存的数据不能超过4k, 很多浏览器都限制一个站点最多保存20个cookie<br>一般建议： 将登陆信息等重要信息存放为session, 其他信息如果需要保留，可以放在cookie中</p>
+</blockquote>
+<p><strong>Token和Session的区别</strong><br>Session是一种HTTP储存机制， 为无状态的HTTP提供持久机制;<br>Token就是令牌， 比如你授权(登录)一个程序时，它就是个依据，判断你是否已经授权该软件；<br>Session和Token并不矛盾，作为身份认证Token安全性比Session好，因为每一个请求都有签名还能防止监听以及重放攻击，而Session就必须依赖链路层来保障通讯安全了。如上所说，如果你需要实现有状态的回话，仍然可以增加Session来在服务端保存一些状态。</p>
+<p><strong>总结</strong><br>cookie，session，Token没有绝对的好与坏之分，只要还是要结合实际的业务场景和需求来决定采用哪种方式来管理回话，当然也可以三种都用。<br><img src="/./img/3.jpg"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1809,222 +1942,11 @@ payload:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/misc.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yzklov">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/misc.html" itemprop="url">misc</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-12T00:03:14+08:00">
-                2023-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>常见文件头</strong></p>
-<table>
-<thead>
-<tr>
-<th>后缀</th>
-<th>文件头</th>
-<th>文件尾</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>PNG</td>
-<td>89 50 4E 47 0D 0A 1A 0A</td>
-<td>AE 42 60 82</td>
-</tr>
-<tr>
-<td>GIF</td>
-<td>47 49 46 38 39 61</td>
-<td>00 3B</td>
-</tr>
-<tr>
-<td>JPEG</td>
-<td>FF D8 FF</td>
-<td>FF D9</td>
-</tr>
-<tr>
-<td>zip</td>
-<td>50 4B 03 04</td>
-<td>50 4B</td>
-</tr>
-<tr>
-<td>rar</td>
-<td>52 61 72 21</td>
-<td></td>
-</tr>
-</tbody></table>
-<p><strong>伪加密</strong></p>
-<p>一个加密的压缩包，由三部分组成：压缩源文件数据区、压缩源文件目录区、压缩源文件目录结束标志<br><img src="/img/100.png"></p>
-<p>1、压缩源文件数据区<br>50 4B 03 04 压缩包的文件头标记 4bytes<br>14 00 解压文件所需的pkware版本 2bytes<br>09 00 全局方式位标记 2bytes (这里可以来判断有无加密，0奇数 00 加密，0偶数 00 无加密)</p>
-<p>2、压缩源文件目录区(从第二个50 4B开始)<br>50 4B 01 02 目录中文件文件头标记 4bytes<br>1F 00 压缩使用的pkware 版本 2bytes<br>14 00 解压文件所需的pkware版本 2bytes<br>09 00 全局方式位标记 2bytes<br>(这里可以来判断有无加密，解决伪加密，0奇数 00 加密，0偶数 00 无加密)</p>
-<p>3、压缩源文件目录结束标志<br>50 4B 05 06 目录结束标记 4bytes</p>
-<p>压缩源文件数据区(50 4B 03 04起)和压缩源文件目录区(50 4B 01 02起)的全局方式位标记均为 0偶数 00，则是未加密<br>压缩源文件数据区(50 4B 03 04起)和压缩源文件目录区(50 4B 01 02起)的全局方式位标记均为 0奇数 00，则是真加密<br>压缩源文件数据区(50 4B 03 04起)的全局方式位标记为 0偶数 00，压缩源文件目录(50 4B 01 02起)的全局方式位标记为 0奇数 00，则是伪加密</p>
-<h2 id="一些思路总结"><a href="#一些思路总结" class="headerlink" title="一些思路总结"></a>一些思路总结</h2><p><strong>图片题</strong><br>1、图片宽高<br>2、图片备注<br>3、010editor查看搜索flag、binwalk能否分离<br>4、隐写术，outguess、、、<br><strong>压缩包</strong><br>1、伪加密<br>2、能否binwalk<br><strong>excel</strong><br>1、在010editor中查找flag<br>2、binwalk<br><strong>gif</strong><br>1、stegsolve分析</p>
-<h3 id="ISCC-奇特的信息"><a href="#ISCC-奇特的信息" class="headerlink" title="ISCC 奇特的信息"></a>ISCC 奇特的信息</h3><p>使用subbreaker破解</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">subbreaker break --lang EN --text &quot;内容&quot;</span><br></pre></td></tr></table></figure>
-<p><img src="/img/71.png"><br>注意：命令行输入粘贴的文本不可随便换行(相当于回车)，可能会当成命令执行</p>
-<h2 id="buuctf"><a href="#buuctf" class="headerlink" title="buuctf"></a>buuctf</h2><h3 id="zip伪加密"><a href="#zip伪加密" class="headerlink" title="zip伪加密"></a>zip伪加密</h3><p>打开压缩包，里面是<br><img src="/img/99.png"><br>这题题目是伪加密，所以我们先来了解一下什么是伪加密</p>
-<p>这题叫伪加密， 所以按伪加密来处理，将09 00 改为00 00（只要改为偶数即可）<br>解压得到flag.txt，直接打开即可<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Hrain7/article/details/127719279">BUUCTF MISC zip伪加密</a></p>
-<h3 id="被嗅探的流量"><a href="#被嗅探的流量" class="headerlink" title="被嗅探的流量"></a>被嗅探的流量</h3><p>先下载了一个wireshark<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wangyuxiang946/article/details/124200238">Wireshark零基础使用教程</a></p>
-<p>被嗅探的流量.pcapng 默认是用Wireshark打开<br><img src="/img/101.png"><br><strong>寻找POST包</strong>：</p>
-<blockquote>
-<p>http.request.method&#x3D;&#x3D;POST</p>
-</blockquote>
-<p><strong>跟踪TCP流</strong>：<br><img src="/img/102.png"><br>得到flag<br><img src="/img/103.png"></p>
-<h3 id="镜子里面的世界"><a href="#镜子里面的世界" class="headerlink" title="镜子里面的世界"></a>镜子里面的世界</h3><p><img src="/img/104.png"></p>
-<h3 id="FLAG"><a href="#FLAG" class="headerlink" title="FLAG"></a>FLAG</h3><ul>
-<li><p>linux系统下file命令用于查询文件类型<br>平时我们判定一个文件的类型通常是通过该文件的扩展名，而file命令是通过详细阅读文件内容，找到特征量来判定文件类型</p>
-</li>
-<li><p>strings命令在对象文件或二进制文件中查找可打印的字符串</p>
-</li>
-<li><p>对图片进行尝试，发现最低位隐写的时候是个zip文件：<br><img src="/img/118.png"><br>save bin保存为zip文件,但是文件被损坏<br>进行修复后打开，是一个名为1的文件<br><img src="/img/119.png"><br>我们可以直接尝试使用Notepad++打开<br>从开头可以看出是一个EIF文件</p>
-</li>
-<li><p>ELF：一种二进制文件格式<br><img src="/img/120.png"><br>可以直接找到flag<br><img src="/img/121.png"><br>也可以使用kali(linux系统就行)<br>执行file .&#x2F;1 和 strings .&#x2F;1<br><img src="/img/122.png"><br><img src="/img/123.png"><br>使用ubuntu18.04直接就.&#x2F;1<br><img src="/img/131.png"><br>不大理解<br>或者直接使用IDA打开<br><img src="/img/124.png"><br>但是目前不会使用IDA</p>
-</li>
-</ul>
-<h3 id="假如给我三天光明"><a href="#假如给我三天光明" class="headerlink" title="假如给我三天光明"></a>假如给我三天光明</h3><p>下载文件，发现该文件里面包含一张图片和一个压缩包<br>双击压缩包无法直接打开<br><img src="/img/125.png"><br>使用zip修复也不行<br>但是发现使用7-zip就可以了<br><img src="/img/126.png"><br>但是需要密码<br>查看那张图片<br>通过16进制编辑器和StegSolve对该图片进行检查，发现并没有突破口<br>这时发现该图片下面有一行不明字符<br><img src="/img/127.png"><br>这段神秘字符为一段盲文，上网对照一下就行<br>经过破译的该段盲文的密码为：kmdonowg<br>将该密码去解压文件中的压缩包，得到一个music.wav音频文件<br>打开该音频文件，发现该文件很像摩斯电码，将该音频文件在Audacity打开<br><img src="/img/129.png"><br>通过该音频可以得到一个摩斯密码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-.-./-/..-./.--/.--././../-----/---../--.../...--/..---/..--../..---/...--/-../--..</span><br></pre></td></tr></table></figure>
-<ul>
-<li>解码后的值为：CTFWPEI08732?23DZ<br>将CTF转为flag，其他大写变小写后，才能正确提交flag</li>
-<li>转换后的flag为:flag{wpei08732?23dz}</li>
-</ul>
-<h3 id="荷兰宽带数据泄露"><a href="#荷兰宽带数据泄露" class="headerlink" title="荷兰宽带数据泄露"></a>荷兰宽带数据泄露</h3><p><img src="/img/130.png"><br>.bin文件<br>使用RouterPassView打开文件<br>flag不是username就是password</p>
-<h3 id="面具下的flag"><a href="#面具下的flag" class="headerlink" title="面具下的flag"></a>面具下的flag</h3><p>打开是一个图片<br><img src="/img/132.png"><br>查看了图片hex，发现了pk(zip文件的开头)<br>使用binwalk+foremost<br><img src="/img/133.png"><br>把文件保存到物理机打开<br>发现zip文件中的vmdk需要密码，爆破无效<br>考虑到可能是伪加密，09改成00<br><img src="/img/134.png"><br>vmdk文件可以用7z解压：</p>
-<ul>
-<li>7z x flag.vmdk -o.&#x2F;<br>解压出来的一堆东西里面有：<br><img src="/img/135.png"><br>打开后分别是Brainfuck编码和Ook!编码<br>他们的形式都很显而易见<br>得到的两个部分拼接起来就是flag</li>
-</ul>
-<h3 id="九连环"><a href="#九连环" class="headerlink" title="九连环"></a>九连环</h3><ul>
-<li>binwalk+伪加密+steghide对图片中的信息进行提取</li>
-</ul>
-<h3 id="BJDCTF2020-你猜我是个啥"><a href="#BJDCTF2020-你猜我是个啥" class="headerlink" title="[BJDCTF2020]你猜我是个啥"></a>[BJDCTF2020]你猜我是个啥</h3><p>解压附件attachment.zip时提示该文件为非压缩文件，联想题目，应该不是压缩包，010打开，开头发现PNG<br>然后拉到结尾直接发现了flag</p>
-<h3 id="梅花香之苦寒来"><a href="#梅花香之苦寒来" class="headerlink" title="梅花香之苦寒来"></a>梅花香之苦寒来</h3><p>这题打开是张图片，用010editor打开发现寻找png文件尾，发现文件尾后面还有很长的内容<br><img src="/img/184.png"><br>左边是16进制形式的ascii，右边是对应的内容，这些内容看起来依然是ascii码，猜测是16进制转字符串，试一试发现对应的字符串是坐标，直接使用16进制转字符串的脚本，输出文件flag.txt，然后利用坐标绘制二维码脚本完成解题</p>
-<h3 id="谁赢了比赛？"><a href="#谁赢了比赛？" class="headerlink" title="谁赢了比赛？"></a>谁赢了比赛？</h3><p>zip加密，用工具解密后里面是gif文件，用stegsolve打开，使用frame browser查看帧，在310帧看到<br><img src="/img/185.png"><br>save保存图片然后再用stegsolve打开，调整通道，发现一个二维码，扫描即可得到flag</p>
-<h3 id="SWPU2019-我有一只马里奥"><a href="#SWPU2019-我有一只马里奥" class="headerlink" title="[SWPU2019]我有一只马里奥"></a>[SWPU2019]我有一只马里奥</h3><p>虽然是ntfs文件流隐写，但是binwalk已经帮我分离出来了<br><img src="/img/186.png"><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Goodric/article/details/127173751">ntfs文件流隐写</a></p>
-<h3 id="GXYCTF2019-gakki-1"><a href="#GXYCTF2019-gakki-1" class="headerlink" title="[GXYCTF2019]gakki 1"></a>[GXYCTF2019]gakki 1</h3><p>分离出压缩包后破解密码拿到flag.txt，打开<br>是这样无规律的字符，这里用到字符统计<br><img src="/img/187.png"></p>
-<h3 id="SWPU2019-伟大的侦探1"><a href="#SWPU2019-伟大的侦探1" class="headerlink" title="[SWPU2019]伟大的侦探1"></a>[SWPU2019]伟大的侦探1</h3><p>得到一个压缩包，但是要密码，破解失败，看到有一个密码.txt，打开</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">压缩包密码:摂m墷m卪倕ⅲm仈Z</span><br><span class="line">呜呜呜,我忘记了压缩包密码的编码了,大家帮我解一哈。</span><br></pre></td></tr></table></figure>
-<p>用010editor打开，并设置编辑方式-&gt;ebcdlc，发现密码<code>wllm_is_the_best_team!</code><br>福尔摩斯小人密码<br><img src="/img/188.jpg"></p>
-<h3 id="黑客帝国"><a href="#黑客帝国" class="headerlink" title="黑客帝国"></a>黑客帝国</h3><p>将.txt文件中的16进制转字符串(或者直接用010editor打开)明显发现是rar文件<br><img src="/img/188.png"><br>使用16进制转文件的脚本转成rar文件,破解密码后打开是一张格式不正确的图片，直接用010打开，发现文件头像是png但不是，文件尾是jpeg的，所以直接将文件头改成jpeg就可以成功打开</p>
-<h3 id="HBNIS2018-低个头"><a href="#HBNIS2018-低个头" class="headerlink" title="[HBNIS2018]低个头"></a>[HBNIS2018]低个头</h3><p>键盘隐写，直接看键盘</p>
-<h3 id="MRCTF2020-你能看懂音符吗"><a href="#MRCTF2020-你能看懂音符吗" class="headerlink" title="[MRCTF2020]你能看懂音符吗"></a>[MRCTF2020]你能看懂音符吗</h3><p>word显示隐藏文字<br><img src="/img/189.png"><br><a target="_blank" rel="noopener" href="https://www.qqxiuzi.cn/bianma/wenbenjiami.php?s=yinyue">音符解密</a></p>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p><a target="_blank" rel="noopener" href="http://www.atoolbox.net/Tool.php?Id=703">aaencode编码</a></p>
-<h3 id="buuctf-misc-我吃三明治"><a href="#buuctf-misc-我吃三明治" class="headerlink" title="buuctf misc 我吃三明治"></a>buuctf misc 我吃三明治</h3><p>搜索jpg尾发现后面还有一串，是另一个jpeg文件头，说明这个图片是两张图片拼接而成的，在第一个图片尾和第二个图片头中间有一串base32编码就是flag</p>
-<h3 id="SWPU2019-你有没有好好看网课"><a href="#SWPU2019-你有没有好好看网课" class="headerlink" title="[SWPU2019]你有没有好好看网课?"></a>[SWPU2019]你有没有好好看网课?</h3><p>提示flag3的密码是6位<br><img src="/img/191.png"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -2070,7 +1992,7 @@ payload:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

